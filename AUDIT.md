@@ -1,0 +1,1158 @@
+# AUDIT register
+
+_Dernière exécution : 2026-05-29 06:11 UTC_
+_Fichiers analysés : 412_
+
+- **Blockers** : 0
+- **Schema errors** : 0
+- **Majeurs** : 17
+- **Mineurs** : 1127
+
+## Major (17)
+- `content\02_vocabulary\thematic\01_travail.md:263` [entry-confidence] AUDIT-ENTRY confidence=low : confidence=low domain=work
+- `content\02_vocabulary\thematic\01_travail.md:271` [entry-confidence] AUDIT-ENTRY confidence=low : confidence=low domain=work
+- `content\02_vocabulary\thematic\03_environnement.md:249` [entry-confidence] AUDIT-ENTRY confidence=low : confidence=low domain=environment
+- `content\05_writing\00_anti_error.md:106` [anglicism] "opportunité de faire X" est calque de "opportunity to do X" — préférer "occasion de faire X" ou "chance de faire X". → « opportunité de visiter »
+- `content\05_writing\00_anti_error.md:98` [anglicism] "adresser un problème" est calque de "to address an issue" — préférer "aborder", "traiter" ou "régler". → « adresser un problème »
+- `content\05_writing\00_anti_error.md:391` [anglicism] "adresser un problème" est calque de "to address an issue" — préférer "aborder", "traiter" ou "régler". → « adresser un problème »
+- `content\05_writing\00_anti_error.md:122` [anglicism] "compléter" = ajouter ce qui manque ; "remplir un formulaire", "achever / mener à bien un projet". "To complete a form" → "remplir". → « compléter un formulaire »
+- `content\05_writing\00_anti_error.md:110` [anglicism] "initier un projet" est anglicisme pour "to initiate a project". "Initier" en français = introduire qqn à un savoir. Préférer "lancer", "amorcer", "entamer". → « initier un »
+- `content\05_writing\00_anti_error.md:134` [anglicism] "définitivement" = pour de bon, irrémédiablement. PAS "definitely" (= "absolument", "tout à fait", "sans aucun doute"). → « définitivement »
+- `content\05_writing\00_anti_error.md:136` [anglicism] "définitivement" = pour de bon, irrémédiablement. PAS "definitely" (= "absolument", "tout à fait", "sans aucun doute"). → « définitivement »
+- `content\05_writing\00_anti_error.md:138` [anglicism] "définitivement" = pour de bon, irrémédiablement. PAS "definitely" (= "absolument", "tout à fait", "sans aucun doute"). → « Définitivement »
+- `content\05_writing\00_anti_error.md:138` [anglicism] "définitivement" = pour de bon, irrémédiablement. PAS "definitely" (= "absolument", "tout à fait", "sans aucun doute"). → « définitivement »
+- `content\05_writing\00_anti_error.md:116` [anglicism] "appliquer pour un poste" est anglicisme. Préférer "postuler à / pour un poste", "candidater à un programme". → « appliquer pour un poste »
+- `content\05_writing\00_anti_error.md:158` [anglicism] "faire du sens" / "faire un argument" sont calques. Préférer "avoir du sens", "tenir debout" / "présenter / avancer un argument". → « faire du sens »
+- `content\05_writing\00_anti_error.md:162` [anglicism] "faire du sens" / "faire un argument" sont calques. Préférer "avoir du sens", "tenir debout" / "présenter / avancer un argument". → « Faire du sens »
+- `content\05_writing\00_anti_error.md:368` [quebecism] "char" pour "voiture" est familier-québécois. Dans une rédaction TCF (registre formel), employer "voiture", "automobile", "véhicule". → « un char »
+- `content\05_writing\00_rubric.md:53` [anglicism] "adresser un problème" est calque de "to address an issue" — préférer "aborder", "traiter" ou "régler". → « adresser un problème »
+
+## Minor (1127)
+- `content\00_diagnostic\audio_items\diag-co-05.md:5` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\00_start_here.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\01_articles_determinants.md:137` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\01_articles_determinants.md:142` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\01_articles_determinants.md:144` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\01_articles_determinants.md:146` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\01_articles_determinants.md:233` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\01_articles_determinants.md:237` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\01_articles_determinants.md:266` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\01_articles_determinants.md:267` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\01_articles_determinants.md:268` [audit-comment] Commentaire AUDIT non résolu: entrées BDL à confirmer.
+- `content\01_grammar\b1_consolidation\01_articles_determinants.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\02_present_indicatif_irreguliers.md:187` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise lors de la revue native pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\02_present_indicatif_irreguliers.md:192` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\02_present_indicatif_irreguliers.md:194` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\02_present_indicatif_irreguliers.md:196` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\02_present_indicatif_irreguliers.md:283` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\02_present_indicatif_irreguliers.md:287` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\02_present_indicatif_irreguliers.md:322` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\02_present_indicatif_irreguliers.md:323` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\02_present_indicatif_irreguliers.md:324` [audit-comment] Commentaire AUDIT non résolu: entrées BDL à confirmer.
+- `content\01_grammar\b1_consolidation\02_present_indicatif_irreguliers.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\03_passe_compose_vs_imparfait.md:132` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\03_passe_compose_vs_imparfait.md:137` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\03_passe_compose_vs_imparfait.md:139` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\03_passe_compose_vs_imparfait.md:141` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\03_passe_compose_vs_imparfait.md:220` [audit-comment] Commentaire AUDIT non résolu: PQP est traité dans gram-b1-04 ; ici on illustre un usage minimal.
+- `content\01_grammar\b1_consolidation\03_passe_compose_vs_imparfait.md:231` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; vérifier "longtemps" position et naturalité globale en revue native.
+- `content\01_grammar\b1_consolidation\03_passe_compose_vs_imparfait.md:235` [audit-comment] Commentaire AUDIT non résolu: idem; vérifier "marquer le vrai début" naturalité.
+- `content\01_grammar\b1_consolidation\03_passe_compose_vs_imparfait.md:260` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\03_passe_compose_vs_imparfait.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\04_plus_que_parfait.md:137` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en blocker pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\04_plus_que_parfait.md:142` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\04_plus_que_parfait.md:144` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\04_plus_que_parfait.md:146` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\04_plus_que_parfait.md:235` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\04_plus_que_parfait.md:239` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\04_plus_que_parfait.md:272` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\04_plus_que_parfait.md:273` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\04_plus_que_parfait.md:274` [audit-comment] Commentaire AUDIT non résolu: entrées BDL à confirmer.
+- `content\01_grammar\b1_consolidation\04_plus_que_parfait.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\05_futur.md:145` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\05_futur.md:150` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\05_futur.md:152` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\05_futur.md:154` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\05_futur.md:236` [audit-comment] Commentaire AUDIT non résolu: le futur antérieur est traité légèrement en §3.6 ; ici on illustre un usage minimal.
+- `content\01_grammar\b1_consolidation\05_futur.md:244` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\05_futur.md:248` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\05_futur.md:275` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\05_futur.md:276` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\05_futur.md:277` [audit-comment] Commentaire AUDIT non résolu: entrées BDL à confirmer.
+- `content\01_grammar\b1_consolidation\05_futur.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:245` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:145` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:150` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:152` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:154` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:233` [audit-comment] Commentaire AUDIT non résolu: le discours rapporté est traité dans gram-b2-12 ; ici usage minimal.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:242` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:246` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:279` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:280` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:281` [audit-comment] Commentaire AUDIT non résolu: entrées BDL à confirmer.
+- `content\01_grammar\b1_consolidation\06_conditionnel_present.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:167` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis durcir le gate en Phase 3.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:172` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:174` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:176` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:255` [audit-comment] Commentaire AUDIT non résolu: accord du PP détaillé dans gram-b1-13 ; illustration minimale ici.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:267` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:271` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:305` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:306` [audit-comment] Commentaire AUDIT non résolu: §§ à confirmer.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:307` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer.
+- `content\01_grammar\b1_consolidation\07_pronoms_complement_cod_coi.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:176` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis durcir le gate en Phase 3.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:181` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:183` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:185` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:267` [audit-comment] Commentaire AUDIT non résolu: le -s euphonique de l'impératif (vas-y, achètes-en) est une règle d'orthographe à confirmer dans Grevisse.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:276` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:280` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:314` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:315` [audit-comment] Commentaire AUDIT non résolu: §§ à confirmer.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:316` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer.
+- `content\01_grammar\b1_consolidation\08_pronoms_y_en.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:104` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:109` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:111` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:113` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:190` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:201` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:205` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:237` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:238` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:239` [audit-comment] Commentaire AUDIT non résolu: entrées BDL à confirmer.
+- `content\01_grammar\b1_consolidation\09_pronoms_relatifs_simples.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\10_negation.md:92` [audit-comment] Commentaire AUDIT non résolu: accord pluriel "aucuns frais" — emploi marginal ; référence à confirmer.
+- `content\01_grammar\b1_consolidation\10_negation.md:136` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\10_negation.md:141` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\10_negation.md:143` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\10_negation.md:145` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\10_negation.md:232` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\10_negation.md:236` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\10_negation.md:267` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\10_negation.md:268` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\10_negation.md:269` [audit-comment] Commentaire AUDIT non résolu: entrées BDL à confirmer.
+- `content\01_grammar\b1_consolidation\10_negation.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\11_interrogation_directe.md:120` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\11_interrogation_directe.md:125` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\11_interrogation_directe.md:127` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\11_interrogation_directe.md:129` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\11_interrogation_directe.md:226` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\11_interrogation_directe.md:233` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; vérifier en revue native la naturalité de l'enchaînement et la cohérence des registres.
+- `content\01_grammar\b1_consolidation\11_interrogation_directe.md:265` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\11_interrogation_directe.md:266` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\11_interrogation_directe.md:267` [audit-comment] Commentaire AUDIT non résolu: entrées BDL à confirmer.
+- `content\01_grammar\b1_consolidation\11_interrogation_directe.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\12_comparatifs_superlatifs.md:138` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\12_comparatifs_superlatifs.md:143` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\12_comparatifs_superlatifs.md:145` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\12_comparatifs_superlatifs.md:147` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\12_comparatifs_superlatifs.md:234` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\12_comparatifs_superlatifs.md:238` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\12_comparatifs_superlatifs.md:272` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\12_comparatifs_superlatifs.md:273` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\12_comparatifs_superlatifs.md:274` [audit-comment] Commentaire AUDIT non résolu: entrées BDL à confirmer.
+- `content\01_grammar\b1_consolidation\12_comparatifs_superlatifs.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:90` [audit-comment] Commentaire AUDIT non résolu: cas standard (Riegel ; Grevisse). Quelques grammairiens tolèrent l'accord quand "en" est précisé par un adverbe de quantité ; la norme scolaire et le TCF retiennent l'invariabilité — règle à confirmer pour les cas marginaux.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:117` [audit-comment] Commentaire AUDIT non résolu: invariabilité de "fait + infinitif" — règle stable (Riegel ; Grevisse ; rectifications de 1990).
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:120` [audit-comment] Commentaire AUDIT non résolu: "laissé + infinitif" invariable selon les rectifications de 1990 et la BDL/OQLF ; l'accord traditionnel (laissé variable quand l'antécédent est sujet de l'infinitif) reste toléré. Présentation simplifiée pour le B1 — à confirmer en revue native.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:150` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis sourcer manuellement avant durcissement du gate en Phase 3.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:155` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:157` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:159` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:246` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:250` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise. Vérifier "nous sommes réparti" : avec COD "les analyses" postposé, "se répartir qqch" → se = COI → invariable ; à confirmer en revue native.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:278` [audit-comment] Commentaire AUDIT non résolu: ch./§ à confirmer.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:279` [audit-comment] Commentaire AUDIT non résolu: §§ à confirmer.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:280` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer.
+- `content\01_grammar\b1_consolidation\13_accord_participe_passe.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\14_si_concordance.md:116` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\14_si_concordance.md:121` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\14_si_concordance.md:123` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\14_si_concordance.md:125` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\14_si_concordance.md:212` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\14_si_concordance.md:216` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\14_si_concordance.md:240` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\14_si_concordance.md:241` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\14_si_concordance.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b1_consolidation\15_prepositions_lieu_temps.md:162` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b1_consolidation\15_prepositions_lieu_temps.md:167` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b1_consolidation\15_prepositions_lieu_temps.md:169` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\15_prepositions_lieu_temps.md:171` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b1_consolidation\15_prepositions_lieu_temps.md:258` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\15_prepositions_lieu_temps.md:262` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b1_consolidation\15_prepositions_lieu_temps.md:297` [audit-comment] Commentaire AUDIT non résolu: ch. à confirmer.
+- `content\01_grammar\b1_consolidation\15_prepositions_lieu_temps.md:298` [audit-comment] Commentaire AUDIT non résolu: § à confirmer.
+- `content\01_grammar\b1_consolidation\15_prepositions_lieu_temps.md:299` [audit-comment] Commentaire AUDIT non résolu: entrées BDL à confirmer.
+- `content\01_grammar\b1_consolidation\15_prepositions_lieu_temps.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:9` [audit-comment] Commentaire AUDIT non résolu: section number "ch. VIII" approximate; vérifier référence Riegel exacte (chapitre du verbe / mode) avant clearance.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:56` [audit-comment] Commentaire AUDIT non résolu: référence Grevisse §1138 à vérifier — utilisée ici pour la sous-classification souhaiter/espérer.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:80` [audit-comment] Commentaire AUDIT non résolu: confirmer paragraph number Grevisse pour "ne pas douter que" avant clearance.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:149` [audit-comment] Commentaire AUDIT non résolu: variante usuelle "que je le vois" attestée à l'oral; le subjonctif est marqué comme soutenu. Vérifier la recommandation TCF avant clearance.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:182` [audit-comment] Commentaire AUDIT non résolu: la première rangée gauche-droite est un exemple pédagogique (montrer que l'inf. n'est pas toujours possible si les sujets ne sont pas identiques); reformuler avant clearance pour éviter ambiguïté didactique.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:192` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:199` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:201` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:203` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:205` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:207` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:294` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes).
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:298` [audit-comment] Commentaire AUDIT non résolu: idem; vérifier en particulier "marquer un progrès symbolique" et la concordance après "il est probable".
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:339` [audit-comment] Commentaire AUDIT non résolu: chapter number à confirmer; si édition différente, ajuster.
+- `content\01_grammar\b2_core\01_subjonctif_present_declencheurs.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:9` [audit-comment] Commentaire AUDIT non résolu: chapitre VIII (le verbe : mode et modalité) — confirmer la sous-section exacte (« temps composés du subjonctif ») avant clearance.
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:186` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse exact pour *après que* à confirmer avant clearance.
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:190` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:197` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:199` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:201` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:290` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise (notamment *perdent en portée externe*, *nuancer mes hypothèses*).
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:294` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise (notamment *laissent intacts les principaux mécanismes*, registre presse).
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:344` [audit-comment] Commentaire AUDIT non résolu: sous-section exacte à confirmer.
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:345` [audit-comment] Commentaire AUDIT non résolu: numéros de paragraphes à confirmer.
+- `content\01_grammar\b2_core\02_subjonctif_passe.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:9` [audit-comment] Commentaire AUDIT non résolu: référence Riegel "ch. VIII" approximative ; vérifier la pagination exacte sur les emplois modaux du conditionnel composé avant clearance.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:57` [audit-comment] Commentaire AUDIT non résolu: référence Grevisse "Mode dans la subordonnée hypothétique" à confirmer ; vérifier le paragraphe exact (autour de §1101–§1105 selon les éditions) avant clearance.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:197` [audit-comment] Commentaire AUDIT non résolu: référence Grevisse à préciser ; règle bien attestée mais paragraph number à confirmer (autour de §1101 selon édition).
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:201` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:208` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:210` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:212` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:303` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:307` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:311` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:350` [audit-comment] Commentaire AUDIT non résolu: chapter number à confirmer ; si édition différente, ajuster.
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:351` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer (autour de §1101–§1105 selon édition).
+- `content\01_grammar\b2_core\03_conditionnel_passe.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\04_hypothese_si_pqp.md:12` [audit-comment] Commentaire AUDIT non résolu: numéros de chapitre/paragraphe approximatifs ; vérifier référence exacte Riegel (phrase complexe / hypothèse) et Grevisse §1100 avant clearance.
+- `content\01_grammar\b2_core\04_hypothese_si_pqp.md:164` [audit-comment] Commentaire AUDIT non résolu: §5 — les 3 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\04_hypothese_si_pqp.md:169` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\04_hypothese_si_pqp.md:171` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\04_hypothese_si_pqp.md:173` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\04_hypothese_si_pqp.md:260` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b2_core\04_hypothese_si_pqp.md:264` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b2_core\04_hypothese_si_pqp.md:303` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer.
+- `content\01_grammar\b2_core\04_hypothese_si_pqp.md:304` [audit-comment] Commentaire AUDIT non résolu: numéros de § à confirmer.
+- `content\01_grammar\b2_core\04_hypothese_si_pqp.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\05_cause.md:9` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. XII (syntaxe de la phrase complexe / subordonnées circonstancielles) à confirmer avant clearance.
+- `content\01_grammar\b2_core\05_cause.md:190` [audit-comment] Commentaire AUDIT non résolu: confirmer la règle d'accord de "étant donné" antéposé vs postposé contre Grevisse §… avant clearance.
+- `content\01_grammar\b2_core\05_cause.md:194` [audit-comment] Commentaire AUDIT non résolu: §5 — les 3 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum).
+- `content\01_grammar\b2_core\05_cause.md:201` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\05_cause.md:203` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\05_cause.md:205` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\05_cause.md:292` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b2_core\05_cause.md:296` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise. Vérifier en particulier la collocation "critiques liées à cause de" qui peut être perçue comme calque.
+- `content\01_grammar\b2_core\05_cause.md:347` [audit-comment] Commentaire AUDIT non résolu: numéro de chapitre à confirmer selon édition.
+- `content\01_grammar\b2_core\05_cause.md:349` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer (consulter les fiches BDL en ligne).
+- `content\01_grammar\b2_core\05_cause.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\06_consequence.md:9` [audit-comment] Commentaire AUDIT non résolu: chapitre Riegel "XII" (la subordination — subordonnées circonstancielles) approximatif ; vérifier la cote exacte avant clearance.
+- `content\01_grammar\b2_core\06_consequence.md:40` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse "Mode dans la subordonnée de conséquence" — référence à confirmer (numéro exact).
+- `content\01_grammar\b2_core\06_consequence.md:71` [audit-comment] Commentaire AUDIT non résolu: tournure *à ce point que* — moins fréquente que *à tel point que* ; vérifier l'acceptabilité dans Grevisse §1138 (mode dans la conséquence) avant clearance.
+- `content\01_grammar\b2_core\06_consequence.md:153` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. XII à confirmer (subordonnées circonstancielles : conséquence, but).
+- `content\01_grammar\b2_core\06_consequence.md:185` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde, France Culture) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\06_consequence.md:192` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\06_consequence.md:194` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\06_consequence.md:196` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\06_consequence.md:198` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\06_consequence.md:200` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\06_consequence.md:287` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, calques éventuels sur *faute de quoi*, *livrable*).
+- `content\01_grammar\b2_core\06_consequence.md:291` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — vérifier *diluera l'effet symbolique* (registre presse acceptable ?) et la cohérence des temps.
+- `content\01_grammar\b2_core\06_consequence.md:338` [audit-comment] Commentaire AUDIT non résolu: chapitre XII à confirmer ; ajuster selon l'édition exacte.
+- `content\01_grammar\b2_core\06_consequence.md:339` [audit-comment] Commentaire AUDIT non résolu: numéro de paragraphe Grevisse à confirmer.
+- `content\01_grammar\b2_core\06_consequence.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\07_but.md:9` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. VIII (le verbe, modes) et Grevisse §1141 environ (subordonnées circonstancielles, but) à vérifier avant clearance.
+- `content\01_grammar\b2_core\07_but.md:26` [audit-comment] Commentaire AUDIT non résolu: *de sorte à* est moins fréquent que *de manière à / de façon à* et marqué « critiqué » par certains usuels ; vérifier acceptabilité avant clearance, sinon retirer la ligne.
+- `content\01_grammar\b2_core\07_but.md:157` [audit-comment] Commentaire AUDIT non résolu: cf. observation §2 ; à harmoniser après revue native.
+- `content\01_grammar\b2_core\07_but.md:162` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\07_but.md:169` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\07_but.md:171` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\07_but.md:173` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier en outre le mode (valeur but visée, et non résultat).
+- `content\01_grammar\b2_core\07_but.md:175` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier la présence du *ne* explétif dans la source citée.
+- `content\01_grammar\b2_core\07_but.md:177` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\07_but.md:264` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes). Vérifier en particulier "point hebdomadaire", "arbitrages au fil de l'eau", "plénière".
+- `content\01_grammar\b2_core\07_but.md:268` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise. Vérifier "temporiser", "bénéfice perceptible" et la concordance après "de peur que… ne pénalise".
+- `content\01_grammar\b2_core\07_but.md:306` [audit-comment] Commentaire AUDIT non résolu: numéros de chapitres approximatifs ; à confirmer sur l'édition exacte.
+- `content\01_grammar\b2_core\07_but.md:307` [audit-comment] Commentaire AUDIT non résolu: paragraphes Grevisse précis à confirmer (env. §1141 et suivants).
+- `content\01_grammar\b2_core\07_but.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\08_concession.md:9` [audit-comment] Commentaire AUDIT non résolu: chapitre Riegel "subordination" à vérifier (numérotation 5e éd.) avant clearance.
+- `content\01_grammar\b2_core\08_concession.md:36` [audit-comment] Commentaire AUDIT non résolu: vérifier formulation exacte Grevisse 16ᵉ éd. sur *malgré que* avant clearance ; le paragraphe à citer est dans la section « concession ».
+- `content\01_grammar\b2_core\08_concession.md:125` [audit-comment] Commentaire AUDIT non résolu: confirmer le statut subj./ind. après *tout adj. que* dans Grevisse 16ᵉ éd. — l'oscillation est documentée.
+- `content\01_grammar\b2_core\08_concession.md:169` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\08_concession.md:176` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\08_concession.md:178` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\08_concession.md:180` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\08_concession.md:182` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\08_concession.md:184` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\08_concession.md:271` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre académique, naturalité, anglicismes).
+- `content\01_grammar\b2_core\08_concession.md:275` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — vérifier en particulier "passer en force" (registre journalistique courant) et la concordance après "même si".
+- `content\01_grammar\b2_core\08_concession.md:316` [audit-comment] Commentaire AUDIT non résolu: chapter number à confirmer pour la 5ᵉ éd.
+- `content\01_grammar\b2_core\08_concession.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\09_opposition.md:12` [audit-comment] Commentaire AUDIT non résolu: chapitre XII (la phrase complexe — subordination circonstancielle) approximatif ; vérifier la sous-section exacte « opposition / concession » avant clearance.
+- `content\01_grammar\b2_core\09_opposition.md:62` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse §1117 à confirmer — utilisé ici pour la valeur stylistique de l'antéposition d'*alors que*.
+- `content\01_grammar\b2_core\09_opposition.md:86` [audit-comment] Commentaire AUDIT non résolu: référence Grevisse à préciser (section locutions prépositives) avant clearance.
+- `content\01_grammar\b2_core\09_opposition.md:103` [audit-comment] Commentaire AUDIT non résolu: position de l'Académie française sur *par contre* à reciter avec source précise (9e édition du Dictionnaire) avant clearance.
+- `content\01_grammar\b2_core\09_opposition.md:153` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis traiter cette balise comme bloquante pour Phase 3.
+- `content\01_grammar\b2_core\09_opposition.md:160` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée ; remplacer par citation réelle.
+- `content\01_grammar\b2_core\09_opposition.md:162` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\09_opposition.md:164` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\09_opposition.md:166` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\09_opposition.md:168` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\09_opposition.md:255` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes). Vérifier en particulier "outils computationnels" et "préjugé tenace".
+- `content\01_grammar\b2_core\09_opposition.md:259` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — vérifier en particulier "classes moyennes", "conditions d'éligibilité" et le passage du négatif au positif autour d'*en revanche*.
+- `content\01_grammar\b2_core\09_opposition.md:298` [audit-comment] Commentaire AUDIT non résolu: chapitre XII à confirmer ; si édition différente, ajuster.
+- `content\01_grammar\b2_core\09_opposition.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\10_temps.md:12` [audit-comment] Commentaire AUDIT non résolu: section number "ch. VIII" approximative; vérifier référence Riegel exacte (chapitre du verbe / mode et temps) avant clearance.
+- `content\01_grammar\b2_core\10_temps.md:64` [audit-comment] Commentaire AUDIT non résolu: vérifier paragraph number Grevisse pour "après que + ind." avant clearance.
+- `content\01_grammar\b2_core\10_temps.md:156` [audit-comment] Commentaire AUDIT non résolu: BDL OQLF — vérifier la fiche « après que » avant clearance pour confirmer l'alignement OQLF sur la norme indicatif.
+- `content\01_grammar\b2_core\10_temps.md:188` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde, France Culture) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\10_temps.md:195` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\10_temps.md:197` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\10_temps.md:199` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\10_temps.md:201` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\10_temps.md:203` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\10_temps.md:290` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes ; vérifier en particulier "courriels" registre, "dossiers de fond" collocation).
+- `content\01_grammar\b2_core\10_temps.md:294` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier "rester au point mort" et "issue claire se dessine" — registre presse, à confirmer en revue native.
+- `content\01_grammar\b2_core\10_temps.md:340` [audit-comment] Commentaire AUDIT non résolu: chapter number à confirmer ; si édition différente, ajuster.
+- `content\01_grammar\b2_core\10_temps.md:341` [audit-comment] Commentaire AUDIT non résolu: référence paragraphique exacte à confirmer (Grevisse couvre *après que* dans plusieurs §).
+- `content\01_grammar\b2_core\10_temps.md:342` [audit-comment] Commentaire AUDIT non résolu: vérifier titres exacts des fiches BDL avant clearance.
+- `content\01_grammar\b2_core\10_temps.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\11_voix_passive.md:12` [audit-comment] Commentaire AUDIT non résolu: chapitre VI (la phrase et ses constituants / la voix) à confirmer dans l'édition 2018 avant clearance.
+- `content\01_grammar\b2_core\11_voix_passive.md:21` [audit-comment] Commentaire AUDIT non résolu: référence Grevisse "La voix passive" — confirmer numéro de paragraphe.
+- `content\01_grammar\b2_core\11_voix_passive.md:74` [audit-comment] Commentaire AUDIT non résolu: liste à confirmer sur Grevisse — l'inventaire des verbes à agent en "de" varie selon les éditions.
+- `content\01_grammar\b2_core\11_voix_passive.md:109` [audit-comment] Commentaire AUDIT non résolu: rectifications orthographiques 1990 sur "se laisser + inf." — vérifier la formulation exacte avant clearance.
+- `content\01_grammar\b2_core\11_voix_passive.md:170` [audit-comment] Commentaire AUDIT non résolu: §5 — les 3 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde, France Info) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\11_voix_passive.md:177` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\11_voix_passive.md:179` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\11_voix_passive.md:181` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\11_voix_passive.md:266` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b2_core\11_voix_passive.md:270` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\b2_core\11_voix_passive.md:316` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer.
+- `content\01_grammar\b2_core\11_voix_passive.md:317` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer.
+- `content\01_grammar\b2_core\11_voix_passive.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:9` [audit-comment] Commentaire AUDIT non résolu: chapitre Riegel "ch. XII" approximatif ; vérifier le chapitre exact (discours rapporté / subordination complétive) avant clearance.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:18` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse "concordance après verbum dicendi au passé" à confirmer (numéro § dépendant de l'édition).
+- `content\01_grammar\b2_core\12_discours_rapporte.md:185` [audit-comment] Commentaire AUDIT non résolu: vérifier traitement Grevisse de l'inversion stylistique dans la subordonnée interrogative indirecte (registre, conditions) avant clearance.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:217` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. XII pour DIL à vérifier précisément (la définition canonique se trouve souvent dans la section "discours rapporté", à confirmer dans l'édition 2018).
+- `content\01_grammar\b2_core\12_discours_rapporte.md:221` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde, France Culture) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:228` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée ; remplacer par citation réelle.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:230` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:232` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:234` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:236` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier en particulier la cohérence "indique + le lendemain" hors contexte narratif.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:327` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes éventuels comme "mise en œuvre", "note de cadrage").
+- `content\01_grammar\b2_core\12_discours_rapporte.md:331` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — vérifier en particulier "preuve de domicile" (formulation administrative française vs québécoise) et la naturalité du dernier segment.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:386` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer selon édition.
+- `content\01_grammar\b2_core\12_discours_rapporte.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:12` [audit-comment] Commentaire AUDIT non résolu: référence Riegel — chapitre sur la subordonnée relative à confirmer (édition 2018) avant clearance.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:21` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse sur les formes contractées (auquel/duquel) à confirmer avant clearance.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:65` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse sur la concurrence "préposition + qui / préposition + lequel" pour les personnes à confirmer.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:86` [audit-comment] Commentaire AUDIT non résolu: liste des locutions prépositives en "de" usuellement citées par Grevisse §700-705 ; numéro de paragraphe à confirmer avant clearance.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:173` [audit-comment] Commentaire AUDIT non résolu: entrée BDL "interrogation indirecte" à confirmer avant clearance.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:178` [audit-comment] Commentaire AUDIT non résolu: cross-référence gram-b2-19 à confirmer (titre exact / présence de la section interrogatives indirectes).
+- `content\01_grammar\b2_core\13_relatifs_composes.md:182` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:189` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:191` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:193` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:195` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:197` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:274` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:285` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes).
+- `content\01_grammar\b2_core\13_relatifs_composes.md:289` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier en particulier "calendrier flou" et "grands émetteurs".
+- `content\01_grammar\b2_core\13_relatifs_composes.md:339` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer ; si édition différente, ajuster.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:340` [audit-comment] Commentaire AUDIT non résolu: § exacts à confirmer (autour de §700-705 pour les relatifs composés).
+- `content\01_grammar\b2_core\13_relatifs_composes.md:341` [audit-comment] Commentaire AUDIT non résolu: entrées BDL exactes à confirmer.
+- `content\01_grammar\b2_core\13_relatifs_composes.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:12` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer — chapitre exact Riegel sur la focalisation / l'ordre des mots à vérifier avant clearance.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:63` [audit-comment] Commentaire AUDIT non résolu: référence Grevisse §675 à vérifier — section sur *c'est… qui* et l'accord du verbe relatif.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:98` [audit-comment] Commentaire AUDIT non résolu: confirmer paragraphe Grevisse pour la règle "ce sont eux/elles/mes amis qui".
+- `content\01_grammar\b2_core\14_mise_en_relief.md:154` [audit-comment] Commentaire AUDIT non résolu: vérifier la robustesse de la condamnation *c'est X dont* — usage oral attesté mais non normatif ; voir Grevisse §1063 sur *dont* relatif.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:198` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:205` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:207` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:209` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:211` [audit-comment] Commentaire AUDIT non résolu: idem; dislocation à gauche dans un chapô d'article.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:213` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:304` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes). Vérifier "mutualiser nos jeux de données".
+- `content\01_grammar\b2_core\14_mise_en_relief.md:308` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise; vérifier en particulier l'apposition "citoyens" et la concordance "qui en paierons".
+- `content\01_grammar\b2_core\14_mise_en_relief.md:362` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer; si édition différente, ajuster le numéro.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:363` [audit-comment] Commentaire AUDIT non résolu: numéros de paragraphes à vérifier dans l'édition 2016.
+- `content\01_grammar\b2_core\14_mise_en_relief.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:9` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. VII (« le verbe — formes non personnelles ») à confirmer selon l'édition ; ajuster avant clearance.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:55` [audit-comment] Commentaire AUDIT non résolu: dernier exemple — la frontière acceptable/non-acceptable du gérondif avec verbe de perception suivi d'une complétive demande revue native ; certains usages tolèrent.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:64` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse à préciser (autour du §930 sur le gérondif selon l'édition 2016) avant clearance.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:93` [audit-comment] Commentaire AUDIT non résolu: dernière valeur (« aller (en) + gérondif ») — vérifier le degré de productivité contemporain ; certaines descriptions la traitent comme figée.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:111` [audit-comment] Commentaire AUDIT non résolu: confirmer que « extravaguer » reste attesté ; l'usage moderne tend vers la forme adjectivale seule.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:123` [audit-comment] Commentaire AUDIT non résolu: « provoquant / provocant » et « vaquant / vacant » à vérifier minutieusement contre Grevisse ; la paire vaquer/vacant est sémantiquement glissante (vacant = inoccupé, dérive lointaine du verbe).
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:137` [audit-comment] Commentaire AUDIT non résolu: « expédient/expédiant » — l'adjectif est en perte de vitesse en français contemporain ; vérifier la pertinence pédagogique.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:169` [audit-comment] Commentaire AUDIT non résolu: certains grammairiens reconnaissent un « gérondif composé » marginal (*en ayant agi ainsi, tu…*) ; à vérifier avant clearance.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:215` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:222` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:224` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:226` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:228` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:230` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:316` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes).
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:320` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier en particulier la collocation « ampleur du défi climatique » et la naturalité de « prendre connaissance de ».
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:377` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer selon édition.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:378` [audit-comment] Commentaire AUDIT non résolu: numérotation à vérifier.
+- `content\01_grammar\b2_core\15_participe_gerondif_adjectif_verbal.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:12` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. VIII (le verbe : mode et temps) à confirmer pour l'entrée « infinitif passé » précisément avant clearance.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:65` [audit-comment] Commentaire AUDIT non résolu: référence Grevisse à préciser (paragraphe sur *après que* dans la complétive temporelle) avant clearance.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:136` [audit-comment] Commentaire AUDIT non résolu: cas marginaux soutenus type "avant d'avoir achevé son discours, l'orateur fut interrompu" attestés en littérature mais hors norme TCF ; à signaler comme exception littéraire.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:188` [audit-comment] Commentaire AUDIT non résolu: section Grevisse sur *après que* à confirmer avant clearance.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:224` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:231` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:233` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:235` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:237` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:239` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:327` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes).
+- `content\01_grammar\b2_core\16_infinitif_passe.md:331` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — vérifier "tenais à vous remercier" (registre courriel professionnel), "j'aurais soumis" (concordance conditionnel passé), "sans avoir corrigé" (naturalité).
+- `content\01_grammar\b2_core\16_infinitif_passe.md:382` [audit-comment] Commentaire AUDIT non résolu: numéro de chapitre à confirmer (chapitre VIII ou X selon édition).
+- `content\01_grammar\b2_core\16_infinitif_passe.md:383` [audit-comment] Commentaire AUDIT non résolu: paragraphe précis à confirmer avant clearance.
+- `content\01_grammar\b2_core\16_infinitif_passe.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:397` [quebecism] "présentement" est québécois pour "actuellement / en ce moment". Acceptable en register=quebec; en register=france, préférer "actuellement", "à l'heure actuelle", "en ce moment". → « présentement »
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:9` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. VI (le groupe nominal / les déterminants) à confirmer — chapitre exact à vérifier selon l'édition.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:35` [audit-comment] Commentaire AUDIT non résolu: référence Grevisse §428 / §437 (accord avec collectifs) à confirmer — paragraphe exact selon l'édition 2016.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:169` [audit-comment] Commentaire AUDIT non résolu: vérifier formulation exacte de l'entrée BDL "chaque" + numéral.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:208` [audit-comment] Commentaire AUDIT non résolu: confirmer la liste exacte des noms pluralia tantum tolérant "aucuns" — Grevisse cite un sous-ensemble restreint.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:282` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:289` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:291` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:293` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:295` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:297` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:384` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes).
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:388` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier en particulier "perdus dans nos écouteurs" (registre courant, acceptable en production B2).
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:439` [audit-comment] Commentaire AUDIT non résolu: chapter number à confirmer selon l'édition.
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:440` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer (paragraphes exacts §427 sqq. / §608 sqq.).
+- `content\01_grammar\b2_core\17_quantite_determinants_indefinis.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:9` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. IX (adverbes) approximative ; vérifier numéro de chapitre exact avant clearance.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:43` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse §968 à confirmer en édition 16ᵉ ; le numéro varie selon édition.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:59` [audit-comment] Commentaire AUDIT non résolu: notation API simplifiée ; vérifier transcription exacte en révision native.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:180` [audit-comment] Commentaire AUDIT non résolu: nuance "parler avec passion vs passionnément" relevée sur intuition ; à confirmer auprès d'un natif.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:231` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:238` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée ; remplacer par citation réelle.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:240` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:242` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:244` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:246` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:374` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (naturalité, registre, anglicismes éventuels).
+- `content\01_grammar\b2_core\18_adverbes_ment.md:378` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier en particulier "d'une manière méthodique" et la fluidité globale.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:418` [audit-comment] Commentaire AUDIT non résolu: chapter number à confirmer ; si édition différente, ajuster.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:419` [audit-comment] Commentaire AUDIT non résolu: paragraphes à reconfirmer en édition 16ᵉ.
+- `content\01_grammar\b2_core\18_adverbes_ment.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:12` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. XIV (organisation textuelle / connecteurs) approximative; à confirmer avant clearance.
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:118` [audit-comment] Commentaire AUDIT non résolu: confirmer le paragraphe Grevisse sur *par contre* avant clearance.
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:254` [audit-comment] Commentaire AUDIT non résolu: §5 — les 3 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum).
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:261` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:263` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:265` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:352` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise. Vérifier les collocations "taux de satisfaction reste honorable" et "renfort ciblé".
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:356` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise. Vérifier "disciplines sans débouché immédiat" (registre) et la collocation "part dévolue à".
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:401` [audit-comment] Commentaire AUDIT non résolu: numéro de chapitre à confirmer selon édition.
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:403` [audit-comment] Commentaire AUDIT non résolu: références BDL à vérifier en ligne.
+- `content\01_grammar\b2_core\19_connecteurs_inventaire.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\20_place_adjectif.md:12` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. VI (« le groupe nominal — l'épithète ») à confirmer selon l'édition ; ajuster avant clearance.
+- `content\01_grammar\b2_core\20_place_adjectif.md:61` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse à confirmer (« antéposition stylistique des adjectifs longs ») ; ajuster la référence avant clearance.
+- `content\01_grammar\b2_core\20_place_adjectif.md:87` [audit-comment] Commentaire AUDIT non résolu: confirmer que la construction *un drôle de N* est analysée par Riegel comme antéposition sémantique (et non comme locution figée à part) ; ajuster la formulation avant clearance.
+- `content\01_grammar\b2_core\20_place_adjectif.md:174` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\20_place_adjectif.md:181` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\20_place_adjectif.md:183` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\20_place_adjectif.md:185` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier en particulier l'antéposition de *pauvres* dans le registre journalistique.
+- `content\01_grammar\b2_core\20_place_adjectif.md:187` [audit-comment] Commentaire AUDIT non résolu: idem ; *de* + adj. antéposé pluriel est attendu en presse écrite.
+- `content\01_grammar\b2_core\20_place_adjectif.md:189` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\20_place_adjectif.md:322` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes). Vérifier en particulier *vieux quartier populaire* (cumul antéposé + postposé) et *de petites boulangeries* (règle *des* → *de*).
+- `content\01_grammar\b2_core\20_place_adjectif.md:326` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier l'exploitation contrastive *grand chercheur / homme grand* et le naturel de la chute.
+- `content\01_grammar\b2_core\20_place_adjectif.md:371` [audit-comment] Commentaire AUDIT non résolu: chapter number à confirmer ; si édition différente, ajuster.
+- `content\01_grammar\b2_core\20_place_adjectif.md:372` [audit-comment] Commentaire AUDIT non résolu: paragraphe précis à compléter avant clearance.
+- `content\01_grammar\b2_core\20_place_adjectif.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\21_faire_causative.md:278` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\01_grammar\b2_core\21_faire_causative.md:13` [audit-comment] Commentaire AUDIT non résolu: chapitre Riegel "ch. XI" à confirmer (sections sur les périphrases verbales / le verbe support).
+- `content\01_grammar\b2_core\21_faire_causative.md:43` [audit-comment] Commentaire AUDIT non résolu: §§ Grevisse précis à confirmer pour la distinction "par" / "à" dans la causative.
+- `content\01_grammar\b2_core\21_faire_causative.md:90` [audit-comment] Commentaire AUDIT non résolu: référence rectifications 1990 point 4 (invariabilité de "laissé + inf") — vérifier numéro de point ; pour "fait + inf" l'invariabilité est antérieure aux rectifications et constitue la norme traditionnelle.
+- `content\01_grammar\b2_core\21_faire_causative.md:167` [audit-comment] Commentaire AUDIT non résolu: traitement des rectifications de 1990 pour "laissé + inf" — la BDL (OQLF) recommande l'invariabilité ; Grevisse & Goosse 2016 mentionnent l'invariabilité comme option officielle et l'accord comme tradition tolérée. Vérifier la formulation exacte de la BDL avant clearance.
+- `content\01_grammar\b2_core\21_faire_causative.md:244` [audit-comment] Commentaire AUDIT non résolu: cf. tools/anglicisms.yaml — vérifier que "faire + adj" est listé comme calque.
+- `content\01_grammar\b2_core\21_faire_causative.md:255` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde, Le Figaro) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\21_faire_causative.md:262` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\21_faire_causative.md:264` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\21_faire_causative.md:266` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\21_faire_causative.md:268` [audit-comment] Commentaire AUDIT non résolu: idem; vérifier "metteure en scène" (forme féminine acceptée en France) ou préférer "metteuse en scène".
+- `content\01_grammar\b2_core\21_faire_causative.md:270` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\21_faire_causative.md:375` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise (registre, naturalité, anglicismes). Vérifier "confier" + COD direct + "à qqn" (correct) et la cohérence aspectuelle "avais déjà confiée" / "ai fait réviser".
+- `content\01_grammar\b2_core\21_faire_causative.md:379` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise. Vérifier en particulier "j'avais laissé dépasser un coin" (laisser + inf permissif/causatif acceptable ?) et "me faire conseiller par" (registre).
+- `content\01_grammar\b2_core\21_faire_causative.md:426` [audit-comment] Commentaire AUDIT non résolu: chapter number à confirmer; vérifier également la section sur l'accord du participe + infinitif.
+- `content\01_grammar\b2_core\21_faire_causative.md:427` [audit-comment] Commentaire AUDIT non résolu: §§ précis à confirmer.
+- `content\01_grammar\b2_core\21_faire_causative.md:428` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer.
+- `content\01_grammar\b2_core\21_faire_causative.md:429` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer (point 4 ou voisin).
+- `content\01_grammar\b2_core\21_faire_causative.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:12` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. VI (« le verbe — temps et aspect ») et Grevisse "Auxiliaires d'aspect" à confirmer selon l'édition ; ajuster avant clearance.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:155` [audit-comment] Commentaire AUDIT non résolu: référence Grevisse §878 (« continuer à / de ») à confirmer ; voir aussi la fiche BDL correspondante avant clearance.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:160` [audit-comment] Commentaire AUDIT non résolu: le statut de *ne* sans *pas* avec *cesser* est rappelé par Grevisse mais marginal dans l'écrit contemporain — confirmer la formulation registre avant clearance.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:164` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:171` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée ; remplacer par citation réelle.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:173` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:175` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:177` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:179` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:266` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes). Vérifier en particulier la chaîne *étais en train de … venais de … était sur le point de* pour densité acceptable.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:270` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise. Vérifier en particulier "est en passe d'aboutir" (registre soutenu, attesté en presse) et la cohérence aspectuelle de l'ensemble.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:315` [audit-comment] Commentaire AUDIT non résolu: chapter number à confirmer ; si édition différente, ajuster.
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:316` [audit-comment] Commentaire AUDIT non résolu: paragraphe précis à confirmer (§878 cité dans §4.2).
+- `content\01_grammar\b2_core\22_periphrases_aspectuelles.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:12` [audit-comment] Commentaire AUDIT non résolu: chapitre Riegel "VI" approximatif ; vérifier la référence exacte (chapitre sur la phrase, section négation/restriction) avant clearance.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:13` [audit-comment] Commentaire AUDIT non résolu: référence Grevisse "La négation et la restriction" à confirmer (paragraphe exact).
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:63` [audit-comment] Commentaire AUDIT non résolu: confirmer la formulation Riegel sur la non-réduction de l'article après ne…que avant clearance.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:100` [audit-comment] Commentaire AUDIT non résolu: confirmer la classification Grevisse de "n'avoir que faire de" comme locution figée.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:116` [audit-comment] Commentaire AUDIT non résolu: vérifier l'analyse Grevisse sur "ne…rien que / ne…personne que" comme combinaisons marquées avant clearance.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:145` [audit-comment] Commentaire AUDIT non résolu: confirmer l'existence d'un article BDL ciblé sur la restriction (sinon, citer l'article général sur la négation).
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:189` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:196` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée ; remplacer par citation réelle.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:198` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:200` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:202` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:204` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:317` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes). Vérifier en particulier "plage horaire" et la séquence "ne faut me solliciter qu'après".
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:321` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier "réforme tronquée" en collocation et la cohérence des temps.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:368` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer ; vérifier édition.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:369` [audit-comment] Commentaire AUDIT non résolu: paragraphe exact à confirmer.
+- `content\01_grammar\b2_core\23_ne_que_restrictif.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:9` [audit-comment] Commentaire AUDIT non résolu: chapter number "ch. VII" approximatif ; vérifier la référence exacte Riegel (chapitre *La phrase / sujet impersonnel*) avant clearance.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:192` [audit-comment] Commentaire AUDIT non résolu: confirmer paragraph number Grevisse pour le comportement de "il n'est pas probable que" avant clearance.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:296` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde, France Culture) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:303` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:305` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:307` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:309` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:311` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:398` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre, naturalité, anglicismes : vérifier "croise", "prolonger").
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:402` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise ; vérifier en particulier "juguler", "zones tendues" et la cohérence du registre.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:450` [audit-comment] Commentaire AUDIT non résolu: chapter numbers à confirmer ; si édition différente, ajuster.
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:451` [audit-comment] Commentaire AUDIT non résolu: paragraphes précis à confirmer (sujet impersonnel ; *il faut que* ; *il s'agit*).
+- `content\01_grammar\b2_core\24_constructions_impersonnelles.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:9` [audit-comment] Commentaire AUDIT non résolu: confirmer chapitre Riegel pour relative + mode.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:147` [audit-comment] Commentaire AUDIT non résolu: §7 — placeholders à remplacer par citations réelles avant clearance EVAL Phase 2.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:152` [audit-comment] Commentaire AUDIT non résolu: non attestée.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:154` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:156` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:158` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:160` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:233` [audit-comment] Commentaire AUDIT non résolu: vérifier la position officielle FEI sur "première fois que" + mode avant clearance.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:250` [audit-comment] Commentaire AUDIT non résolu: vérifier "maîtriser" au conditionnel ici (sens hypothétique-désidératif) et la naturalité de "le profil très junior que propose souvent l'agence".
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:254` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; la métadiscussion sur subj/ind dans P2 est intentionnelle (méta-pédagogique) mais lourde. À alléger ou marquer "modèle métacommenté" avant clearance.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:276` [audit-comment] Commentaire AUDIT non résolu: chapitres à confirmer.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:277` [audit-comment] Commentaire AUDIT non résolu: paragraphes à confirmer.
+- `content\01_grammar\c1_advanced\01_subjonctif_apres_relatif.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:9` [audit-comment] Commentaire AUDIT non résolu: chapitre Riegel à confirmer (concession et subordination concessive).
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:26` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse à confirmer (locutions concessives indéfinies).
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:81` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse à confirmer (accord de quel que).
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:125` [audit-comment] Commentaire AUDIT non résolu: paragraphe Grevisse à confirmer (pronoms indéfinis figés).
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:191` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles avant clearance EVAL Phase 2.
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:196` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:198` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:200` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:289` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:293` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise.
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:327` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer.
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:328` [audit-comment] Commentaire AUDIT non résolu: paragraphes à confirmer.
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:332` [audit-comment] Commentaire AUDIT non résolu: id à confirmer dans le DAG B2 final.
+- `content\01_grammar\c1_advanced\02_subjonctif_concession_restriction.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:10` [audit-comment] Commentaire AUDIT non résolu: confirmer chapitre Riegel et §§ Grevisse pour mode dans la complétive selon verbe introducteur.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:62` [audit-comment] Commentaire AUDIT non résolu: vérifier la position normative Grevisse sur l'oscillation oral/écrit après *ne pas penser que*.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:78` [audit-comment] Commentaire AUDIT non résolu: confirmer cette extension du SUBJ à *espérer* négatif/interrogatif (Riegel signale l'oscillation).
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:85` [audit-comment] Commentaire AUDIT non résolu: confirmer §1124 Grevisse pour *ne pas douter que* + IND comme norme.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:141` [audit-comment] Commentaire AUDIT non résolu: confirmer la stabilité de ce contraste (Riegel et al. 2018).
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:163` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles avant clearance EVAL Phase 2.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:168` [audit-comment] Commentaire AUDIT non résolu: non attestée.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:170` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:172` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:174` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:176` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:266` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise. Vérifier la naturalité de "mutualiser les services sans fusionner les directions" et le lien logique du dernier *que*.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:270` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise. Vérifier *quoi qu'il arrive* (orthographe/usage) et le glissement de registre entre les deux dernières phrases.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:308` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:309` [audit-comment] Commentaire AUDIT non résolu: paragraphes à confirmer.
+- `content\01_grammar\c1_advanced\03_mode_completive_verbe_introducteur.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:12` [audit-comment] Commentaire AUDIT non résolu: confirmer paragraphes exacts de Grevisse pour l'inversion après adverbes en tête.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:48` [audit-comment] Commentaire AUDIT non résolu: confirmer que 3a est attesté en français contemporain (Grevisse §381 c) — certains usages le marquent comme rare ou littéraire.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:61` [audit-comment] Commentaire AUDIT non résolu: vérifier la rigidité de la contrainte "que" vs "quand" après "à peine + inversion" (Grevisse §1083 bis).
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:102` [audit-comment] Commentaire AUDIT non résolu: confirmer que "sans aucun doute" ne déclenche pas l'inversion en standard contemporain (Grevisse note l'usage hésitant).
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:169` [audit-comment] Commentaire AUDIT non résolu: vérifier le degré d'acceptabilité de "Sans aucun doute a-t-il raison" — Grevisse signale une variation.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:189` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles avant clearance EVAL Phase 2.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:194` [audit-comment] Commentaire AUDIT non résolu: non attestée.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:196` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:198` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:200` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:202` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:289` [audit-comment] Commentaire AUDIT non résolu: vérifier la naturalité de l'enchaînement "sans doute … aussi … du moins" en trois phrases successives ; densité d'inversions peut-être excessive pour un éditorial moyen.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:293` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; vérifier "ainsi se confirma" + complément circonstanciel comme bilan narratif (registre récit, acceptable mais marqué).
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:325` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:326` [audit-comment] Commentaire AUDIT non résolu: paragraphes à confirmer.
+- `content\01_grammar\c1_advanced\04_inversion_stylistique.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:12` [audit-comment] Commentaire AUDIT non résolu: confirmer chapitre Riegel sur la dérivation suffixale et § Grevisse sur les noms d'action.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:141` [audit-comment] Commentaire AUDIT non résolu: vérifier le triplet partir/partition/partage — sont-ce bien trois nominalisations de bases distinctes (partir / partir / partager), ou y a-t-il croisement étymologique avec le latin partire ? À sourcer Riegel ou TLFi avant clearance.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:184` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles avant clearance EVAL Phase 2.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:189` [audit-comment] Commentaire AUDIT non résolu: non attestée.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:191` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:193` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:195` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:197` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:284` [audit-comment] Commentaire AUDIT non résolu: vérifier la naturalité de "approbation par X voix contre Y" en chapeau ; alternative : "à 312 voix contre 198". Vérifier également "le développement du parc éolien offshore" (anglicisme possible — alternative : "en mer").
+- `content\01_grammar\c1_advanced\05_nominalisation.md:288` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; vérifier "ampleur des réactions" et la suite "suspension de toute mesure définitive avant consultation" — registre administratif soutenu, à confirmer.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:322` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:323` [audit-comment] Commentaire AUDIT non résolu: paragraphes à confirmer.
+- `content\01_grammar\c1_advanced\05_nominalisation.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:12` [audit-comment] Commentaire AUDIT non résolu: confirmer chapitre exact Riegel sur l'anaphore lexicale.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:59` [audit-comment] Commentaire AUDIT non résolu: confirmer attestation contemporaine de "locataire de l'Élysée" et "premier magistrat" comme périphrases stabilisées.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:151` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles avant clearance EVAL Phase 2.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:156` [audit-comment] Commentaire AUDIT non résolu: non attestée.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:158` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier l'usage de "Hexagone" comme reprise neutre dans Le Devoir.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:160` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:162` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:164` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:243` [audit-comment] Commentaire AUDIT non résolu: vérifier la naturalité de "filières [...] éprouvées par la transition énergétique" et la cohérence de la chaîne "Premier ministre → ce dispositif → l'exécutif → il → cette ambition".
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:247` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; la chaîne "intelligence artificielle → cette accélération → la technologie" alterne reprise résomptive et hyperonymique. Confirmer naturalité de "proportionné aux risques".
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:277` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:278` [audit-comment] Commentaire AUDIT non résolu: paragraphes à confirmer.
+- `content\01_grammar\c1_advanced\06_anaphore_lexicale.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:12` [audit-comment] Commentaire AUDIT non résolu: confirmer numéros de paragraphes Grevisse pour les adverbes de liaison (§1083 sq.) et le chapitre Riegel XIV.
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:98` [audit-comment] Commentaire AUDIT non résolu: vérifier le paragraphe Grevisse & Goosse 2016 sur la défense de *par contre*.
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:137` [audit-comment] Commentaire AUDIT non résolu: vérifier la position de Grevisse & Goosse 2016 sur "voire même" (critiqué mais accepté).
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:167` [audit-comment] Commentaire AUDIT non résolu: §5 — les 4 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Monde, Le Devoir, Radio-Canada, France Culture) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum).
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:174` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:176` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:178` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:180` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:290` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise. Vérifier la collocation "dotation budgétaire complémentaire" et "services déconcentrés" (technicité administrative — adéquate au contexte note interne).
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:294` [audit-comment] Commentaire AUDIT non résolu: production auctoriale; revue native requise. Vérifier "ouvrage salué par deux revues de référence" (collocation) et "chapitre conclusif" (acceptable, attesté).
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:347` [audit-comment] Commentaire AUDIT non résolu: numéro de chapitre à confirmer selon édition.
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:348` [audit-comment] Commentaire AUDIT non résolu: paragraphes à confirmer.
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:349` [audit-comment] Commentaire AUDIT non résolu: références BDL à vérifier en ligne.
+- `content\01_grammar\c1_advanced\07_connecteurs_c1.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:9` [audit-comment] Commentaire AUDIT non résolu: confirmer chapitre Riegel XII §causales soutenues et fourchette §Grevisse correspondante avant clearance.
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:169` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Monde, Le Devoir, Radio-Canada, France Culture) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum).
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:174` [audit-comment] Commentaire AUDIT non résolu: non attestée.
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:176` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:178` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:180` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:182` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:269` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; vérifier la naturalité de "faute d'un texte stabilisé" (la formule *faute d'un + adj.* est-elle préférée à *faute de texte stabilisé* ?).
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:273` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; vérifier la chaîne "à défaut d'avoir pu négocier… j'aurais dû alerter" (cohérence temporelle et naturalité).
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:320` [audit-comment] Commentaire AUDIT non résolu: numéro de chapitre et pagination à confirmer selon édition.
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:321` [audit-comment] Commentaire AUDIT non résolu: paragraphes exacts à confirmer.
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:322` [audit-comment] Commentaire AUDIT non résolu: référence à confirmer (consulter les fiches BDL en ligne).
+- `content\01_grammar\c1_advanced\08_cause_complexe_soutenu.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:11` [audit-comment] Commentaire AUDIT non résolu: confirmer la numérotation Grevisse 16ᵉ éd. pour le chapitre sur la concession scalaire.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:98` [audit-comment] Commentaire AUDIT non résolu: confirmer la formulation exacte Grevisse 16ᵉ éd. sur le mode après *tout adj. que* — la BDL et Grevisse divergent légèrement dans la hiérarchie.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:151` [audit-comment] Commentaire AUDIT non résolu: vérifier la position FEI / BDL sur *n'eût été de* en contexte TCF Canada — la forme québécoise pourrait être tolérée à l'écrit mais ne devrait pas être enseignée comme cible.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:168` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles avant clearance EVAL Phase 2.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:173` [audit-comment] Commentaire AUDIT non résolu: non attestée.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:175` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:177` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:179` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:181` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:268` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — vérifier (a) "fût-ce au nom de" (forme attendue, à confirmer), (b) "pèsera longtemps sur la mise en œuvre" (registre journalistique courant), (c) absence d'anglicismes.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:272` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — vérifier (a) la naturalité de "facteur limitant" (calque possible de l'anglais "limiting factor" ? — usage attesté en français scientifique), (b) "par déférence envers" (registre soutenu, à confirmer comme idiomatique), (c) l'enchaînement n'eût été / ne fût-ce que dans une même production (effet de surcharge ?).
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:318` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer pour la 5ᵉ éd.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:319` [audit-comment] Commentaire AUDIT non résolu: paragraphes à confirmer.
+- `content\01_grammar\c1_advanced\09_concession_soutenue.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:12` [audit-comment] Commentaire AUDIT non résolu: chapitres et paragraphes exacts Riegel / Grevisse à confirmer.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:220` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Monde, Le Devoir, Radio-Canada, France Culture) avec dates et URL vérifiables, indexer dans references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:225` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:227` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:229` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:231` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:233` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée ; vérifier l'emploi attesté du *ne* explétif en presse francophone contemporaine.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:320` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; revue native requise. Vérifier la fluidité de l'enchaînement *en supposant que / pour peu que / à moins que* sur trois phrases consécutives (densité C1 acceptable ou stylistiquement lourde ?).
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:324` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; revue native requise. Vérifier la naturalité du parallélisme *à condition que / à condition de* dans la même phrase.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:365` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:366` [audit-comment] Commentaire AUDIT non résolu: numéros de § à confirmer.
+- `content\01_grammar\c1_advanced\10_hypothese_complexe.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:11` [audit-comment] Commentaire AUDIT non résolu: confirmer chapitre Riegel pour la subordonnée participiale (parfois rangée sous « propositions circonstancielles »).
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:84` [audit-comment] Commentaire AUDIT non résolu: vérifier la productivité contemporaine de "les circonstances aidant" et "la conjoncture s'améliorant" en presse 2024-2026 ; ces tournures, attestées, peuvent paraître datées dans certains registres.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:154` [audit-comment] Commentaire AUDIT non résolu: confirmer la position normative de Grevisse sur l'accord de "étant donné" antéposé (officiellement invariable, mais l'accord est ancien et toléré).
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:158` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Monde, Le Devoir, Radio-Canada, France Culture, RFI) avec dates et URL vérifiables, ajouter à references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:165` [audit-comment] Commentaire AUDIT non résolu: non attestée.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:167` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:169` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:171` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:173` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:243` [audit-comment] Commentaire AUDIT non résolu: vérifier que (d) "Terminée son intervention" est bien à exclure (forme participiale antéposée de type latinisant, marginale en français moderne).
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:261` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; vérifier la naturalité de "passage en force" (courant en presse française), la concordance des temps, et l'absence de quebécisme.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:265` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; vérifier "cohorte élargie", "robustesse statistique" en collocation, et la chaîne de trois subordonnées participiales (lourdeur stylistique potentielle à modérer).
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:303` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer selon édition.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:304` [audit-comment] Commentaire AUDIT non résolu: numérotation à vérifier.
+- `content\01_grammar\c1_advanced\11_subordonnee_participiale.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:12` [audit-comment] Commentaire AUDIT non résolu: confirmer numéros de chapitre Riegel/Grevisse pour le tier soutenu des impersonnels.
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:107` [audit-comment] Commentaire AUDIT non résolu: vérifier la distribution exacte pour/de en presse contemporaine ; certains usages la donnent libre, d'autres préfèrent "de" en écrit formel.
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:174` [audit-comment] Commentaire AUDIT non résolu: confirmer auprès d'un natif lettré le statut "presque vieilli" de *il sied* ; mes intuitions sont concordantes (cf. dictionnaires usuels) mais cette nuance de registre mérite vérification.
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:187` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Monde, Le Devoir, Radio-Canada, France Culture) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:194` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:196` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:198` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:200` [audit-comment] Commentaire AUDIT non résolu: idem ; vérifier la présence effective du *ne* explétif dans le corpus contemporain (souvent omis en presse).
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:202` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:289` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise ; vérifier en particulier la naturalité de "lignes de financement", "appellent un arbitrage", "étant entendu que … relèvera".
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:293` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise ; vérifier "abîmé le dialogue" (registre), la séquence "faute de quoi", l'antéposition "c'est de lui que doit venir" (mise en relief).
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:336` [audit-comment] Commentaire AUDIT non résolu: confirmer numéro de chapitre et sections traitant du tier soutenu.
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:337` [audit-comment] Commentaire AUDIT non résolu: paragraphes précis à confirmer (*il importe / il convient* ; *il est à craindre que* + *ne* explétif).
+- `content\01_grammar\c1_advanced\12_tournures_impersonnelles_soutenues.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:9` [audit-comment] Commentaire AUDIT non résolu: confirmer le chapitre Riegel sur le statut figé de en/y dans les locutions verbales.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:63` [audit-comment] Commentaire AUDIT non résolu: vérifier la norme « va-t'en » vs « vas-t'en » dans Grevisse §765 ou équivalent.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:88` [audit-comment] Commentaire AUDIT non résolu: vérifier l'attestation de « je n'en ai plus pu » au passé composé — possiblement marginal.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:126` [audit-comment] Commentaire AUDIT non résolu: la nuance il y va de / il en va de est subtile ; à valider avec un correcteur natif.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:165` [audit-comment] Commentaire AUDIT non résolu: vérifier que la règle « y compris invariable / TVA comprise variable » est bien celle de Grevisse §960 ou équivalent.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:199` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde, France Culture) avant clearance EVAL Phase 2. Indexer dans references.bib, puis durcir le gate en Phase 3.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:204` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:206` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:208` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:210` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:212` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:313` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; vérifier la naturalité de « infiniment mieux » et la cohérence du registre épistolaire.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:319` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; vérifier le registre amical et la concordance des temps composés des locutions figées.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:360` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:361` [audit-comment] Commentaire AUDIT non résolu: paragraphes précis à confirmer.
+- `content\01_grammar\c1_advanced\13_pronoms_en_y_fixes.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:11` [audit-comment] Commentaire AUDIT non résolu: référence Riegel ch. VII et Grevisse §§379–381 à confirmer — paragraphes exacts sur l'antéposition de l'attribut et la dislocation.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:29` [audit-comment] Commentaire AUDIT non résolu: vérifier que Grevisse §381 traite bien l'antéposition de l'attribut avec inversion de *être*; ajuster le paragraphe le cas échéant.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:43` [audit-comment] Commentaire AUDIT non résolu: confirmer la productivité de l'antéposition avec *paraître/sembler/devenir/demeurer* en français contemporain non-archaïque.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:78` [audit-comment] Commentaire AUDIT non résolu: vérifier le degré de marquage de l'antéposition sans reprise en français contemporain — attestations dans la presse littéraire 2020+ vs simple archaïsme.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:94` [audit-comment] Commentaire AUDIT non résolu: vérifier Grevisse §947 — l'accord du PP après *en* COD est généralement bloqué, mais des variantes existent ; préciser la position retenue ici.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:130` [audit-comment] Commentaire AUDIT non résolu: vérifier la contrainte de pesanteur (sujet long requis) pour ce type d'inversion locative/circonstancielle.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:167` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Devoir, Radio-Canada, Le Monde, Télérama, France Culture) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:174` [audit-comment] Commentaire AUDIT non résolu: phrase plausible mais non attestée; remplacer par citation réelle.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:176` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:178` [audit-comment] Commentaire AUDIT non résolu: idem; dislocation à gauche dans un éditorial.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:180` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:182` [audit-comment] Commentaire AUDIT non résolu: idem; antéposition d'un compl. en *à* + reprise par *y*.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:273` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre presse culturelle, naturalité des trois antépositions enchaînées, absence d'anglicismes).
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:277` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise; vérifier "reconduit les déséquilibres", "peser le plus lourd sur les jeunes équipes", et la métadiscussion finale (intentionnelle, méta-pédagogique).
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:329` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer pour l'antéposition de l'attribut.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:330` [audit-comment] Commentaire AUDIT non résolu: numéros de paragraphes à vérifier dans l'édition 2016.
+- `content\01_grammar\c1_advanced\14_anteposition_stylistique.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:12` [audit-comment] Commentaire AUDIT non résolu: vérifier numéros chapitre Riegel et paragraphe Grevisse exacts pour le *ne* explétif avant clearance.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:98` [audit-comment] Commentaire AUDIT non résolu: confirmer que Grevisse 16ᵉ éd. décrit bien le *ne* après *empêcher que* comme "optionnel" et non "obligatoire" ; usage contemporain à recouper.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:167` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Monde, Le Devoir, Radio-Canada, France Culture) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:172` [audit-comment] Commentaire AUDIT non résolu: non attestée ; remplacer par citation réelle.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:174` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:176` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:178` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:180` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:271` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise. Vérifier en particulier la naturalité de "lors d'une révision tardive" et de "dépôt en préprint" (anglicisme calque acceptable en français de la recherche, à confirmer).
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:275` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise. Vérifier la naturalité du conditionnel "ne l'exigerait" en proposition comparative (registre soutenu, mais à confirmer).
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:317` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:318` [audit-comment] Commentaire AUDIT non résolu: paragraphes exacts à confirmer (§981 ss. selon édition).
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:319` [audit-comment] Commentaire AUDIT non résolu: vérifier titres exacts des fiches BDL avant clearance.
+- `content\01_grammar\c1_advanced\15_ne_expletif.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c2_polish\01_passe_simple_reconnaissance.md:37` [audit-comment] Commentaire AUDIT non résolu: chiffre "70%" non sourcé précisément — vérifier ou retirer avant clearance.
+- `content\01_grammar\c2_polish\01_passe_simple_reconnaissance.md:126` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (extraits littéraires, biographies, presse culturelle) avant clearance EVAL Phase 2.
+- `content\01_grammar\c2_polish\01_passe_simple_reconnaissance.md:131` [audit-comment] Commentaire AUDIT non résolu: non attestée; remplacer par un extrait identifié (Maupassant, Camus, Annie Ernaux, etc.).
+- `content\01_grammar\c2_polish\01_passe_simple_reconnaissance.md:133` [audit-comment] Commentaire AUDIT non résolu: forme plausible et factuellement correcte (Camus 1913–1960, Nobel 1957) mais non citée d'une source précise.
+- `content\01_grammar\c2_polish\01_passe_simple_reconnaissance.md:135` [audit-comment] Commentaire AUDIT non résolu: contenu factuel correct mais à sourcer (Le Devoir, Radio-Canada, etc.).
+- `content\01_grammar\c2_polish\01_passe_simple_reconnaissance.md:137` [audit-comment] Commentaire AUDIT non résolu: formulation générique à sourcer.
+- `content\01_grammar\c2_polish\01_passe_simple_reconnaissance.md:139` [audit-comment] Commentaire AUDIT non résolu: factuel correct mais à sourcer.
+- `content\01_grammar\c2_polish\01_passe_simple_reconnaissance.md:262` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer.
+- `content\01_grammar\c2_polish\01_passe_simple_reconnaissance.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:78` [audit-comment] Commentaire AUDIT non résolu: référence BDL à confirmer.
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:118` [audit-comment] Commentaire AUDIT non résolu: caractérisation stylistique à étayer par exemples sourcés.
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:157` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (extraits littéraires XIXᵉ–XXᵉ s., éditoriaux soutenus contemporains) avant clearance EVAL Phase 2.
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:162` [audit-comment] Commentaire AUDIT non résolu: non attestée; remplacer par un extrait identifié (Madame Bovary, Une Vie, etc.).
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:164` [audit-comment] Commentaire AUDIT non résolu: tournure attestée mais à sourcer dans un éditorial réel (Le Monde, Le Figaro).
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:166` [audit-comment] Commentaire AUDIT non résolu: contenu plausible mais à sourcer (biographie Tadié, etc.).
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:168` [audit-comment] Commentaire AUDIT non résolu: forme générique de récit historique à sourcer.
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:170` [audit-comment] Commentaire AUDIT non résolu: formulation typique d'éditorial Le Monde / Le Figaro à sourcer.
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:290` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer.
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:291` [audit-comment] Commentaire AUDIT non résolu: paragraphes exacts à confirmer.
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:292` [audit-comment] Commentaire AUDIT non résolu: URL et date de consultation à ajouter.
+- `content\01_grammar\c2_polish\02_imparfait_subjonctif_reconnaissance.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:68` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer.
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:107` [audit-comment] Commentaire AUDIT non résolu: exemple plausible, à sourcer.
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:132` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (extraits XIXᵉ–XXᵉ s., éditoriaux soutenus, pastiches) avant clearance EVAL Phase 2.
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:137` [audit-comment] Commentaire AUDIT non résolu: non attestée; remplacer par un extrait identifié (Balzac, Flaubert, Maupassant, etc.).
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:139` [audit-comment] Commentaire AUDIT non résolu: formulation plausible (Proust, Gide, Martin du Gard) ; à sourcer.
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:141` [audit-comment] Commentaire AUDIT non résolu: formulation type, à sourcer dans la presse culturelle (Le Monde diplomatique, L'Histoire).
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:143` [audit-comment] Commentaire AUDIT non résolu: formulation plausible ; à sourcer auprès d'un éditorialiste pratiquant le grand style (cf. Bertrand Le Gendre, Le Monde).
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:145` [audit-comment] Commentaire AUDIT non résolu: exemple-modèle du système classique (protase + apodose au subj. PQP / cond. passé 2ᵉ forme) ; à remplacer par citation authentique.
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:268` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer.
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:270` [audit-comment] Commentaire AUDIT non résolu: URL exacte à vérifier ; ressource québécoise mais norme partagée pour ce point.
+- `content\01_grammar\c2_polish\03_subjonctif_plus_que_parfait_reconnaissance.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:86` [audit-comment] Commentaire AUDIT non résolu: à confirmer — fréquence d'usage de cette formule en correspondance contemporaine de niveau soutenu (notices d'académiciens, lettres officielles).
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:129` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (extraits littéraires XIXᵉ–XXᵉ s., éditoriaux soutenus, critiques littéraires) avant clearance EVAL Phase 2.
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:134` [audit-comment] Commentaire AUDIT non résolu: non attestée ; remplacer par un extrait identifié (Flaubert, Stendhal, ou prose académique).
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:136` [audit-comment] Commentaire AUDIT non résolu: forme plausible mais à sourcer (mémoires d'académicien, biographie soutenue).
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:138` [audit-comment] Commentaire AUDIT non résolu: à sourcer dans un éditorial du Monde ou du Figaro (rubrique opinion).
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:140` [audit-comment] Commentaire AUDIT non résolu: formulation générique de critique littéraire ; à sourcer (Le Magazine littéraire, La NRF, ou page culturelle du Monde).
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:142` [audit-comment] Commentaire AUDIT non résolu: formule plausible en correspondance d'académicien ; à sourcer ou retirer si non attestée.
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:265` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer.
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:266` [audit-comment] Commentaire AUDIT non résolu: paragraphes exacts à confirmer.
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:267` [audit-comment] Commentaire AUDIT non résolu: URL et date d'accès à ajouter.
+- `content\01_grammar\c2_polish\04_conditionnel_passe_2e_forme.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c2_polish\05_phrases_longues_hypotaxe.md:166` [audit-comment] Commentaire AUDIT non résolu: §5 — phrases-école construites pour l'analyse syntaxique, non citations attestées. À remplacer par 3-5 extraits sourcés (éditorial Le Monde, arrêt Cass., article de doctrine, page culturelle Le Devoir) avant clearance EVAL Phase 2.
+- `content\01_grammar\c2_polish\05_phrases_longues_hypotaxe.md:171` [audit-comment] Commentaire AUDIT non résolu: phrase-école ; remplacer par éditorial Le Monde ou Le Devoir réel.
+- `content\01_grammar\c2_polish\05_phrases_longues_hypotaxe.md:173` [audit-comment] Commentaire AUDIT non résolu: phrase-école ; à remplacer par extrait de revue type Actes de la recherche en sciences sociales.
+- `content\01_grammar\c2_polish\05_phrases_longues_hypotaxe.md:175` [audit-comment] Commentaire AUDIT non résolu: phrase-école ; à remplacer par chronique judiciaire Le Monde ou Libération attestée.
+- `content\01_grammar\c2_polish\05_phrases_longues_hypotaxe.md:177` [audit-comment] Commentaire AUDIT non résolu: phrase-école inspirée du style essai ; à remplacer par extrait d'un essai sourcé.
+- `content\01_grammar\c2_polish\05_phrases_longues_hypotaxe.md:309` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer.
+- `content\01_grammar\c2_polish\05_phrases_longues_hypotaxe.md:311` [audit-comment] Commentaire AUDIT non résolu: URL exacte à insérer (bdl.oqlf.gouv.qc.ca).
+- `content\01_grammar\c2_polish\05_phrases_longues_hypotaxe.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:12` [audit-comment] Commentaire AUDIT non résolu: confirmer Riegel ch. VII et Grevisse §§379–381 pour l'inversion descriptive après CC en tête.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:43` [audit-comment] Commentaire AUDIT non résolu: vérifier la formulation de la contrainte de pesanteur (Riegel et al. 2018) — formulation reprise de gram-c1-14 §3.7.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:77` [audit-comment] Commentaire AUDIT non résolu: confirmer que la liste *venir / surgir / arriver / paraître / sortir / monter / descendre* couvre l'usage standard de cette inversion en français contemporain (Riegel 2018, Grevisse §381).
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:91` [audit-comment] Commentaire AUDIT non résolu: vérifier le degré d'acceptabilité de l'antéposition sans reprise dans la presse littéraire 2020+ — frontière avec l'archaïsme à préciser.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:122` [audit-comment] Commentaire AUDIT non résolu: vérifier la productivité réelle de *Plus grand est l'effort, plus belle est la récompense* hors maximes figées (Grevisse §381 sur les corrélatives).
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:174` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (prose littéraire, presse culturelle, éditoriaux) avant clearance EVAL Phase 2.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:179` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:181` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:183` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:263` [audit-comment] Commentaire AUDIT non résolu: vérifier la formulation préférée pour cet item — l'ordre *Suivit un long silence la déclaration* est marginal.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:325` [audit-comment] Commentaire AUDIT non résolu: chapitre exact à confirmer.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:326` [audit-comment] Commentaire AUDIT non résolu: paragraphes à confirmer pour l'inversion descriptive après CC en tête et après relatif locatif.
+- `content\01_grammar\c2_polish\06_anteposition_expressive_inversion.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:109` [audit-comment] Commentaire AUDIT non résolu: à confirmer — vitalité actuelle de *pécune* (vs *pécuniaire* qui reste vivant) ; risque de marquer "archaïsant" plutôt que "soutenu".
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:110` [audit-comment] Commentaire AUDIT non résolu: à confirmer — *alacre* est marqué littéraire/rare ; usage attesté en presse contemporaine quasi nul.
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:151` [audit-comment] Commentaire AUDIT non résolu: à confirmer — *char* est standard à l'oral québécois mais marqué familier à l'écrit normatif québécois ; la nuance mérite d'être vérifiée auprès d'un natif québécois.
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:157` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (extraits littéraires, presse, transcriptions orales) avant clearance EVAL Phase 2.
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:162` [audit-comment] Commentaire AUDIT non résolu: non attestée ; remplacer par un extrait identifié (Modiano, Ernaux, Quignard, Énard).
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:164` [audit-comment] Commentaire AUDIT non résolu: formulation plausible ; à sourcer à un éditorial réel (Le Monde, Le Devoir).
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:166` [audit-comment] Commentaire AUDIT non résolu: forme standard de dépêche ; à sourcer (AFP, Radio-Canada).
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:168` [audit-comment] Commentaire AUDIT non résolu: pastiche d'oralité ; à remplacer par un extrait de dialogue réel (Despentes, Vuillard dialogues, BD).
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:170` [audit-comment] Commentaire AUDIT non résolu: forme générique de discours présidentiel ; à sourcer si reprise (Élysée, archives officielles).
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:305` [audit-comment] Commentaire AUDIT non résolu: chapitres à confirmer.
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:307` [audit-comment] Commentaire AUDIT non résolu: référence générique à confirmer par URL précise.
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:308` [audit-comment] Commentaire AUDIT non résolu: à confirmer — vérifier la cohérence des marquages entre éditions.
+- `content\01_grammar\c2_polish\07_registres_soutenu_litteraire_familier.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:9` [audit-comment] Commentaire AUDIT non résolu: confirmer la référence Riegel sur les verbes supports et locutions figées.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:94` [audit-comment] Commentaire AUDIT non résolu: vérifier la distinction *faire long feu* (échouer) / *ne pas faire long feu* (ne pas durer) auprès du TLFi.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:131` [audit-comment] Commentaire AUDIT non résolu: confirmer le caractère désuet / précieux de *prendre langue avec* auprès d'un correcteur natif.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:142` [audit-comment] Commentaire AUDIT non résolu: vérifier la référence Grevisse §610 sur l'absence de déterminant dans les locutions figées.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:174` [audit-comment] Commentaire AUDIT non résolu: vérifier la nuance *porter plainte* / *déposer une plainte* (fréquence relative en presse).
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:231` [audit-comment] Commentaire AUDIT non résolu: vérifier la règle d'accord *elle s'est rendu compte* dans Grevisse §923 ou équivalent.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:245` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Monde, Le Devoir, Radio-Canada, France Culture) avant clearance EVAL Phase 2. Indexer dans references.bib, puis durcir le gate en Phase 3.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:250` [audit-comment] Commentaire AUDIT non résolu: phrase plausible, non attestée.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:252` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:254` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:256` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:258` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:260` [audit-comment] Commentaire AUDIT non résolu: idem.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:367` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; vérifier la naturalité du registre journalistique et la cohérence factuelle interne.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:371` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; vérifier la naturalité du registre juridique et la concordance des temps.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:425` [audit-comment] Commentaire AUDIT non résolu: chapitre à confirmer.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:426` [audit-comment] Commentaire AUDIT non résolu: paragraphes précis à confirmer.
+- `content\01_grammar\c2_polish\08_locutions_verbales_presse.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:95` [audit-comment] Commentaire AUDIT non résolu: confirmer la productivité réelle de *C'est INF que* hors registre littéraire — Riegel et al. (2018) la mentionnent comme marginale ; vérifier l'attestation en presse contemporaine.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:142` [audit-comment] Commentaire AUDIT non résolu: confirmer le statut de la clivée existentielle comme construction de présentation (Riegel et al. 2018 ch. VII ou Lambrecht 1994) — vérifier la terminologie exacte avant clearance.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:177` [audit-comment] Commentaire AUDIT non résolu: §5 — les 5 extraits ci-dessous sont des PLACEHOLDERS pédagogiquement plausibles mais NON ATTESTÉS. Avant clearance EVAL Phase 2, les sourcer à partir d'articles RÉELS (Le Monde, Le Devoir, Radio-Canada, France Culture) avec dates et URL vérifiables, ajouter à references.bib (clés outlet+year_topicnum), puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:182` [audit-comment] Commentaire AUDIT non résolu: clivée contrastive plausible en éditorial; remplacer par citation réelle.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:184` [audit-comment] Commentaire AUDIT non résolu: pseudo-clivée chaînée; non attestée.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:186` [audit-comment] Commentaire AUDIT non résolu: clivée graduelle; à sourcer.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:188` [audit-comment] Commentaire AUDIT non résolu: clivée existentielle en accroche; à sourcer.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:190` [audit-comment] Commentaire AUDIT non résolu: clivée gérondive en essai; à sourcer.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:281` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise (registre éditorial, naturalité). Vérifier "expédiée en quelques semaines" et "désamorcer une partie des critiques".
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:285` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — revue native requise; vérifier "jeux de données mal documentés" (calque possible de "poorly documented datasets") et la double clivée finale.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:326` [audit-comment] Commentaire AUDIT non résolu: chapitre et pagination exacts à confirmer pour les variantes contrastive/chaînée/inversée.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:327` [audit-comment] Commentaire AUDIT non résolu: numéros de paragraphes à vérifier.
+- `content\01_grammar\c2_polish\09_clivees_pseudo_clivees_avancees.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\01_grammar\c2_polish\10_concordance_recit_litteraire.md:115` [audit-comment] Commentaire AUDIT non résolu: §5 — extraits pédagogiques à remplacer par citations attestées (Maupassant, Flaubert, Camus, biographies de France Culture, pages culturelles du Devoir / Le Monde) avant clearance EVAL Phase 2.
+- `content\01_grammar\c2_polish\10_concordance_recit_litteraire.md:120` [audit-comment] Commentaire AUDIT non résolu: non attestée ; remplacer par un extrait sourcé.
+- `content\01_grammar\c2_polish\10_concordance_recit_litteraire.md:122` [audit-comment] Commentaire AUDIT non résolu: factuel correct (Yourcenar 1903–1987, élue à l'Académie en 1980) mais à sourcer précisément.
+- `content\01_grammar\c2_polish\10_concordance_recit_litteraire.md:124` [audit-comment] Commentaire AUDIT non résolu: formulation générique ; sourcer ou remplacer par un extrait identifié.
+- `content\01_grammar\c2_polish\10_concordance_recit_litteraire.md:126` [audit-comment] Commentaire AUDIT non résolu: à sourcer (presse littéraire).
+- `content\01_grammar\c2_polish\10_concordance_recit_litteraire.md:128` [audit-comment] Commentaire AUDIT non résolu: contenu factuel correct mais à sourcer (Champlain, fondation de Québec 3 juillet 1608).
+- `content\01_grammar\c2_polish\10_concordance_recit_litteraire.md:309` [audit-comment] Commentaire AUDIT non résolu: chapitre précis à confirmer.
+- `content\01_grammar\c2_polish\10_concordance_recit_litteraire.md:311` [audit-comment] Commentaire AUDIT non résolu: URL à citer précisément.
+- `content\01_grammar\c2_polish\10_concordance_recit_litteraire.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\collocations\01_temps_qui_passe.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\collocations\03_opinion_et_nuance.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\frequency\01_band1_001-100.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\01_travail.md:262` [audit-comment] Commentaire AUDIT non résolu: extrait à remplacer par une citation vérifiable avec urldate avant clearance ; entrée marquée confidence=low pour signaler le travail restant.
+- `content\02_vocabulary\thematic\01_travail.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\02_etudes.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\03_environnement.md:242` [audit-comment] Commentaire AUDIT non résolu: référence à anchorer sur le PDF officiel CCNUCC avec urldate avant clearance ; pour l'instant l'entrée reste medium.
+- `content\02_vocabulary\thematic\03_environnement.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\04_sante.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\05_technologie.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\06_medias.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\07_migrations.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\08_logement.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\09_famille.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\10_culture.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\11_economie.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\02_vocabulary\thematic\12_societe.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\03_listening\00_strategy.md:3` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; calibration à valider en revue native (cadences cibles et heuristiques d'écoute).
+- `content\03_listening\00_strategy.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\00_distractor_anatomy.md:15` [anglicism] "éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique. → « éventuellement »
+- `content\04_reading\00_speed_training.md:1` [audit-comment] Commentaire AUDIT non résolu: cibles WPM 90→160 ajustées d'après la littérature L2 reading-rate (Grabe & Stoller, *Teaching and Researching Reading*, 2nd ed., 2011). Pas de citation précise en bibliographie ; entrée à ajouter en revue.
+- `content\04_reading\00_speed_training.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\00_strategy.md:3` [audit-comment] Commentaire AUDIT non résolu: production auctoriale ; calibration à valider en revue native (rythme cible et heuristiques de lecture).
+- `content\04_reading\00_strategy.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\a1\01_ce-a1-001.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — annonce de quartier construite ; ancrage outlet [ledevoir] générique, pas d'article spécifique. Pas de reprise verbatim.
+- `content\04_reading\a1\01_ce-a1-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\a1\02_ce-a1-002.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — format SMS médical type Doctolib / Bonjour-santé.
+- `content\04_reading\a1\02_ce-a1-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\a1\03_ce-a1-003.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — menu hebdomadaire de cantine scolaire francophone (équivalent en France et au Québec).
+- `content\04_reading\a1\03_ce-a1-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\a2\01_ce-a2-001.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — courriel amical type.
+- `content\04_reading\a2\01_ce-a2-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\a2\02_ce-a2-002.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — affiche événementielle.
+- `content\04_reading\a2\02_ce-a2-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\a2\03_ce-a2-003.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — note de syndic / régie immobilière typique.
+- `content\04_reading\a2\03_ce-a2-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\a2\04_ce-a2-004.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — description produit commerciale typique du Québec / France. Pas d'article spécifique cité.
+- `content\04_reading\a2\04_ce-a2-004.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\a2\05_ce-a2-005.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — fiche commerciale VAE typique.
+- `content\04_reading\a2\05_ce-a2-005.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\a2\06_ce-a2-006.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — recette de blog culinaire amateur.
+- `content\04_reading\a2\06_ce-a2-006.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\a2\07_ce-a2-007.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — page web type d'un musée francophone (le McCord existe ; les détails pratiques sont vraisemblables mais à vérifier).
+- `content\04_reading\a2\07_ce-a2-007.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\01_ce-b1-001.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — billet de blog type apprenant adulte.
+- `content\04_reading\b1\01_ce-b1-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\02_ce-b1-002.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — descriptif touristique générique d'une ville québécoise réelle. Faits vraisemblables ; pas de citation d'article spécifique.
+- `content\04_reading\b1\02_ce-b1-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\03_ce-b1-003.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — brève transport urbain.
+- `content\04_reading\b1\03_ce-b1-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\04_ce-b1-004.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — critique gastronomique de quartier.
+- `content\04_reading\b1\04_ce-b1-004.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\05_ce-b1-005.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — page web type service public.
+- `content\04_reading\b1\05_ce-b1-005.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\06_ce-b1-006.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article informatif générique sur les bibliothèques publiques au Québec/France. Sources outlet-level, pas d'article daté.
+- `content\04_reading\b1\06_ce-b1-006.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\07_ce-b1-007.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article informatif environnement ville. Faits vraisemblables, calibration locale à vérifier en revue native.
+- `content\04_reading\b1\07_ce-b1-007.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\08_ce-b1-008.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article presse vulgarisation santé. Faits généraux ; études spécifiques non citées (à compléter en revue native).
+- `content\04_reading\b1\08_ce-b1-008.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\09_ce-b1-009.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article presse mobilité urbaine.
+- `content\04_reading\b1\09_ce-b1-009.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\10_ce-b1-010.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article presse éducation. Le CPF est une réalité française précise ; à valider en revue native pour exactitude réglementaire.
+- `content\04_reading\b1\10_ce-b1-010.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b1\11_ce-b1-011.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article presse économie commerce local.
+- `content\04_reading\b1\11_ce-b1-011.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\01_ce-b2-001.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article presse éducation québécoise. Faits généraux ; sigles administratifs vérifiés génériquement, à confirmer en revue native pour précision (volumes, chiffres).
+- `content\04_reading\b2\01_ce-b2-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\02_ce-b2-002.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article presse agriculture.
+- `content\04_reading\b2\02_ce-b2-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\03_ce-b2-003.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article presse formation médicale Québec. Sigles QC vérifiés génériquement, chiffres vraisemblables à valider en revue native.
+- `content\04_reading\b2\03_ce-b2-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\04_ce-b2-004.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article presse enseignement supérieur.
+- `content\04_reading\b2\04_ce-b2-004.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\05_ce-b2-005.md:3` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article presse politique du logement / transition énergétique. MaPrimeRénov' est une réalité française précise, à valider en revue native.
+- `content\04_reading\b2\05_ce-b2-005.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\06_ce-b2-006.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — article presse aspirations professionnelles médecins.
+- `content\04_reading\b2\06_ce-b2-006.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\07_ce-b2-007.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\08_ce-b2-008.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — éditorial inspiré du débat français/québécois post-pandémie sur le télétravail. Voix d'éditorialiste, registre soutenu sans excès. Pas de reprise verbatim de source identifiée.
+- `content\04_reading\b2\08_ce-b2-008.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\09_ce-b2-009.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\10_ce-b2-010.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\11_ce-b2-011.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\12_ce-b2-012.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\13_ce-b2-013.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\14_ce-b2-014.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\15_ce-b2-015.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\16_ce-b2-016.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\17_ce-b2-017.md:13` [calque] "il y a X que" — vérifier que ce n'est pas un calque de "there is X that". → « Il y a un fait que »
+- `content\04_reading\b2\17_ce-b2-017.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\18_ce-b2-018.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\19_ce-b2-019.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\20_ce-b2-020.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\21_ce-b2-021.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\22_ce-b2-022.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\23_ce-b2-023.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\24_ce-b2-024.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\b2\25_ce-b2-025.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\01_ce-c1-001.md:3` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — éditorial sur la mémoire numérique, voix de chroniqueur (registre soutenu sans excès). Pas d'article daté cité ; références conceptuelles (droit à l'oubli, RGPD) factuelles.
+- `content\04_reading\c1\01_ce-c1-001.md:88` [audit-comment] Commentaire AUDIT non résolu: Q3 — formulation à resserrer en revue native ; l'item teste cat 6 (attribution glissante) mais la consigne *« qui n'est PAS celui de l'auteur »* mélange deux niveaux. Reformuler en : *« Quelle position l'auteur attribue-t-il à ses opposants ? »* avec A comme réponse.
+- `content\04_reading\c1\01_ce-c1-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\02_ce-c1-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\03_ce-c1-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\04_ce-c1-004.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\05_ce-c1-005.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\06_ce-c1-006.md:3` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — vulgarisation scientifique inspirée des travaux de Peter Godfrey-Smith (*Other Minds*, 2016) et de la déclaration de Cambridge sur la conscience (2012). Faits cités factuels mais sans citation primaire ; à compléter en revue native.
+- `content\04_reading\c1\06_ce-c1-006.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\07_ce-c1-007.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\08_ce-c1-008.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\09_ce-c1-009.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\10_ce-c1-010.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c1\11_ce-c1-011.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c2\01_ce-c2-001.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — chronique ironique de type *L'Histoire d'un mot* (Le Monde). Voix de chroniqueur érudit, ironie soutenue, structure : étymologie → naturalisation → galvaudage → ironie finale. Pas de plagiat ; format inspiré non texte particulier.
+- `content\04_reading\c2\01_ce-c2-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c2\02_ce-c2-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\04_reading\c2\03_ce-c2-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_anti_error.md:140` [anglicism] "éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique. → « éventuellement »
+- `content\05_writing\00_anti_error.md:142` [anglicism] "éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique. → « Éventuellement »
+- `content\05_writing\00_anti_error.md:144` [anglicism] "éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique. → « Éventuellement »
+- `content\05_writing\00_anti_error.md:146` [anglicism] "supporter" = endurer, tolérer (rarement "appuyer"). Pour le sens "to support emotionally/financially", préférer "soutenir", "appuyer", "encourager". → « supporter »
+- `content\05_writing\00_anti_error.md:150` [anglicism] "supporter" = endurer, tolérer (rarement "appuyer"). Pour le sens "to support emotionally/financially", préférer "soutenir", "appuyer", "encourager". → « Supporter »
+- `content\05_writing\00_anti_error.md:150` [anglicism] "supporter" = endurer, tolérer (rarement "appuyer"). Pour le sens "to support emotionally/financially", préférer "soutenir", "appuyer", "encourager". → « supporter »
+- `content\05_writing\00_anti_error.md:128` [anglicism] "réaliser que" pour "to realize that" est attesté mais marqué; en registre soutenu préférer "se rendre compte que", "prendre conscience que". → « réaliser que »
+- `content\05_writing\00_anti_error.md:132` [anglicism] "réaliser que" pour "to realize that" est attesté mais marqué; en registre soutenu préférer "se rendre compte que", "prendre conscience que". → « Réaliser que »
+- `content\05_writing\00_anti_error.md:359` [quebecism] "magasiner" (Q) = "faire du shopping". Aussi attesté au sens de "comparer/chercher" (magasiner un prêt). En registre formel France, "faire des achats", "faire les courses" (alimentaire) ou "comparer les offres". → « magasiner »
+- `content\05_writing\00_anti_error.md:363` [quebecism] "magasiner" (Q) = "faire du shopping". Aussi attesté au sens de "comparer/chercher" (magasiner un prêt). En registre formel France, "faire des achats", "faire les courses" (alimentaire) ou "comparer les offres". → « magasiner »
+- `content\05_writing\00_anti_error.md:374` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\05_writing\00_anti_error.md:376` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\05_writing\00_anti_error.md:378` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\05_writing\00_anti_error.md:379` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\05_writing\00_anti_error.md:380` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\05_writing\00_anti_error.md:380` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\05_writing\00_anti_error.md:380` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\05_writing\00_anti_error.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_pivots\01_ouvrir.md:50` [anglicism] "réaliser que" pour "to realize that" est attesté mais marqué; en registre soutenu préférer "se rendre compte que", "prendre conscience que". → « comprendre que »
+- `content\05_writing\00_pivots\01_ouvrir.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_pivots\02_introduire_argument.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_pivots\03_illustrer.md:12` [anglicism] "réaliser que" pour "to realize that" est attesté mais marqué; en registre soutenu préférer "se rendre compte que", "prendre conscience que". → « comprendre que »
+- `content\05_writing\00_pivots\03_illustrer.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_pivots\04_conceder.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_pivots\05_refuter.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_pivots\06_nuancer.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_pivots\07_conclure.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t1\01_demande_service_formel.md:53` [anglicism] "éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique. → « éventuellement »
+- `content\05_writing\00_templates\t1\01_demande_service_formel.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t1\02_plainte_formelle.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t1\03_invitation_refus.md:22` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\05_writing\00_templates\t1\03_invitation_refus.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t1\04_excuses.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t1\05_conseil.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t1\06_remerciement.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t2\01_article_informatif.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t2\02_temoignage.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t2\03_rapport_bref.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t2\04_lettre_ouverte.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t2\05_contribution_forum.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t2\06_courrier_lecteurs.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t3\01_these_concession_refutation.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t3\02_pour_contre_bilan.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t3\03_cause_consequence.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t3\04_problematique_2args_bilan.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t3\05_comparaison.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\00_templates\t3\06_recommandation.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\tache1\01_ee-t1-001.md:35` [anglicism] "éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique. → « éventuellement »
+- `content\05_writing\tache1\01_ee-t1-001.md:84` [quebecism] "c'est correct" au sens de "c'est bon / d'accord / ça va" est québécois (calque indirect de "all right"). En France, "c'est bien", "ça va", "d'accord". (Patron resserré : exige le préfixe « c'est », sinon false positive massif sur l'adjectif standard.) → « c'est correct »
+- `content\05_writing\tache1\01_ee-t1-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\tache1\02_ee-t1-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\tache1\03_ee-t1-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\tache2\01_ee-t2-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\tache2\02_ee-t2-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\tache2\03_ee-t2-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\tache3\01_ee-t3-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\tache3\02_ee-t3-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\05_writing\tache3\03_ee-t3-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\00_anti_error.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\00_phonology\01_vocalique.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\00_phonology\02_consonantique.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\00_phonology\03_liaisons_obligatoires.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\00_phonology\04_liaisons_interdites.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\00_phonology\05_liaisons_facultatives.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\00_phonology\06_enchainement.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\00_phonology\07_schwa_instable.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\00_phonology\08_prosodie.md:175` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\06_speaking\00_phonology\08_prosodie.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\00_program.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\tache1\01_eo-t1-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\tache1\02_eo-t1-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\tache1\03_eo-t1-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\tache2\01_eo-t2-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\tache2\02_eo-t2-002.md:38` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\06_speaking\tache2\02_eo-t2-002.md:42` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\06_speaking\tache2\02_eo-t2-002.md:109` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\06_speaking\tache2\02_eo-t2-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\tache2\03_eo-t2-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\tache3\01_eo-t3-001.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\tache3\02_eo-t3-002.md:67` [anglicism] "supporter" = endurer, tolérer (rarement "appuyer"). Pour le sens "to support emotionally/financially", préférer "soutenir", "appuyer", "encourager". → « supporter »
+- `content\06_speaking\tache3\02_eo-t3-002.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\06_speaking\tache3\03_eo-t3-003.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:113` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:114` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:127` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:251` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:234` [quebecism] "souper" = repas du soir au Québec, repas tardif (après le théâtre) en France. En register=france, préférer "dîner" pour le repas du soir. → « souper »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:244` [quebecism] "souper" = repas du soir au Québec, repas tardif (après le théâtre) en France. En register=france, préférer "dîner" pour le repas du soir. → « souper »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:244` [quebecism] "souper" = repas du soir au Québec, repas tardif (après le théâtre) en France. En register=france, préférer "dîner" pour le repas du soir. → « souper »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:244` [quebecism] "souper" = repas du soir au Québec, repas tardif (après le théâtre) en France. En register=france, préférer "dîner" pour le repas du soir. → « souper »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:245` [quebecism] "souper" = repas du soir au Québec, repas tardif (après le théâtre) en France. En register=france, préférer "dîner" pour le repas du soir. → « souper »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:250` [quebecism] "souper" = repas du soir au Québec, repas tardif (après le théâtre) en France. En register=france, préférer "dîner" pour le repas du soir. → « souper »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:253` [quebecism] "souper" = repas du soir au Québec, repas tardif (après le théâtre) en France. En register=france, préférer "dîner" pour le repas du soir. → « souper »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:268` [quebecism] "souper" = repas du soir au Québec, repas tardif (après le théâtre) en France. En register=france, préférer "dîner" pour le repas du soir. → « souper »
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — scripts CO A1/A2 pour Mock #1. Registres france + québec représentés. Audio non synthétisé (gate Phase 7). À confirmer en revue native pour idiomes québécois (items 6, 9).
+- `content\07_mock_exams\mock_01\01a_co_a1_a2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\01b_co_b1.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\01c_co_b2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\01d_co_c1_c2.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — items CO C1 type 5 (30-35) + C2 type 7 (36-39). Scripts originaux inspirés des registres France Culture / France Inter / Radio-Canada Plus. Aucun extrait copié. Vérification distractors : chaque clé renvoie à une formulation littérale ou paraphrasable du script. Audio.required=false : seuls les scripts sont publiés ; synthèse différée à revue native.
+- `content\07_mock_exams\mock_01\01d_co_c1_c2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\02_ce_items.md:1` [audit-comment] Commentaire AUDIT non résolu: composition Phase 7 — 7 textes Phase 4 (a1-001, a2-001, a2-004, b1-001, b1-006, b2-001, b2-007, c1-001, c1-006, c2-001), renumérotation 1-39, textes et MCQ identiques sauf numérotation. Q4 A1 ajoutée pour atteindre la cible 4 A1 (la source ce-a1-001 ne comportait que 3 questions).
+- `content\07_mock_exams\mock_01\02_ce_items.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\06_answer_key_ce.md:1` [audit-comment] Commentaire AUDIT non résolu: corrigés copiés depuis Phase 4 (a1-001, a2-001, a2-004, b1-001, b1-006, b2-001, b2-007, c1-001, c1-006, c2-001), renumérotés 1-39 dans l'ordre du mock. Q4 (ajoutée pour porter A1 à 4 items) corrigée sur la base directe du texte source.
+- `content\07_mock_exams\mock_01\06_answer_key_ce.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\07_ee_models_t1.md:110` [anglicism] "éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique. → « éventuellement »
+- `content\07_mock_exams\mock_01\07_ee_models_t1.md:110` [anglicism] "éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique. → « éventuellement »
+- `content\07_mock_exams\mock_01\07_ee_models_t1.md:110` [anglicism] "éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique. → « éventuellement »
+- `content\07_mock_exams\mock_01\07_ee_models_t1.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\07_ee_models_t2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\07_ee_models_t3.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\08_eo_models_t1.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\08_eo_models_t2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_01\08_eo_models_t3.md:64` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\07_mock_exams\mock_01\08_eo_models_t3.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\01a_co_a1_a2.md:195` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\07_mock_exams\mock_02\01a_co_a1_a2.md:134` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
+- `content\07_mock_exams\mock_02\01a_co_a1_a2.md:239` [quebecism] "Bienvenue !" en réponse à "Merci" est un calque québécois de "You're welcome". En France, "De rien", "Je vous en prie", "(Il n'y a) pas de quoi". Acceptable en register=quebec. → « Bienvenue. »
+- `content\07_mock_exams\mock_02\01a_co_a1_a2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\01b_co_b1.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\01c_co_b2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\01d_co_c1_c2.md:1` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — scripts CO C1 type 5 et C2 type 7 pour Mock #2. Calibration plus serrée que Mock #1 : les distracteurs cat. 4 (inférence non garantie) et cat. 6 (attribution glissante) dominent, conformément au profil d'examen réel pour la bande haute. Aucun chunk idiomatique à risque ; lexique académique stable.
+- `content\07_mock_exams\mock_02\01d_co_c1_c2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\02_ce_items.md:1` [audit-comment] Commentaire AUDIT non résolu: items reproduits verbatim depuis Phase 4. Aucune création textuelle pour Mock #2 — c'est un recombinant. Distribution effective : A1×3 (texte 1), A2×6 (textes 2-3), B1×8 (textes 4-5), B2×9 (textes 6-7), C1×6 (textes 8-9), C2×5 (texte 10). Spec demandait 4/6/9/10/6/4 = 39 ; livré 3/6/8/9/6/5 = 37 (cf. notes d'audit).
+- `content\07_mock_exams\mock_02\02_ce_items.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\04_eo_prompts.md:56` [anglicism] "éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique. → « éventuellement »
+- `content\07_mock_exams\mock_02\04_eo_prompts.md:56` [anglicism] "réaliser que" pour "to realize that" est attesté mais marqué; en registre soutenu préférer "se rendre compte que", "prendre conscience que". → « réaliser que »
+- `content\07_mock_exams\mock_02\06_answer_key_ce.md:1` [audit-comment] Commentaire AUDIT non résolu: agrégation des corrigés Phase 4. Catégories de distracteurs et glose conservées telles quelles ; renumérotation seule.
+- `content\07_mock_exams\mock_02\06_answer_key_ce.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\07_ee_models_t1.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\07_ee_models_t2.md:132` [anglicism] "réaliser que" pour "to realize that" est attesté mais marqué; en registre soutenu préférer "se rendre compte que", "prendre conscience que". → « comprendre que »
+- `content\07_mock_exams\mock_02\07_ee_models_t2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\07_ee_models_t3.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\08_eo_models_t1.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\08_eo_models_t2.md:72` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\07_mock_exams\mock_02\08_eo_models_t2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\mock_02\08_eo_models_t3.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\07_mock_exams\partials\co_partial_01.md:269` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\07_mock_exams\partials\co_partial_01.md:270` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\07_mock_exams\partials\co_partial_01.md:273` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\07_mock_exams\partials\co_partial_01.md:273` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\07_mock_exams\partials\co_partial_01.md:276` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\07_mock_exams\partials\co_partial_01.md:277` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\07_mock_exams\partials\co_partial_01.md:2` [audit-comment] Commentaire AUDIT non résolu: production auctoriale — scripts CO partial #1, contenu inédit (pas de réutilisation de mock-01 ni mock-02).
+- `content\07_mock_exams\partials\co_partial_01.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\01_subjonctif_declencheurs.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\02_conditionnel_hypothese.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\03_connecteurs_b2.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\04_connecteurs_c1.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\05_pivots_ee_t3.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\06_pivots_eo_t3.md:54` [repeated] Token répété (typo ?). → « voilà voilà »
+- `content\08_cheatsheets\06_pivots_eo_t3.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\07_phonologie_minimal_pairs.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\08_liaisons.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\09_anti_anglicismes.md:74` [quebecism] "présentement" est québécois pour "actuellement / en ce moment". Acceptable en register=quebec; en register=france, préférer "actuellement", "à l'heure actuelle", "en ce moment". → « présentement »
+- `content\08_cheatsheets\09_anti_anglicismes.md:71` [quebecism] "breuvage" en français standard a une connotation péjorative (potion, mixture douteuse). Au Québec il signifie neutre "boisson". En register=france, "boisson". → « breuvage »
+- `content\08_cheatsheets\09_anti_anglicismes.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\10_vocabulaire_argumentation.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\11_distractor_anatomy.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\08_cheatsheets\12_quebec_france.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\09_strategy\00_distractor_anatomy.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\09_strategy\00_exam_day.md:53` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\09_strategy\00_exam_day.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\09_strategy\01_co_strategy.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\09_strategy\02_ce_strategy.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\09_strategy\03_ee_strategy.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\09_strategy\04_eo_strategy.md:19` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\09_strategy\04_eo_strategy.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\09_strategy\05_pitfalls.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\09_strategy\06_taper_protocol.md:30` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\09_strategy\06_taper_protocol.md:32` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\09_strategy\06_taper_protocol.md:121` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\09_strategy\06_taper_protocol.md:124` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\09_strategy\06_taper_protocol.md:137` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\09_strategy\06_taper_protocol.md:1` [stale] audit.status=pending sur un fichier non-stub.
+

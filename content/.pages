@@ -1,0 +1,14 @@
+# Root .pages: title is ignored at root (site_name in mkdocs.yml is authoritative).
+nav:
+  - Accueil: index.md
+  - 00_diagnostic
+  - 01_grammar
+  - 02_vocabulary
+  - 03_listening
+  - 04_reading
+  - 05_writing
+  - 06_speaking
+  - 07_mock_exams
+  - 08_cheatsheets
+  - 09_strategy
+  - 10_canada_culture

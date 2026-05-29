@@ -1,0 +1,58 @@
+# French disfluency tokens — used by tools/score_speaking.py
+# Each entry: { token, kind, note }.
+# kind ∈ {filler, hedge, repair_marker, discourse_marker_overuse}.
+#
+# Detection is by exact substring (case-insensitive) on word boundary.
+# "voilà" and "du coup" are NOT disfluencies in isolation — they become
+# disfluencies above a frequency threshold (≥ 1 per 100 words counted by the
+# tool's *frequency* heuristic; the tool reports raw counts and lets the
+# rubric mapping apply the threshold).
+#
+# Reference for the marker inventory:
+#   Candea (2000) "Contribution à l'étude des pauses silencieuses et des
+#     phénomènes dits 'd'hésitation' en français oral spontané"
+#   Vincent (1993) "Les ponctuants de la langue et autres mots du discours"
+#     (Québec corpus). The Quebec markers (*pis*, *ça fait que*, *en tout
+#     cas*) are listed for recognition only — TCF Canada EO is scored on
+#     standard French; if a Québec marker appears the tool flags it as a
+#     register slip in T3 (formel) and a neutral observation in T1/T2.
+
+fillers:
+  - { token: "euh",     kind: filler, note: "filler hésitation — le marqueur le plus fréquent" }
+  - { token: "euhm",    kind: filler, note: "variante nasalisée d'euh" }
+  - { token: "hum",     kind: filler, note: "filler de transition" }
+  - { token: "ben",     kind: filler, note: "ouverture de tour ; familier dès 2/100 mots en T3" }
+  - { token: "bah",     kind: filler, note: "marqueur d'évidence ; familier dès 2/100 mots en T3" }
+  - { token: "hein",    kind: filler, note: "tag de validation ; banni en T3 formel" }
+  - { token: "quoi",    kind: filler, note: "filler postposé (familier) — *c'est dur quoi*" }
+
+hedges:
+  - { phrase: "je sais pas",        kind: hedge,           note: "drop de 'ne' familier ; toléré T1/T2, à éviter T3" }
+  - { phrase: "j'sais pas",         kind: hedge,           note: "élision familière ; banni T3" }
+  - { phrase: "ou quelque chose",   kind: hedge,           note: "tournure vague — substituer 'ou similaire'" }
+  - { phrase: "ou je sais pas quoi", kind: hedge,          note: "vague + dérèglement de registre" }
+  - { phrase: "un peu",             kind: hedge,           note: "atténuateur fréquent ; > 4/100 mots = imprécision lexicale" }
+  - { phrase: "genre",              kind: hedge,           note: "calque de l'anglais *like*, banni en tout T" }
+
+repair_markers:
+  - { phrase: "enfin je veux dire", kind: repair_marker,   note: "marqueur d'auto-correction" }
+  - { phrase: "je veux dire",       kind: repair_marker,   note: "transition de reformulation" }
+  - { phrase: "c'est-à-dire",       kind: repair_marker,   note: "neutre en écrit, marque hésitation à l'oral si > 2/100" }
+  - { phrase: "non en fait",        kind: repair_marker,   note: "false start" }
+  - { phrase: "pardon",             kind: repair_marker,   note: "interruption auto-corrective" }
+
+discourse_marker_overuse:
+  # These are *legitimate* discourse markers in moderation; the tool counts them
+  # and only flags above a per-100-words threshold (default 1/100 each).
+  - { phrase: "du coup",            kind: discourse_marker_overuse, note: "banni au-delà de 1/100 ; alternative *par conséquent*" }
+  - { phrase: "en fait",            kind: discourse_marker_overuse, note: "très fréquent à l'oral ; cap 2/100" }
+  - { phrase: "voilà",              kind: discourse_marker_overuse, note: "ponctuant — cap 1/100 en T3" }
+  - { phrase: "donc",               kind: discourse_marker_overuse, note: "cap 2/100 ; rotation avec *par conséquent*, *ainsi*" }
+
+quebecois_markers_for_recognition:
+  # The tool does NOT count these in the disfluency score for T1/T2; for T3 a
+  # `quebec_register_slip` warning is emitted. Documented for recognition.
+  - { phrase: "pis",                kind: filler, note: "Québec : 'puis' réduit" }
+  - { phrase: "ça fait que",        kind: filler, note: "Québec : équivalent de 'donc'" }
+  - { phrase: "en tout cas",        kind: filler, note: "Québec : marqueur de retour" }
+  - { phrase: "tsé",                kind: filler, note: "Québec : 'tu sais' réduit" }

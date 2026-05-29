@@ -1,107 +1,161 @@
-# Optimized Prompt Bundle — TCF Canada B1→C1/C2 Preparation Corpus
-## What this is, how it differs from your original ask, how to feed it to Claude Code
+# TCF Canada — Préparation B1 → C1/C2
+
+> **Source-audited TCF Canada prep corpus.** ~410 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki). Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
 
 ---
 
-## 1. The optimization, in one paragraph
+## What this is — in 60 seconds
 
-Your original prompt conflated three different tasks (research, planning, execution), under-specified the deliverable, asked for feature-maximisation rather than score-anchored prioritisation, and ignored the dominant failure mode of LLM-generated French (silent fluency errors that, once memorised by the learner, *lower* exam scores). The optimized prompt below splits the work into a master orchestrator + 9 phase files, replaces "find the best repo" with "build the canonical open repository that doesn't yet exist" (because honestly, after research, none does at production quality), substitutes an explicit B1+B2-first prioritisation grounded in the TCF's published per-item point weighting (B1+B2 = 49% of CO/CE score), and bakes in an adversarial-review + native-source-grounding protocol on every generation step.
+A **single-source-of-truth Markdown corpus** that builds to:
 
----
+- a searchable **HTML site** (MkDocs Material, French search index)
+- a **PDF book** (Pandoc + XeLaTeX, French typography)
+- eight **per-section booklets** (PDF, ≤ 5 MB each)
+- an **EPUB** (Pandoc EPUB3)
+- an **Anki deck** (`.apkg`, ~1 500 cards, FSRS-friendly)
 
-## 2. What the research actually found (May 2026)
+What's inside:
 
-- **No canonical GitHub repo exists for TCF Canada** at production quality. Public materials are scattered: FEI sample papers, commercial apps (TCFPrep, HiTCF, TCFCanada.ai, Ouizami, Claire AI), and DELF/DALF Anki decks that only partially overlap.
-- **TCF Canada scoring (current 2026)**: 4 sections (CO 35 min / CE 60 min / EE 60 min / EO 12 min, total ≈ 2h47). CO+CE scored 100–699; EE+EO scored 0–20. Per-item points in CO/CE follow CEFR levels: A1=3, A2=9, B1=15, **B2=21**, C1=26, C2=33.
-- **NCLC thresholds (IRCC table)**: NCLC 7 (B2) = CO ≥ 458 / CE ≥ 453 / EE+EO ≥ 12; NCLC 8 = ≥ 503/499/14; NCLC 9 (C1) = ≥ 523/524/16; NCLC 10+ (C2) ≥ 549/549/18.
-- **B1→C1 in 12 weeks is aggressive but feasible** with ~200 hours of focused study, daily output, expert feedback (here substituted by audited self-scoring rubrics), and a structure heavily weighted toward the B2-band items that dominate the exam.
-- **Evidence-based methods** baked into the design: spaced repetition (Anki, FSRS), comprehensible input with i+1 ordering (Krashen), comprehensible output (Swain), shadowing, interleaved practice (Carpenter, +43% transfer), counterbalanced form-meaning approach (Lyster, relevant for Quebec immersion).
+- 64 graded grammar units (B1 → C2)
+- 12 thematic vocabulary domains, ~3 000-lemma frequency backbone (skeleton)
+- 60 listening items + 60 reading items (60 reading items shipped; listening bank stubbed)
+- 9 EE pilot prompts × 3 model answers (NCLC 6/8/10), 18 templates, ≥ 193 pivot phrases, 56-entry anti-error register, auto-scorer
+- 9 EO pilot prompts × 3 model transcripts, 8-unit phonological kit, 60-day "talk-yourself-to-fluency" program, Whisper-based self-scorer
+- 4 full mocks (2 fully authored, 2 scaffolded), 4 partial mocks per skill (1 pilot per skill + queue), score calculator (CLI + HTML)
+- 7 strategy documents (CO/CE/EE/EO + pitfalls + exam-day + taper protocol)
+- 12 cheatsheets (each ≤ 4 800 chars, A4-budget)
+- A post-mock diagnostic protocol + rebalancing hooks into `ROADMAP.md`
 
----
+What this is **not**:
 
-## 3. The bundle (what's in this folder)
-
-| # | File | Purpose |
-|---|---|---|
-| 0 | `00_MASTER_PROMPT.md` | Top-level orchestrator. Defines the operating principles, repo layout, multi-format build strategy, hallucination-control protocol, and the phase map. **Feed this first.** |
-| 1 | `01_PROJECT_CONTEXT.md` | TCF exam structure, scoring conversion, learner profile, target bands, anchoring sources, definition of done. |
-| 2 | `02_PHASE_1_FOUNDATION.md` | Repo scaffolding, frontmatter schema, build pipeline (MkDocs + Pandoc + LaTeX + genanki + edge-tts), diagnostic test, 12-week roadmap. |
-| 3 | `03_PHASE_2_GRAMMAR.md` | Graded grammar B1→C2: 15 B1 consolidation + 20 B2 core + 15 C1 advanced + 10 C2 polish units. |
-| 4 | `04_PHASE_3_VOCAB_LISTENING.md` | 3000-lemma frequency backbone + 12 thematic domains + 60 listening items + Anki + TTS audio. |
-| 5 | `05_PHASE_4_READING.md` | 60 reading items across the 7 TCF text types with full distractor anatomy. |
-| 6 | `06_PHASE_5_WRITING.md` | 3 tâches × 30 prompts, 3 model answers per prompt (NCLC 6/8/10), 36 templates, pivots library, CLI auto-scorer, anti-error register. |
-| 7 | `07_PHASE_6_SPEAKING.md` | 3 tâches × 30 prompts × 3 model audios, 8-unit phonological kit, Whisper-based self-scorer, 60-day talk-to-fluency program. |
-| 8 | `08_PHASE_7_MOCKS_STRATEGY.md` | 4 full mocks + partials + 7 strategy docs + 12 cheatsheets + score calculator + post-mock diagnostic template. |
-| 9 | `09_PHASE_8_LAUNCH.md` | Final QA, cross-format parity, onboarding flow, CI, license, post-launch protocol. |
-
-Total: 10 MD files, ≈ 80 KB of prompt material, structured as a complete brief for a senior engineer + curriculum designer hybrid.
+- A replacement for a tutor at C1+.
+- A native-recorded audio bank — TTS is used where flagged (`audio.required: true`); native review queued in [BACKLOG.md](BACKLOG.md).
+- An examiner-grade auto-scorer — calibrated at 81 % (EE) / 85 % (EO) adjacency-tolerant against model answers. Use the trajectory, not the absolute number.
 
 ---
 
-## 4. How to use with Claude Code
-
-### Step 1 — Place the bundle in the repo to be created.
+## Quickstart (5 commands → Day 1)
 
 ```bash
-mkdir tcf-canada-prep && cd tcf-canada-prep
-git init
-mkdir prompts && cp /path/to/this/bundle/*.md prompts/
-git add prompts/ && git commit -m "chore: optimized prompt bundle"
+# 1. Clone + enter
+git clone <repo-url> && cd tcf-canada-prep
+
+# 2. Install (Python 3.12+ via uv)
+uv sync --extra dev
+
+# 3. Build the Anki deck + HTML site
+uv run python -m tools.cli build-anki
+uv run python -m tools.cli build-site
+
+# 4. Read Day 0 onboarding
+# Open content/00_start_here.md in your editor or browse the site:
+uv run mkdocs serve   # → http://127.0.0.1:8000
+
+# 5. Take the diagnostic
+# content/00_diagnostic/01_diagnostic_test.md (90 min, scored against content/00_diagnostic/02_answer_key.md)
 ```
 
-### Step 2 — Open a Claude Code session in that directory and run:
-
-> Read `prompts/00_MASTER_PROMPT.md` in full. Then proceed phase by phase per `prompts/01_PROJECT_CONTEXT.md` through `prompts/09_PHASE_8_LAUNCH.md`. After completing each phase, produce `PHASE_N_DESIGN.md`, `PHASE_N_AUDIT.md`, `PHASE_N_EVAL.md` and pause for my confirmation before starting the next phase. Do not skip the adversarial-review pass — it's the single most important quality control.
-
-### Step 3 — At each phase boundary, review and approve before continuing.
-
-The phase files include explicit acceptance criteria. If a phase eval reports unresolved blockers, do not advance.
-
-### Step 4 — Once Phase 8 ships, the corpus is yours to study.
-
-Open `ROADMAP.md`, take the diagnostic, and follow the 84-day plan.
+Then follow [`ROADMAP.md`](ROADMAP.md) — the 84-day plan.
 
 ---
 
-## 5. What the original prompt got right, that I kept
+## The 12-week plan
 
-- **Multi-format output** (MD canonical, HTML site, LaTeX/PDF, EPUB, Anki) — kept, with single-source-of-truth discipline so they cannot drift.
-- **Think → design → code → audit → iterate** loop — kept, made explicit at every phase with named deliverables.
-- **Phase-by-phase execution** — kept and tightened: 8 phases with explicit gates.
-- **Aggressive 3-month timeline** — kept, but reframed: NCLC 8–9 (B2–C1) is realistic; NCLC 10 (C2) requires individual coaching beyond what static content delivers.
+Two hours a day, 14 hours a week. See [`ROADMAP.md`](ROADMAP.md) for the day-by-day version. Headline milestones:
 
----
-
-## 6. What changed, and why
-
-| Original ask | Issue | Replacement |
+| Week | Focus | Milestone |
 |---|---|---|
-| "Find the best GitHub repo with TCF Canada materials" | No such repo exists at production quality (verified May 2026) | Build the canonical open repository; document the gap honestly in the README |
-| "Add as many features as possible" | Anti-pattern; produces bloat at quality cost | Score-anchored priority tiers (P0–P3) tied to TCF point distribution (B1+B2 = 49%) |
-| "Generate in 4 formats simultaneously" | Synchronisation debt; identical content authored 4× | One canonical MD source + generators (Pandoc/MkDocs/genanki/edge-tts) |
-| Implicit assumption that LLM-generated French is reliable | Single biggest project risk; wrong genders/idioms/calques get memorised | Three-pass authoring (anchor-in-sources → write → adversarial review) + confidence-gated frontmatter + quarantine deck |
-| "Top-notch materials" without acceptance criteria | Vague; no eval gate | Each phase has measurable acceptance criteria (CI green, audit < N issues, calibration ≥ N%) |
-| No discussion of audio | TCF CO is audio-only; can't skip | Edge-TTS pipeline with Quebec + Metropolitan voices, SSML-controlled pace, shadowing protocol, phonological self-evaluation via Whisper |
-| No discussion of distractors | MCQ banks fail on distractor quality, not stem quality | Distractor anatomy (7 trap families), distractor-first design protocol, audit rule "no item with > 2 distractors of same type" |
-| Aggregated all skills into one bucket | Each skill has different study mechanics | Phase per skill (grammar, vocab+listening, reading, writing, speaking), then mocks integrate |
-| No score-impact priority for content | Equal effort per item ≠ equal score impact | Explicit per-CEFR-level item counts proportional to TCF point weighting |
+| 1 | Diagnostic + B1 consolidation | Score reading |
+| 2 | B2 grammar core + reading volume | Mini-mock CO+CE |
+| 3 | CO volume + EE T1 mastery | — |
+| 4 | EE B2 depth + EO T1/T2 | — |
+| 5 | C1 grammar + Mock #1 | **Mock #1 complete** |
+| 6 | C1 lexical density + connectors | — |
+| 7 | EE T3 argument drill | Partial mock EE+EO |
+| 8 | EO T3 monologue + Mock #2 | **Mock #2 — B2 operational** |
+| 9 | Weakness-driven remediation | — |
+| 10 | Speed + precision under pressure | **Mock #3** |
+| 11 | Soutenu register + C1/C2 nuance | **Mock #4** |
+| 12 | Taper: lighten, sleep, J-1 strategy | **Exam** |
+
+If a mock plateau hits, the diagnostic + post-mortem rebalance hooks in `ROADMAP.md` redirect time to the weakest sub-skill.
 
 ---
 
-## 7. Honest limitations to disclose to the learner
+## Format options
 
-These are documented inside the corpus and should be disclosed:
+| Format | Build command | Where it lands | Use case |
+|---|---|---|---|
+| HTML site | `make site` (or `just site`) | `site/` | Daily browsing, search |
+| Monolithic PDF | `make pdf` | `pdf/tcf-canada-prep.pdf` | iPad reading, offline |
+| Per-section PDF | `make pdf` (same target) | `pdf/0X_*.pdf` | Booklet portability |
+| EPUB | `make epub` | `pdf/tcf-canada-prep.epub` | e-reader |
+| Anki deck | `make anki` | `flashcards/dist/tcf-canada.apkg` | Spaced repetition (FSRS) |
+| TTS audio | `make audio` | `audio/<id>.mp3` | Listening + shadowing |
 
-1. **TTS ≠ native speech.** Edge-TTS is excellent for B1/B2 listening but the C1+ items would benefit from a native recording pass. The corpus flags these and provides Forvo links as a fallback for individual words.
-2. **The auto-scoring tools are heuristic.** They are calibrated against model answers, not against real examiner judgments. They produce a comparable trajectory (your week-12 score vs your week-1 score) but not an absolute examiner-grade score. A 14/20 from the tool might be a 13/20 or a 15/20 from a real examiner.
-3. **NCLC 10/C2 is a stretch.** The corpus reliably supports the journey to NCLC 8–9 (B2–C1). NCLC 10 in EE/EO realistically requires a human tutor's feedback on subtle register and idiomatic choices.
-4. **Quebec ≠ France calibration.** The corpus teaches recognition of both registers but does not push the learner to produce Quebec-specific forms. A Montréal-based learner will benefit from real-world Quebec exposure that the corpus does not replicate.
-5. **3 months is intense.** ~2 h/day × 84 days = 168 hours of focused work, plus passive immersion. Missing more than 7 non-consecutive days breaks the spaced-repetition advantage.
+`make all` builds site + Anki + EPUB + PDF (~5 min on CI). Audio is excluded from `make all` because it hits the edge-tts network and can take several minutes; run `make audio` separately. Windows users without GNU Make: use `just <target>` or `uv run python -m tools.cli <target>` directly. See [`Makefile`](Makefile) / [`justfile`](justfile).
 
 ---
 
-## 8. Ready to launch
+## Honest disclaimers
 
-The bundle is now self-contained. Feed `00_MASTER_PROMPT.md` to Claude Code and let it execute the 8 phases. Estimated wall-clock for full execution: 8–15 sessions depending on session length and how aggressively Claude Code parallelises within each phase. The token budget is large; the user has indicated it is unlimited for this task.
+1. **TTS ≠ native speech.** Edge-TTS is high quality for B1/B2 listening but C1+ items would benefit from a native recording pass. Forvo links are flagged inline for individual words; full native audio is queued in [BACKLOG.md](BACKLOG.md).
+2. **Auto-scoring is heuristic.** `tools.score_writing` and `tools.score_speaking` are calibrated to ~ 81–85 % agreement with model answers, not against real examiner judgments. A `14/20` from the tool might be a 13/20 or 15/20 from a real examiner. Use the **trajectory** across weeks, not the absolute score.
+3. **NCLC 7–9 is reliably supported.** NCLC 10+ in EE/EO realistically requires a human tutor's feedback on subtle register and idiomatic choices.
+4. **Quebec ≠ France.** The corpus teaches *recognition* of both registers but only pushes *production* in standard French. A Montréal-based learner benefits from real-world Quebec exposure that static content can't replicate.
+5. **3 months is intense.** ~2 h/day × 84 days = 168 h of focused work, plus passive immersion. Missing more than 7 non-consecutive days breaks the spaced-repetition advantage.
+6. **Mocks #3 and #4 are scaffolded only at v1.0.** CO/CE items will be authored in v1.1 once the Phase 3 listening bank is filled. Use the 1 partial-mock pilot per skill (`content/07_mock_exams/partials/`) for interim drill.
 
-Good luck. Bonne préparation. À l'examen !
+---
+
+## Repository layout
+
+```
+content/
+  00_start_here.md             ← read first
+  00_diagnostic/               ← Day-0 placement test (CO + CE + EE + EO)
+  01_grammar/                  ← 64 units B1 → C2
+  02_vocabulary/               ← 12 thematic domains + frequency skeleton
+  03_listening/                ← strategy + per-CEFR-band item buckets
+  04_reading/                  ← 60 items, 7 TCF text types
+  05_writing/                  ← rubric + anti-error + pivots + templates + prompts
+  06_speaking/                 ← rubric + 8-unit phonology + 60-day program + prompts
+  07_mock_exams/               ← 4 mocks + partials + diagnostic protocol
+  08_cheatsheets/              ← 12 single-page A4 reference cards
+  09_strategy/                 ← exam-day + per-section tactics + taper protocol
+  10_canada_culture/           ← Quebec/France notes for register awareness
+tools/                         ← build pipeline (Python)
+tests/                         ← pytest suite (75 tests, 2 skipped on local Windows)
+latex/                         ← XeLaTeX template (French typography)
+examples/                      ← single-domain mini-corpus for new contributors
+PROMPT_BUNDLE.md               ← the 11 framing docs that built this repo
+ROADMAP.md                     ← 84-day plan
+CHANGELOG.md                   ← phase-by-phase history
+BACKLOG.md                     ← deferred minor items (P3/P4)
+CONTRIBUTING.md                ← how to add content, schema, audit rules
+CONTRIBUTORS.md                ← human + AI contributors
+LICENSE / LICENSE-CONTENT.txt / LICENSE-TOOLS.txt
+```
+
+For the design rationale behind the 8-phase build process, see [`PROMPT_BUNDLE.md`](PROMPT_BUNDLE.md).
+
+---
+
+## Contributing
+
+External contributions welcome — the absolute priority is **not degrading the quality of the French**. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a PR. The PR template asks for a *« Pourquoi je suis confiant que ce français est correct »* box: sources consulted, residual doubts. Frontmatter schema is validated in CI; `confidence: low` content does not ship to builds.
+
+---
+
+## License + acknowledgements
+
+- **Content** (everything under `content/` + framing `*.md`) — [CC BY-SA 4.0](LICENSE-CONTENT.txt).
+- **Tools** (everything under `tools/`, `tests/`, `latex/`, `Makefile`, `justfile`, `pyproject.toml`, build configs) — [MIT](LICENSE-TOOLS.txt).
+
+Pedagogical references seeded in [`references.bib`](references.bib): Riegel, Pellat & Rioul (*Grammaire méthodique du français*); Grevisse; Léon (*Phonétisme et prononciations du français*); Tranel (*The sounds of French*); Krashen (input hypothesis); Swain (output hypothesis); Carpenter (interleaved practice); Lyster (counterbalanced approach). FEI sample TCF papers + IRCC NCLC conversion tables cited where the score-mapping rules originate.
+
+This corpus was assembled by a single learner (an AI researcher in Montréal preparing for TCF Canada in 2026) using Claude Code as a pair-programmer + curriculum designer. The 8-phase build process is documented in [`CHANGELOG.md`](CHANGELOG.md). See [`CONTRIBUTORS.md`](CONTRIBUTORS.md) for the full credit list.
+
+---
+
+Good luck. Bonne préparation. À l'examen.

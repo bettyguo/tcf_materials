@@ -1,0 +1,179 @@
+# Minimal French stoplist for content-word counting in tools/measure_density.py.
+# ~120 entries: articles, pronouns, common prepositions, conjunctions, the most
+# frequent grammar-only adverbs, modal/auxiliary verb forms, and elided/contracted
+# variants. Intentionally NOT exhaustive — the goal is to subtract clearly
+# function-only tokens, not to model French morphology. One token per line; blank
+# lines and `#`-prefixed lines ignored.
+#
+# Source: hand-curated against Lonsdale & Le Bras band 1 (most-frequent ~300
+# lemmas), keeping only items whose POS is unambiguously functional in TCF
+# Canada register (no homographs that could be content words in context).
+
+# Articles + determiners
+le
+la
+les
+l
+un
+une
+des
+du
+de
+ce
+cet
+cette
+ces
+mon
+ton
+son
+ma
+ta
+sa
+mes
+tes
+ses
+notre
+votre
+leur
+nos
+vos
+leurs
+au
+aux
+
+# Personal + relative + demonstrative pronouns
+je
+j
+tu
+il
+elle
+on
+nous
+vous
+ils
+elles
+me
+m
+te
+t
+se
+s
+lui
+y
+en
+moi
+toi
+soi
+eux
+qui
+que
+quoi
+dont
+où
+celui
+celle
+ceux
+celles
+
+# Prepositions
+à
+en
+dans
+sur
+sous
+par
+pour
+avec
+sans
+chez
+vers
+entre
+parmi
+selon
+contre
+depuis
+pendant
+avant
+après
+jusqu
+
+# Conjunctions
+et
+ou
+mais
+donc
+or
+ni
+car
+si
+quand
+lorsque
+puisque
+comme
+parce
+quoique
+
+# Common adverbs (grammar-only — not e.g. "rapidement" which carries meaning)
+ne
+n
+pas
+plus
+moins
+très
+trop
+aussi
+si
+non
+oui
+peut-être
+ici
+là
+y
+en
+
+# Auxiliary + modal verb forms (top frequencies — full conjugation would inflate)
+est
+était
+sera
+sont
+étaient
+seront
+ai
+as
+a
+avons
+avez
+ont
+avait
+avaient
+aura
+auront
+été
+étant
+ayant
+être
+avoir
+fait
+fais
+faisait
+faisaient
+
+# Negation + cleft fillers
+ce
+c
+ça
+cela
+ceci
+
+# Numbers (function-like in text density)
+un
+une
+deux
+trois
+quatre
+cinq
+six
+sept
+huit
+neuf
+dix

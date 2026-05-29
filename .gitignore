@@ -1,0 +1,33 @@
+# Build outputs (regenerable)
+site/
+pdf/
+flashcards/dist/
+audio/
+*.apkg
+audit_samples/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*.log
+.idea/
+
+# Local-only secrets / overrides
+.env
+.env.local
+tools/audit_whitelist.local.txt
+
+# Claude Code agent session state (not part of the corpus)
+.claude/

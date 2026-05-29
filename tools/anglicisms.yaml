@@ -1,0 +1,90 @@
+# Anglicism flags for the audit pass. Each entry:
+#   pattern: regex (Python re, case-insensitive)
+#   note:    short explanation of what to verify
+#   severity: minor | major   (minor = often acceptable; major = almost always wrong)
+#
+# This list is intentionally conservative: the audit only flags, never fails on these.
+# False positives are unavoidable in a flagger; tune the whitelist via the per-file
+# `<!-- AUDIT-IGNORE: anglicism reason -->` directive (see CONTRIBUTING.md).
+
+- pattern: '\bopportunit[ée]\s+de\s+\w+er\b'
+  note: '"opportunité de faire X" est calque de "opportunity to do X" — préférer "occasion de faire X" ou "chance de faire X".'
+  severity: major
+
+- pattern: '\badresser\s+(?:un|le|les)\s+(?:probl[èe]me|enjeu|question)'
+  note: '"adresser un problème" est calque de "to address an issue" — préférer "aborder", "traiter" ou "régler".'
+  severity: major
+
+- pattern: '\b[ée]ventuellement\b'
+  note: '"éventuellement" en français = "possibly", PAS "eventually" — vérifier que le sens visé est bien hypothétique.'
+  severity: minor
+
+- pattern: '\bsupporter\b'
+  note: '"supporter" = endurer, tolérer (rarement "appuyer"). Pour le sens "to support emotionally/financially", préférer "soutenir", "appuyer", "encourager".'
+  severity: minor
+
+- pattern: '\bcompl[ée]ter\s+(?:un|le|la|les)\s+(?:formulaire|document|tâche|projet)'
+  note: '"compléter" = ajouter ce qui manque ; "remplir un formulaire", "achever / mener à bien un projet". "To complete a form" → "remplir".'
+  severity: major
+
+- pattern: '\b(?:r[ée]aliser|comprendre)\s+que\b'
+  note: '"réaliser que" pour "to realize that" est attesté mais marqué; en registre soutenu préférer "se rendre compte que", "prendre conscience que".'
+  severity: minor
+
+- pattern: '\b(?:depuis|pendant|pour)\s+(?:le\s+)?dernier\s+\w+'
+  note: 'Calque possible de "for the last X" — vérifier emploi correct de "depuis" + durée vs "au cours du dernier X".'
+  severity: minor
+
+- pattern: '\binitier\s+(?:un|le|la|les)\b'
+  note: '"initier un projet" est anglicisme pour "to initiate a project". "Initier" en français = introduire qqn à un savoir. Préférer "lancer", "amorcer", "entamer".'
+  severity: major
+
+- pattern: '\b(?:figurer|chiffrer)\s+(?:que|pourquoi|comment)'
+  note: '"figurer que" est calque de "to figure that" — préférer "supposer que", "imaginer que", "se dire que".'
+  severity: major
+
+- pattern: '\bd[ée]finitivement\b'
+  note: '"définitivement" = pour de bon, irrémédiablement. PAS "definitely" (= "absolument", "tout à fait", "sans aucun doute").'
+  severity: major
+
+- pattern: '\bpasser\s+(?:un|la|le|les)\s+(?:temps|moment)\s+\w+er'
+  note: 'Calque de "to spend time doing X" — préférer "passer du temps à faire X" (construction "à + infinitif").'
+  severity: minor
+
+- pattern: '\b(?:application|appliquer)\s+(?:pour|à)\s+(?:un|une|le|la)\s+(?:poste|emploi|bourse|programme)'
+  note: '"appliquer pour un poste" est anglicisme. Préférer "postuler à / pour un poste", "candidater à un programme".'
+  severity: major
+
+- pattern: '\b[ée]tre\s+invit[ée]\s+(?:pour|à)\s+\w+er'
+  note: 'Vérifier construction : "être invité à faire X" (préposition "à"), pas "être invité pour faire X".'
+  severity: minor
+
+- pattern: '\b(?:prendre|faire)\s+un\s+d[ée]cision'
+  note: '"faire une décision" = calque de "to make a decision". Correct : "prendre une décision".'
+  severity: major
+
+- pattern: '\bfaire\s+(?:un|le|du)\s+(?:sens|argument)'
+  note: '"faire du sens" / "faire un argument" sont calques. Préférer "avoir du sens", "tenir debout" / "présenter / avancer un argument".'
+  severity: major
+
+- pattern: '\bse\s+rappeler\s+de\b'
+  note: '"se rappeler" est transitif direct : "je me rappelle Xmot" (PAS "je me rappelle de X"). "Se souvenir DE X" est correct.'
+  severity: minor
+
+- pattern: '\bintroduire\s+\w+\s+à\s+(?:un|une|le|la|les)\b'
+  note: '"introduire X à Y" est calque de "introduce X to Y". En français, "présenter X à Y" (personnes) ou "faire découvrir Y à X" (idée/concept). "Introduire" = faire entrer matériellement.'
+  severity: major
+
+- pattern: '\b(?:un|l[''’])\s*agenda\s+(?:de|chargé|du jour|de la réunion)'
+  note: '"agenda" peut désigner un carnet ou (calque) "ordre du jour d''une réunion". Pour le sens "meeting agenda", préférer "ordre du jour"; pour "political agenda", "programme" ou "feuille de route".'
+  severity: minor
+
+# --- Phase 3 vocab-tier additions (PHASE_3_DESIGN.md §3.5) --------------------
+
+- pattern: '\bconfortable\s+avec\b'
+  note: '"confortable avec" est calque de "comfortable with". Pour une personne à l''aise, préférer "à l''aise avec / dans". "Confortable" en français qualifie une chose (fauteuil, revenu), pas un état psychologique.'
+  severity: major
+
+- pattern: '\b(?:suis|es|est|sommes|êtes|sont|être)\s+bon(?:ne)?\s+(?:à|en)\s+\w+er\b'
+  note: '"être bon à faire X" / "bon en faire" comme calque de "good at doing X" — pour une aptitude, préférer "être doué pour faire X", "savoir bien faire X", "être bon pour".'
+  severity: minor

@@ -1,0 +1,47 @@
+# Voice catalogue for TTS (Microsoft Edge TTS).
+# Register tags determine default voice when frontmatter `audio.voice` is unset.
+
+voices:
+  fr-FR-DeniseNeural:
+    locale: fr-FR
+    gender: F
+    register: france
+    notes: Standard Metropolitan French, neutral journalistic register. Default for france-F.
+
+  fr-FR-HenriNeural:
+    locale: fr-FR
+    gender: M
+    register: france
+    notes: Standard Metropolitan French, clear diction. Default for france-M.
+
+  fr-CA-SylvieNeural:
+    locale: fr-CA
+    gender: F
+    register: quebec
+    notes: Standard Québec French. Default for quebec-F.
+
+  fr-CA-AntoineNeural:
+    locale: fr-CA
+    gender: M
+    register: quebec
+    notes: Standard Québec French. Default for quebec-M.
+
+defaults:
+  # When a file declares `register:` but no explicit voice, pick from here.
+  # The build alternates F/M within a single file via the speaker hint <<SPEAKER:F>> or <<SPEAKER:M>>.
+  france:
+    F: fr-FR-DeniseNeural
+    M: fr-FR-HenriNeural
+  quebec:
+    F: fr-CA-SylvieNeural
+    M: fr-CA-AntoineNeural
+  mixed:
+    # In mixed register, B1/B2 default to France, C1/C2 alternate.
+    F: fr-FR-DeniseNeural
+    M: fr-CA-AntoineNeural
+
+prosody:
+  # Edge TTS rate/volume hints. Per-item override via audio.rate / audio.volume.
+  default_rate: "+0%"
+  default_volume: "+0%"
+  slow_rate: "-15%"    # used for A2/B1 items if explicitly requested

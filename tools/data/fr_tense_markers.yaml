@@ -1,0 +1,83 @@
+# Tense + mood detection patterns — used by tools/score_writing.py
+#
+# Each entry: { tense, pattern, note }
+# pattern is a Python regex applied with re.IGNORECASE on word boundaries.
+#
+# Detection is approximate (no full POS tagging). The goal is to detect
+# DIVERSITY (≥ 4 distinct tenses) not perfect classification. False positives
+# on the boundary between tenses are acceptable; false negatives on whole
+# tenses (e.g. missing the subjunctive entirely) are not.
+
+# Présent — too common to enumerate per-verb; detected by absence of others
+# + presence of common -e/-es/-ent/-ons/-ez/-z endings on lemmas of length ≥ 3.
+present:
+  # Common high-frequency present forms — checked as fallback signal.
+  - pattern: '\b(?:est|sont|a|ont|fait|font|peut|peuvent|doit|doivent|veut|veulent|sait|savent|va|vont|prend|prennent|met|mettent|dit|disent|voit|voient)\b'
+    note: "very high-frequency present verbs"
+
+# Passé composé — auxiliaire avoir/être au présent + participe passé en -é/-i/-u/-s/-t
+passe_compose:
+  - pattern: "\\b(?:ai|as|a|avons|avez|ont)\\s+[a-zà-ÿœ]{2,}(?:é|i|u|is|it)\\b"
+    note: "avoir aux + past participle"
+  - pattern: "\\b(?:suis|es|est|sommes|êtes|sont)\\s+(?:[a-zà-ÿœ]+\\s+)?[a-zà-ÿœ]{2,}(?:é|ée|és|ées|i|ie|is|ies|u|ue|us|ues)\\b"
+    note: "être aux + past participle"
+
+# Imparfait — terminaisons -ais, -ais, -ait, -ions, -iez, -aient
+imparfait:
+  - pattern: '\b[a-zà-ÿœ]{2,}(?:ais|ait|ions|iez|aient)\b'
+    note: "imparfait endings (caveat: -ions/-iez overlap with subjonctif présent)"
+
+# Plus-que-parfait — avait/avais + PP, était/étais + PP
+plus_que_parfait:
+  - pattern: "\\b(?:avais|avait|avions|aviez|avaient)\\s+[a-zà-ÿœ]{2,}(?:é|i|u|is|it)\\b"
+    note: "pluperfect avoir + PP"
+  - pattern: "\\b(?:étais|était|étions|étiez|étaient)\\s+(?:[a-zà-ÿœ]+\\s+)?[a-zà-ÿœ]{2,}(?:é|ée|és|ées|i|ie|is|u|ue|us)\\b"
+    note: "pluperfect être + PP"
+
+# Futur simple — -ai, -as, -a, -ons, -ez, -ont AFTER an -r-
+futur_simple:
+  - pattern: '\b[a-zà-ÿœ]{2,}r(?:ai|as|a|ons|ez|ont)\b'
+    note: "futur simple endings"
+
+# Conditionnel présent — -rais, -rait, -rions, -riez, -raient
+conditionnel_present:
+  - pattern: '\b[a-zà-ÿœ]{2,}r(?:ais|ait|ions|iez|aient)\b'
+    note: "conditional present endings (overlap with futur for vous form)"
+
+# Conditionnel passé — aurais/aurait + PP, serais/serait + PP
+conditionnel_passe:
+  - pattern: "\\b(?:aurais|aurait|aurions|auriez|auraient)\\s+[a-zà-ÿœ]{2,}(?:é|i|u|is|it)\\b"
+    note: "conditional past avoir + PP"
+  - pattern: "\\b(?:serais|serait|serions|seriez|seraient)\\s+(?:[a-zà-ÿœ]+\\s+)?[a-zà-ÿœ]{2,}(?:é|ée|és|ées)\\b"
+    note: "conditional past être + PP"
+
+# Subjonctif présent — typically triggered by que/qu' + irregular present
+# stem, OR by que + standard -ions/-iez (1st conj.) / -e/-es/-ent (others).
+# We detect it via TRIGGERS (que + il faut, bien que, …) + present-like form.
+subjonctif_present:
+  - pattern: '\b(?:que|qu[''’])\s+(?:je|tu|il|elle|on|nous|vous|ils|elles|[a-zà-ÿœ]+)\s+(?:sois|soit|soyons|soyez|soient|aie|aies|ait|ayons|ayez|aient|puisse|puissent|fasse|fassent|aille|aillent|sache|sachent|veuille|veuillent|prenne|prennent)\b'
+    note: "subjonctif via que + irregular present"
+  - pattern: '\b(?:il faut que|bien que|pour que|afin que|à condition que|à moins que|avant que|jusqu''à ce que|quoique|sans que)\b'
+    note: "subjunctive triggers (presence is necessary but not sufficient)"
+
+# Subjonctif passé — aie/ait/ayons + PP, sois/soit/soyons + PP, after a trigger
+subjonctif_passe:
+  - pattern: "\\b(?:aie|aies|ait|ayons|ayez|aient)\\s+[a-zà-ÿœ]{2,}(?:é|i|u|is|it)\\b"
+    note: "subjonctif passé avoir + PP"
+  - pattern: "\\b(?:sois|soit|soyons|soyez|soient)\\s+(?:[a-zà-ÿœ]+\\s+)?[a-zà-ÿœ]{2,}(?:é|ée|és|ées|i|ie|u|ue|us|ues)\\b"
+    note: "subjonctif passé être + PP"
+
+# Impératif — verbe en tête de phrase sans pronom sujet, ou exclamation
+imperatif:
+  - pattern: "^\\s*(?:[A-ZÀ-Ÿ][a-zà-ÿœ]+(?:-(?:moi|toi|nous|vous|le|la|les|y|en))?)\\s*[!.]"
+    note: "imperative (sentence-initial verb + ! or .)"
+
+# Infinitif après préposition — utile pour la diversité (à + inf, de + inf, pour + inf)
+infinitif_prep:
+  - pattern: '\b(?:à|de|pour|afin de|sans|avant de|après|au lieu de)\s+[a-zà-ÿœ]{3,}(?:er|ir|re|oir)\b'
+    note: "preposition + infinitive"
+
+# Gérondif — en + verbe en -ant
+gerondif:
+  - pattern: '\ben\s+[a-zà-ÿœ]{3,}ant\b'
+    note: "gérondif (en + -ant)"

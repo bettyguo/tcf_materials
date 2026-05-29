@@ -1,0 +1,27 @@
+{
+  "files.eol": "\n",
+  "files.encoding": "utf8",
+  "files.trimTrailingWhitespace": false,
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+    "editor.wordWrap": "on"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "yaml.schemas": {
+    "./.vscode/frontmatter.schema.json": ["content/**/*.md"]
+  },
+  "spellright.language": ["French (Canada)", "French (France)"],
+  "search.exclude": {
+    "**/site": true,
+    "**/pdf": true,
+    "**/audio": true,
+    "**/flashcards/dist": true,
+    "**/.venv": true
+  }
+}

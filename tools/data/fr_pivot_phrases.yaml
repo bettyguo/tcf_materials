@@ -1,0 +1,69 @@
+# Subset of phrases-pivots used by tools/score_writing.py to detect
+# rhetorical sophistication. NOT the full library — the full library
+# lives at content/05_writing/00_pivots/. This file is a curated
+# "register-soutenu" subset for the C3 metric "≥ 2 pivots detected".
+#
+# Each entry: { phrase, function, cefr }.
+# Detection: case-insensitive substring with word-boundary heuristic.
+
+ouvrir:
+  - { phrase: "il est aujourd'hui difficile d'ignorer que", cefr: C1 }
+  - { phrase: "à l'heure où",                                cefr: B2 }
+  - { phrase: "ne cesse de prendre de l'ampleur",            cefr: C1 }
+  - { phrase: "force est de constater que",                  cefr: C1 }
+  - { phrase: "se pose avec une acuité particulière",        cefr: C1 }
+  - { phrase: "il n'est plus à démontrer que",               cefr: C1 }
+  - { phrase: "il convient de s'interroger",                 cefr: C1 }
+
+introduire_argument:
+  - { phrase: "tout d'abord",                                cefr: B2 }
+  - { phrase: "en premier lieu",                             cefr: B2 }
+  - { phrase: "d'une part",                                  cefr: B2 }
+  - { phrase: "il est crucial de souligner",                 cefr: B2 }
+  - { phrase: "à ce titre",                                  cefr: C1 }
+  - { phrase: "à cet égard",                                 cefr: C1 }
+  - { phrase: "il convient de rappeler",                     cefr: C1 }
+
+illustrer:
+  - { phrase: "à titre d'exemple",                           cefr: B2 }
+  - { phrase: "il suffit de songer",                         cefr: C1 }
+  - { phrase: "ainsi, on peut citer",                        cefr: B2 }
+  - { phrase: "que l'on songe",                              cefr: C1 }
+  - { phrase: "comme en témoigne",                           cefr: C1 }
+  - { phrase: "ne serait-ce que",                            cefr: C1 }
+
+conceder:
+  - { phrase: "certes",                                       cefr: B2 }
+  - { phrase: "il serait malhonnête de nier",                cefr: C1 }
+  - { phrase: "sans doute peut-on objecter",                 cefr: C1 }
+  - { phrase: "il faut reconnaître",                         cefr: B2 }
+  - { phrase: "il est vrai que",                             cefr: B2 }
+  - { phrase: "soit",                                         cefr: C1 }
+  - { phrase: "il n'est pas faux de dire",                   cefr: C1 }
+
+refuter:
+  - { phrase: "toutefois",                                   cefr: B2 }
+  - { phrase: "cependant",                                   cefr: B2 }
+  - { phrase: "néanmoins",                                   cefr: B2 }
+  - { phrase: "or",                                           cefr: C1 }
+  - { phrase: "cette objection mérite cependant d'être nuancée", cefr: C1 }
+  - { phrase: "à y regarder de près",                        cefr: C1 }
+  - { phrase: "cet argument ne tient pas",                   cefr: C1 }
+  - { phrase: "il n'en demeure pas moins",                   cefr: C1 }
+
+nuancer:
+  - { phrase: "dans une certaine mesure",                    cefr: B2 }
+  - { phrase: "à condition de",                              cefr: B2 }
+  - { phrase: "sous réserve de",                             cefr: C1 }
+  - { phrase: "tout en tenant compte de",                    cefr: B2 }
+  - { phrase: "à supposer que",                              cefr: C1 }
+  - { phrase: "loin de moi l'idée de",                       cefr: C1 }
+
+conclure:
+  - { phrase: "en définitive",                               cefr: B2 }
+  - { phrase: "en somme",                                    cefr: B2 }
+  - { phrase: "force est de conclure",                       cefr: C1 }
+  - { phrase: "ainsi, loin de",                              cefr: C1 }
+  - { phrase: "dès lors, il apparaît",                       cefr: C1 }
+  - { phrase: "in fine",                                     cefr: C1 }
+  - { phrase: "la véritable question demeure",               cefr: C1 }

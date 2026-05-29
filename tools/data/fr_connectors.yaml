@@ -1,0 +1,88 @@
+# Connectors classed by CEFR band — used by tools/score_writing.py
+# Each entry: { lemma|phrase, band, function }.
+# function ∈ {addition, opposition, cause, consequence, concession,
+#              illustration, time, summary, hypothesis, comparison, alternative}.
+#
+# The detection is by exact substring (case-insensitive) on word boundary.
+# A learner who writes "Cependant" or "cependant" both score the same.
+
+B1:
+  - { phrase: "et",                   function: addition }
+  - { phrase: "mais",                 function: opposition }
+  - { phrase: "ou",                   function: alternative }
+  - { phrase: "donc",                 function: consequence }
+  - { phrase: "alors",                function: consequence }
+  - { phrase: "parce que",            function: cause }
+  - { phrase: "car",                  function: cause }
+  - { phrase: "puis",                 function: time }
+  - { phrase: "ensuite",              function: time }
+  - { phrase: "enfin",                function: time }
+  - { phrase: "d'abord",              function: time }
+  - { phrase: "premièrement",         function: time }
+  - { phrase: "aussi",                function: addition }
+  - { phrase: "comme",                function: comparison }
+  - { phrase: "par exemple",          function: illustration }
+  - { phrase: "pour",                 function: cause }
+  - { phrase: "si",                   function: hypothesis }
+  - { phrase: "quand",                function: time }
+
+B2:
+  - { phrase: "cependant",            function: opposition }
+  - { phrase: "néanmoins",            function: opposition }
+  - { phrase: "en revanche",          function: opposition }
+  - { phrase: "par ailleurs",         function: addition }
+  - { phrase: "en outre",             function: addition }
+  - { phrase: "de plus",              function: addition }
+  - { phrase: "en effet",             function: cause }
+  - { phrase: "ainsi",                function: consequence }
+  - { phrase: "par conséquent",       function: consequence }
+  - { phrase: "c'est pourquoi",       function: consequence }
+  - { phrase: "dans la mesure où",    function: cause }
+  - { phrase: "puisque",              function: cause }
+  - { phrase: "certes",               function: concession }
+  - { phrase: "bien que",             function: concession }
+  - { phrase: "même si",              function: concession }
+  - { phrase: "toutefois",            function: opposition }
+  - { phrase: "notamment",            function: illustration }
+  - { phrase: "en particulier",       function: illustration }
+  - { phrase: "d'une part",           function: addition }
+  - { phrase: "d'autre part",         function: addition }
+  - { phrase: "tandis que",           function: opposition }
+  - { phrase: "alors que",            function: opposition }
+  - { phrase: "lorsque",              function: time }
+  - { phrase: "dès lors",             function: consequence }
+  - { phrase: "il est vrai que",      function: concession }
+  - { phrase: "à condition que",      function: hypothesis }
+  - { phrase: "à moins que",          function: hypothesis }
+  - { phrase: "afin que",             function: cause }
+  - { phrase: "pour que",             function: cause }
+  - { phrase: "en somme",             function: summary }
+  - { phrase: "en définitive",        function: summary }
+  - { phrase: "finalement",           function: summary }
+  - { phrase: "force est de constater", function: cause }
+
+C1:
+  - { phrase: "or",                   function: opposition }
+  - { phrase: "nonobstant",           function: concession }
+  - { phrase: "eu égard à",           function: cause }
+  - { phrase: "loin de",              function: opposition }
+  - { phrase: "tant s'en faut",       function: opposition }
+  - { phrase: "à cet égard",          function: illustration }
+  - { phrase: "en ce sens",           function: illustration }
+  - { phrase: "à l'inverse",          function: opposition }
+  - { phrase: "à rebours de",         function: opposition }
+  - { phrase: "au demeurant",         function: addition }
+  - { phrase: "tout bien considéré",  function: summary }
+  - { phrase: "il n'en demeure pas moins", function: concession }
+  - { phrase: "il n'en reste pas moins", function: concession }
+  - { phrase: "fût-il",               function: concession }
+  - { phrase: "ne serait-ce que",     function: illustration }
+  - { phrase: "non seulement … mais encore", function: addition }
+  - { phrase: "à supposer que",       function: hypothesis }
+  - { phrase: "sous réserve que",     function: hypothesis }
+  - { phrase: "dans l'hypothèse où",  function: hypothesis }
+  - { phrase: "à plus forte raison",  function: addition }
+  - { phrase: "qui plus est",         function: addition }
+  - { phrase: "in fine",              function: summary }
+  - { phrase: "en définitive",        function: summary }
+  - { phrase: "partant",              function: consequence }

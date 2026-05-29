@@ -1,0 +1,71 @@
+# Quebecism flags for the audit pass. Each entry:
+#   pattern: regex (Python re, case-insensitive)
+#   note:    short explanation; what to verify against the file's `register:` field
+#   severity: minor | major
+#
+# Master-prompt §0.2 names "Quebec-specific vs Metropolitan vocabulary applied inconsistently"
+# as a hallucination risk. This file flags Quebec-only forms that appear in *formal* writing
+# contexts (production model answers, written explanations) where Metropolitan-standard is
+# expected unless the file declares `register: quebec` or `register: mixed`.
+#
+# Recognition is fine: a CO transcript that contains *présentement* is realistic and not
+# flagged. Production by the learner / model answer in the corpus should default to
+# *actuellement*. The audit therefore conditions on register; see tools/audit_french.py.
+#
+# Per-file override: `<!-- AUDIT-IGNORE: quebecism reason -->`.
+
+- pattern: '\bprésentement\b'
+  note: '"présentement" est québécois pour "actuellement / en ce moment". Acceptable en register=quebec; en register=france, préférer "actuellement", "à l''heure actuelle", "en ce moment".'
+  severity: minor
+
+- pattern: '\b(?:un|le|mon|son|notre|votre|leur)\s+char\b'
+  note: '"char" pour "voiture" est familier-québécois. Dans une rédaction TCF (registre formel), employer "voiture", "automobile", "véhicule".'
+  severity: major
+
+- pattern: '\bplacoter\b'
+  note: '"placoter" (Q) = "bavarder", "papoter" (registre familier). Inadmissible dans une rédaction formelle; préférer "discuter", "échanger", "converser".'
+  severity: major
+
+- pattern: '\bmagasiner\b'
+  note: '"magasiner" (Q) = "faire du shopping". Aussi attesté au sens de "comparer/chercher" (magasiner un prêt). En registre formel France, "faire des achats", "faire les courses" (alimentaire) ou "comparer les offres".'
+  severity: minor
+
+- pattern: '\b(?:à\s+matin|à\s+soir)\b'
+  note: '"à matin / à soir" (Q parlé) — en registre formel : "ce matin / ce soir".'
+  severity: major
+
+- pattern: '\bdéjeuner\b'
+  note: '"déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper").'
+  severity: minor
+
+- pattern: '\bdîner\b'
+  note: '"dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner".'
+  severity: minor
+
+- pattern: '\bsouper\b'
+  note: '"souper" = repas du soir au Québec, repas tardif (après le théâtre) en France. En register=france, préférer "dîner" pour le repas du soir.'
+  severity: minor
+
+- pattern: '\b(?:fin\s+de\s+semaine|fds)\b'
+  note: '"fin de semaine" (Q) = "week-end" en France. Acceptable en register=quebec ou mixed; en register=france, "week-end" est standard.'
+  severity: minor
+
+- pattern: '\bbarrer\s+(?:la|une)\s+porte\b'
+  note: '"barrer la porte" (Q) = "verrouiller / fermer à clé" en France. En registre formel France, "verrouiller la porte".'
+  severity: minor
+
+- pattern: '\bc[''’]est\s+correct\b'
+  note: '"c''est correct" au sens de "c''est bon / d''accord / ça va" est québécois (calque indirect de "all right"). En France, "c''est bien", "ça va", "d''accord". (Patron resserré : exige le préfixe « c''est », sinon false positive massif sur l''adjectif standard.)'
+  severity: minor
+
+- pattern: '\bbienvenue\b\s*[!.](?:\s|$)'
+  note: '"Bienvenue !" en réponse à "Merci" est un calque québécois de "You''re welcome". En France, "De rien", "Je vous en prie", "(Il n''y a) pas de quoi". Acceptable en register=quebec.'
+  severity: minor
+
+- pattern: '\b(?:tomber|partir)\s+en\s+amour\b'
+  note: '"tomber en amour" (Q, calque de "fall in love") = "tomber amoureux/amoureuse". Inadmissible en register=france.'
+  severity: major
+
+- pattern: '\bbreuvage\b'
+  note: '"breuvage" en français standard a une connotation péjorative (potion, mixture douteuse). Au Québec il signifie neutre "boisson". En register=france, "boisson".'
+  severity: minor

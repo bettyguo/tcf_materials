@@ -1,0 +1,24 @@
+TCF Canada Prep — dual-licence notice
+========================================
+
+This repository contains two kinds of work, licensed differently:
+
+1. **Content** — every file under `content/`, the `ROADMAP.md`, and any text
+   destined for the learner (including model answers, transcripts, vocabulary
+   lists, mock exams, and cheatsheets) — is licensed under the
+   **Creative Commons Attribution-ShareAlike 4.0 International (CC-BY-SA-4.0)**.
+   See `LICENSE-CONTENT.txt`.
+
+2. **Software / tooling** — every file under `tools/`, `tests/`, `latex/`,
+   `mkdocs.yml`, `pyproject.toml`, build scripts, and CI workflows — is
+   licensed under the **MIT License**. See `LICENSE-TOOLS.txt`.
+
+Authentic-text snippets paraphrased from third-party sources (Le Monde,
+Radio-Canada, Le Devoir, La Presse, France Culture, RFI Savoirs, TV5MONDE
+Apprendre, etc.) are cited in `references.bib` and used under fair-use /
+short-quotation provisions. None are reproduced in extenso. If you are a
+rights holder and a citation needs adjustment, please open an issue.
+
+The contents of `00_MASTER_PROMPT.md`, `01_PROJECT_CONTEXT.md`, and the
+`02_PHASE_*` through `09_PHASE_*` files are the prompt bundle authored by
+the project initiator and are released under CC-BY-SA-4.0.

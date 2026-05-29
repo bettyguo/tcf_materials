@@ -1,0 +1,6 @@
+title: Grammaire
+# Sub-folders (b1_consolidation, b2_core, c1_advanced, c2_polish) are auto-discovered
+# by awesome-pages once Phase 2 populates them.
+nav:
+  - index.md
+  - ...

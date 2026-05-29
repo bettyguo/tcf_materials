@@ -1,0 +1,74 @@
+\documentclass[11pt,a4paper,openany]{book}
+
+% --- Encoding & language ---
+\usepackage{fontspec}
+\usepackage[french]{babel}
+\frenchsetup{AutoSpacePunctuation=true,ThinSpaceInFrenchNumbers=true}
+\usepackage[autostyle]{csquotes}
+\MakeAutoQuote{«}{»}
+
+% --- Fonts: fallback chain so the template compiles on bare TeX Live without extra installs ---
+\IfFontExistsTF{Linux Libertine O}{%
+  \setmainfont{Linux Libertine O}%
+}{%
+  \IfFontExistsTF{Latin Modern Roman}{\setmainfont{Latin Modern Roman}}{}%
+}
+\IfFontExistsTF{Inconsolata}{\setmonofont{Inconsolata}}{}
+
+\usepackage{microtype}
+\usepackage[svgnames]{xcolor}
+\usepackage[colorlinks=true, linkcolor=DarkSlateBlue, urlcolor=DarkSlateBlue, citecolor=DarkSlateBlue]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable,skins}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{longtable,booktabs,array}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% --- Callout boxes (one per content type) ---
+\newtcolorbox{exercice}{enhanced,breakable,colback=Lavender!20,colframe=Indigo,
+  fonttitle=\bfseries,title=Exercice,left=2mm,right=2mm,top=2mm,bottom=2mm,
+  boxrule=0.4pt,arc=2pt}
+\newtcolorbox{astuce}{enhanced,breakable,colback=PaleGreen!20,colframe=ForestGreen,
+  fonttitle=\bfseries,title=Astuce,left=2mm,right=2mm,top=2mm,bottom=2mm,
+  boxrule=0.4pt,arc=2pt}
+\newtcolorbox{piege}{enhanced,breakable,colback=MistyRose!40,colframe=Firebrick,
+  fonttitle=\bfseries,title=Piège,left=2mm,right=2mm,top=2mm,bottom=2mm,
+  boxrule=0.4pt,arc=2pt}
+\newtcolorbox{modele}{enhanced,breakable,colback=LightYellow,colframe=DarkGoldenrod,
+  fonttitle=\bfseries,title=Modèle,left=2mm,right=2mm,top=2mm,bottom=2mm,
+  boxrule=0.4pt,arc=2pt}
+
+% --- Page styling ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{TCF Canada — B1→C1}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\small Préparation v0.1.0}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Pandoc-required boilerplate ---
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setlength{\emergencystretch}{3em}
+
+% --- Title block from metadata ---
+\title{$title$}
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\date{$date$}
+
+\begin{document}
+$if(title)$
+\frontmatter
+\maketitle
+$endif$
+
+$if(toc)$
+\tableofcontents
+$endif$
+
+\mainmatter
+$body$
+
+\end{document}

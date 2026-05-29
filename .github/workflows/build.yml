@@ -1,0 +1,91 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test-audit-anki:
+    name: test + audit + anki
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install hunspell + French dictionaries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hunspell hunspell-fr myspell-fr
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: Set up Python
+        run: uv python install 3.12
+
+      - name: uv sync
+        run: uv sync --extra dev
+
+      - name: ruff lint
+        run: uv run ruff check tools tests
+
+      - name: pytest
+        run: uv run pytest -q
+
+      - name: audit_french
+        run: uv run python -m tools.cli audit
+
+      - name: build anki
+        run: uv run python -m tools.cli build-anki
+
+      - name: build site
+        run: uv run python -m tools.cli build-site
+
+      - name: upload anki + site artefacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: anki-and-site
+          path: |
+            flashcards/dist/*.apkg
+            site/
+            AUDIT.md
+            audit_samples/
+
+  pdf-epub:
+    name: pdf + epub (pandoc + xelatex)
+    runs-on: ubuntu-22.04
+    needs: test-audit-anki
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pandoc + TeX Live (French)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex texlive-fonts-extra texlive-lang-french \
+            fonts-linuxlibertine fonts-inconsolata
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: uv sync
+        run: uv sync --extra dev
+
+      - name: build epub
+        run: uv run python -m tools.cli build-epub
+
+      - name: build pdf
+        run: uv run python -m tools.cli build-pdf
+
+      - name: upload pdf + epub artefacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-epub
+          path: |
+            pdf/*.pdf
+            pdf/*.epub

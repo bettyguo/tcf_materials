@@ -1,0 +1,5 @@
+title: Compréhension orale
+# CEFR subfolders (a1..c2) are auto-discovered once Phase 3 populates them.
+nav:
+  - index.md
+  - ...
