@@ -209,6 +209,7 @@ Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en
 <div class="actions">
 <a class="primary" href="00_start_here/">Commencer maintenant →</a>
 <a class="secondary" href="00_diagnostic/00_index/">Diagnostic (90 min)</a>
+<a class="secondary" href="11_tools/">Outils interactifs</a>
 </div>
 
 </div>
@@ -318,9 +319,44 @@ Un seul Markdown génère le **site**, le **PDF** (Pandoc + XeLaTeX), l'**EPUB**
 
 <div class="feature-card" markdown>
 <span class="icon">🧮</span>
-### Calculateur de score
-CLI **et** web. Conversion brut → CEFR → NCLC sur la table 2024-IRCC-FEI.
-<br>[**Lancer →**](07_mock_exams/mock_01/09_score_calculator.md)
+### Calculateur NCLC interactif
+Entrez vos quatre scores → NCLC binding + bonus CRS estimé. Tout en local.
+<br>[**Lancer →**](11_tools/calculateur-nclc.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">⏱</span>
+### Minuteur Pomodoro & examen
+7 presets : Pomodoro + tous les budgets-temps officiels TCF.
+<br>[**Lancer →**](11_tools/minuteur.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">🎯</span>
+### Quiz rapide
+10 items grammaire / lexique / stratégie. Feedback immédiat.
+<br>[**Lancer →**](11_tools/quiz-rapide.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">✅</span>
+### Check-list J-1
+Sac, corps, esprit — la veille d'examen. Cochages sauvegardés.
+<br>[**Lancer →**](11_tools/checklist-j1.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">📋</span>
+### 12 cheatsheets A4
+Subjonctif, connecteurs, faux-amis, distracteurs… À imprimer pour le sac J-1.
+<br>[**Voir →**](08_cheatsheets/index.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">🎙️</span>
+### 8 unités phonologie
+Léon + Tranel : vocalique, consonantique, liaisons, enchaînement, schwa, prosodie.
+<br>[**Voir →**](06_speaking/00_phonology/index.md)
 </div>
 
 <div class="feature-card" markdown>
@@ -330,20 +366,17 @@ CLI **et** web. Conversion brut → CEFR → NCLC sur la table 2024-IRCC-FEI.
 </div>
 
 <div class="feature-card" markdown>
-<span class="icon">📋</span>
-### 12 cheatsheets A4
-Une page par thème (subjonctif, connecteurs, faux-amis, distracteurs, Quebec/France…). À imprimer pour le sac J-1.
-<br>[**Voir →**](08_cheatsheets/index.md)
-</div>
-
-<div class="feature-card" markdown>
-<span class="icon">🎙️</span>
-### 8 unités phonologie
-Léon + Tranel : vocalique, consonantique, liaisons (×3), enchaînement, schwa, prosodie.
-<br>[**Voir →**](06_speaking/00_phonology/index.md)
+<span class="icon">⌨️</span>
+### Raccourcis clavier
+Naviguez sans souris : <kbd>?</kbd> pour l'aide, <kbd>s</kbd> pour la recherche, <kbd>t</kbd> pour le thème.
+<br>[**Voir →**](11_tools/raccourcis.md)
 </div>
 
 </div>
+
+## Calculateur NCLC — direct sur la page d'accueil
+
+<div class="tcf-calc" data-widget="nclc"></div>
 
 ---
 

@@ -4,62 +4,123 @@
 <style>
 .notfound {
   text-align: center;
-  padding: 4rem 1rem 6rem;
-  max-width: 38rem;
+  padding: 3.5rem 1rem 5rem;
+  max-width: 44rem;
   margin: 0 auto;
 }
 .notfound .code {
-  font-size: 5rem;
-  font-weight: 700;
+  font-size: 6rem;
+  font-weight: 800;
   color: var(--md-primary-fg-color);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   line-height: 1;
   margin: 0;
+  background: linear-gradient(135deg, var(--md-primary-fg-color), var(--md-accent-fg-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .notfound h1 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin: 0.8rem 0 1rem;
+  margin: 0.8rem 0 0.6rem;
 }
-.notfound p {
+.notfound .quote {
+  font-style: italic;
+  opacity: 0.78;
+  max-width: 32rem;
+  margin: 0.4rem auto 1.4rem;
   font-size: 1rem;
-  opacity: 0.82;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 .notfound .links {
   margin-top: 2rem;
-  display: flex;
-  gap: 0.8rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.7rem;
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 .notfound .links a {
-  padding: 0.6rem 1.2rem;
-  border-radius: 999px;
-  background: var(--md-primary-fg-color);
-  color: #fff !important;
+  padding: 0.85rem 0.8rem;
+  border-radius: 0.5rem;
+  background: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color) !important;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.92rem;
-  transition: transform 0.15s ease;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
 }
 .notfound .links a:hover {
   transform: translateY(-2px);
+  border-color: var(--md-primary-fg-color);
 }
-.notfound .links a.alt {
+.notfound .links a.primary {
+  background: var(--md-primary-fg-color);
+  color: #fff !important;
+  border-color: var(--md-primary-fg-color);
+}
+.notfound .links a strong {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+.notfound .links a.primary strong { opacity: 0.85; }
+.notfound .search-hint {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  opacity: 0.72;
+}
+.notfound .search-hint kbd {
+  display: inline-block;
+  padding: 0.12rem 0.5rem;
   background: var(--md-default-fg-color--lightest);
-  color: var(--md-default-fg-color) !important;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.8rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
 }
 </style>
 
 <div class="notfound">
   <p class="code">404</p>
   <h1>Page introuvable</h1>
-  <p>La page que vous cherchez n'existe pas — ou a été déplacée pendant la stabilisation du corpus v1.0. Essayez la page d'accueil, le diagnostic, ou la recherche en haut de la barre latérale.</p>
+  <p class="quote">« Errare humanum est, perseverare diabolicum. » — Sénèque, qui n'a jamais préparé le TCF mais aurait apprécié l'effort.</p>
+  <p>La page que vous cherchez n'existe pas, a été déplacée, ou n'a pas encore été authored (Mocks #3-#4 prévus pour v1.1). Voici les portes d'entrée :</p>
+
   <div class="links">
-    <a href="{{ '' | url }}">Accueil</a>
-    <a class="alt" href="{{ '00_start_here/' | url }}">Jour 0</a>
-    <a class="alt" href="{{ '00_diagnostic/00_index/' | url }}">Diagnostic</a>
+    <a class="primary" href="{{ '' | url }}">
+      <strong>Démarrer</strong>
+      🏠 Accueil
+    </a>
+    <a href="{{ '00_start_here/' | url }}">
+      <strong>Jour 0</strong>
+      Onboarding (30 min)
+    </a>
+    <a href="{{ '00_diagnostic/00_index/' | url }}">
+      <strong>Calibrer</strong>
+      Diagnostic (90 min)
+    </a>
+    <a href="{{ '11_tools/' | url }}">
+      <strong>Pratique</strong>
+      Outils interactifs
+    </a>
+    <a href="{{ '08_cheatsheets/' | url }}">
+      <strong>Référence</strong>
+      12 cheatsheets A4
+    </a>
+    <a href="{{ '07_mock_exams/' | url }}">
+      <strong>Tester</strong>
+      Examens blancs
+    </a>
   </div>
+
+  <p class="search-hint">Ou tapez <kbd>s</kbd> pour ouvrir la recherche et trouver ce que vous cherchez.</p>
 </div>
 {% endblock %}

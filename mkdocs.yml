@@ -34,12 +34,19 @@ theme:
     - search.share
     - content.code.copy
     - content.code.annotate
+    - content.code.select
     - content.action.edit
+    - content.action.view
     - content.tabs.link
     - content.tooltips
     - toc.follow
     - announce.dismiss
+    - header.autohide
   palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Suivre le thème du système
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: indigo
@@ -62,16 +69,42 @@ theme:
     edit: material/pencil
     view: material/eye
     logo: material/book-open-page-variant
+    annotation: material/star-four-points-circle
 
 extra_css:
   - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/extra.js
+  - assets/javascripts/mathjax-init.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 plugins:
   - search:
       lang:
         - fr
         - en
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - awesome-pages
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      width: 90%
+      height: auto
+      zoomable: true
+      draggable: false
+      auto_caption: false
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+      js_files:
+        - assets/javascripts/extra.js
+      css_files:
+        - assets/stylesheets/extra.css
 
 markdown_extensions:
   - abbr
@@ -129,6 +162,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/bettyguo/tcf_materials
       name: Code source sur GitHub
+    - icon: material/scale-balance
+      link: https://creativecommons.org/licenses/by-sa/4.0/
+      name: Licence CC BY-SA 4.0 (contenu)
   generator: false
   status:
     new: Nouveau dans la v1.0

@@ -1,12 +1,12 @@
 # AUDIT register
 
-_Dernière exécution : 2026-05-29 06:11 UTC_
-_Fichiers analysés : 412_
+_Dernière exécution : 2026-05-29 20:30 UTC_
+_Fichiers analysés : 418_
 
 - **Blockers** : 0
 - **Schema errors** : 0
 - **Majeurs** : 17
-- **Mineurs** : 1127
+- **Mineurs** : 1135
 
 ## Major (17)
 - `content\02_vocabulary\thematic\01_travail.md:263` [entry-confidence] AUDIT-ENTRY confidence=low : confidence=low domain=work
@@ -27,7 +27,7 @@ _Fichiers analysés : 412_
 - `content\05_writing\00_anti_error.md:368` [quebecism] "char" pour "voiture" est familier-québécois. Dans une rédaction TCF (registre formel), employer "voiture", "automobile", "véhicule". → « un char »
 - `content\05_writing\00_rubric.md:53` [anglicism] "adresser un problème" est calque de "to address an issue" — préférer "aborder", "traiter" ou "régler". → « adresser un problème »
 
-## Minor (1127)
+## Minor (1135)
 - `content\00_diagnostic\audio_items\diag-co-05.md:5` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « dîner »
 - `content\00_start_here.md:1` [stale] audit.status=pending sur un fichier non-stub.
 - `content\01_grammar\b1_consolidation\01_articles_determinants.md:137` [audit-comment] Commentaire AUDIT non résolu: §5 — placeholders à remplacer par citations réelles (Le Devoir, Radio-Canada, Le Monde) avant clearance EVAL Phase 2. Indexer dans references.bib, puis promouvoir cette balise en AUDIT-BLOCKER pour gater Phase 3.
@@ -1155,4 +1155,12 @@ _Fichiers analysés : 412_
 - `content\09_strategy\06_taper_protocol.md:124` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
 - `content\09_strategy\06_taper_protocol.md:137` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
 - `content\09_strategy\06_taper_protocol.md:1` [stale] audit.status=pending sur un fichier non-stub.
+- `content\11_tools\checklist-j1.md:39` [quebecism] "déjeuner" = repas du matin au Québec, repas de midi en France. Vérifier que le contexte horaire correspond au register déclaré, ou désambiguïser ("petit-déjeuner / déjeuner / dîner / souper"). → « déjeuner »
+- `content\11_tools\checklist-j1.md:24` [quebecism] "dîner" = repas de midi au Québec, repas du soir en France. Mêmes précautions que pour "déjeuner". → « Dîner »
+- `content\11_tools\quiz-rapide.md:80` [anglicism] "supporter" = endurer, tolérer (rarement "appuyer"). Pour le sens "to support emotionally/financially", préférer "soutenir", "appuyer", "encourager". → « supporter »
+- `content\11_tools\quiz-rapide.md:86` [anglicism] "supporter" = endurer, tolérer (rarement "appuyer"). Pour le sens "to support emotionally/financially", préférer "soutenir", "appuyer", "encourager". → « supporter »
+- `content\index.md:8` [repeated] Token répété (typo ?). → « 0 0 »
+- `content\index.md:8` [repeated] Token répété (typo ?). → « 1rem 1rem »
+- `content\index.md:13` [repeated] Token répété (typo ?). → « 0 0 »
+- `content\index.md:85` [repeated] Token répété (typo ?). → « 0 0 »
 

@@ -1,8 +1,8 @@
 # TCF Canada — Préparation B1 → C1/C2
 
-> **Source-audited TCF Canada prep corpus.** ~410 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki). Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
+> **Source-audited TCF Canada prep corpus.** ~410 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki) **+ a world-class interactive web site**: NCLC calculator, Pomodoro/exam timer, self-quiz, J-1 checklist, keyboard shortcuts, reading progress bar, scroll-reveal animations, dark mode, MathJax, glightbox, fully offline-capable. Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
 
-🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/>
+🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/> · [Outils interactifs](https://bettyguo.github.io/tcf_materials/11_tools/) · [Calculateur NCLC](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) · [Diagnostic](https://bettyguo.github.io/tcf_materials/00_diagnostic/00_index/)
 
 ---
 
@@ -16,7 +16,20 @@ A **single-source-of-truth Markdown corpus** that builds to:
 - an **EPUB** (Pandoc EPUB3)
 - an **Anki deck** (`.apkg`, ~1 500 cards, FSRS-friendly)
 
-What's inside:
+**Interactive features on the live site:**
+
+- 🧮 [**NCLC calculator**](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) — enter 4 raw scores, get NCLC binding + CRS bonus, all client-side, shareable URL
+- ⏱ [**Pomodoro / exam timer**](https://bettyguo.github.io/tcf_materials/11_tools/minuteur/) — 7 presets including all official TCF time budgets (CO 35 min, CE 60 min, EE T1/T2/T3, EO 12 min)
+- 🎯 [**Self-quiz**](https://bettyguo.github.io/tcf_materials/11_tools/quiz-rapide/) — 10 items grammar / vocab / strategy, instant feedback
+- ✅ [**J-1 checklist**](https://bettyguo.github.io/tcf_materials/11_tools/checklist-j1/) — exam-eve operational list, persists via localStorage
+- ⌨️ [**Keyboard shortcuts**](https://bettyguo.github.io/tcf_materials/11_tools/raccourcis/) — `?` for help, `s` for search, `g h` for home, `t` for theme, `c` to copy link, `p` to print
+- 📊 **Reading progress bar** at top, **stat count-up animations**, **skill-bar reveal-on-scroll**
+- 🎨 **System / light / dark** theme toggle, accessible focus rings, `prefers-reduced-motion` respected
+- 🔊 **Audio playback-rate** picker on every `<audio>` element (0.75× / 0.9× / 1× / 1.1× / 1.25×)
+- 🔎 **MathJax**, **glightbox** image zoom, **minified HTML/CSS/JS** in production
+- 🔒 **Zero tracking** — no cookies, no analytics, no external requests for state. Local-only progress.
+
+What's inside the corpus:
 
 - 64 graded grammar units (B1 → C2)
 - 12 thematic vocabulary domains, ~3 000-lemma frequency backbone (skeleton)

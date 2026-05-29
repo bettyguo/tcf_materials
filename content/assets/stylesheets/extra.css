@@ -2,18 +2,65 @@
  * Refines the Material default to feel like a study companion, not a manual.
  * Typography → Inter for UI, Source Serif for prose, JetBrains Mono for code.
  * Palette  → deep indigo primary, accent gold-amber for highlights.
+ *
+ * Sections:
+ *   1.  CSS variables / palette
+ *   2.  Typography
+ *   3.  Tables, code, admonitions, blockquotes
+ *   4.  Navigation, header, search, footer
+ *   5.  Home / hero / feature cards
+ *   6.  Skill bars, week grid, stat row
+ *   7.  Reading progress bar (top scroll indicator)
+ *   8.  Interactive widgets: NCLC calculator, timer, quiz
+ *   9.  Keyboard shortcut overlay
+ *   10. Toast notifications
+ *   11. Cheatsheet card grid
+ *   12. CEFR / NCLC badges
+ *   13. Floating action buttons (copy-link, print, top)
+ *   14. Print
+ *   15. Responsive
+ *   16. Accessibility (focus, reduced motion)
  */
 
+/* ====================================================================== */
+/* 1. CSS variables / palette                                              */
+/* ====================================================================== */
 :root {
   --md-primary-fg-color:        #1a237e;
   --md-primary-fg-color--light: #283593;
   --md-primary-fg-color--dark:  #0d1452;
   --md-accent-fg-color:         #ff8f00;
   --md-typeset-a-color:         #283593;
+
+  --tcf-success: #2e7d32;
+  --tcf-warning: #ed6c02;
+  --tcf-error:   #c62828;
+  --tcf-info:    #0277bd;
+
+  --tcf-band-a1: #b71c1c;
+  --tcf-band-a2: #e65100;
+  --tcf-band-b1: #f9a825;
+  --tcf-band-b2: #2e7d32;
+  --tcf-band-c1: #1565c0;
+  --tcf-band-c2: #6a1b9a;
+
+  --tcf-radius-sm: 0.35rem;
+  --tcf-radius:    0.6rem;
+  --tcf-radius-lg: 1rem;
+
+  --tcf-shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.04);
+  --tcf-shadow:    0 4px 12px rgba(0,0,0,0.08);
+  --tcf-shadow-lg: 0 16px 32px rgba(0,0,0,0.12);
+
+  --tcf-trans-fast: 0.12s ease;
+  --tcf-trans:      0.2s ease;
 }
 
 [data-md-color-scheme="default"] {
   --md-default-fg-color--lightest: #f0f3fa;
+  --tcf-card-bg: #ffffff;
+  --tcf-card-border: #e3e8f5;
+  --tcf-progress-track: #e3e8f5;
 }
 
 [data-md-color-scheme="slate"] {
@@ -21,11 +68,23 @@
   --md-default-bg-color--light: #1d2030;
   --md-default-fg-color--lightest: #232739;
   --md-typeset-a-color:         #9fa8da;
+  --tcf-card-bg: #1d2030;
+  --tcf-card-border: #2a2e44;
+  --tcf-progress-track: #2a2e44;
+
+  --tcf-band-a1: #ef5350;
+  --tcf-band-a2: #ff9800;
+  --tcf-band-b1: #ffd54f;
+  --tcf-band-b2: #66bb6a;
+  --tcf-band-c1: #42a5f5;
+  --tcf-band-c2: #ab47bc;
 }
 
-/* Typography */
+/* ====================================================================== */
+/* 2. Typography                                                          */
+/* ====================================================================== */
 .md-typeset {
-  font-feature-settings: "kern", "liga", "calt";
+  font-feature-settings: "kern", "liga", "calt", "ss01";
   line-height: 1.65;
 }
 
@@ -54,26 +113,38 @@
   margin-top: 1rem;
 }
 
-/* Blockquotes — refined left-rule with subtle background */
+.md-typeset p,
+.md-typeset li {
+  text-wrap: pretty;
+}
+
+/* Drop-cap on the first paragraph of long pages (opt-in via .lede) */
+.md-typeset .lede::first-letter {
+  font-size: 3.2em;
+  float: left;
+  font-weight: 600;
+  line-height: 0.9;
+  padding: 0.05em 0.1em 0 0;
+  color: var(--md-primary-fg-color);
+}
+
+/* ====================================================================== */
+/* 3. Tables, code, admonitions, blockquotes                              */
+/* ====================================================================== */
 .md-typeset blockquote {
   border-left: 3px solid var(--md-accent-fg-color);
   background: var(--md-default-fg-color--lightest);
   padding: 0.8rem 1rem;
-  border-radius: 0 0.3rem 0.3rem 0;
+  border-radius: 0 var(--tcf-radius-sm) var(--tcf-radius-sm) 0;
   font-style: normal;
   color: var(--md-default-fg-color);
 }
 
-.md-typeset blockquote > :first-child {
-  margin-top: 0;
-}
-.md-typeset blockquote > :last-child {
-  margin-bottom: 0;
-}
+.md-typeset blockquote > :first-child { margin-top: 0; }
+.md-typeset blockquote > :last-child  { margin-bottom: 0; }
 
-/* Tables — comfortable density, banded rows */
 .md-typeset table:not([class]) {
-  border-radius: 0.4rem;
+  border-radius: var(--tcf-radius-sm);
   overflow: hidden;
   border: 1px solid var(--md-default-fg-color--lightest);
   box-shadow: none;
@@ -91,7 +162,14 @@
   background: var(--md-default-fg-color--lightest);
 }
 
-/* Code blocks — softer corners, no harsh borders */
+.md-typeset table:not([class]) tr {
+  transition: background var(--tcf-trans-fast);
+}
+
+.md-typeset table:not([class]) tbody tr:hover td {
+  background: color-mix(in oklab, var(--md-accent-fg-color) 6%, transparent);
+}
+
 .md-typeset code {
   background: var(--md-default-fg-color--lightest);
   border-radius: 0.25rem;
@@ -100,20 +178,21 @@
 }
 
 .md-typeset pre > code {
-  border-radius: 0.4rem;
+  border-radius: var(--tcf-radius-sm);
   padding: 1rem 1.2rem;
   line-height: 1.55;
 }
 
-/* Admonitions — keep the Material look but soften shadows */
 .md-typeset .admonition,
 .md-typeset details {
-  border-radius: 0.5rem;
+  border-radius: var(--tcf-radius-sm);
   border-left-width: 3px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  box-shadow: var(--tcf-shadow-sm);
 }
 
-/* Navigation: highlight the active section more clearly */
+/* ====================================================================== */
+/* 4. Navigation, header, search, footer                                  */
+/* ====================================================================== */
 .md-nav__link--active {
   font-weight: 600;
   color: var(--md-primary-fg-color);
@@ -123,22 +202,31 @@
   color: var(--md-accent-fg-color);
 }
 
-/* Header — slight contrast lift */
 .md-header {
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
-/* Tabs — keep clean baseline */
 .md-tabs {
   background: var(--md-primary-fg-color--dark);
 }
 
-/* Search input — rounded */
 .md-search__form {
   border-radius: 999px;
+  transition: background var(--tcf-trans);
 }
 
-/* The "⏱ N min" estimated-minutes badge that the hook injects */
+.md-search__form:focus-within {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--md-accent-fg-color) 35%, transparent);
+}
+
+/* Sidebar TOC: subtle active marker */
+.md-nav--secondary .md-nav__link--active {
+  border-left: 2px solid var(--md-accent-fg-color);
+  padding-left: 0.6rem;
+}
+
+/* The "⏱ N min" estimated-minutes badge */
 .md-typeset .admonition.inline {
   font-size: 0.78rem;
   margin: 0 0.6rem 0.4rem 0;
@@ -148,7 +236,6 @@
   box-shadow: none;
 }
 
-/* Inline badges (estimated_minutes) — float right of section heads */
 .md-typeset .admonition.inline > .admonition-title {
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -156,43 +243,1021 @@
   font-size: 0.72rem;
 }
 
-/* Footer — refined */
 .md-footer-meta {
   background: var(--md-primary-fg-color--dark);
 }
 
-/* Print-friendly: hide nav, give margins */
-@media print {
-  .md-sidebar, .md-header, .md-tabs, .md-footer {
-    display: none !important;
-  }
-  .md-main__inner, .md-content {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+/* ====================================================================== */
+/* 5. Home / hero / feature cards                                         */
+/* ====================================================================== */
+.hero {
+  text-align: center;
+  padding: 3.5rem 1rem 2rem;
+  margin: -1.5rem -0.8rem 2.5rem;
+  background: linear-gradient(135deg, #1a237e 0%, #283593 50%, #3949ab 100%);
+  color: #fff;
+  border-radius: 0 0 var(--tcf-radius) var(--tcf-radius);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Mobile polish: tighter hero, smaller stats */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 18%, rgba(255,255,255,0.08) 0, transparent 38%),
+    radial-gradient(circle at 80% 60%, rgba(255,143,0,0.18) 0, transparent 42%);
+  pointer-events: none;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.hero .tagline {
+  font-size: 1.15rem;
+  font-weight: 300;
+  opacity: 0.94;
+  margin: 0 auto;
+  max-width: 38rem;
+  position: relative;
+}
+
+.hero .meta {
+  margin-top: 1.6rem;
+  font-size: 0.85rem;
+  opacity: 0.78;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.hero .actions {
+  margin-top: 1.8rem;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.hero .actions a {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: transform var(--tcf-trans-fast), box-shadow var(--tcf-trans-fast), background var(--tcf-trans-fast);
+}
+
+.hero .actions a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+.hero .actions .primary {
+  background: #fff;
+  color: #1a237e;
+}
+
+.hero .actions .secondary {
+  background: rgba(255,255,255,0.16);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.32);
+}
+
+.hero .actions .secondary:hover {
+  background: rgba(255,255,255,0.22);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.2rem;
+  margin: 2.5rem 0;
+}
+
+.feature-card {
+  padding: 1.4rem 1.2rem;
+  border-radius: var(--tcf-radius);
+  background: var(--tcf-card-bg);
+  border: 1px solid var(--tcf-card-border);
+  transition: transform var(--tcf-trans-fast), box-shadow var(--tcf-trans-fast), border-color var(--tcf-trans-fast);
+  position: relative;
+}
+
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--tcf-shadow);
+  border-color: var(--md-primary-fg-color);
+}
+
+.feature-card .icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+  font-weight: 600;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.82;
+  line-height: 1.45;
+}
+
+/* ====================================================================== */
+/* 6. Skill bars, week grid, stat row                                     */
+/* ====================================================================== */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1.4rem;
+  background: var(--md-default-fg-color--lightest);
+  border-radius: var(--tcf-radius);
+}
+
+.stat-row .stat {
+  text-align: center;
+}
+
+.stat-row .stat .num {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+[data-md-color-scheme="slate"] .stat-row .stat .num {
+  color: var(--md-accent-fg-color);
+}
+
+.stat-row .stat .lbl {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.skill-bar {
+  display: grid;
+  grid-template-columns: 5rem 1fr 4rem;
+  gap: 0.6rem;
+  align-items: center;
+  margin: 0.5rem 0;
+  font-size: 0.92rem;
+}
+
+.skill-bar .skill-name {
+  font-weight: 600;
+}
+
+.skill-bar .skill-track {
+  background: var(--tcf-progress-track);
+  border-radius: 999px;
+  height: 0.55rem;
+  overflow: hidden;
+}
+
+.skill-bar .skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3949ab, #5c6bc0);
+  border-radius: 999px;
+  width: 0;
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill-bar.is-visible .skill-fill {
+  /* JS toggles .is-visible when scrolled into view; fill animates from 0 to target */
+  width: var(--skill-target, 0%);
+}
+
+.skill-bar .skill-val {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+  font-size: 0.85rem;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.6rem;
+  margin: 1.2rem 0;
+}
+
+.week-grid .week {
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+  background: var(--md-default-fg-color--lightest);
+  border-radius: var(--tcf-radius-sm);
+  border-left: 3px solid var(--md-primary-fg-color);
+  font-size: 0.85rem;
+  transition: transform var(--tcf-trans-fast), box-shadow var(--tcf-trans-fast);
+}
+
+.week-grid .week:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--tcf-shadow-sm);
+}
+
+.week-grid .week .num {
+  font-weight: 700;
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+.week-grid .week .focus {
+  margin-top: 0.3rem;
+  display: block;
+  line-height: 1.2;
+}
+
+.week-grid .week.milestone {
+  background: linear-gradient(135deg, #1a237e22, #3949ab22);
+  border-left-color: #5c6bc0;
+  font-weight: 600;
+}
+
+/* ====================================================================== */
+/* 7. Reading progress bar                                                */
+/* ====================================================================== */
+.tcf-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #ff8f00, #ff5722);
+  z-index: 10001;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ====================================================================== */
+/* 8. Interactive widgets                                                 */
+/* ====================================================================== */
+
+/* NCLC calculator */
+.tcf-calc {
+  background: var(--tcf-card-bg);
+  border: 1px solid var(--tcf-card-border);
+  border-radius: var(--tcf-radius);
+  padding: 1.4rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--tcf-shadow-sm);
+}
+
+.tcf-calc h3 {
+  margin-top: 0 !important;
+}
+
+.tcf-calc .calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0;
+}
+
+.tcf-calc .calc-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.tcf-calc .calc-input label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.tcf-calc .calc-input .hint {
+  font-size: 0.72rem;
+  opacity: 0.6;
+}
+
+.tcf-calc input[type="number"],
+.tcf-calc input[type="range"] {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--tcf-card-border);
+  border-radius: var(--tcf-radius-sm);
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+}
+
+.tcf-calc input[type="number"]:focus,
+.tcf-calc input[type="range"]:focus {
+  outline: none;
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--md-primary-fg-color) 22%, transparent);
+}
+
+.tcf-calc .calc-output {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--md-default-fg-color--lightest);
+  border-radius: var(--tcf-radius-sm);
+}
+
+.tcf-calc .calc-output .cell {
+  text-align: center;
+}
+
+.tcf-calc .calc-output .cell .val {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+[data-md-color-scheme="slate"] .tcf-calc .calc-output .cell .val {
+  color: var(--md-accent-fg-color);
+}
+
+.tcf-calc .calc-output .cell .lbl {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+.tcf-calc .verdict {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--tcf-radius-sm);
+  font-weight: 500;
+  font-size: 0.92rem;
+}
+
+.tcf-calc .verdict.ok {
+  background: color-mix(in oklab, var(--tcf-success) 14%, transparent);
+  border-left: 3px solid var(--tcf-success);
+}
+
+.tcf-calc .verdict.warn {
+  background: color-mix(in oklab, var(--tcf-warning) 16%, transparent);
+  border-left: 3px solid var(--tcf-warning);
+}
+
+.tcf-calc .verdict.bad {
+  background: color-mix(in oklab, var(--tcf-error) 14%, transparent);
+  border-left: 3px solid var(--tcf-error);
+}
+
+/* Pomodoro / timer widget */
+.tcf-timer {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: var(--tcf-card-bg);
+  border: 1px solid var(--tcf-card-border);
+  border-radius: var(--tcf-radius);
+  padding: 1.2rem 1.4rem;
+  margin: 1.4rem 0;
+  flex-wrap: wrap;
+  box-shadow: var(--tcf-shadow-sm);
+}
+
+.tcf-timer .clock {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--md-primary-fg-color);
+  min-width: 6rem;
+}
+
+[data-md-color-scheme="slate"] .tcf-timer .clock {
+  color: var(--md-accent-fg-color);
+}
+
+.tcf-timer.is-running .clock {
+  animation: tcf-pulse 1s ease-in-out infinite alternate;
+}
+
+.tcf-timer.is-done .clock {
+  color: var(--tcf-success);
+  animation: tcf-flash 0.6s ease-in-out 3;
+}
+
+@keyframes tcf-pulse {
+  from { opacity: 1; }
+  to   { opacity: 0.7; }
+}
+
+@keyframes tcf-flash {
+  from { background: transparent; }
+  50%  { background: color-mix(in oklab, var(--tcf-success) 22%, transparent); }
+  to   { background: transparent; }
+}
+
+.tcf-timer .ctrls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tcf-timer .ctrls button,
+.tcf-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--tcf-card-border);
+  background: var(--md-default-bg-color);
+  border-radius: var(--tcf-radius-sm);
+  font: inherit;
+  font-weight: 500;
+  font-size: 0.88rem;
+  cursor: pointer;
+  color: var(--md-default-fg-color);
+  transition: background var(--tcf-trans-fast), border-color var(--tcf-trans-fast), transform var(--tcf-trans-fast);
+}
+
+.tcf-timer .ctrls button:hover,
+.tcf-btn:hover {
+  border-color: var(--md-primary-fg-color);
+  transform: translateY(-1px);
+}
+
+.tcf-timer .ctrls button.primary,
+.tcf-btn.primary {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  border-color: var(--md-primary-fg-color);
+}
+
+.tcf-timer .ctrls button.primary:hover,
+.tcf-btn.primary:hover {
+  background: var(--md-primary-fg-color--light);
+}
+
+.tcf-timer .ctrls button.danger {
+  background: var(--tcf-error);
+  color: #fff;
+  border-color: var(--tcf-error);
+}
+
+.tcf-timer .presets {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.tcf-timer .presets button {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.78rem;
+  background: var(--md-default-fg-color--lightest);
+  border-color: transparent;
+}
+
+.tcf-timer .presets button.is-active {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+}
+
+/* Self-quiz widget */
+.tcf-quiz {
+  background: var(--tcf-card-bg);
+  border: 1px solid var(--tcf-card-border);
+  border-radius: var(--tcf-radius);
+  padding: 1.4rem;
+  margin: 1.4rem 0;
+  box-shadow: var(--tcf-shadow-sm);
+}
+
+.tcf-quiz .question {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.tcf-quiz .options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.tcf-quiz .options button {
+  text-align: left;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--tcf-card-border);
+  background: var(--md-default-bg-color);
+  border-radius: var(--tcf-radius-sm);
+  cursor: pointer;
+  font: inherit;
+  color: var(--md-default-fg-color);
+  transition: all var(--tcf-trans-fast);
+}
+
+.tcf-quiz .options button:hover:not(:disabled) {
+  border-color: var(--md-primary-fg-color);
+  background: color-mix(in oklab, var(--md-primary-fg-color) 6%, transparent);
+}
+
+.tcf-quiz .options button.correct {
+  border-color: var(--tcf-success);
+  background: color-mix(in oklab, var(--tcf-success) 12%, transparent);
+}
+
+.tcf-quiz .options button.incorrect {
+  border-color: var(--tcf-error);
+  background: color-mix(in oklab, var(--tcf-error) 12%, transparent);
+}
+
+.tcf-quiz .options button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.tcf-quiz .options button .marker {
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--md-default-fg-color--lightest);
+  margin-right: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.6rem;
+  font-size: 0.85rem;
+}
+
+.tcf-quiz .options button.correct .marker { background: var(--tcf-success); color: #fff; }
+.tcf-quiz .options button.incorrect .marker { background: var(--tcf-error); color: #fff; }
+
+.tcf-quiz .feedback {
+  margin-top: 0.8rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--tcf-radius-sm);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.tcf-quiz .feedback.ok {
+  background: color-mix(in oklab, var(--tcf-success) 14%, transparent);
+  border-left: 3px solid var(--tcf-success);
+}
+
+.tcf-quiz .feedback.bad {
+  background: color-mix(in oklab, var(--tcf-error) 14%, transparent);
+  border-left: 3px solid var(--tcf-error);
+}
+
+.tcf-quiz .progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  margin-bottom: 0.6rem;
+}
+
+.tcf-quiz .progress-bar {
+  height: 4px;
+  background: var(--tcf-progress-track);
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.tcf-quiz .progress-bar > div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--md-primary-fg-color), var(--md-accent-fg-color));
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+/* Checklist widget (persistent via localStorage) */
+.tcf-checklist {
+  background: var(--tcf-card-bg);
+  border: 1px solid var(--tcf-card-border);
+  border-radius: var(--tcf-radius);
+  padding: 1.2rem 1.4rem;
+  margin: 1.4rem 0;
+  box-shadow: var(--tcf-shadow-sm);
+}
+
+.tcf-checklist h3 {
+  margin-top: 0 !important;
+}
+
+.tcf-checklist ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.6rem 0;
+}
+
+.tcf-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.5rem 0.2rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  cursor: pointer;
+  transition: background var(--tcf-trans-fast);
+}
+
+.tcf-checklist li:hover {
+  background: color-mix(in oklab, var(--md-primary-fg-color) 4%, transparent);
+}
+
+.tcf-checklist li:last-child {
+  border-bottom: none;
+}
+
+.tcf-checklist li input[type="checkbox"] {
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+  accent-color: var(--md-primary-fg-color);
+  width: 1.1rem;
+  height: 1.1rem;
+  cursor: pointer;
+}
+
+.tcf-checklist li.is-done span {
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+.tcf-checklist .summary {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ====================================================================== */
+/* 9. Keyboard shortcut overlay                                           */
+/* ====================================================================== */
+.tcf-kbd-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+
+.tcf-kbd-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tcf-kbd-panel {
+  background: var(--tcf-card-bg);
+  color: var(--md-default-fg-color);
+  border-radius: var(--tcf-radius);
+  max-width: 32rem;
+  width: 100%;
+  padding: 1.6rem 1.8rem;
+  box-shadow: var(--tcf-shadow-lg);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.tcf-kbd-panel h3 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.tcf-kbd-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.tcf-kbd-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--md-default-fg-color--lightest);
+  font-size: 0.9rem;
+}
+
+.tcf-kbd-row:last-child { border-bottom: none; }
+
+.tcf-kbd-row kbd {
+  display: inline-block;
+  padding: 0.18rem 0.5rem;
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 0.3rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-left: 0.3rem;
+  border: 1px solid var(--tcf-card-border);
+  box-shadow: 0 1px 0 var(--tcf-card-border);
+}
+
+.tcf-kbd-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--md-default-fg-color);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  opacity: 0.6;
+  transition: opacity var(--tcf-trans-fast), background var(--tcf-trans-fast);
+}
+
+.tcf-kbd-close:hover {
+  opacity: 1;
+  background: var(--md-default-fg-color--lightest);
+}
+
+/* ====================================================================== */
+/* 10. Toast notifications                                                */
+/* ====================================================================== */
+.tcf-toast-host {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 10002;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.tcf-toast {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--tcf-radius-sm);
+  font-size: 0.88rem;
+  box-shadow: var(--tcf-shadow);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: auto;
+  max-width: 22rem;
+}
+
+.tcf-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tcf-toast.ok    { background: var(--tcf-success); }
+.tcf-toast.warn  { background: var(--tcf-warning); }
+.tcf-toast.error { background: var(--tcf-error); }
+
+/* ====================================================================== */
+/* 11. Cheatsheet card grid                                               */
+/* ====================================================================== */
+.cheat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.cheat-card {
+  display: block;
+  padding: 1.1rem 1.2rem;
+  background: var(--tcf-card-bg);
+  border: 1px solid var(--tcf-card-border);
+  border-radius: var(--tcf-radius);
+  text-decoration: none !important;
+  color: inherit !important;
+  border-bottom: 1px solid var(--tcf-card-border) !important;
+  transition: transform var(--tcf-trans-fast), border-color var(--tcf-trans-fast), box-shadow var(--tcf-trans-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.cheat-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--md-accent-fg-color);
+  opacity: 0;
+  transition: opacity var(--tcf-trans-fast);
+}
+
+.cheat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--md-primary-fg-color) !important;
+  box-shadow: var(--tcf-shadow);
+}
+
+.cheat-card:hover::before { opacity: 1; }
+
+.cheat-card .cheat-title {
+  font-weight: 600;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.cheat-card .cheat-desc {
+  font-size: 0.84rem;
+  opacity: 0.78;
+  line-height: 1.4;
+}
+
+.cheat-card .cheat-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.12rem 0.5rem;
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 999px;
+  margin-top: 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+/* ====================================================================== */
+/* 12. CEFR / NCLC badges                                                 */
+/* ====================================================================== */
+.cefr,
+.nclc {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.25rem;
+  margin: 0 0.15rem;
+  text-transform: uppercase;
+  color: #fff;
+  vertical-align: 0.05em;
+}
+
+.cefr-a1 { background: var(--tcf-band-a1); }
+.cefr-a2 { background: var(--tcf-band-a2); }
+.cefr-b1 { background: var(--tcf-band-b1); color: #000; }
+.cefr-b2 { background: var(--tcf-band-b2); }
+.cefr-c1 { background: var(--tcf-band-c1); }
+.cefr-c2 { background: var(--tcf-band-c2); }
+
+.nclc {
+  background: var(--md-primary-fg-color);
+}
+
+[data-md-color-scheme="slate"] .nclc {
+  background: var(--md-accent-fg-color);
+  color: #1a1a1a;
+}
+
+/* ====================================================================== */
+/* 13. Floating action buttons (FABs)                                     */
+/* ====================================================================== */
+.tcf-fab-host {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-end;
+}
+
+.tcf-fab {
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: var(--tcf-shadow);
+  opacity: 0.85;
+  transition: opacity var(--tcf-trans-fast), transform var(--tcf-trans-fast), background var(--tcf-trans-fast);
+}
+
+.tcf-fab:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  background: var(--md-primary-fg-color--light);
+}
+
+.tcf-fab.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.85);
+}
+
+[data-md-color-scheme="slate"] .tcf-fab {
+  background: var(--md-accent-fg-color);
+  color: #1a1a1a;
+}
+
+/* ====================================================================== */
+/* 14. Print                                                              */
+/* ====================================================================== */
+@media print {
+  .md-sidebar, .md-header, .md-tabs, .md-footer,
+  .tcf-fab-host, .tcf-progress, .tcf-toast-host,
+  .tcf-kbd-overlay, .md-search { display: none !important; }
+  .md-main__inner, .md-content { margin: 0 !important; padding: 0 !important; }
+  .hero {
+    background: none !important;
+    color: #000 !important;
+    border: 1px solid #000;
+    margin: 0 0 1rem !important;
+    padding: 1rem !important;
+  }
+  .hero h1 { color: #000 !important; }
+  .feature-card, .cheat-card { break-inside: avoid; box-shadow: none !important; }
+  .tcf-calc, .tcf-quiz, .tcf-timer, .tcf-checklist {
+    border: 1px solid #999;
+    box-shadow: none !important;
+  }
+  a { text-decoration: underline; }
+}
+
+/* ====================================================================== */
+/* 15. Responsive                                                         */
+/* ====================================================================== */
 @media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero .tagline {
-    font-size: 1rem;
-  }
-  .stat-row .stat .num {
-    font-size: 1.4rem;
-  }
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
+  .hero { padding: 2.4rem 0.8rem 1.6rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero .tagline { font-size: 1rem; }
+  .stat-row .stat .num { font-size: 1.4rem; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .tcf-timer .clock { font-size: 2.2rem; }
+  .tcf-fab-host { right: 0.6rem; bottom: 0.6rem; }
+  .tcf-fab { width: 2.3rem; height: 2.3rem; font-size: 1rem; }
+}
+
+/* ====================================================================== */
+/* 16. Accessibility                                                      */
+/* ====================================================================== */
+
+/* Focus: clear, accessible focus rings on all interactive elements */
+.md-typeset a:focus-visible,
+.tcf-btn:focus-visible,
+.tcf-calc input:focus-visible,
+.tcf-quiz .options button:focus-visible,
+.tcf-timer button:focus-visible,
+.tcf-fab:focus-visible,
+.feature-card:focus-within,
+.cheat-card:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
 }
 
 /* Link styling — subtle underline-on-hover */
 .md-typeset a {
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.15s ease;
+  transition: border-color var(--tcf-trans-fast);
 }
 
 .md-typeset a:hover {
@@ -202,11 +1267,41 @@
 /* No underline for cards and buttons */
 .feature-card a,
 .hero a,
-.week-grid a {
+.week-grid a,
+.cheat-card,
+.tcf-fab,
+.tcf-btn {
   border-bottom: none !important;
 }
 
-/* Smooth scroll for anchor links */
-html {
-  scroll-behavior: smooth;
+/* Skip-to-content link (added by JS) */
+.tcf-skip {
+  position: absolute;
+  top: -100px;
+  left: 0.4rem;
+  background: var(--md-primary-fg-color);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: var(--tcf-radius-sm);
+  z-index: 10003;
+  text-decoration: none;
+  transition: top var(--tcf-trans-fast);
+}
+
+.tcf-skip:focus {
+  top: 0.4rem;
+}
+
+/* Smooth scroll for anchor links — disabled if user prefers reduced motion */
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .skill-bar .skill-fill { transition: none !important; }
+  .tcf-progress { transition: none !important; }
 }

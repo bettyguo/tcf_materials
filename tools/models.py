@@ -30,6 +30,8 @@ class Section(StrEnum):
     DIAGNOSTIC = "diagnostic"
     CULTURE = "culture"
     INDEX = "index"
+    # Phase 1.1 (interactive site): browser-side utility pages (calculator, timer, quiz, checklist).
+    TOOLS = "tools"
 
 
 class CEFR(StrEnum):
@@ -118,6 +120,10 @@ class Frontmatter(BaseModel):
 
     # Stub marker — TBD placeholder files referenced by the roadmap before their phase ships.
     stub: bool = False
+
+    # MkDocs Material "hide" frontmatter: list of UI affordances to hide on this page
+    # (e.g. ["navigation", "toc"]). Used by the homepage + landing pages.
+    hide: list[str] = Field(default_factory=list)
 
     # Phase 3 additions (listening items): question typology per 04_PHASE_3_VOCAB_LISTENING.md §4.1,
     # thematic domain per §3, single-question mock-subset pointer per §4.2.

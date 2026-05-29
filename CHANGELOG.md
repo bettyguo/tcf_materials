@@ -2,6 +2,31 @@
 
 All notable changes are documented here in [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) style. Versioning is per-phase, not per-feature: each phase bumps the minor version on completion.
 
+## [1.1.0] — 2026-05-29 — Interactive site upgrade (post-launch polish)
+
+### Added — interactive features (browser-side, zero tracking)
+- New section [`content/11_tools/`](content/11_tools/) — five interactive utility pages all rendering through `mkdocs build`:
+  - `calculateur-nclc.md` — NCLC calculator (4 inputs → 4 NCLCs, binding minimum, CRS bonus, shareable-URL permalink); also embedded inline on the homepage.
+  - `minuteur.md` — Pomodoro 25/5 + 6 official TCF exam-time presets (CO 35 min, CE 60 min, EE T1/T2/T3, EO 12 min). Tab-title live countdown, end-of-cycle beep.
+  - `quiz-rapide.md` — 10-question self-quiz (grammar / vocab / strategy), instant per-answer feedback, end-of-quiz summary with score and recommendations.
+  - `checklist-j1.md` — four persistent checklists (sac J-1, corps & esprit, matin J, micro-stratégies en épreuve) saved to localStorage.
+  - `raccourcis.md` — keyboard-shortcuts documentation page.
+- [`content/assets/javascripts/extra.js`](content/assets/javascripts/extra.js) — ~750-line vanilla-JS bundle: reading-progress bar, skill-bar scroll-reveal, stat-row count-up, keyboard shortcuts overlay (<kbd>?</kbd>), floating action buttons (top, print, copy-link, help), toast notifications, NCLC calculator widget, Pomodoro timer widget, self-quiz widget, persistent-checklist widget, audio playback-rate selector on every `<audio>` element, external-link "↗" annotation, skip-to-content link. Idempotent, instant-nav-aware.
+- [`content/assets/javascripts/mathjax-init.js`](content/assets/javascripts/mathjax-init.js) — MathJax 3 init that re-typesets on Material's instant-nav page swap.
+- MathJax 3 (CDN), `mkdocs-glightbox` (image lightbox/zoom), and `mkdocs-minify-plugin` (HTML/CSS/JS minification) added to the toolchain.
+
+### Updated
+- [`content/assets/stylesheets/extra.css`](content/assets/stylesheets/extra.css) — rewritten as a 16-section themed stylesheet: scroll progress, count-up tabular numerals, animated skill bars, NCLC-calculator / timer / quiz / checklist styles, keyboard-shortcuts overlay, toast host, FAB host, CEFR/NCLC badge classes (`.cefr-a1` … `.cefr-c2`, `.nclc`), enhanced print rules, `prefers-reduced-motion` support, accessible focus rings on every interactive control.
+- [`overrides/404.html`](overrides/404.html) — six-link grid (Démarrer / Jour 0 / Diagnostic / Outils / Cheatsheets / Mocks) with gradient-text 404, Seneca quote, search hint.
+- [`content/index.md`](content/index.md) — homepage actions bar now has 3 CTAs (Commencer / Diagnostic / Outils); "Outils intégrés" feature grid expanded from 4 to 8 cards; inline NCLC calculator embedded directly on the homepage.
+- [`mkdocs.yml`](mkdocs.yml) — `palette` now starts with `(prefers-color-scheme)` auto-toggle (system → light → dark cycle), added `navigation.tabs.sticky`, `content.code.select`, `content.action.view`, `header.autohide`; added `extra_javascript` for the bundle + MathJax; added `glightbox` and `minify` plugins.
+- [`content/.pages`](content/.pages) — added `11_tools` to root nav.
+- [`README.md`](README.md) — interactive-features block at the top describing each browser-side widget and listing direct links.
+
+### Stability
+- `mkdocs build --strict` clean (18.98 s, 0 errors). All 412 pages render.
+- No content schema changes; no audit hooks affected. Zero external trackers added.
+
 ## [1.0.0] — 2026-05-29 — Launch (Phase 8 close)
 
 ### Added — Phase 8 (launch)
