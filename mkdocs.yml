@@ -16,6 +16,7 @@ edit_uri: edit/main/content/
 theme:
   name: material
   language: fr
+  custom_dir: overrides
   features:
     - navigation.instant
     - navigation.instant.progress

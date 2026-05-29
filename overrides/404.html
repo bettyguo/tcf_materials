@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+.notfound {
+  text-align: center;
+  padding: 4rem 1rem 6rem;
+  max-width: 38rem;
+  margin: 0 auto;
+}
+.notfound .code {
+  font-size: 5rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 0;
+}
+.notfound h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0.8rem 0 1rem;
+}
+.notfound p {
+  font-size: 1rem;
+  opacity: 0.82;
+  line-height: 1.5;
+}
+.notfound .links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.notfound .links a {
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: var(--md-primary-fg-color);
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.92rem;
+  transition: transform 0.15s ease;
+}
+.notfound .links a:hover {
+  transform: translateY(-2px);
+}
+.notfound .links a.alt {
+  background: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color) !important;
+}
+</style>
+
+<div class="notfound">
+  <p class="code">404</p>
+  <h1>Page introuvable</h1>
+  <p>La page que vous cherchez n'existe pas — ou a été déplacée pendant la stabilisation du corpus v1.0. Essayez la page d'accueil, le diagnostic, ou la recherche en haut de la barre latérale.</p>
+  <div class="links">
+    <a href="{{ '' | url }}">Accueil</a>
+    <a class="alt" href="{{ '00_start_here/' | url }}">Jour 0</a>
+    <a class="alt" href="{{ '00_diagnostic/00_index/' | url }}">Diagnostic</a>
+  </div>
+</div>
+{% endblock %}

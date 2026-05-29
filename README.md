@@ -2,6 +2,8 @@
 
 > **Source-audited TCF Canada prep corpus.** ~410 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki). Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
 
+🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/>
+
 ---
 
 ## What this is — in 60 seconds
@@ -56,6 +58,8 @@ uv run mkdocs serve   # → http://127.0.0.1:8000
 ```
 
 Then follow [`ROADMAP.md`](ROADMAP.md) — the 84-day plan.
+
+> **Prefer to browse online?** The live site is at <https://bettyguo.github.io/tcf_materials/> — same content as a clone, search-indexed in French, no install needed. You'll still need a clone for the Anki deck and the auto-scorers.
 
 ---
 
