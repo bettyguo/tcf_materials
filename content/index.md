@@ -201,16 +201,16 @@ hide:
 # TCF Canada — Préparation B1 → C1
 
 <div class="tagline">
-Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en 12 semaines (~ 168 h). **37 outils interactifs (v1.3)**, **entraîneurs CE/CO chronométrés**, **liaisons & élisions**, **objectif & compte à rebours**, **badges**, **PWA installable**, palette <kbd>Ctrl/⌘ K</kbd>.
+Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en 12 semaines (~ 168 h). **45 outils interactifs (v1.4)**, **enregistreur EO** + **simulation EE 60 min**, **drills PC/imparfait + pronoms**, **défi quotidien**, **phrase du jour B2**, **PWA installable**, palette <kbd>Ctrl/⌘ K</kbd>.
 </div>
 
-<div class="meta">v1.3 · CC BY-SA 4.0 · audit pipeline alive · <kbd>Ctrl</kbd>+<kbd>K</kbd> palette · <span style="opacity:.85">+9 outils + PWA</span></div>
+<div class="meta">v1.4 · CC BY-SA 4.0 · audit pipeline alive · <kbd>Ctrl</kbd>+<kbd>K</kbd> palette · <span style="opacity:.85">+8 nouveaux outils</span></div>
 
 <div class="actions">
 <a class="primary" href="00_start_here/">Commencer maintenant →</a>
+<a class="secondary" href="11_tools/defi/">🎯 Défi du jour</a>
 <a class="secondary" href="11_tools/tableau/">Tableau de bord</a>
 <a class="secondary" href="11_tools/objectif/">Poser ma date</a>
-<a class="secondary" href="11_tools/plan-du-jour/">Plan du jour</a>
 <a class="secondary" href="00_diagnostic/00_index/">Diagnostic (90 min)</a>
 </div>
 
@@ -221,10 +221,10 @@ Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en
 Ce corpus prépare au **TCF Canada** avec une intensité **B2-first** (B1+B2 = ~ 49 % du score CO/CE pondéré). Tout est généré depuis une **source unique** en Markdown — pas de risque de divergence entre site, PDF, EPUB et deck Anki.
 
 <div class="stat-row">
-<div class="stat"><span class="num tcf-counter" data-to="421" data-ms="900">421</span><span class="lbl">fichiers</span></div>
+<div class="stat"><span class="num tcf-counter" data-to="429" data-ms="900">429</span><span class="lbl">fichiers</span></div>
 <div class="stat"><span class="num">~1 800</span><span class="lbl">cartes Anki</span></div>
 <div class="stat"><span class="num tcf-counter" data-to="64">64</span><span class="lbl">unités grammaire</span></div>
-<div class="stat"><span class="num tcf-counter" data-to="37">37</span><span class="lbl">outils interactifs</span></div>
+<div class="stat"><span class="num tcf-counter" data-to="45">45</span><span class="lbl">outils interactifs</span></div>
 <div class="stat"><span class="num tcf-counter" data-to="4">4</span><span class="lbl">examens blancs</span></div>
 <div class="stat"><span class="num tcf-counter" data-to="15">15</span><span class="lbl">badges débloquables</span></div>
 </div>
@@ -329,7 +329,9 @@ Un seul Markdown génère le **site**, le **PDF** (Pandoc + XeLaTeX), l'**EPUB**
 
 ## Tableau de bord — état du jour
 
-> **v1.3** : un coup d'œil suffit. Objectif et compte à rebours en haut, dashboard agrégé en dessous, revue hebdo en bas. Tout est calculé dans votre navigateur.
+> **v1.4** : un coup d'œil suffit. Objectif + countdown, dashboard agrégé, revue hebdo, défi du jour, phrase du jour. Tout est calculé dans votre navigateur.
+
+<div class="tcf-phrase"></div>
 
 <div class="tcf-goal"></div>
 
@@ -337,11 +339,67 @@ Un seul Markdown génère le **site**, le **PDF** (Pandoc + XeLaTeX), l'**EPUB**
 
 <div class="tcf-weekly"></div>
 
+<div class="tcf-daily"></div>
+
 [**Ouvrir le tableau de bord complet →**](11_tools/tableau/){ .md-button }
 [**Générer mon plan d'étude →**](11_tools/plan-du-jour/){ .md-button }
-[**Tous les outils (37) →**](11_tools/){ .md-button }
+[**Tous les outils (45) →**](11_tools/){ .md-button }
 
-## Nouveau dans la v1.3 — 9 outils en plus + PWA
+## Nouveau dans la v1.4 — 8 outils en plus
+
+<div class="feature-grid">
+
+<a class="feature-card" href="11_tools/eo-enregistreur/">
+<span class="icon">🎙️</span>
+<h3>Enregistreur EO + rubrique</h3>
+<p>MediaRecorder local, audio jamais envoyé, rubrique 4 critères × 5 pts, historique.</p>
+</a>
+
+<a class="feature-card" href="11_tools/ee-simulation/">
+<span class="icon">⏱️</span>
+<h3>Simulation EE — 60 min</h3>
+<p>3 tâches T1/T2/T3, minuteur global, navigation libre, autosave, export texte.</p>
+</a>
+
+<a class="feature-card" href="11_tools/passe-compose-imparfait/">
+<span class="icon">⏳</span>
+<h3>PC vs imparfait</h3>
+<p>30 items B1-B2 sur les 10 patrons décisifs (ponctuel/duratif, habitude, état mental, modaux aspectuels).</p>
+</a>
+
+<a class="feature-card" href="11_tools/pronoms/">
+<span class="icon">🔁</span>
+<h3>Pronoms y/en/le/la/lui/leur</h3>
+<p>30 items B1-B2 — à + personne vs à + chose, partitif, exceptions tonique (penser à elle).</p>
+</a>
+
+<a class="feature-card" href="11_tools/defi/">
+<span class="icon">🎯</span>
+<h3>Défi quotidien</h3>
+<p>5 questions mixtes, graine = date du jour. Tout le monde a le même défi le même jour. Streak quotidien.</p>
+</a>
+
+<a class="feature-card" href="11_tools/phrase-du-jour/">
+<span class="icon">💬</span>
+<h3>Phrase du jour B2/C1</h3>
+<p>30 pivots soutenus, rotation déterministe, TTS + copier. 30 secondes pour ancrer un connecteur de plus.</p>
+</a>
+
+<a class="feature-card" href="11_tools/equivalence/">
+<span class="icon">🌐</span>
+<h3>Équivalence CECRL ↔ NCLC</h3>
+<p>Table autoritative + scores bruts CO/CE + EE/EO + remarques CRS. NCLC 8 / 9 mis en avant.</p>
+</a>
+
+<a class="feature-card" href="11_tools/annee/">
+<span class="icon">📆</span>
+<h3>Heatmap 365 jours</h3>
+<p>Vue annuelle de votre registre d'activité. Forme = phase. Trous visibles = signal de reprise.</p>
+</a>
+
+</div>
+
+## Précédemment dans la v1.3 — 9 outils + PWA
 
 <div class="feature-grid">
 

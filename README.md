@@ -1,8 +1,8 @@
 # TCF Canada — Préparation B1 → C1/C2
 
-> **Source-audited TCF Canada prep corpus.** ~420 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki) **+ a world-class interactive web site** (v1.3): **37 browser-side tools** including timed **CE / CO trainers** (mini-mocks with MCQ + TTS), **liaisons & élisions** phonology drill, **sentence builder**, **synonyms / antonyms B2**, **exam-date countdown**, **15 achievements**, weekly review, **PWA installable** (offline cache + install banner), unified **dashboard** (streak / SRS-due / errors-due / radar NCLC), daily study planner, spaced-review error log, cloze, gender, numbers, B2 connectors, 60-second speed race, EE auto-feedback, lexicon lookup, conjugation tables, flashcards SRS, conjugation drill, audio dictation, reading-speed test, EE word counter, favorites, command palette <kbd>Ctrl/⌘ K</kbd>, **sound effects** (toggleable), **JSON export/import**. Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
+> **Source-audited TCF Canada prep corpus.** ~430 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki) **+ a world-class interactive web site** (v1.4): **45 browser-side tools** including a local-only **EO recorder** (MediaRecorder + rubric grading), a **60-min EE simulator** (3 tasks + global timer + autosave), **PC vs imparfait drill**, **pronouns drill** (y/en/le/la/lui/leur), **daily challenge** (deterministic 5-MC mix per day), **phrase of the day** (B2/C1 rotation), **CECRL ↔ NCLC equivalence visualizer**, **365-day heatmap**, plus timed CE / CO trainers, liaisons & élisions, sentence builder, synonyms / antonyms B2, exam-date countdown, 15 achievements, weekly review, **PWA installable** (offline cache), unified dashboard (streak / SRS-due / errors-due / radar NCLC), daily study planner, spaced-review error log, cloze, gender, numbers, B2 connectors, 60-second speed race, EE auto-feedback, lexicon lookup, conjugation tables, flashcards SRS, conjugation drill, audio dictation, reading-speed test, EE word counter, favorites, command palette <kbd>Ctrl/⌘ K</kbd>, **sound effects** (toggleable), **JSON export/import**. Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
 
-🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/> · [37 Outils interactifs](https://bettyguo.github.io/tcf_materials/11_tools/) · [🆕 Entraîneur CE](https://bettyguo.github.io/tcf_materials/11_tools/ce-entraineur/) · [🆕 Entraîneur CO](https://bettyguo.github.io/tcf_materials/11_tools/co-entraineur/) · [🆕 Liaisons](https://bettyguo.github.io/tcf_materials/11_tools/liaisons/) · [🆕 Objectif](https://bettyguo.github.io/tcf_materials/11_tools/objectif/) · [🆕 Badges](https://bettyguo.github.io/tcf_materials/11_tools/badges/) · [Tableau de bord](https://bettyguo.github.io/tcf_materials/11_tools/tableau/) · [Plan du jour](https://bettyguo.github.io/tcf_materials/11_tools/plan-du-jour/) · [Calculateur NCLC](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) · [Diagnostic](https://bettyguo.github.io/tcf_materials/00_diagnostic/00_index/)
+🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/> · [45 Outils interactifs](https://bettyguo.github.io/tcf_materials/11_tools/) · [🆕 Enregistreur EO](https://bettyguo.github.io/tcf_materials/11_tools/eo-enregistreur/) · [🆕 Simulation EE 60 min](https://bettyguo.github.io/tcf_materials/11_tools/ee-simulation/) · [🆕 Défi du jour](https://bettyguo.github.io/tcf_materials/11_tools/defi/) · [🆕 PC/imparfait](https://bettyguo.github.io/tcf_materials/11_tools/passe-compose-imparfait/) · [🆕 Pronoms](https://bettyguo.github.io/tcf_materials/11_tools/pronoms/) · [🆕 Équivalence CECRL↔NCLC](https://bettyguo.github.io/tcf_materials/11_tools/equivalence/) · [Tableau de bord](https://bettyguo.github.io/tcf_materials/11_tools/tableau/) · [Calculateur NCLC](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) · [Diagnostic](https://bettyguo.github.io/tcf_materials/00_diagnostic/00_index/)
 
 ---
 
@@ -16,7 +16,18 @@ A **single-source-of-truth Markdown corpus** that builds to:
 - an **EPUB** (Pandoc EPUB3)
 - an **Anki deck** (`.apkg`, ~1 500 cards, FSRS-friendly)
 
-**Interactive features on the live site (v1.3):**
+**Interactive features on the live site (v1.4):**
+
+New in v1.4 — real-exam simulators + grammar drills + daily routine:
+
+- 🎙️ [**EO recorder + rubric**](https://bettyguo.github.io/tcf_materials/11_tools/eo-enregistreur/) — MediaRecorder, never uploaded, 4 × 5-pt rubric (fluency/phonology/lexicon/syntax), graded history.
+- ⏱️ [**EE 60-min simulator**](https://bettyguo.github.io/tcf_materials/11_tools/ee-simulation/) — 3 tasks (T1 60-120, T2 120-150, T3 180-300 words), global timer, free tab navigation, autosave, .txt export.
+- ⏳ [**PC vs imparfait drill**](https://bettyguo.github.io/tcf_materials/11_tools/passe-compose-imparfait/) — 30 B1-B2 items across the 10 decisive patterns.
+- 🔁 [**Pronouns drill**](https://bettyguo.github.io/tcf_materials/11_tools/pronoms/) — 30 B1-B2 items on y/en/le/la/lui/leur incl. tonic-pronoun exceptions.
+- 🎯 [**Daily challenge**](https://bettyguo.github.io/tcf_materials/11_tools/defi/) — 5 mixed items, deterministic seed by date. Same challenge for everyone, every day.
+- 💬 [**Phrase of the day**](https://bettyguo.github.io/tcf_materials/11_tools/phrase-du-jour/) — 30 B2/C1 pivots, deterministic daily rotation, TTS + copy.
+- 🌐 [**CECRL ↔ NCLC visualizer**](https://bettyguo.github.io/tcf_materials/11_tools/equivalence/) — IRCC/FEI authoritative table, NCLC 8/9 highlighted.
+- 📆 [**365-day heatmap**](https://bettyguo.github.io/tcf_materials/11_tools/annee/) — yearly activity view, extends the 91-day streak heatmap.
 
 New in v1.3 — learning surface + PWA:
 

@@ -4,18 +4,25 @@ nav:
   - tableau.md
   - plan-du-jour.md
   - hebdo.md
+  - defi.md
+  - phrase-du-jour.md
   - objectif.md
   - badges.md
   - calculateur-nclc.md
+  - equivalence.md
   - minuteur.md
   - quiz-rapide.md
   - ce-entraineur.md
   - co-entraineur.md
+  - ee-simulation.md
+  - eo-enregistreur.md
   - cloze.md
   - genre.md
   - connecteurs.md
   - synonymes.md
   - constructeur.md
+  - passe-compose-imparfait.md
+  - pronoms.md
   - speed-race.md
   - minimal-pairs.md
   - liaisons.md
@@ -30,6 +37,7 @@ nav:
   - journal.md
   - suivi.md
   - streak.md
+  - annee.md
   - favoris.md
   - faq.md
   - glossaire.md

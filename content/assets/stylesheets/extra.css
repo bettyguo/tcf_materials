@@ -2731,3 +2731,124 @@ html.tcf-wide .md-grid { max-width: 80rem; }
   .ce-passage { padding: 0.75rem 0.85rem; line-height: 1.55; }
   .bd-grid { grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); }
 }
+
+/* ====================================================================== */
+/* v1.4 — Recorder, simulator, drills, daily                              */
+/* ====================================================================== */
+
+/* ---- EO recorder ---------------------------------------------------- */
+.tcf-eo-recorder { border: 1px solid var(--tcf-card-border); border-radius: var(--tcf-radius); padding: 1rem 1.1rem; background: var(--tcf-card-bg); margin: 1rem 0 1.4rem; }
+.er-head { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+.er-head select { padding: 0.4rem 0.55rem; border-radius: var(--tcf-radius-sm); border: 1px solid var(--tcf-card-border); background: var(--md-default-bg-color); color: var(--md-typeset-color); font: inherit; }
+.er-time { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1.5rem; text-align: center; padding: 0.7rem; background: var(--tcf-progress-track); border-radius: var(--tcf-radius); margin-bottom: 0.6rem; color: var(--md-primary-fg-color); }
+.er-controls { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.er-grade { margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px solid var(--tcf-card-border); }
+.er-grade h4 { margin: 0 0 0.3rem; color: var(--md-primary-fg-color); }
+.er-rubric { display: grid; gap: 0.55rem; }
+.er-row { padding: 0.5rem 0.6rem; border: 1px solid var(--tcf-card-border); border-radius: var(--tcf-radius-sm); background: var(--md-default-bg-color); }
+.er-row .er-lbl { margin-bottom: 0.3rem; font-size: 0.92rem; }
+.er-row label { display: block; padding: 0.25rem 0; font-size: 0.86rem; cursor: pointer; }
+.er-row input { margin-right: 0.4rem; }
+.er-total { padding: 0.5rem 0.7rem; background: rgba(26,35,126,0.10); color: var(--md-primary-fg-color); border-radius: var(--tcf-radius-sm); margin: 0.6rem 0; font-size: 1.02rem; }
+.er-actions { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+.er-hist { margin-top: 0.8rem; }
+.er-list { display: grid; gap: 0.3rem; margin-top: 0.4rem; }
+.er-hrow { display: grid; grid-template-columns: 1.6fr 0.5fr 0.6fr 0.6fr; gap: 0.4rem; font-size: 0.82rem; padding: 0.35rem 0.55rem; background: var(--tcf-progress-track); border-radius: var(--tcf-radius-sm); }
+.er-task-tag { font-weight: 600; color: var(--md-primary-fg-color); }
+.er-dur, .er-score { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---- EE simulator --------------------------------------------------- */
+.tcf-ee-sim { border: 1px solid var(--tcf-card-border); border-radius: var(--tcf-radius); padding: 1rem 1.1rem; background: var(--tcf-card-bg); margin: 1rem 0 1.4rem; }
+.es-intro h3 { margin-top: 0; color: var(--md-primary-fg-color); }
+.es-bar-top { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 0.7rem; padding-bottom: 0.7rem; border-bottom: 1px solid var(--tcf-card-border); }
+.es-time { font-variant-numeric: tabular-nums; font-weight: 800; font-size: 1.4rem; padding: 0.3rem 0.8rem; border-radius: var(--tcf-radius-sm); background: var(--tcf-progress-track); color: var(--md-primary-fg-color); min-width: 5rem; text-align: center; }
+.es-time.is-low { background: rgba(198,40,40,0.15); color: var(--tcf-error); animation: cePulse 0.9s ease-in-out infinite alternate; }
+.es-tabs { display: flex; gap: 0.3rem; }
+.es-tab { padding: 0.3rem 0.7rem; border-radius: var(--tcf-radius-sm); border: 1px solid var(--tcf-card-border); background: var(--md-default-bg-color); color: var(--md-typeset-color); font: inherit; cursor: pointer; font-weight: 600; }
+.es-tab.on { background: var(--md-primary-fg-color); color: #fff; border-color: var(--md-primary-fg-color); }
+.es-prompt { padding: 0.7rem 0.85rem; background: var(--tcf-progress-track); border-radius: var(--tcf-radius-sm); margin-bottom: 0.6rem; line-height: 1.5; font-size: 0.95rem; }
+.es-text { width: 100%; padding: 0.7rem; border: 1px solid var(--tcf-card-border); border-radius: var(--tcf-radius-sm); font: inherit; background: var(--md-default-bg-color); color: var(--md-typeset-color); line-height: 1.55; }
+.es-text:focus { outline: none; border-color: var(--md-primary-fg-color); box-shadow: 0 0 0 3px rgba(26,35,126,0.15); }
+.es-foot { display: flex; justify-content: space-between; padding: 0.4rem 0; font-size: 0.85rem; opacity: 0.85; }
+.es-summary h3 { color: var(--md-primary-fg-color); margin-top: 0; }
+.es-bars { display: grid; gap: 0.5rem; margin: 0.6rem 0; }
+.es-bar { display: grid; grid-template-columns: 4rem 6rem 1fr; gap: 0.5rem; padding: 0.5rem 0.7rem; border-radius: var(--tcf-radius-sm); background: var(--tcf-progress-track); align-items: center; font-variant-numeric: tabular-nums; }
+.es-bar.es-ok { background: rgba(46,125,50,0.10); }
+.es-bar.es-warn { background: rgba(237,108,2,0.10); }
+.es-l { font-weight: 700; color: var(--md-primary-fg-color); }
+.es-n { font-weight: 700; }
+.es-r { font-size: 0.85rem; opacity: 0.8; }
+.es-actions { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+
+/* ---- Tense + Pronouns drills --------------------------------------- */
+.tcf-tense, .tcf-pronouns { border: 1px solid var(--tcf-card-border); border-radius: var(--tcf-radius); padding: 1rem 1.1rem; background: var(--tcf-card-bg); margin: 1rem 0 1.4rem; }
+.tn-stem, .pn-q { font-size: 1.1rem; padding: 0.8rem 0.3rem; line-height: 1.5; }
+.tn-opts, .pn-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.6rem; }
+.tn-opt, .pn-opt { padding: 0.55rem 0.7rem; }
+.tn-opt.is-correct, .pn-opt.is-correct { background: rgba(46,125,50,0.22); border-color: var(--tcf-success); }
+.tn-opt.is-correct-soft, .pn-opt.is-correct-soft { box-shadow: inset 0 0 0 2px var(--tcf-success); }
+.tn-opt.is-wrong, .pn-opt.is-wrong { background: rgba(198,40,40,0.18); border-color: var(--tcf-error); }
+@media (max-width: 640px) { .tn-opts, .pn-opts { grid-template-columns: 1fr; } }
+
+/* ---- Daily challenge ----------------------------------------------- */
+.tcf-daily { border: 1px solid var(--tcf-card-border); border-radius: var(--tcf-radius); padding: 1rem 1.1rem; background: linear-gradient(180deg, rgba(255,143,0,0.08), var(--tcf-card-bg)); margin: 1rem 0 1.4rem; }
+.dl-badge { display: inline-block; padding: 0.18rem 0.6rem; border-radius: 999px; background: var(--md-accent-fg-color); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.dl-intro h3 { color: var(--md-primary-fg-color); margin: 0.4rem 0; }
+.dl-head { display: flex; justify-content: space-between; padding-bottom: 0.55rem; margin-bottom: 0.55rem; border-bottom: 1px solid var(--tcf-card-border); font-size: 0.88rem; font-weight: 600; opacity: 0.85; }
+.dl-q { font-size: 1.1rem; padding: 0.75rem 0.3rem; line-height: 1.5; }
+.dl-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 0.6rem; }
+.dl-opt { padding: 0.55rem 0.7rem; }
+.dl-opt.is-correct { background: rgba(46,125,50,0.22); border-color: var(--tcf-success); }
+.dl-opt.is-correct-soft { box-shadow: inset 0 0 0 2px var(--tcf-success); }
+.dl-opt.is-wrong { background: rgba(198,40,40,0.18); border-color: var(--tcf-error); }
+.dl-summary h3 { color: var(--md-primary-fg-color); margin-top: 0; }
+@media (max-width: 640px) { .dl-opts { grid-template-columns: 1fr; } }
+
+/* ---- Phrase of the day --------------------------------------------- */
+.tcf-phrase { margin: 1rem 0 1.4rem; }
+.pd-card { padding: 1rem 1.2rem; border-radius: var(--tcf-radius); background: linear-gradient(135deg, #283593, #3949ab); color: #fff; box-shadow: var(--tcf-shadow); }
+.pd-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.15rem 0.55rem; border-radius: 999px; background: rgba(255,255,255,0.18); margin-bottom: 0.7rem; }
+.pd-fr { font-family: "Source Serif Pro", Georgia, serif; font-size: 1.4rem; line-height: 1.4; font-weight: 500; }
+.pd-gloss { margin-top: 0.4rem; font-size: 0.85rem; opacity: 0.85; line-height: 1.4; }
+.pd-actions { display: flex; gap: 0.4rem; margin-top: 0.7rem; }
+.pd-actions .tcf-btn { background: rgba(255,255,255,0.16); color: #fff; border-color: rgba(255,255,255,0.32); }
+.pd-actions .tcf-btn:hover { background: rgba(255,255,255,0.28); }
+
+/* ---- WPM history --------------------------------------------------- */
+.tcf-wpm-history { margin: 1rem 0 1.4rem; }
+.wpmh-card { padding: 0.9rem 1rem; border: 1px solid var(--tcf-card-border); border-radius: var(--tcf-radius); background: var(--md-default-bg-color); }
+.wpmh-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr)); gap: 0.5rem; margin-bottom: 0.4rem; }
+.wpmh-stats div { text-align: center; padding: 0.5rem 0.4rem; background: var(--tcf-progress-track); border-radius: var(--tcf-radius-sm); }
+.wpmh-num { display: block; font-size: 1.4rem; font-weight: 800; color: var(--md-primary-fg-color); line-height: 1; font-variant-numeric: tabular-nums; }
+.wpmh-lbl { display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; margin-top: 0.2rem; }
+.wpmh-spark { display: flex; justify-content: center; color: var(--md-primary-fg-color); padding: 0.4rem 0; }
+
+/* ---- CECRL/NCLC equivalence ---------------------------------------- */
+.tcf-equiv { margin: 1rem 0 1.4rem; }
+.eq-wrap { overflow-x: auto; border: 1px solid var(--tcf-card-border); border-radius: var(--tcf-radius); }
+.eq-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.eq-table th { padding: 0.55rem 0.7rem; background: var(--md-primary-fg-color); color: #fff; text-align: left; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.03em; text-transform: uppercase; }
+.eq-table td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--tcf-card-border); }
+.eq-table tr:last-child td { border-bottom: none; }
+.eq-band { display: inline-block; padding: 0.12rem 0.55rem; border-radius: 999px; background: var(--tcf-progress-track); font-weight: 600; font-variant-numeric: tabular-nums; }
+.eq-r-b2 td, .eq-r-b2p td { background: rgba(46,125,50,0.10); }
+.eq-r-b2 td:first-child::before, .eq-r-b2p td:first-child::before { content: "★ "; color: var(--md-accent-fg-color); }
+.eq-r-c1 td { background: rgba(21,101,192,0.08); }
+
+/* ---- Yearly heatmap ------------------------------------------------ */
+.tcf-year-heatmap { margin: 1rem 0 1.4rem; }
+.yh-card { padding: 0.7rem 0.85rem; border: 1px solid var(--tcf-card-border); border-radius: var(--tcf-radius); background: var(--md-default-bg-color); overflow-x: auto; }
+.yh-head { font-size: 0.92rem; margin-bottom: 0.5rem; }
+.yh-months { display: grid; grid-template-columns: repeat(12, 1fr); font-size: 0.7rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem; padding: 0 0.1rem; }
+.yh-grid { display: grid; grid-template-columns: repeat(53, 1fr); grid-auto-rows: minmax(0.6rem, 1fr); grid-auto-flow: column; gap: 2px; min-width: 480px; }
+.yh-cell { display: block; width: 100%; aspect-ratio: 1; background: var(--tcf-progress-track); border-radius: 2px; }
+.yh-cell.on { background: linear-gradient(135deg, var(--md-primary-fg-color), #5c6bc0); }
+
+/* Mobile guards for v1.4 */
+@media (max-width: 720px) {
+  .er-time { font-size: 1.25rem; }
+  .es-time { font-size: 1.15rem; min-width: 4rem; }
+  .pd-fr { font-size: 1.15rem; }
+  .eq-table { font-size: 0.85rem; }
+  .eq-table th, .eq-table td { padding: 0.4rem 0.5rem; }
+}

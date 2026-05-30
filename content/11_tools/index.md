@@ -22,14 +22,68 @@ Une page = un outil. Tout fonctionne **côté navigateur uniquement** — aucune
 !!! tip "Astuce — palette de commandes (37 outils)"
     Appuyez sur <kbd>Ctrl</kbd>+<kbd>K</kbd> (ou <kbd>⌘</kbd>+<kbd>K</kbd>) pour ouvrir la **palette de commandes** depuis n'importe quelle page. Vous y trouvez **les 37 outils en un clic**, classés et filtrables.
 
-## Synthèse en un coup d'œil — `v1.3`
+## Synthèse en un coup d'œil — `v1.4`
 
 <a class="cheat-card" href="tableau/" style="display:block;margin-bottom:1.2rem">
 <span class="cheat-title">🧭 Tableau de bord</span>
 <span class="cheat-desc">Vue agrégée : streak du jour, cartes SRS dues, erreurs dues, dernier mock, radar NCLC. La porte d'entrée recommandée après le premier mois.</span>
 </a>
 
-## Nouveau dans la v1.3 — 9 outils en plus + PWA
+## Nouveau dans la v1.4 — 8 outils en plus
+
+<div class="feature-grid">
+
+<a class="cheat-card" href="eo-enregistreur/">
+<span class="cheat-title">🎙️ Enregistreur EO + rubrique <span class="cheat-tag" style="margin-left:.4rem">v1.4</span></span>
+<span class="cheat-desc">MediaRecorder local, rubrique 4 critères × 5 pts, historique des gradings. Audio jamais envoyé.</span>
+<span class="cheat-tag">EO entraînement</span>
+</a>
+
+<a class="cheat-card" href="ee-simulation/">
+<span class="cheat-title">⏱️ Simulation EE — 60 min <span class="cheat-tag" style="margin-left:.4rem">v1.4</span></span>
+<span class="cheat-desc">3 tâches T1/T2/T3, minuteur global, navigation libre, autosave continu, export .txt.</span>
+<span class="cheat-tag">EE plein format</span>
+</a>
+
+<a class="cheat-card" href="passe-compose-imparfait/">
+<span class="cheat-title">⏳ PC vs imparfait <span class="cheat-tag" style="margin-left:.4rem">v1.4</span></span>
+<span class="cheat-desc">30 items B1-B2 couvrant les 10 patrons décisifs (action ponctuelle vs durative, habitude, état mental).</span>
+<span class="cheat-tag">Grammaire B1</span>
+</a>
+
+<a class="cheat-card" href="pronoms/">
+<span class="cheat-title">🔁 Pronoms y/en/le/la/lui/leur <span class="cheat-tag" style="margin-left:.4rem">v1.4</span></span>
+<span class="cheat-desc">30 items B1-B2 — à + personne vs à + chose, partitif vs défini, exceptions (penser à elle).</span>
+<span class="cheat-tag">Grammaire B2</span>
+</a>
+
+<a class="cheat-card" href="defi/">
+<span class="cheat-title">🎯 Défi quotidien <span class="cheat-tag" style="margin-left:.4rem">v1.4</span></span>
+<span class="cheat-desc">5 questions mixtes (genre, connecteurs, synonymes, PC/imp), graine = date. Tout le monde a le même défi.</span>
+<span class="cheat-tag">Routine</span>
+</a>
+
+<a class="cheat-card" href="phrase-du-jour/">
+<span class="cheat-title">💬 Phrase du jour B2/C1 <span class="cheat-tag" style="margin-left:.4rem">v1.4</span></span>
+<span class="cheat-desc">30 pivots soutenus, rotation déterministe quotidienne, TTS + copier intégré.</span>
+<span class="cheat-tag">Pivots EE</span>
+</a>
+
+<a class="cheat-card" href="equivalence/">
+<span class="cheat-title">🌐 Équivalence CECRL ↔ NCLC <span class="cheat-tag" style="margin-left:.4rem">v1.4</span></span>
+<span class="cheat-desc">Table autoritative + scores bruts CO/CE + EE/EO. NCLC 8 / 9 mis en avant.</span>
+<span class="cheat-tag">Référence IRCC</span>
+</a>
+
+<a class="cheat-card" href="annee/">
+<span class="cheat-title">📆 Heatmap 365 jours <span class="cheat-tag" style="margin-left:.4rem">v1.4</span></span>
+<span class="cheat-desc">Vue annuelle de votre registre d'activité. Forme = phase. Trous visibles = signal de reprise.</span>
+<span class="cheat-tag">Rétroaction long terme</span>
+</a>
+
+</div>
+
+## Précédemment dans la v1.3 — 9 outils + PWA
 
 <div class="feature-grid">
 
@@ -329,5 +383,11 @@ Toutes les clés sont préfixées `tcf:` pour éviter les collisions.
 | `tcf:badges:earned` | Badges (v1.3) | Carte `id → timestamp d'attribution` |
 | `tcf:tools:used` | Badges (v1.3) | Map `tool-name → timestamp` (pour « 10 outils ») |
 | `tcf:settings:sound` · `tcf:settings:motion` · `tcf:settings:wide` | Paramètres (v1.3) | Préférences UI |
+| `tcf:eo:recs` | Enregistreur EO (v1.4) | Historique des gradings (date, tâche, durée, total/20, détail rubrique) |
+| `tcf:ee:sim` | Simulation EE (v1.4) | Brouillon T1/T2/T3 + minuteur de session en cours + 10 dernières sessions |
+| `tcf:tn:<set>` | PC vs imparfait (v1.4) | Score, parties, items récidivistes |
+| `tcf:pn:<set>` | Pronoms (v1.4) | Score, parties |
+| `tcf:daily:played` · `tcf:daily:hist` | Défi quotidien (v1.4) | Date → score, 60 derniers défis |
+| `tcf:wpm:hist` | WPM history (v1.4) | 60 dernières mesures WPM (auto-écrites par l'outil WPM) |
 
 Effacer les données du site dans votre navigateur efface l'ensemble. **Pour transporter** votre progression vers une autre machine ou un autre navigateur, utilisez l'**[export JSON dans les paramètres](parametres.md)**.

@@ -1843,6 +1843,12 @@
       result.innerHTML = '<strong>' + wpm + ' mots / minute</strong> · ' + sec.toFixed(1) + ' s · ' + escapeHtml(band.msg);
       stopBtn.hidden = true;
       againBtn.hidden = false;
+      // v1.4: write to wpm history for the sparkline widget
+      try {
+        const hist = ls.get("wpm:hist", []) || [];
+        hist.push({ ts: Date.now(), passage: key, sec, wpm });
+        ls.set("wpm:hist", hist.slice(-60));
+      } catch(_){}
     });
     againBtn.addEventListener("click", () => {
       passage.hidden = true;
@@ -4235,6 +4241,648 @@
   document.addEventListener("click", (e) => {
     const t = e.target; if (!t || !t.matches) return;
     if (t.matches(".sy-opt, .co-opt, .sb-check, .li-ok, .li-bad, .ce-opt input, .ce-pg")) {
+      try {
+        const k = new Date().toISOString().slice(0, 10);
+        const days = ls.get("streak:days", {}) || {};
+        if (!days[k]) { days[k] = 1; ls.set("streak:days", days); }
+      } catch(_){}
+    }
+  });
+
+  // =================================================================
+  // v1.4 — Recorder + simulator + drills + daily (2026-05-30)
+  // =================================================================
+  // 52. EO recorder — MediaRecorder + playback + self-grade            .tcf-eo-recorder
+  // 53. EE simulator — full timer + 3 tasks + autosave + word count   .tcf-ee-sim
+  // 54. PC vs imparfait drill                                          .tcf-tense[data-set]
+  // 55. Pronouns drill (y/en/le/la/lui/leur)                           .tcf-pronouns[data-set]
+  // 56. Daily challenge (5 mixed items per day)                        .tcf-daily
+  // 57. Phrase of the day (B2 rotation)                                .tcf-phrase
+  // 58. WPM history sparkline                                          .tcf-wpm-history
+  // 59. CECRL ↔ NCLC equivalence visualizer                            .tcf-equiv
+  // 60. Yearly heatmap (12-month view)                                 .tcf-year-heatmap
+
+  // ---------- 52. EO recorder ---------------------------------------
+  onPage(() => { document.querySelectorAll(".tcf-eo-recorder").forEach(mountEoRec); });
+
+  function mountEoRec(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const SK = "eo:recs";
+    const recs = ls.get(SK, []) || [];
+    let media = null, chunks = [], stream = null, startTs = 0, timerId = null;
+    let lastBlob = null, lastUrl = null;
+
+    function fmtSec(s) { const m = Math.floor(s/60); const r = Math.floor(s%60); return m + ":" + (r<10?"0":"") + r; }
+
+    function renderIntro(msg) {
+      host.innerHTML =
+        '<div class="er-head">' +
+          '<select class="er-task">' +
+            '<option value="T1">T1 (~ 90 s) — interview / questions personnelles</option>' +
+            '<option value="T2" selected>T2 (~ 2 min) — situation à gérer</option>' +
+            '<option value="T3">T3 (~ 5 min) — exprimer / défendre un point de vue</option>' +
+          '</select>' +
+          '<select class="er-format">' +
+            '<option value="webm">WebM (Opus)</option>' +
+            '<option value="mp4">MP4 (si dispo)</option>' +
+          '</select>' +
+        '</div>' +
+        '<div class="er-time">' + (msg || "Prêt") + '</div>' +
+        '<div class="er-controls">' +
+          '<button class="tcf-btn primary er-rec">● Enregistrer</button>' +
+          '<button class="tcf-btn er-stop" disabled>■ Stop</button>' +
+          '<button class="tcf-btn er-play" disabled>▶ Lire</button>' +
+          '<button class="tcf-btn er-dl" disabled>⤓ Télécharger</button>' +
+        '</div>' +
+        '<audio class="er-audio" controls style="display:none;width:100%;margin-top:.5rem"></audio>' +
+        '<div class="er-grade" style="display:none"></div>' +
+        '<details class="er-hist"><summary>Historique (' + recs.length + ' enregistrement(s) gradés)</summary><div class="er-list"></div></details>';
+      bind();
+      drawHistory();
+    }
+    function bind() {
+      host.querySelector(".er-rec").addEventListener("click", start);
+      host.querySelector(".er-stop").addEventListener("click", stop);
+      host.querySelector(".er-play").addEventListener("click", () => { if (lastUrl) { const a = host.querySelector(".er-audio"); a.src = lastUrl; a.style.display = "block"; a.play(); } });
+      host.querySelector(".er-dl").addEventListener("click", () => {
+        if (!lastBlob) return;
+        const a = document.createElement("a"); a.href = lastUrl; a.download = "eo-" + new Date().toISOString().slice(0,19).replace(/[:T]/g,"-") + ".webm"; a.click();
+      });
+    }
+    async function start() {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        try { TCF.toast("Microphone non disponible dans ce navigateur."); } catch(_){}; return;
+      }
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      } catch (e) { try { TCF.toast("Accès microphone refusé."); } catch(_){}; return; }
+      try {
+        const mt = MediaRecorder.isTypeSupported("audio/webm;codecs=opus") ? "audio/webm;codecs=opus" : "audio/webm";
+        media = new MediaRecorder(stream, { mimeType: mt });
+      } catch (e) {
+        try { media = new MediaRecorder(stream); } catch (e2) { try { TCF.toast("MediaRecorder indisponible."); } catch(_){}; return; }
+      }
+      chunks = [];
+      media.ondataavailable = (e) => { if (e.data && e.data.size) chunks.push(e.data); };
+      media.onstop = onStopped;
+      media.start();
+      startTs = Date.now();
+      host.querySelector(".er-rec").disabled = true;
+      host.querySelector(".er-stop").disabled = false;
+      timerId = setInterval(() => {
+        const s = Math.floor((Date.now() - startTs) / 1000);
+        const t = host.querySelector(".er-time");
+        if (t) t.textContent = "● Enregistrement : " + fmtSec(s);
+      }, 500);
+    }
+    function stop() {
+      if (!media || media.state === "inactive") return;
+      try { media.stop(); } catch(_){}
+      try { stream.getTracks().forEach((t) => t.stop()); } catch(_){}
+      clearInterval(timerId); timerId = null;
+    }
+    function onStopped() {
+      lastBlob = new Blob(chunks, { type: chunks[0] && chunks[0].type || "audio/webm" });
+      if (lastUrl) try { URL.revokeObjectURL(lastUrl); } catch(_){}
+      lastUrl = URL.createObjectURL(lastBlob);
+      const dur = Math.floor((Date.now() - startTs) / 1000);
+      const a = host.querySelector(".er-audio"); a.src = lastUrl; a.style.display = "block";
+      host.querySelector(".er-rec").disabled = false;
+      host.querySelector(".er-stop").disabled = true;
+      host.querySelector(".er-play").disabled = false;
+      host.querySelector(".er-dl").disabled = false;
+      host.querySelector(".er-time").textContent = "Durée : " + fmtSec(dur);
+      renderGrade(dur);
+    }
+    function renderGrade(durSec) {
+      const g = host.querySelector(".er-grade");
+      g.style.display = "block";
+      g.innerHTML =
+        '<h4>Auto-grade — rubrique EO (4 critères × 5 pts)</h4>' +
+        '<p style="font-size:.85rem;opacity:.75">Écoutez-vous, cochez honnêtement. Conservé localement.</p>' +
+        '<div class="er-rubric">' +
+          rubricRow("fluence",     "Fluence / débit",      ["pauses < 3 s, débit constant", "1-2 hésitations longues", "≥ 3 pauses > 3 s ou débit trop lent"]) +
+          rubricRow("phonologie",  "Phonologie / liaisons", ["liaisons OK, prononciation claire", "1 série de liaisons absentes ou nasales floues", "intelligibilité menacée à 2+ endroits"]) +
+          rubricRow("lexique",     "Lexique B2",            ["≥ 2 mots B2 ciblés, 0 répétition flagrante", "1 répétition / vocabulaire B1 pur", "vocabulaire pauvre, anglicismes"]) +
+          rubricRow("syntaxe",     "Syntaxe / connecteurs", ["≥ 2 connecteurs B2 (cependant, par conséquent…)", "1 connecteur ou structures simples", "phrases courtes sans cohésion"]) +
+        '</div>' +
+        '<div class="er-total"></div>' +
+        '<div class="er-actions">' +
+          '<button class="tcf-btn primary er-save">💾 Enregistrer le grading</button>' +
+          '<button class="tcf-btn er-discard">↺ Recommencer</button>' +
+        '</div>';
+      function recompute() {
+        let total = 0; const out = {};
+        host.querySelectorAll(".er-rad").forEach((r) => { if (r.checked) { total += parseInt(r.value); out[r.name] = parseInt(r.value); } });
+        host.querySelector(".er-total").innerHTML = '<strong>Total : ' + total + ' / 20</strong> · NCLC indicatif ≈ ' + (total >= 18 ? "9-10" : total >= 14 ? "7-8" : total >= 10 ? "5-6" : "≤ 4");
+      }
+      host.querySelectorAll(".er-rad").forEach((r) => r.addEventListener("change", recompute));
+      host.querySelector(".er-save").addEventListener("click", () => {
+        let total = 0; const detail = {};
+        host.querySelectorAll(".er-rad").forEach((r) => { if (r.checked) { total += parseInt(r.value); detail[r.name] = parseInt(r.value); } });
+        if (!Object.keys(detail).length) { try { TCF.toast("Cochez la rubrique d'abord."); } catch(_){}; return; }
+        const entry = { ts: Date.now(), task: host.querySelector(".er-task").value, durSec, total, detail };
+        recs.push(entry); ls.set(SK, recs);
+        try { TCF.toast("Grading enregistré."); } catch(_){}
+        try { TCF.badges && TCF.badges.check({ ee: { allGreen: total >= 16 } }); } catch(_){}
+        renderIntro("Prêt — derniers gradings : " + recs.length);
+      });
+      host.querySelector(".er-discard").addEventListener("click", () => renderIntro());
+      recompute();
+    }
+    function rubricRow(key, label, levels) {
+      return '<div class="er-row"><div class="er-lbl"><strong>' + escapeHtml(label) + '</strong></div>' +
+        '<label><input type="radio" class="er-rad" name="' + key + '" value="5" /> 5 — ' + escapeHtml(levels[0]) + '</label>' +
+        '<label><input type="radio" class="er-rad" name="' + key + '" value="3" /> 3 — ' + escapeHtml(levels[1]) + '</label>' +
+        '<label><input type="radio" class="er-rad" name="' + key + '" value="1" /> 1 — ' + escapeHtml(levels[2]) + '</label>' +
+      '</div>';
+    }
+    function drawHistory() {
+      const list = host.querySelector(".er-list");
+      if (!list) return;
+      if (!recs.length) { list.innerHTML = '<p style="opacity:.7">Aucun grading encore.</p>'; return; }
+      list.innerHTML = recs.slice().reverse().slice(0, 30).map((r) => {
+        return '<div class="er-hrow"><span>' + new Date(r.ts).toLocaleString("fr-FR") + '</span>' +
+          '<span class="er-task-tag">' + r.task + '</span>' +
+          '<span class="er-dur">' + fmtSec(r.durSec || 0) + '</span>' +
+          '<span class="er-score"><strong>' + r.total + '</strong>/20</span></div>';
+      }).join("");
+    }
+    renderIntro();
+  }
+
+  // ---------- 53. EE simulator (full 60 min + 3 tasks) -------------
+  onPage(() => { document.querySelectorAll(".tcf-ee-sim").forEach(mountEeSim); });
+
+  function mountEeSim(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const SK = "ee:sim";
+    const state = ls.get(SK, { task: 0, t1: "", t2: "", t3: "", started: 0, ended: 0, runs: [] });
+    const tasks = [
+      { id: "t1", label: "T1", title: "Message court (60-120 mots, ~ 10 min)",
+        prompt: "Vous écrivez à un ami pour lui annoncer que vous venez d'arriver au Québec. Décrivez brièvement votre premier jour : votre logement, le quartier, votre premier sentiment. Posez-lui une question à la fin." },
+      { id: "t2", label: "T2", title: "Courrier formel (120-150 mots, ~ 20 min)",
+        prompt: "Vous écrivez à la municipalité de votre quartier pour signaler un problème (bruit récurrent, trottoir endommagé, éclairage insuffisant…). Décrivez le problème, ses conséquences et demandez une action concrète." },
+      { id: "t3", label: "T3", title: "Essai argumentatif (180+ mots, ~ 30 min)",
+        prompt: "« Le télétravail est devenu un acquis essentiel pour les salariés. » Êtes-vous d'accord ? Présentez votre point de vue en l'illustrant d'au moins deux arguments, et nuancez avec une objection." }
+    ];
+    let timerId = null;
+
+    function fmt(rem) { const m = Math.floor(rem/60000); const s = Math.floor((rem%60000)/1000); return m + ":" + (s<10?"0":"") + s; }
+
+    function start() {
+      state.started = Date.now(); state.ended = state.started + 60*60*1000;
+      state.task = 0; ls.set(SK, state); render();
+    }
+    function resume() { render(); }
+    function finish() {
+      if (timerId) { clearInterval(timerId); timerId = null; }
+      const wc = (s) => (s||"").trim().split(/\s+/).filter(Boolean).length;
+      const detail = { t1: wc(state.t1), t2: wc(state.t2), t3: wc(state.t3) };
+      state.runs = (state.runs || []).concat([{ ts: Date.now(), detail }]).slice(-10);
+      state.started = 0; state.ended = 0;
+      ls.set(SK, state);
+      try { TCF.sfx && TCF.sfx.play("win"); } catch(_){}
+      summary(detail);
+    }
+    function summary(d) {
+      host.innerHTML =
+        '<div class="es-summary">' +
+          '<h3>Simulation terminée</h3>' +
+          '<div class="es-bars">' +
+            bar("T1", d.t1, 60, 120) +
+            bar("T2", d.t2, 120, 150) +
+            bar("T3", d.t3, 180, 300) +
+          '</div>' +
+          '<p style="margin-top:.7rem">Pour un retour heuristique sur chaque tâche, collez-la dans <a href="11_tools/ee-feedback/">auto-feedback EE</a>.</p>' +
+          '<div class="es-actions"><button class="tcf-btn primary es-new">Refaire</button> <button class="tcf-btn es-export">⤓ Exporter (txt)</button></div>' +
+        '</div>';
+      host.querySelector(".es-new").addEventListener("click", reset);
+      host.querySelector(".es-export").addEventListener("click", () => {
+        const txt = "TCF EE — simulation " + new Date().toLocaleString("fr-FR") + "\n\n=== T1 ===\n" + (state.t1||"") + "\n\n=== T2 ===\n" + (state.t2||"") + "\n\n=== T3 ===\n" + (state.t3||"") + "\n";
+        const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([txt], { type: "text/plain" })); a.download = "ee-sim.txt"; a.click();
+      });
+    }
+    function bar(label, n, lo, hi) {
+      const status = n < lo ? "warn" : n > hi + 80 ? "warn" : "ok";
+      return '<div class="es-bar es-' + status + '"><span class="es-l">' + label + '</span>' +
+        '<span class="es-n">' + n + ' mots</span>' +
+        '<span class="es-r">cible ' + lo + '-' + hi + '</span></div>';
+    }
+    function reset() {
+      if (!confirm("Effacer les 3 brouillons et redémarrer ?")) return;
+      state.t1 = ""; state.t2 = ""; state.t3 = "";
+      state.started = 0; state.ended = 0;
+      ls.set(SK, state); renderIntro();
+    }
+    function renderIntro() {
+      host.innerHTML =
+        '<div class="es-intro">' +
+          '<h3>Simulation TCF EE — 60 min, 3 tâches</h3>' +
+          '<ul><li>T1 (10 min) : ' + escapeHtml(tasks[0].title) + '</li>' +
+          '<li>T2 (20 min) : ' + escapeHtml(tasks[1].title) + '</li>' +
+          '<li>T3 (30 min) : ' + escapeHtml(tasks[2].title) + '</li></ul>' +
+          '<p>Vous pouvez naviguer entre les tâches en cours. Le minuteur global ne s\'arrête pas. Tout est sauvegardé en temps réel.</p>' +
+          '<button class="tcf-btn primary es-start">▶ Démarrer 60 min</button>' +
+        '</div>';
+      host.querySelector(".es-start").addEventListener("click", start);
+    }
+    function tick() {
+      const rem = Math.max(0, state.ended - Date.now());
+      const el = host.querySelector(".es-time"); if (el) { el.textContent = fmt(rem); el.classList.toggle("is-low", rem < 5*60*1000); }
+      if (rem <= 0) finish();
+    }
+    function render() {
+      const t = tasks[state.task];
+      const cur = state[t.id] || "";
+      const wc = cur.trim().split(/\s+/).filter(Boolean).length;
+      host.innerHTML =
+        '<div class="es-bar-top">' +
+          '<span class="es-time">--:--</span>' +
+          '<div class="es-tabs">' +
+            tasks.map((tt, i) => '<button class="es-tab ' + (i === state.task ? "on" : "") + '" data-i="' + i + '">' + tt.label + '</button>').join("") +
+          '</div>' +
+          '<button class="tcf-btn es-finish">✓ Terminer</button>' +
+        '</div>' +
+        '<div class="es-prompt"><strong>' + escapeHtml(t.title) + '</strong><br><br>' + escapeHtml(t.prompt) + '</div>' +
+        '<textarea class="es-text" rows="14" placeholder="Tapez votre réponse ici…">' + escapeHtml(cur) + '</textarea>' +
+        '<div class="es-foot"><span class="es-wc">' + wc + ' mots</span>' +
+          '<span class="es-target">cible ' + (t.id==='t1'?'60-120':t.id==='t2'?'120-150':'180-300') + '</span></div>';
+      const ta = host.querySelector(".es-text");
+      ta.value = cur;
+      ta.addEventListener("input", () => {
+        state[t.id] = ta.value; ls.set(SK, state);
+        host.querySelector(".es-wc").textContent = ta.value.trim().split(/\s+/).filter(Boolean).length + " mots";
+      });
+      host.querySelectorAll(".es-tab").forEach((b) => b.addEventListener("click", () => { state.task = parseInt(b.dataset.i); ls.set(SK, state); render(); }));
+      host.querySelector(".es-finish").addEventListener("click", () => { if (confirm("Terminer la simulation maintenant ?")) finish(); });
+      if (timerId) clearInterval(timerId);
+      tick(); timerId = setInterval(tick, 500);
+    }
+    if (state.started && Date.now() < state.ended) resume();
+    else renderIntro();
+  }
+
+  // ---------- 54. PC vs imparfait drill ----------------------------
+  // window.TCF.tenseDrills[key] = [{ stem, options:["pc","imp"], a:0|1, why }]
+  window.TCF.tenseDrills = window.TCF.tenseDrills || {};
+  onPage(() => { document.querySelectorAll(".tcf-tense[data-set]").forEach(mountTense); });
+
+  function mountTense(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const key = host.dataset.set;
+    const data = window.TCF.tenseDrills[key];
+    if (!data || !data.length) { host.innerHTML = '<p style="opacity:.7">Lot introuvable.</p>'; return; }
+    const SK = "tn:" + key;
+    const state = ls.get(SK, { score: 0, plays: 0, weak: {} });
+    let order = shuffle(data.map((_, i) => i)); let i = 0;
+    function render() {
+      const it = data[order[i]];
+      host.innerHTML =
+        '<div class="li-head"><span class="li-pos">' + (i+1) + ' / ' + order.length + '</span><span class="li-score">✓ ' + state.score + ' · ' + state.plays + ' joués</span></div>' +
+        '<div class="tn-stem">' + escapeHtml(it.stem) + '</div>' +
+        '<div class="tn-opts">' +
+          '<button class="tcf-btn tn-opt" data-k="0">' + escapeHtml(it.options[0]) + '</button>' +
+          '<button class="tcf-btn tn-opt" data-k="1">' + escapeHtml(it.options[1]) + '</button>' +
+        '</div>' +
+        '<div class="tn-fb"></div>';
+      host.querySelectorAll(".tn-opt").forEach((b) => b.addEventListener("click", () => {
+        const k = parseInt(b.dataset.k);
+        const ok = k === it.a;
+        if (ok) state.score++;
+        state.plays++;
+        const wk = state.weak[it.stem] = (state.weak[it.stem] || 0) + (ok ? -1 : 1);
+        if (wk <= -2) delete state.weak[it.stem];
+        ls.set(SK, state);
+        b.classList.add(ok ? "is-correct" : "is-wrong");
+        if (!ok) host.querySelector('[data-k="' + it.a + '"]').classList.add("is-correct-soft");
+        try { TCF.sfx && TCF.sfx.play(ok ? "correct" : "wrong"); } catch(_){}
+        host.querySelector(".tn-fb").innerHTML =
+          '<div class="' + (ok ? "sb-ok" : "sb-bad") + '">' +
+            (ok ? "✓ Bonne réponse." : "✗ Bonne réponse : " + escapeHtml(it.options[it.a]) + ".") +
+            (it.why ? ' <em>' + escapeHtml(it.why) + '</em>' : '') +
+          '</div>' +
+          '<button class="tcf-btn primary tn-next">Suivant →</button>';
+        host.querySelector(".tn-next").addEventListener("click", () => { i = (i+1) % order.length; if (i === 0) order = shuffle(data.map((_, k) => k)); render(); });
+      }));
+    }
+    render();
+  }
+
+  // ---------- 55. Pronouns drill (y/en/le/la/lui/leur) -------------
+  window.TCF.pronouns = window.TCF.pronouns || {};
+  onPage(() => { document.querySelectorAll(".tcf-pronouns[data-set]").forEach(mountPronouns); });
+
+  function mountPronouns(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const key = host.dataset.set;
+    const data = window.TCF.pronouns[key];
+    if (!data || !data.length) { host.innerHTML = '<p style="opacity:.7">Lot introuvable.</p>'; return; }
+    const SK = "pn:" + key;
+    const state = ls.get(SK, { score: 0, plays: 0 });
+    let order = shuffle(data.map((_, i) => i)); let i = 0;
+    function render() {
+      const it = data[order[i]];
+      host.innerHTML =
+        '<div class="li-head"><span class="li-pos">' + (i+1) + ' / ' + order.length + '</span><span class="li-score">✓ ' + state.score + '</span></div>' +
+        '<div class="pn-q">' + escapeHtml(it.q) + '</div>' +
+        '<div class="pn-opts">' + it.options.map((o, k) => '<button class="tcf-btn pn-opt" data-k="' + k + '">' + escapeHtml(o) + '</button>').join("") + '</div>' +
+        '<div class="pn-fb"></div>';
+      host.querySelectorAll(".pn-opt").forEach((b) => b.addEventListener("click", () => {
+        const k = parseInt(b.dataset.k);
+        const ok = k === it.a;
+        if (ok) state.score++;
+        state.plays++; ls.set(SK, state);
+        b.classList.add(ok ? "is-correct" : "is-wrong");
+        if (!ok) host.querySelector('[data-k="' + it.a + '"]').classList.add("is-correct-soft");
+        try { TCF.sfx && TCF.sfx.play(ok ? "correct" : "wrong"); } catch(_){}
+        host.querySelector(".pn-fb").innerHTML =
+          '<div class="' + (ok ? "sb-ok" : "sb-bad") + '">' +
+            (ok ? "✓ Bonne réponse." : "✗ Bonne réponse : " + escapeHtml(it.options[it.a])) +
+            (it.why ? ' <em>' + escapeHtml(it.why) + '</em>' : '') + '</div>' +
+          '<button class="tcf-btn primary pn-next">Suivant →</button>';
+        host.querySelector(".pn-next").addEventListener("click", () => { i = (i+1) % order.length; if (i === 0) order = shuffle(data.map((_, k) => k)); render(); });
+      }));
+    }
+    render();
+  }
+
+  // ---------- 56. Daily challenge -----------------------------------
+  // Markup: <div class="tcf-daily"></div>
+  // 5 mixed items sourced from cloze, gender, connectors, synonymes, pronouns, tense
+  onPage(() => { document.querySelectorAll(".tcf-daily").forEach(mountDaily); });
+
+  function mountDaily(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const SK_PLAY = "daily:played";
+    const SK_HIST = "daily:hist";
+    const today = new Date().toISOString().slice(0, 10);
+    const played = ls.get(SK_PLAY, {}) || {};
+    const hist = ls.get(SK_HIST, []) || [];
+
+    function dayHash(d) {
+      let h = 0; for (let k = 0; k < d.length; k++) h = ((h << 5) - h + d.charCodeAt(k)) | 0;
+      return Math.abs(h);
+    }
+    function pickItems() {
+      const seed = dayHash(today);
+      function take(arr, n, off) {
+        if (!arr || !arr.length) return [];
+        const out = []; const used = new Set();
+        for (let k = 0; k < n * 4 && out.length < n; k++) {
+          const idx = ((seed * (k + 1) + off * 17) % arr.length + arr.length) % arr.length;
+          if (!used.has(idx)) { used.add(idx); out.push(arr[idx]); }
+        }
+        return out;
+      }
+      const pool = [];
+      // Gender items
+      try {
+        const all = [];
+        Object.keys(window.TCF.gender || {}).forEach((k) => { (window.TCF.gender[k] || []).forEach((it) => all.push({ kind: "gen", it })); });
+        take(all, 2, 2).forEach((x) => pool.push(x));
+      } catch(_){}
+      // Connecteurs
+      try {
+        const all = (window.TCF.connectors || {}).b2 || [];
+        take(all.map((it) => ({ kind: "conn", it })), 1, 3).forEach((x) => pool.push(x));
+      } catch(_){}
+      // Synonymes
+      try {
+        const all = (window.TCF.synonyms || {}).b2 || [];
+        take(all.map((it) => ({ kind: "syn", it })), 1, 4).forEach((x) => pool.push(x));
+      } catch(_){}
+      // Tense
+      try {
+        const all = (window.TCF.tenseDrills || {}).pc_imp || [];
+        take(all.map((it) => ({ kind: "tense", it })), 1, 5).forEach((x) => pool.push(x));
+      } catch(_){}
+      return pool.slice(0, 5);
+    }
+    function renderItem(item) {
+      const { kind, it } = item;
+      let q, options, a, why;
+      if (kind === "gen") {
+        q = "Genre de « " + (it.noun || "?") + " » ?";
+        options = ["le / un (masc.)", "la / une (fém.)"];
+        a = it.g === "m" ? 0 : 1;
+        why = it.hint || "";
+      } else if (kind === "conn") {
+        q = (it.sentence1 || "") + " ___ " + (it.sentence2 || "");
+        options = it.options || ["?", "?"]; a = it.answer ?? 0; why = it.why || "";
+      } else if (kind === "syn") {
+        q = (it.kind === "ant" ? "Antonyme de « " : "Synonyme de « ") + it.word + " »";
+        options = it.options; a = it.a; why = it.why || "";
+      } else if (kind === "tense") {
+        q = it.stem; options = it.options; a = it.a; why = it.why || "";
+      } else {
+        q = "?"; options = ["?"]; a = 0;
+      }
+      return { q, options, a, why };
+    }
+    function start() {
+      let idx = 0; let correct = 0; const items = pickItems();
+      function draw() {
+        if (idx >= items.length) return finish();
+        const info = renderItem(items[idx]);
+        host.innerHTML =
+          '<div class="dl-head"><span>Défi du jour · ' + today + '</span><span>' + (idx+1) + ' / ' + items.length + ' · ✓ ' + correct + '</span></div>' +
+          '<div class="dl-q">' + escapeHtml(info.q) + '</div>' +
+          '<div class="dl-opts">' + info.options.map((o, k) => '<button class="tcf-btn dl-opt" data-k="' + k + '">' + escapeHtml(o) + '</button>').join("") + '</div>' +
+          '<div class="dl-fb"></div>';
+        host.querySelectorAll(".dl-opt").forEach((b) => b.addEventListener("click", () => {
+          const k = parseInt(b.dataset.k);
+          const ok = k === info.a;
+          if (ok) correct++;
+          b.classList.add(ok ? "is-correct" : "is-wrong");
+          if (!ok) host.querySelector('[data-k="' + info.a + '"]').classList.add("is-correct-soft");
+          try { TCF.sfx && TCF.sfx.play(ok ? "correct" : "wrong"); } catch(_){}
+          host.querySelector(".dl-fb").innerHTML =
+            '<div class="' + (ok ? "sb-ok" : "sb-bad") + '">' +
+              (ok ? "✓" : "✗ Bonne réponse : " + escapeHtml(info.options[info.a])) +
+              (info.why ? ' <em>' + escapeHtml(info.why) + '</em>' : '') + '</div>' +
+            '<button class="tcf-btn primary dl-next">Suivant →</button>';
+          host.querySelector(".dl-next").addEventListener("click", () => { idx++; draw(); });
+        }));
+      }
+      function finish() {
+        played[today] = { ts: Date.now(), score: correct, total: items.length };
+        ls.set(SK_PLAY, played);
+        hist.push({ d: today, score: correct, total: items.length });
+        ls.set(SK_HIST, hist.slice(-60));
+        try { TCF.sfx && TCF.sfx.play(correct === items.length ? "win" : "ok"); } catch(_){}
+        if (correct === items.length) try { TCF.confetti && TCF.confetti(1500); } catch(_){}
+        host.innerHTML =
+          '<div class="dl-summary"><h3>Défi terminé — ' + correct + ' / ' + items.length + '</h3>' +
+          '<p>Revenez demain — un autre défi sera prêt.</p>' +
+          (hist.length > 1 ? '<p style="font-size:.85rem;opacity:.75">Historique 30 derniers : ' + hist.slice(-30).map((r) => r.score + "/" + r.total).join(" · ") + '</p>' : '') +
+          '</div>';
+      }
+      draw();
+    }
+    function renderIntro() {
+      const done = played[today];
+      const streakDaily = (function () {
+        let n = 0; let d = new Date(today + "T00:00:00");
+        while (true) { const k = d.toISOString().slice(0, 10); if (played[k]) { n++; d.setDate(d.getDate()-1); } else break; }
+        return n;
+      })();
+      host.innerHTML =
+        '<div class="dl-intro">' +
+          '<div class="dl-badge">🎯 Défi quotidien · 5 questions mixtes</div>' +
+          '<h3>' + today + '</h3>' +
+          '<p>Un défi par jour — mélange de cloze, genre, connecteurs, synonymes, temps. Identique pour tout le monde le même jour (déterministe).</p>' +
+          (done ? '<p>Déjà joué aujourd\'hui : <strong>' + done.score + '/' + done.total + '</strong>.</p>' : '') +
+          '<p>Série de défis quotidiens : <strong>' + streakDaily + '</strong> jour(s).</p>' +
+          '<button class="tcf-btn primary dl-start">' + (done ? "Rejouer" : "▶ Commencer") + '</button>' +
+        '</div>';
+      host.querySelector(".dl-start").addEventListener("click", start);
+    }
+    renderIntro();
+  }
+
+  // ---------- 57. Phrase of the day --------------------------------
+  window.TCF.phraseOfDay = window.TCF.phraseOfDay || [];
+  onPage(() => { document.querySelectorAll(".tcf-phrase").forEach(mountPhrase); });
+
+  function mountPhrase(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const items = window.TCF.phraseOfDay || [];
+    if (!items.length) { host.innerHTML = ""; return; }
+    const today = new Date().toISOString().slice(0, 10);
+    let h = 0; for (let k = 0; k < today.length; k++) h = ((h << 5) - h + today.charCodeAt(k)) | 0;
+    const idx = Math.abs(h) % items.length;
+    const p = items[idx];
+    host.innerHTML =
+      '<div class="pd-card">' +
+        '<div class="pd-tag">Phrase du jour · B2</div>' +
+        '<div class="pd-fr">' + escapeHtml(p.fr) + '</div>' +
+        (p.gloss ? '<div class="pd-gloss">' + escapeHtml(p.gloss) + '</div>' : '') +
+        '<div class="pd-actions">' +
+          '<button class="tcf-btn pd-speak">▶ Écouter</button>' +
+          '<button class="tcf-btn pd-copy">⧉ Copier</button>' +
+        '</div>' +
+      '</div>';
+    host.querySelector(".pd-speak").addEventListener("click", () => {
+      if (!window.speechSynthesis) return;
+      const u = new SpeechSynthesisUtterance(p.fr); u.lang = "fr-FR"; u.rate = 0.95;
+      window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
+    });
+    host.querySelector(".pd-copy").addEventListener("click", () => {
+      navigator.clipboard && navigator.clipboard.writeText(p.fr).then(() => { try { TCF.toast("Copié."); } catch(_){} });
+    });
+  }
+
+  // ---------- 58. WPM history sparkline ----------------------------
+  onPage(() => { document.querySelectorAll(".tcf-wpm-history").forEach(mountWpmHist); });
+
+  function mountWpmHist(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const SK = "wpm:hist";
+    function render() {
+      const items = ls.get(SK, []) || [];
+      if (!items.length) { host.innerHTML = '<p style="opacity:.7">Aucune mesure encore — faites un test [WPM](wpm.md) pour démarrer.</p>'; return; }
+      const last = items[items.length - 1];
+      host.innerHTML =
+        '<div class="wpmh-card">' +
+          '<div class="wpmh-stats">' +
+            '<div><span class="wpmh-num">' + Math.round(last.wpm) + '</span><span class="wpmh-lbl">dernier WPM</span></div>' +
+            '<div><span class="wpmh-num">' + Math.round(items.reduce((a, b) => a + b.wpm, 0) / items.length) + '</span><span class="wpmh-lbl">moyenne</span></div>' +
+            '<div><span class="wpmh-num">' + Math.round(Math.max.apply(null, items.map((it) => it.wpm))) + '</span><span class="wpmh-lbl">record</span></div>' +
+            '<div><span class="wpmh-num">' + items.length + '</span><span class="wpmh-lbl">mesures</span></div>' +
+          '</div>' +
+          '<div class="wpmh-spark"></div>' +
+          '<p style="font-size:.78rem;opacity:.7;margin:.4rem 0 0">Cible CE 60 min ≈ <strong>220 wpm</strong>.</p>' +
+        '</div>';
+      if (window.TCF.sparkline) window.TCF.sparkline(host.querySelector(".wpmh-spark"), items.map((it) => it.wpm), { w: 240, h: 48 });
+    }
+    render();
+  }
+
+  // ---------- 59. CECRL ↔ NCLC equivalence visualizer --------------
+  onPage(() => { document.querySelectorAll(".tcf-equiv").forEach(mountEquiv); });
+
+  function mountEquiv(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const rows = [
+      { cefr: "A1", nclc: "1-3",  co: "0-204",  ce: "0-205",  ee: "0-3",   eo: "0-3",   note: "Survie linguistique" },
+      { cefr: "A2", nclc: "3-4",  co: "205-330", ce: "206-330", ee: "4-5",   eo: "4-5",   note: "Élémentaire" },
+      { cefr: "B1", nclc: "5-6",  co: "331-457", ce: "331-457", ee: "6-9",   eo: "6-9",   note: "Seuil" },
+      { cefr: "B1+", nclc: "7",  co: "458-502", ce: "458-502", ee: "10-13",  eo: "10-13",  note: "CEC gateway" },
+      { cefr: "B2", nclc: "8",  co: "503-522", ce: "503-522", ee: "14-15",  eo: "14-15",  note: "EE bonus CRS +25 (toutes ≥ 8)" },
+      { cefr: "B2+", nclc: "9",  co: "523-548", ce: "523-548", ee: "16-17",  eo: "16-17",  note: "EE bonus CRS +50 (si EN ≥ NCLC 9)" },
+      { cefr: "C1", nclc: "10",  co: "549-699", ce: "549-699", ee: "18-20",  eo: "18-20",  note: "Plafond NCLC" },
+      { cefr: "C2", nclc: "10+", co: "—",      ce: "—",      ee: "—",     eo: "—",     note: "Pas distingué par NCLC" },
+    ];
+    host.innerHTML =
+      '<div class="eq-wrap">' +
+        '<table class="eq-table"><thead><tr>' +
+          '<th>CECRL</th><th>NCLC</th><th>CO brut</th><th>CE brut</th><th>EE</th><th>EO</th><th>Remarque</th>' +
+        '</tr></thead><tbody>' +
+          rows.map((r) => '<tr class="eq-r-' + r.cefr.toLowerCase().replace("+", "p") + '">' +
+            '<td><strong>' + r.cefr + '</strong></td>' +
+            '<td><span class="eq-band">NCLC ' + r.nclc + '</span></td>' +
+            '<td>' + r.co + '</td><td>' + r.ce + '</td><td>' + r.ee + '</td><td>' + r.eo + '</td>' +
+            '<td>' + r.note + '</td>' +
+          '</tr>').join("") +
+        '</tbody></table>' +
+      '</div>';
+  }
+
+  // ---------- 60. Yearly heatmap (12-month) ------------------------
+  onPage(() => { document.querySelectorAll(".tcf-year-heatmap").forEach(mountYearHm); });
+
+  function mountYearHm(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const days = ls.get("streak:days", {}) || {};
+    const now = new Date();
+    const cells = [];
+    for (let i = 364; i >= 0; i--) {
+      const d = new Date(now); d.setDate(now.getDate() - i);
+      const k = d.toISOString().slice(0, 10);
+      cells.push({ k, on: !!days[k], dow: d.getDay() });
+    }
+    const months = [];
+    for (let m = 0; m < 12; m++) {
+      const d = new Date(now); d.setMonth(now.getMonth() - 11 + m);
+      months.push(["jan","fév","mar","avr","mai","jui","jui","aoû","sep","oct","nov","déc"][d.getMonth()]);
+    }
+    const total = cells.filter((c) => c.on).length;
+    host.innerHTML =
+      '<div class="yh-card">' +
+        '<div class="yh-head"><strong>365 derniers jours</strong> · ' + total + ' jour(s) actifs · ' + Math.round(100*total/365) + ' %</div>' +
+        '<div class="yh-months">' + months.map((m) => '<span class="yh-m">' + m + '</span>').join("") + '</div>' +
+        '<div class="yh-grid">' + cells.map((c) => '<span class="yh-cell ' + (c.on ? "on" : "") + '" title="' + c.k + '"></span>').join("") + '</div>' +
+      '</div>';
+  }
+
+  // Extend palette with v1.4 entries
+  if (Array.isArray(PALETTE_ITEMS)) {
+    PALETTE_ITEMS.push(
+      { id: "eo_rec",   title: "Enregistreur EO + rubrique (v1.4)",          hint: "", href: "11_tools/eo-enregistreur/" },
+      { id: "ee_sim",   title: "Simulation EE — 60 min, 3 tâches (v1.4)",    hint: "", href: "11_tools/ee-simulation/" },
+      { id: "tense",    title: "Drill PC vs imparfait (v1.4)",                hint: "", href: "11_tools/passe-compose-imparfait/" },
+      { id: "pron",     title: "Drill pronoms (y/en/le/la/lui/leur) (v1.4)",  hint: "", href: "11_tools/pronoms/" },
+      { id: "daily",    title: "Défi quotidien — 5 questions (v1.4)",         hint: "g d", href: "11_tools/defi/" },
+      { id: "phrase",   title: "Phrase du jour B2 (v1.4)",                    hint: "", href: "11_tools/phrase-du-jour/" },
+      { id: "equiv",    title: "Équivalence CECRL ↔ NCLC (v1.4)",             hint: "", href: "11_tools/equivalence/" },
+      { id: "yearmap",  title: "Heatmap 365 jours (v1.4)",                    hint: "", href: "11_tools/annee/" }
+    );
+  }
+
+  // Mark today active on v1.4 widgets
+  document.addEventListener("click", (e) => {
+    const t = e.target; if (!t || !t.matches) return;
+    if (t.matches(".tn-opt, .pn-opt, .dl-opt, .er-save, .es-finish")) {
       try {
         const k = new Date().toISOString().slice(0, 10);
         const days = ls.get("streak:days", {}) || {};

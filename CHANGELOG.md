@@ -2,6 +2,40 @@
 
 All notable changes are documented here in [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) style. Versioning is per-phase, not per-feature: each phase bumps the minor version on completion.
 
+## [1.4.0] — 2026-05-30 — Real-exam simulators + grammar drills + daily routine (v1.4 — 8 new tools, MediaRecorder, autosave)
+
+### Added — 8 new browser-side widgets
+- **Enregistreur EO + rubrique** ([`content/11_tools/eo-enregistreur.md`](content/11_tools/eo-enregistreur.md)) — MediaRecorder côté navigateur (WebM/Opus), playback intégré, téléchargement local, **rubrique 4 critères × 5 pts** calquée sur la rubrique EO opérationnelle (fluence, phonologie/liaisons, lexique B2, syntaxe/connecteurs). Historique des gradings. Audio **jamais envoyé** à un serveur.
+- **Simulation EE — 60 min, 3 tâches** ([`content/11_tools/ee-simulation.md`](content/11_tools/ee-simulation.md)) — simulateur plein format : 3 prompts (T1 message court 60-120 mots, T2 courrier formel 120-150 mots, T3 essai télétravail 180-300 mots), minuteur global 60 min, navigation libre entre tâches via onglets, **autosave continu** dans `tcf:ee:sim` (résume après fermeture si temps restant), compteur de mots live, résumé avec barres T1/T2/T3 status (ok/warn) + export .txt complet.
+- **Drill PC vs imparfait** ([`content/11_tools/passe-compose-imparfait.md`](content/11_tools/passe-compose-imparfait.md)) — 30 items B1-B2 couvrant les 10 patrons décisifs : action ponctuelle vs durative, action en cours interrompue, habitude, état mental, décor narratif, durée délimitée vs continue, modaux aspectuels (« n'a pas pu » vs « ne pouvait pas »). Why-string pédagogique par item. Items récidivistes pondérés.
+- **Drill pronoms y/en/le/la/lui/leur** ([`content/11_tools/pronoms.md`](content/11_tools/pronoms.md)) — 30 items B1-B2. Couvre : « à + personne » (lui/leur) vs « à + chose/lieu » (y), « de + chose » (en), partitif, « jouer à + sport » vs « jouer de + instrument », exceptions à pronom tonique (penser à elle, avoir confiance en lui, être prêt à + verbe).
+- **Défi quotidien** ([`content/11_tools/defi.md`](content/11_tools/defi.md)) — 5 items mixtes tirés des banques (genre, connecteurs, synonymes, PC/imparfait), **graine = `hash(YYYY-MM-DD)`**. Tout le monde voit le même défi le même jour. Streak quotidien spécifique au défi. Historique 60 derniers défis dans `tcf:daily:hist`.
+- **Phrase du jour B2/C1** ([`content/11_tools/phrase-du-jour.md`](content/11_tools/phrase-du-jour.md)) — 30 pivots soutenus rédigés pour le corpus (concession, atténuation, modalisation : « force est de constater », « quoi qu'il en soit », « il convient de souligner », « on ne saurait trop insister »). Rotation déterministe par date. TTS Web Speech API + copier en un clic.
+- **Équivalence CECRL ↔ NCLC** ([`content/11_tools/equivalence.md`](content/11_tools/equivalence.md)) — table autoritative IRCC/FEI : CECRL × NCLC × scores bruts CO/CE × notes EE/EO × remarques CRS. NCLC 8 et NCLC 9 mis en évidence (lignes étoile/vert). Réponse au besoin récurrent de référence rapide.
+- **Heatmap 365 jours** ([`content/11_tools/annee.md`](content/11_tools/annee.md)) — vue annuelle (53 colonnes × 7 lignes) du registre d'activité. Étend la vue 91 jours de l'outil [streak](content/11_tools/streak.md). Données identiques (`tcf:streak:days`).
+
+### Added — infrastructure
+- **WPM history hook** — l'outil WPM existant écrit désormais chaque mesure dans `tcf:wpm:hist` (60 dernières). Lu par le widget WPM history (.tcf-wpm-history) — moyenne, record, sparkline, cible 220 wpm.
+- **Phrase of the day on homepage** — la carte de phrase ouvre la zone tableau de bord d'accueil. Texte aléatoire mais déterministe par jour.
+- **Daily challenge on homepage** — la carte de défi ferme la zone tableau de bord. Lien direct vers la session complète.
+- **MediaRecorder support detection** — graceful fallback si HTTPS absent, micro refusé, ou codec non supporté. Toast utilisateur dans chaque branche d'erreur.
+
+### Updated
+- [`content/assets/javascripts/extra.js`](content/assets/javascripts/extra.js) — bundle étendu de ~ 4 250 → ~ 4 850 lignes. **+9 modules v1.4** : EO recorder, EE simulator, tense drill, pronouns drill, daily challenge, phrase of the day, WPM history, CECRL/NCLC visualizer, yearly heatmap. Hook WPM → history. Palette enrichie de 8 entrées.
+- [`content/assets/javascripts/v13-data.js`](content/assets/javascripts/v13-data.js) — banks v1.4 ajoutées : 30 items PC/imparfait, 30 items pronoms, 30 phrases du jour. Le nom de fichier (« v13 ») est désormais un faux ami — il contient les banks v1.3 et v1.4.
+- [`content/assets/stylesheets/extra.css`](content/assets/stylesheets/extra.css) — ~ 200 lignes ajoutées (sections v1.4). Couleurs cohérentes avec le palette indigo/ambre.
+- [`content/11_tools/.pages`](content/11_tools/.pages) — réordonnée : défi + phrase du jour remontent après hebdo ; équivalence à côté du calculateur ; EE-sim + EO-rec à côté de CE/CO-trainer ; PC/imp + pronoms à côté de cloze/genre ; heatmap annuelle à côté de streak.
+- [`content/11_tools/index.md`](content/11_tools/index.md) — nouvelle section v1.4 (8 cartes) + table localStorage étendue (7 nouvelles clés).
+- [`content/index.md`](content/index.md) — hero v1.4 (45 outils, +8 outils), dashboard à 5 niveaux (phrase / goal / cards / weekly / défi), 8 cartes v1.4, bouton « 🎯 Défi du jour » dans hero.
+- [`overrides/main.html`](overrides/main.html) — annonce v1.4, OG/Twitter v1.4.
+
+### Stability
+- `mkdocs build --strict` clean (0 warnings).
+- `node --check` clean sur extra.js et v13-data.js.
+- `localStorage` namespace `tcf:` — **36 clés documentées** (29 v1.3 + 7 v1.4).
+- Aucun tracker. Aucun serveur. MediaRecorder écrit dans un Blob local non-uploadé.
+- Total : **~ 45 outils interactifs**, ~ 429 pages, build < 16 s.
+
 ## [1.3.0] — 2026-05-29 — World-class plus (v1.3 — 9 new tools, PWA, sound effects, settings, badges)
 
 ### Added — 9 new browser-side widgets
