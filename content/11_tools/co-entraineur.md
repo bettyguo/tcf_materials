@@ -17,12 +17,22 @@ hide:
 
 # Entraîneur CO — écoute QCM
 
-> **Audio synthèse vocale (Web Speech API).** 10 brefs B1-B2, 1 QCM par item, **max 2 écoutes par item** (comme au TCF). Disponible aussi en **0.8× ralenti** pour la 2ᵉ écoute. Transcription révélée après réponse.
+> **Audio synthèse vocale (Web Speech API).** Deux lots audités, niveaux B1-B2 et B2+. Une seule passe par item, **max 2 écoutes** (comme au TCF). **0.8× ralenti** disponible pour la 2ᵉ écoute. Transcription révélée après réponse.
 
 !!! warning "Prérequis voix française"
     Cet outil utilise la **synthèse vocale système** de votre navigateur. Chrome, Edge et Safari embarquent au moins une voix française par défaut. Si vous n'entendez rien, vérifiez le volume et les voix installées dans les paramètres système (Windows : *Paramètres → Heure et langue → Voix* ; macOS : *Réglages → Accessibilité → Contenu énoncé*).
 
-<div class="tcf-co-trainer" data-set="b1_b2_pack1" data-tool="co-trainer"></div>
+=== "B1 → B2 (pack 1) — 10 brefs · NCLC 5 → 8"
+
+    > Annonces, dialogues, messages vocaux, prises de position courtes. Pièges classiques inclus : 14 / 40, soixante-quinze, ligne orange.
+
+    <div class="tcf-co-trainer" data-set="b1_b2_pack1" data-tool="co-trainer"></div>
+
+=== "B2+ → C1 (pack 2) — 10 brefs · NCLC 8 → 10"
+
+    > Médias, débats, interviews. Marqueurs analytiques, atténuations, positions nuancées. Pour cibler NCLC 9-10 en CO.
+
+    <div class="tcf-co-trainer" data-set="b2_pack2" data-tool="co-trainer"></div>
 
 ## Stratégie d'écoute
 

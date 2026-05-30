@@ -17,9 +17,25 @@ hide:
 
 # Entraîneur CE — lecture chronométrée
 
-> **Une session = un mini-mock de lecture.** 5 passages B2, 15 questions, 14 min. Vous pouvez naviguer entre les passages et revenir sur vos réponses avant de soumettre. Le score et la trajectoire sont stockés dans votre navigateur.
+> **Une session = un mini-mock de lecture.** Trois lots audités, niveaux B1 / B2 / C1. Vous naviguez librement entre passages et revenez sur vos réponses avant de soumettre. Score et trajectoire stockés dans votre navigateur.
 
-<div class="tcf-ce-trainer" data-set="b2_pack1" data-tool="ce-trainer"></div>
+=== "B2 (pack 1) — 5 passages × 15 QCM · 14 min"
+
+    > Calibré sur la densité B2-first du corpus. Annonce municipale → enquête sociétale → tribune sur les librairies indépendantes → débat IA & évaluation → tribune sur papier/numérique.
+
+    <div class="tcf-ce-trainer" data-set="b2_pack1" data-tool="ce-trainer"></div>
+
+=== "B1 (pack 1) — 4 passages × 14 QCM · 10 min"
+
+    > Vie pratique : avis municipal → message amical → annonces de loisirs → application de services entre particuliers. Pour démarrer ou se rassurer.
+
+    <div class="tcf-ce-trainer" data-set="b1_pack1" data-tool="ce-trainer"></div>
+
+=== "C1 (pack 1) — 3 passages × 12 QCM · 16 min"
+
+    > Tribunes analytiques, registre soutenu. Vie privée vs données personnelles → relance ciblée vs consommation → mythe des « styles d'apprentissage ». Marqueurs concessifs et structures C1.
+
+    <div class="tcf-ce-trainer" data-set="c1_pack1" data-tool="ce-trainer"></div>
 
 ## Comment travailler ce lot
 

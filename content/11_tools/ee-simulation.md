@@ -17,7 +17,7 @@ hide:
 
 # Simulation EE — 60 min, 3 tâches
 
-> **Comme le vrai examen.** 60 min, 3 prompts, 3 zones de saisie, mots comptés en temps réel. Tout est sauvegardé en continu — fermez l'onglet, rouvrez-le, vous continuez où vous étiez (tant que le minuteur n'est pas écoulé).
+> **Comme le vrai examen.** 60 min, **3 prompts tirés au hasard parmi les 9 pilotes audités du corpus** (3 par tâche : T1, T2, T3), 3 zones de saisie, mots comptés en temps réel. Tout est sauvegardé en continu — fermez l'onglet, rouvrez-le, vous continuez où vous étiez (tant que le minuteur n'est pas écoulé). Bouton « 🎲 Retirer 3 prompts » avant démarrage pour varier.
 
 !!! danger "Conditions de simulation"
     Faites cette simulation **comme le jour J** : aucune fenêtre ouverte à côté, aucun dictionnaire, aucun copier-coller. La valeur du training est dans la pression réaliste, pas dans le score.

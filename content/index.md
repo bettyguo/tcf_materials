@@ -209,7 +209,7 @@ Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en
 <div class="actions">
 <a class="primary" href="00_start_here/">Commencer maintenant →</a>
 <a class="secondary" href="11_tools/defi/">🎯 Défi du jour</a>
-<a class="secondary" href="11_tools/tableau/">Tableau de bord</a>
+<a class="secondary" href="11_tools/tableau.md">Tableau de bord</a>
 <a class="secondary" href="11_tools/objectif/">Poser ma date</a>
 <a class="secondary" href="00_diagnostic/00_index/">Diagnostic (90 min)</a>
 </div>
@@ -341,9 +341,9 @@ Un seul Markdown génère le **site**, le **PDF** (Pandoc + XeLaTeX), l'**EPUB**
 
 <div class="tcf-daily"></div>
 
-[**Ouvrir le tableau de bord complet →**](11_tools/tableau/){ .md-button }
-[**Générer mon plan d'étude →**](11_tools/plan-du-jour/){ .md-button }
-[**Tous les outils (45) →**](11_tools/){ .md-button }
+[**Ouvrir le tableau de bord complet →**](11_tools/tableau.md){ .md-button }
+[**Générer mon plan d'étude →**](11_tools/plan-du-jour.md){ .md-button }
+[**Tous les outils (45) →**](11_tools/index.md){ .md-button }
 
 ## Nouveau dans la v1.4 — 8 outils en plus
 
@@ -466,13 +466,13 @@ Un seul Markdown génère le **site**, le **PDF** (Pandoc + XeLaTeX), l'**EPUB**
 
 <div class="feature-grid">
 
-<a class="feature-card" href="11_tools/tableau/">
+<a class="feature-card" href="11_tools/tableau.md">
 <span class="icon">🧭</span>
 <h3>Tableau de bord</h3>
 <p>Streak, cartes SRS dues, erreurs dues, dernier mock, radar NCLC — un coup d'œil pour savoir quoi faire.</p>
 </a>
 
-<a class="feature-card" href="11_tools/plan-du-jour/">
+<a class="feature-card" href="11_tools/plan-du-jour.md">
 <span class="icon">🗓️</span>
 <h3>Plan d'étude du jour</h3>
 <p>Temps + compétence faible → 4 blocs ciblés (SRS, focus, phonologie, cool-down) avec liens directs.</p>

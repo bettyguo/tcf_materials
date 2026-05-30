@@ -17,7 +17,7 @@ hide:
 
 # Enregistreur EO + auto-grade
 
-> **Le seul outil qui vous force à vous entendre.** Lancez l'enregistrement, parlez sur une tâche T1/T2/T3, écoutez-vous, cochez honnêtement la rubrique 4 critères × 5 points. Tout reste dans votre navigateur — l'audio n'est **jamais envoyé**.
+> **Le seul outil qui vous force à vous entendre.** Choisissez une tâche (T1 / T2 / T3), un **prompt parmi les 9 pilotes audités du corpus** s'affiche, lancez l'enregistrement, écoutez-vous, cochez honnêtement la rubrique 4 critères × 5 points. Tout reste dans votre navigateur — l'audio n'est **jamais envoyé**. Bouton « 🎲 Autre prompt » pour faire tourner les 3 prompts de la tâche en cours.
 
 !!! warning "Prérequis : microphone + HTTPS"
     Le navigateur doit accéder à votre micro (autorisation au premier clic) et la page doit être servie en HTTPS (cas du site GitHub Pages). Audio enregistré au format **WebM/Opus** par défaut. Téléchargeable en local.

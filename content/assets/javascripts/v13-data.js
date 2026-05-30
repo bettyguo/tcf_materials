@@ -496,6 +496,419 @@
       why: "« profiter de qqch. » → en." },
   ];
 
+  // -----------------------------------------------------------------
+  // v1.4.1 — Real EE / EO corpus prompts (pulled from audited pilots)
+  // Source: content/05_writing/tache{1,2,3}/0{1,2,3}_*.md
+  //         content/06_speaking/tache{1,2,3}/0{1,2,3}_*.md
+  // -----------------------------------------------------------------
+  T.eePrompts = T.eePrompts || {
+    t1: [
+      { id: "ee-t1-001", title: "Demander un report d'examen",
+        prompt: "Vous suivez un cours à l'université de Sherbrooke. Pour des raisons médicales, vous ne pouvez pas vous présenter à l'examen prévu vendredi prochain. Écrivez un courriel à votre professeure pour : expliquer brièvement votre situation, demander un report, proposer une solution alternative. Longueur cible : 90 mots (± 20). Registre : formel.",
+        refLabel: "ee-t1-001 (pilote audité)", refUrl: "05_writing/tache1/01_ee-t1-001/" },
+      { id: "ee-t1-002", title: "Plainte sur un colis abîmé",
+        prompt: "Vous avez commandé en ligne un service de verres à vin sur le site d'une boutique réputée. À la réception, deux verres sur six sont cassés. Écrivez un courriel au service client pour : exposer la situation, demander le remboursement ou le remplacement, préciser un délai de réponse souhaité. Longueur cible : 100 mots (± 20). Registre : formel.",
+        refLabel: "ee-t1-002 (pilote audité)", refUrl: "05_writing/tache1/02_ee-t1-002/" },
+      { id: "ee-t1-003", title: "Remerciement à un professeur",
+        prompt: "Un de vos professeurs a rédigé une lettre de recommandation qui vous a permis d'être admis(e) dans un programme d'échange à l'étranger. Vous lui écrivez pour le remercier et lui annoncer la bonne nouvelle. Remerciez précisément (l'objet du remerciement), annoncez la bonne nouvelle, exprimez votre reconnaissance pour la suite. Longueur cible : 85 mots (± 20). Registre : formel.",
+        refLabel: "ee-t1-003 (pilote audité)", refUrl: "05_writing/tache1/03_ee-t1-003/" },
+    ],
+    t2: [
+      { id: "ee-t2-001", title: "Article — cantine zéro-déchet",
+        prompt: "Le journal de votre université lance un dossier sur les initiatives écologiques sur le campus. Vous décidez d'écrire un article (≈ 140 mots) sur la nouvelle cantine zéro-déchet inaugurée le mois dernier au restaurant universitaire. L'article doit : présenter le dispositif (qui, quoi, depuis quand), donner au moins une donnée chiffrée, évoquer les retours des usagers, conclure sur une perspective. Registre : journalistique formel. Pas de prise de position personnelle.",
+        refLabel: "ee-t2-001 (pilote audité)", refUrl: "05_writing/tache2/01_ee-t2-001/" },
+      { id: "ee-t2-002", title: "Témoignage — expérience à l'étranger",
+        prompt: "Un blog d'étudiants en mobilité internationale recueille les témoignages d'anciens participants à des programmes d'échange. Vous racontez une expérience marquante de votre séjour de six mois dans une université à l'étranger. L'article doit : situer la situation (où, quand, combien de temps), raconter un événement marquant ou une découverte, en tirer un enseignement, ouvrir sur un conseil au lecteur. Registre : neutre (témoignage personnel).",
+        refLabel: "ee-t2-002 (pilote audité)", refUrl: "05_writing/tache2/02_ee-t2-002/" },
+      { id: "ee-t2-003", title: "Critique nuancée — restaurant",
+        prompt: "Vous publiez sur un guide en ligne une critique nuancée d'un restaurant que vous avez récemment essayé. La critique doit (≈ 145 mots) : situer le contexte, présenter au moins un point fort et un point faible, illustrer chaque point par un exemple concret, conclure par une recommandation conditionnelle. Registre : neutre, journalistique léger.",
+        refLabel: "ee-t2-003 (pilote audité)", refUrl: "05_writing/tache2/03_ee-t2-003/" },
+    ],
+    t3: [
+      { id: "ee-t3-001", title: "Essai — IA générative et travail intellectuel",
+        prompt: "Une revue universitaire en ligne ouvre ses colonnes à des contributions d'étudiants sur le thème : « L'intelligence artificielle générative met-elle en danger le travail intellectuel ? » Rédigez un essai argumenté qui : prend une position claire sur la question, défend cette position par deux arguments distincts, intègre une concession suivie d'une réfutation, conclut par une ouverture. Longueur cible : 170 mots (± 30). Registre : formel argumentatif.",
+        refLabel: "ee-t3-001 (pilote audité)", refUrl: "05_writing/tache3/01_ee-t3-001/" },
+      { id: "ee-t3-002", title: "Essai — interdire les vols intérieurs courts",
+        prompt: "Le supplément hebdomadaire d'un grand quotidien consacre un dossier à l'avenir de la mobilité. Vous y publiez un essai (170 mots ± 30) sur la question : « Faut-il interdire les vols intérieurs courte distance lorsque le train propose une alternative compétitive ? » Votre essai doit : prendre une position claire, défendre cette position par deux arguments, intégrer une concession et une réfutation, conclure par une ouverture concrète.",
+        refLabel: "ee-t3-002 (pilote audité)", refUrl: "05_writing/tache3/02_ee-t3-002/" },
+      { id: "ee-t3-003", title: "Essai — français langue de travail à Montréal",
+        prompt: "Un magazine d'analyse sociale lance un dossier sur la cohésion linguistique au Québec et invite ses lecteurs à proposer une contribution argumentée. Rédigez un essai (175 mots ± 35) sur la question : « À l'heure où les entreprises montréalaises s'internationalisent, faut-il renforcer la place du français comme langue de travail ? » Votre essai doit : prendre une position claire, défendre cette position par deux arguments distincts, intégrer une concession et une réfutation, conclure par une ouverture.",
+        refLabel: "ee-t3-003 (pilote audité)", refUrl: "05_writing/tache3/03_ee-t3-003/" },
+    ],
+  };
+
+  T.eoPrompts = T.eoPrompts || {
+    t1: [
+      { id: "eo-t1-001", title: "Carte d'assurance maladie — questions au comptoir",
+        consigne: "Je travaille au service d'accueil de la Régie de l'assurance maladie du Québec. Vous venez d'arriver dans la province et souhaitez vous renseigner sur la carte d'assurance maladie. Posez-moi les questions nécessaires pour obtenir les informations qu'il vous faut.",
+        duration: "≈ 1 min 30", prep: "aucune", refUrl: "06_speaking/tache1/01_eo-t1-001/" },
+      { id: "eo-t1-002", title: "SAV opérateur télécom — résoudre un problème de forfait",
+        consigne: "Je suis conseiller au service après-vente d'un opérateur de téléphonie mobile et d'accès Internet. Vous êtes client chez nous et vous nous appelez pour signaler un problème sur votre forfait. Posez-moi les questions nécessaires pour faire avancer votre dossier : nature du problème, suivi, remboursement éventuel, conditions de renouvellement ou de résiliation.",
+        duration: "≈ 1 min 30", prep: "aucune", refUrl: "06_speaking/tache1/02_eo-t1-002/" },
+      { id: "eo-t1-003", title: "Recrutement — précisions sur un poste à temps partiel",
+        consigne: "Je suis recruteur dans une petite entreprise et nous proposons actuellement un poste à temps partiel, quinze heures par semaine, au service client. Vous avez vu notre annonce et vous m'appelez pour obtenir des précisions avant de candidater. Posez-moi les questions nécessaires pour décider si le poste vous correspond.",
+        duration: "≈ 1 min 30", prep: "aucune", refUrl: "06_speaking/tache1/03_eo-t1-003/" },
+    ],
+    t2: [
+      { id: "eo-t2-001", title: "Mobilité — raconter une expérience marquante",
+        consigne: "Racontez-nous une expérience marquante de mobilité que vous avez vécue : un déménagement, une expatriation, un séjour prolongé à l'étranger. Précisez ce qui l'a rendue marquante, ce qui a été difficile, et ce qu'elle vous a apporté.",
+        duration: "≈ 3 minutes", prep: "aucune", refUrl: "06_speaking/tache2/01_eo-t2-001/" },
+      { id: "eo-t2-002", title: "Télétravail — avantages et inconvénients",
+        consigne: "Décrivez les avantages et les inconvénients du télétravail tel que vous l'observez aujourd'hui, en vous appuyant sur des exemples concrets si vous le souhaitez.",
+        duration: "≈ 3 minutes", prep: "aucune", refUrl: "06_speaking/tache2/02_eo-t2-002/" },
+      { id: "eo-t2-003", title: "Pratiques culturelles — changements des 10 dernières années",
+        consigne: "Présentez les changements observés ces dix dernières années en matière de pratiques culturelles — musique, cinéma, lecture, séries, etc. Vous donnerez des exemples concrets et préciserez ce que vous en retenez.",
+        duration: "≈ 3 minutes", prep: "aucune", refUrl: "06_speaking/tache2/03_eo-t2-003/" },
+    ],
+    t3: [
+      { id: "eo-t3-001", title: "IA générative — défendre une position",
+        consigne: "Stimulus : « À l'heure où les outils d'intelligence artificielle générative produisent en quelques secondes des textes, des images et du code, la question de leur impact sur le travail intellectuel se pose avec une acuité particulière. Certains y voient la fin du métier d'analyste, de rédacteur, de programmeur ; d'autres y lisent une libération du travail répétitif au profit du jugement et de la créativité. » — Vous prendrez position et défendrez votre point de vue.",
+        duration: "≈ 5 minutes", prep: "2 minutes (timer strict)", refUrl: "06_speaking/tache3/01_eo-t3-001/" },
+      { id: "eo-t3-002", title: "Transition écologique — modèle de croissance",
+        consigne: "Stimulus : « La transition écologique ne pourra pas se faire sans une remise en cause radicale de notre modèle de croissance. Continuer à produire et consommer comme aujourd'hui, même avec des technologies plus propres, c'est ignorer les limites physiques de la planète. » — Vous prendrez position sur cette affirmation et défendrez votre point de vue.",
+        duration: "≈ 5 minutes", prep: "2 minutes (timer strict)", refUrl: "06_speaking/tache3/02_eo-t3-002/" },
+      { id: "eo-t3-003", title: "Semaine de 4 jours — futur ou effet d'aubaine ?",
+        consigne: "Stimulus (brève de presse) : « Plusieurs entreprises pilotes en Islande, en Espagne et au Royaume-Uni ont expérimenté la semaine de quatre jours, à salaire constant. Les résultats publiés mettent en avant une productivité maintenue, une réduction du turnover et une amélioration du bien-être déclaré des salariés. Faut-il y voir le futur du travail, ou un effet d'aubaine limité à certains secteurs ? » — Vous prendrez position et défendrez votre point de vue.",
+        duration: "≈ 5 minutes", prep: "2 minutes (timer strict)", refUrl: "06_speaking/tache3/03_eo-t3-003/" },
+    ],
+  };
+
+  // -----------------------------------------------------------------
+  // v1.4.1 — Additional CE packs (B1, C1) + CO pack 2 (B2+)
+  // -----------------------------------------------------------------
+  T.cePacks.b1_pack1 = {
+    title: "Lot CE B1 — annonces, messages, vie pratique",
+    level: "B1",
+    minutes: 10,
+    passages: [
+      {
+        id: "p1", words: 64,
+        text: "<p>📢 <strong>Avis aux résidents.</strong> La collecte des ordures ménagères sera décalée d'une journée la semaine prochaine, en raison du jour férié de lundi. Le ramassage habituel du mardi aura lieu mercredi ; celui du vendredi aura lieu samedi. Pensez à sortir vos bacs la veille au soir. La collecte des matières recyclables n'est pas affectée.</p>",
+        q: [
+          { q: "Pourquoi la collecte est-elle décalée ?", options: [
+            "Parce qu'il y a une grève.",
+            "À cause d'un jour férié le lundi.",
+            "À cause de la neige.",
+            "Pour économiser de l'argent."
+          ], a: 1, why: "Le texte dit « en raison du jour férié de lundi »." },
+          { q: "Quand aura lieu la collecte normalement prévue le vendredi ?", options: [
+            "Le jeudi.",
+            "Le vendredi quand même.",
+            "Le samedi.",
+            "Le dimanche."
+          ], a: 2, why: "« celui du vendredi aura lieu samedi »." },
+          { q: "Que dit le texte de la collecte recyclable ?", options: [
+            "Elle est aussi décalée d'un jour.",
+            "Elle est annulée.",
+            "Elle n'est pas affectée.",
+            "Elle change d'horaire."
+          ], a: 2, why: "« La collecte des matières recyclables n'est pas affectée »." },
+        ]
+      },
+      {
+        id: "p2", words: 88,
+        text: "<p>Salut Léa,</p><p>Je voulais te prévenir que je ne pourrai pas venir au cinéma samedi. J'ai promis à ma sœur de l'aider à déménager — elle a finalement trouvé un appartement à Verdun. On se cale ça la semaine prochaine ? Je suis libre mercredi soir et vendredi après 18 h. Dis-moi ce qui te convient. Bisous, et désolée encore !</p>",
+        q: [
+          { q: "Pourquoi Léa et l'expéditrice ne se voient-elles pas samedi ?", options: [
+            "Léa est malade.",
+            "L'expéditrice aide sa sœur à déménager.",
+            "Le cinéma est complet.",
+            "Il pleut trop."
+          ], a: 1, why: "« J'ai promis à ma sœur de l'aider à déménager »." },
+          { q: "Quand l'expéditrice est-elle disponible la semaine suivante ?", options: [
+            "Lundi et mardi.",
+            "Mercredi soir et vendredi après 18 h.",
+            "Jeudi seulement.",
+            "Tout le week-end."
+          ], a: 1, why: "« libre mercredi soir et vendredi après 18 h »." },
+          { q: "Quel est le ton du message ?", options: [
+            "Très formel.",
+            "Cordial entre amies.",
+            "En colère.",
+            "Distant."
+          ], a: 1, why: "« Salut », « Bisous », « désolée encore » — registre amical." },
+        ]
+      },
+      {
+        id: "p3", words: 119,
+        text: "<p>Le centre municipal de loisirs de Laval propose de nouvelles activités dès la rentrée de septembre. Pour les adultes, deux cours sont ouverts : <strong>poterie</strong> les mardis soirs (18 h-20 h, 12 séances, 240 \\$ matériel inclus) et <strong>conversation française pour nouveaux arrivants</strong>, les jeudis (19 h-20 h 30, gratuit, inscription obligatoire). Pour les enfants de 6 à 12 ans, trois ateliers sont proposés : sciences, danse hip-hop et théâtre, toujours le samedi matin de 10 h à midi. Les inscriptions s'ouvrent le 15 août, en ligne ou directement au comptoir d'accueil. Le centre rappelle que les places sont limitées et attribuées par ordre d'arrivée.</p>",
+        q: [
+          { q: "Combien coûte le cours de conversation française ?", options: [
+            "240 $",
+            "Gratuit, mais inscription obligatoire.",
+            "12 $ la séance.",
+            "Le prix n'est pas indiqué."
+          ], a: 1, why: "« gratuit, inscription obligatoire »." },
+          { q: "Quand les inscriptions s'ouvrent-elles ?", options: [
+            "Dès aujourd'hui.",
+            "Le 1ᵉʳ septembre.",
+            "Le 15 août.",
+            "Le 15 juillet."
+          ], a: 2, why: "« Les inscriptions s'ouvrent le 15 août »." },
+          { q: "Quel atelier n'est PAS proposé aux enfants ?", options: [
+            "Sciences.",
+            "Théâtre.",
+            "Danse hip-hop.",
+            "Cuisine."
+          ], a: 3, why: "Le texte cite sciences, danse hip-hop et théâtre — pas la cuisine." },
+          { q: "Que faut-il savoir sur les places ?", options: [
+            "Elles sont illimitées.",
+            "Elles sont attribuées par ordre d'arrivée.",
+            "Elles sont réservées aux résidents de Laval.",
+            "Elles coûtent 50 $ de plus si on s'inscrit en retard."
+          ], a: 1, why: "« attribuées par ordre d'arrivée »." },
+        ]
+      },
+      {
+        id: "p4", words: 145,
+        text: "<p>L'application <em>MoveQC</em> a été lancée le printemps dernier par un jeune entrepreneur de Trois-Rivières. Son principe est simple : elle met en relation des particuliers qui ont besoin de déménager quelques meubles ou objets volumineux avec des conducteurs disposant d'une camionnette. Les utilisateurs publient une annonce avec photos, distance et créneau souhaité ; les conducteurs disponibles répondent et le prix se négocie via l'application. Le service revendique déjà 8 000 inscriptions en six mois, principalement à Montréal, Québec et Sherbrooke. Le fondateur explique avoir eu l'idée après un déménagement compliqué : « J'ai galéré pendant deux jours à trouver une camionnette à louer, alors que mon voisin en avait une garée devant chez moi. » Le prochain défi annoncé : étendre le service aux régions plus rurales, où l'offre de transport est nettement plus limitée.</p>",
+        q: [
+          { q: "À quel besoin MoveQC répond-elle ?", options: [
+            "Trouver une nouvelle voiture.",
+            "Déménager quelques meubles ou objets volumineux.",
+            "Trouver un déménageur professionnel.",
+            "Louer un garde-meuble."
+          ], a: 1, why: "« met en relation des particuliers qui ont besoin de déménager quelques meubles »." },
+          { q: "Comment le prix est-il fixé ?", options: [
+            "Tarif unique imposé par l'application.",
+            "Négocié via l'application entre les deux parties.",
+            "Au kilomètre, automatiquement.",
+            "Le service est gratuit."
+          ], a: 1, why: "« le prix se négocie via l'application »." },
+          { q: "D'où vient l'idée de l'application ?", options: [
+            "D'un stage en entreprise.",
+            "D'une expérience personnelle de déménagement compliqué.",
+            "D'une étude de marché.",
+            "D'une demande de la mairie."
+          ], a: 1, why: "« avoir eu l'idée après un déménagement compliqué »." },
+          { q: "Quel est le prochain défi annoncé ?", options: [
+            "Réduire les prix.",
+            "Lancer une version pour les déménagements internationaux.",
+            "Étendre le service aux régions rurales.",
+            "Recruter des employés."
+          ], a: 2, why: "« étendre le service aux régions plus rurales »." },
+        ]
+      },
+    ]
+  };
+
+  T.cePacks.c1_pack1 = {
+    title: "Lot CE C1 — analyses, tribunes, débats nuancés",
+    level: "C1",
+    minutes: 16,
+    passages: [
+      {
+        id: "p1", words: 218,
+        text: "<p>Voici une vingtaine d'années que l'expression « vie privée » est devenue synonyme, dans la conversation publique, de « données personnelles ». La confusion a une explication simple : c'est sur le terrain numérique que se livrent les batailles les plus visibles. <em>Or</em>, identifier la première à la seconde revient à abandonner la moitié du concept. La vie privée ne se résume pas à ce que je laisse ou non collecter — elle inclut l'écart entre mes versions de moi-même, celle que je présente au travail, celle que je réserve à mes proches, celle que je n'avoue parfois à personne. Cet écart est un bien social ; il rend possibles l'apprentissage, l'erreur, la révision de soi. Le réduire à un débat sur les cookies, c'est manquer l'essentiel : la pression d'une visibilité permanente, en particulier juvénile, érode la capacité de penser des choses qu'on ne défend pas encore publiquement. Les juridictions européennes commencent timidement à prendre en compte ce volet ; les premières décisions sur le droit à l'oubli en sont un indice, encore très partiel. <em>Reste</em> que tant que la conversation publique tient la vie privée pour un simple problème de protection technique, l'enjeu démocratique le plus profond — la possibilité d'avoir un soi en chantier — continuera de se dissoudre.</p>",
+        q: [
+          { q: "Quelle est la thèse centrale de la tribune ?", options: [
+            "La vie privée numérique n'a aucun rapport avec la démocratie.",
+            "« Vie privée » et « données personnelles » sont des concepts distincts, et confondre l'un avec l'autre fait perdre l'enjeu démocratique.",
+            "Les cookies sont un faux problème.",
+            "La législation européenne est trop avancée."
+          ], a: 1, why: "« identifier la première à la seconde revient à abandonner la moitié du concept »." },
+          { q: "Pourquoi l'écart entre versions de soi est-il décrit comme un « bien social » ?", options: [
+            "Parce qu'il rapporte de l'argent.",
+            "Parce qu'il rend possibles l'apprentissage, l'erreur, la révision de soi.",
+            "Parce qu'il est universellement respecté.",
+            "Parce qu'il est techniquement chiffré."
+          ], a: 1, why: "Phrase explicite : « il rend possibles l'apprentissage, l'erreur, la révision de soi »." },
+          { q: "Que dit l'auteur des décisions européennes ?", options: [
+            "Elles règlent le problème.",
+            "Elles sont un premier indice timide, partiel.",
+            "Elles ignorent l'enjeu.",
+            "Elles sont contraires aux libertés."
+          ], a: 1, why: "« timidement », « premières décisions… encore très partiel »." },
+          { q: "Quel est le risque démocratique le plus profond, selon le texte ?", options: [
+            "La perte de revenus publicitaires.",
+            "L'érosion de la capacité de penser des choses qu'on ne défend pas encore publiquement.",
+            "L'augmentation du piratage.",
+            "La disparition des cookies."
+          ], a: 1, why: "« la pression d'une visibilité permanente… érode la capacité de penser des choses qu'on ne défend pas encore publiquement »." },
+        ]
+      },
+      {
+        id: "p2", words: 246,
+        text: "<p>Les politiques de relance par la consommation, longtemps tenues pour un outil de référence en cas de ralentissement, font l'objet d'un réexamen prudent dans plusieurs cercles d'experts. Le diagnostic n'est pas que ces politiques ne fonctionnent plus — elles agissent toujours, à court terme, sur l'activité globale. <em>C'est plutôt</em> leur articulation avec les contraintes climatiques qui pose problème : stimuler une consommation indifférenciée revient mécaniquement à pousser les importations et l'empreinte carbone vers le haut, sans gain durable sur la base productive locale. Une voie alternative, parfois qualifiée de « relance ciblée », privilégie les investissements dans des chaînes de valeur compatibles avec une trajectoire bas-carbone : rénovation énergétique, ferroviaire, fournitures de santé domestique, infrastructures hydriques. Ses critiques font valoir, non sans arguments, qu'une telle approche relève d'un volontarisme industriel difficile à manier — l'État choisit des secteurs gagnants et risque d'en favoriser certains de manière clientéliste. Ses défenseurs répondent que <em>l'absence</em> de choix est aussi un choix, en l'occurrence celui de laisser les arbitrages au marché à un moment où la pression du temps climatique ne le permet plus. Le débat n'est pas clos ; il a néanmoins déplacé son centre de gravité, des techniques budgétaires vers la question, plus politique, de ce que l'on entend par « bonne dépense » publique. Les indicateurs de mesure suivront, ou non, ce déplacement.</p>",
+        q: [
+          { q: "Quel est le diagnostic posé sur les politiques de relance par la consommation ?", options: [
+            "Elles ne fonctionnent plus à court terme.",
+            "Elles agissent encore à court terme mais s'articulent mal avec les contraintes climatiques.",
+            "Elles sont parfaites.",
+            "Elles ne sont pas étudiées."
+          ], a: 1, why: "« Le diagnostic n'est pas que ces politiques ne fonctionnent plus — elles agissent toujours… C'est plutôt leur articulation avec les contraintes climatiques »." },
+          { q: "Comment l'auteur résume-t-il l'objection à la « relance ciblée » ?", options: [
+            "Elle coûte trop cher.",
+            "Elle relève d'un volontarisme industriel risquant le clientélisme.",
+            "Elle n'a jamais été testée.",
+            "Elle est trop ancienne."
+          ], a: 1, why: "« volontarisme industriel difficile à manier — l'État choisit des secteurs gagnants et risque d'en favoriser certains de manière clientéliste »." },
+          { q: "Quel argument oppose-t-on à cette objection ?", options: [
+            "Que les marchés vont régler le problème.",
+            "Que l'absence de choix est aussi un choix, en l'occurrence celui de laisser arbitrer le marché.",
+            "Que la dette n'est pas un problème.",
+            "Que la science est suffisante."
+          ], a: 1, why: "« l'absence de choix est aussi un choix »." },
+          { q: "Où le débat a-t-il déplacé son centre de gravité ?", options: [
+            "Sur la fiscalité.",
+            "Vers la question politique de ce qu'on entend par « bonne dépense » publique.",
+            "Sur la monnaie.",
+            "Le débat n'a pas bougé."
+          ], a: 1, why: "« il a néanmoins déplacé son centre de gravité, des techniques budgétaires vers la question, plus politique, de ce que l'on entend par « bonne dépense » publique »." },
+        ]
+      },
+      {
+        id: "p3", words: 252,
+        text: "<p>L'idée qu'on apprendrait mieux en se concentrant sur ses préférences personnelles — « style visuel », « style auditif », « style kinesthésique » — a longtemps figuré dans la formation des enseignants. Les manuels la présentaient comme un acquis ; certaines plateformes en font encore aujourd'hui un argument commercial. <em>Le problème</em>, c'est qu'aucune des grandes synthèses expérimentales conduites au cours des vingt dernières années n'a confirmé l'effet escompté. Adapter le support à la « préférence » déclarée d'un élève n'améliore pas, en moyenne, l'apprentissage de la connaissance visée. Ce que ces synthèses identifient comme rentable, en revanche, c'est l'<em>alignement</em> entre le support et la nature intrinsèque du contenu : la géométrie veut du visuel parce qu'elle <em>est</em> spatiale ; la phonologie veut de l'auditif parce qu'elle <em>est</em> sonore ; la coordination motrice veut du geste parce qu'elle <em>est</em> motrice. La nuance est de taille : elle déplace le critère de l'élève vers la matière. <em>Reste</em> que la perception de progresser, elle, demeure influencée par la préférence — un élève à qui l'on propose son format préféré déclare plus volontiers comprendre, même quand le test objectif ne le confirme pas. Cet écart, ténu, a un coût pratique : il rend les méthodes alignées sur le contenu moins populaires que les méthodes alignées sur la préférence, et donc plus difficiles à déployer en classe. La science a tranché ; la pédagogie scolaire, plus lentement, en tirera ou non les conséquences.</p>",
+        q: [
+          { q: "Que disent les grandes synthèses expérimentales sur les « styles d'apprentissage » ?", options: [
+            "Elles confirment leur efficacité.",
+            "Elles n'ont pas confirmé l'effet escompté.",
+            "Elles n'ont pas étudié la question.",
+            "Elles concluent l'inverse exact."
+          ], a: 1, why: "« aucune des grandes synthèses expérimentales… n'a confirmé l'effet escompté »." },
+          { q: "Quel critère est, lui, identifié comme rentable ?", options: [
+            "La préférence de l'élève.",
+            "L'alignement entre le support et la nature intrinsèque du contenu.",
+            "Le budget de l'école.",
+            "La durée du cours."
+          ], a: 1, why: "« ce que ces synthèses identifient comme rentable… c'est l'alignement entre le support et la nature intrinsèque du contenu »." },
+          { q: "Pourquoi les méthodes alignées sur le contenu sont-elles plus difficiles à déployer ?", options: [
+            "Elles coûtent plus cher.",
+            "Elles sont moins populaires que celles alignées sur la préférence, car la perception de progresser y est moindre.",
+            "Elles sont interdites.",
+            "Elles ne sont pas connues."
+          ], a: 1, why: "« la perception de progresser… demeure influencée par la préférence » → impact pratique sur la popularité." },
+          { q: "Quel est le ton général de la tribune ?", options: [
+            "Polémique et provocateur.",
+            "Synthétique et nuancé (science + sociologie de la pédagogie).",
+            "Nostalgique.",
+            "Émotionnel."
+          ], a: 1, why: "Style « la science a tranché ; la pédagogie… en tirera ou non les conséquences » — registre analytique nuancé." },
+        ]
+      },
+    ]
+  };
+
+  T.coPacks.b2_pack2 = {
+    title: "Lot CO B2+ — médias, débats, interviews",
+    level: "B2 → C1",
+    items: [
+      {
+        text: "Une étude publiée la semaine dernière indique que les actifs québécois passent en moyenne 47 minutes par jour à consulter leur messagerie professionnelle en dehors des heures de travail. Les auteurs y voient un signal inquiétant et appellent à un cadre plus strict autour du droit à la déconnexion.",
+        q: "Quel est le point d'attention central de cette étude ?",
+        options: [
+          "Le manque de productivité au bureau.",
+          "Le temps passé sur la messagerie professionnelle hors horaires.",
+          "Le coût des abonnements à Internet.",
+          "Le télétravail."
+        ], a: 1, why: "« en moyenne 47 minutes par jour à consulter leur messagerie professionnelle en dehors des heures de travail »."
+      },
+      {
+        text: "Au micro de notre invité, ce matin : on ne va pas se mentir, le secteur traverse une zone de turbulences. Mais je suis convaincu que les fondamentaux restent solides, et que les commandes vont repartir au troisième trimestre, peut-être un peu plus tard.",
+        q: "Comment qualifier la position de l'invité ?",
+        options: [
+          "Catastrophiste.",
+          "Optimisme prudent, avec une projection à moyen terme.",
+          "Indifférent.",
+          "Démissionnaire."
+        ], a: 1, why: "« les fondamentaux restent solides… les commandes vont repartir au troisième trimestre, peut-être un peu plus tard »."
+      },
+      {
+        text: "C'est une décision que beaucoup espéraient depuis longtemps, sans vraiment y croire. Le tribunal administratif a finalement tranché en faveur des riverains, ordonnant la suspension immédiate du chantier autoroutier. La municipalité dispose de trente jours pour faire appel.",
+        q: "Que peut faire la municipalité ?",
+        options: [
+          "Continuer le chantier malgré la décision.",
+          "Faire appel dans un délai de trente jours.",
+          "Demander un référendum.",
+          "Doubler les amendes."
+        ], a: 1, why: "« La municipalité dispose de trente jours pour faire appel »."
+      },
+      {
+        text: "Bon, écoute, je vais te parler franchement : je ne suis pas convaincu par le projet tel qu'il est présenté. Cela dit, je reconnais qu'il a des points forts — notamment la dimension formation. Si on retravaille la partie financement, je pourrais reconsidérer ma position.",
+        q: "Quelle est l'attitude du locuteur ?",
+        options: [
+          "Rejet ferme et définitif.",
+          "Réserve nuancée : ouverture conditionnelle au compromis.",
+          "Accord total et immédiat.",
+          "Désintérêt."
+        ], a: 1, why: "« je ne suis pas convaincu… cela dit, je reconnais… si on retravaille… je pourrais reconsidérer »."
+      },
+      {
+        text: "Le ministère a annoncé hier soir le report sine die de la consultation publique prévue lundi. Les associations dénoncent une décision « prise dans la précipitation et sans concertation », tandis que les services évoquent des « contraintes logistiques imprévues » liées à l'organisation des élections.",
+        q: "Quel est le point de désaccord principal entre les associations et le ministère ?",
+        options: [
+          "La date de l'élection.",
+          "L'interprétation de la raison du report : précipitation vs contraintes logistiques.",
+          "Le budget alloué.",
+          "Le nombre de participants attendus."
+        ], a: 1, why: "Phrases opposées : « précipitation et sans concertation » vs « contraintes logistiques imprévues »."
+      },
+      {
+        text: "Très clairement, l'objectif fixé pour la fin de l'année reste atteignable, mais à condition d'accélérer dès maintenant. Sans changement de rythme dans les deux prochaines semaines, on perdra le bénéfice du démarrage.",
+        q: "Quelle est la condition de réussite évoquée ?",
+        options: [
+          "Réduire le budget.",
+          "Accélérer dès maintenant et changer de rythme dans les deux semaines à venir.",
+          "Attendre l'année prochaine.",
+          "Recruter du personnel."
+        ], a: 1, why: "« à condition d'accélérer dès maintenant. Sans changement de rythme dans les deux prochaines semaines, on perdra le bénéfice »."
+      },
+      {
+        text: "Mesdames, messieurs, en raison d'un mouvement social inopiné, l'ensemble des trains au départ de Montréal-Centrale subit ce matin un retard moyen de quarante-cinq minutes. Les correspondances ne sont pas garanties. Les voyageurs porteurs d'un billet flexible peuvent l'échanger sans frais dans les douze heures.",
+        q: "Que peuvent faire les voyageurs avec un billet flexible ?",
+        options: [
+          "Obtenir un remboursement immédiat.",
+          "L'échanger sans frais dans les douze heures.",
+          "Réclamer un dédommagement de 100 $.",
+          "Le revendre."
+        ], a: 1, why: "« peuvent l'échanger sans frais dans les douze heures »."
+      },
+      {
+        text: "Ce que je trouve frappant dans cette tendance, ce n'est pas tant la baisse en elle-même — elle était attendue — c'est la rapidité avec laquelle elle s'installe. Trois ans plus tôt, personne ne misait sur un tel rythme.",
+        q: "Qu'est-ce qui surprend le locuteur ?",
+        options: [
+          "Que la baisse soit massive.",
+          "La rapidité de l'installation de la tendance, pas la baisse en elle-même.",
+          "Que la baisse n'ait pas eu lieu.",
+          "Que la tendance s'inverse."
+        ], a: 1, why: "« ce n'est pas tant la baisse… c'est la rapidité avec laquelle elle s'installe »."
+      },
+      {
+        text: "Force est de constater que les négociations patinent. Cela étant, je reste convaincu qu'un accord est possible, à condition que chaque partie consente à mettre de l'eau dans son vin. Faute de quoi, nous nous dirigeons vers un blocage durable.",
+        q: "Quelle est l'évaluation du locuteur ?",
+        options: [
+          "Échec déjà acté.",
+          "Possibilité d'accord conditionné à un compromis mutuel ; sinon blocage durable.",
+          "Succès garanti.",
+          "Pas d'opinion."
+        ], a: 1, why: "« un accord est possible, à condition que chaque partie consente à mettre de l'eau dans son vin »."
+      },
+      {
+        text: "On nous demande souvent si ce mode de fonctionnement est viable à long terme. La réponse honnête, c'est qu'on ne le sait pas encore : on a tenu deux ans avec ce modèle, mais le contexte économique a changé. On va devoir le retravailler en profondeur d'ici l'automne.",
+        q: "Quelle est la position sur la viabilité à long terme du modèle ?",
+        options: [
+          "Affirmative et catégorique.",
+          "Honnêteté assumée : pas encore tranchée, à retravailler en profondeur.",
+          "Définitivement non.",
+          "Rejet de la question."
+        ], a: 1, why: "« la réponse honnête, c'est qu'on ne le sait pas encore… On va devoir le retravailler en profondeur »."
+      },
+    ]
+  };
+
+  // -----------------------------------------------------------------
+  // v1.4.1 — Pronouns drill: replace stub "—" option with explicit label
+  // -----------------------------------------------------------------
+  (function fixPronounsStub() {
+    const arr = T.pronouns && T.pronouns.b1_b2;
+    if (!arr) return;
+    arr.forEach((it) => {
+      const j = it.options.indexOf("—");
+      if (j >= 0) it.options[j] = "aucun pronom court (forme inchangée)";
+    });
+  })();
+
   T.phraseOfDay = T.phraseOfDay || [
     { fr: "Force est de constater que la situation ne s'améliore pas.", gloss: "Reconnaissance d'un fait gênant (registre soutenu, très productif en EE T3)." },
     { fr: "Il convient de souligner que ce point reste à clarifier.", gloss: "Marqueur soutenu d'insistance — utile en lettre formelle ou essai." },

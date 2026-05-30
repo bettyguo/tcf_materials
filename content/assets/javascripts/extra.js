@@ -4275,19 +4275,44 @@
 
     function fmtSec(s) { const m = Math.floor(s/60); const r = Math.floor(s%60); return m + ":" + (r<10?"0":"") + r; }
 
+    const banksEO = (window.TCF && window.TCF.eoPrompts) || { t1: [], t2: [], t3: [] };
+    let currentTask = ls.get("eo:lastTask", "T2");
+    let currentPromptId = null;
+    function promptsFor(task) { return banksEO[task.toLowerCase()] || []; }
+    function pickPrompt(task) {
+      const arr = promptsFor(task);
+      if (!arr.length) return null;
+      // rotate from previously used
+      let idx = 0;
+      if (currentPromptId) {
+        const j = arr.findIndex((p) => p.id === currentPromptId);
+        idx = j >= 0 ? (j + 1) % arr.length : 0;
+      } else {
+        idx = Math.floor(Math.random() * arr.length);
+      }
+      currentPromptId = arr[idx].id;
+      return arr[idx];
+    }
+
     function renderIntro(msg) {
+      const prompts = promptsFor(currentTask);
+      const p = prompts.find((q) => q.id === currentPromptId) || (prompts.length ? prompts[0] : null);
+      if (p) currentPromptId = p.id;
       host.innerHTML =
         '<div class="er-head">' +
-          '<select class="er-task">' +
-            '<option value="T1">T1 (~ 90 s) — interview / questions personnelles</option>' +
-            '<option value="T2" selected>T2 (~ 2 min) — situation à gérer</option>' +
-            '<option value="T3">T3 (~ 5 min) — exprimer / défendre un point de vue</option>' +
+          '<select class="er-task" aria-label="Tâche EO">' +
+            '<option value="T1"' + (currentTask === "T1" ? " selected" : "") + '>T1 (~ 1 min 30) — interview / questions à poser</option>' +
+            '<option value="T2"' + (currentTask === "T2" ? " selected" : "") + '>T2 (~ 3 min) — présentation guidée</option>' +
+            '<option value="T3"' + (currentTask === "T3" ? " selected" : "") + '>T3 (~ 5 min) — défendre un point de vue</option>' +
           '</select>' +
-          '<select class="er-format">' +
-            '<option value="webm">WebM (Opus)</option>' +
-            '<option value="mp4">MP4 (si dispo)</option>' +
-          '</select>' +
+          '<button class="tcf-btn er-newprompt">🎲 Autre prompt</button>' +
         '</div>' +
+        (p ? '<div class="er-prompt">' +
+          '<div class="er-prompt-title"><strong>' + escapeHtml(p.title || p.id) + '</strong>' +
+            (p.refUrl ? ' · <a href="' + p.refUrl + '" target="_blank" rel="noopener">pilote ' + escapeHtml(p.id) + '</a>' : '') + '</div>' +
+          '<div class="er-prompt-body">' + escapeHtml(p.consigne) + '</div>' +
+          (p.duration ? '<div class="er-prompt-meta">Durée cible : <strong>' + escapeHtml(p.duration) + '</strong>' + (p.prep ? ' · Préparation : ' + escapeHtml(p.prep) : '') + '</div>' : '') +
+        '</div>' : '<div class="er-prompt"><em>Aucun prompt chargé — voyez la <a href="06_speaking/index.md" target="_blank" rel="noopener">bank EO</a>.</em></div>') +
         '<div class="er-time">' + (msg || "Prêt") + '</div>' +
         '<div class="er-controls">' +
           '<button class="tcf-btn primary er-rec">● Enregistrer</button>' +
@@ -4302,6 +4327,13 @@
       drawHistory();
     }
     function bind() {
+      host.querySelector(".er-task").addEventListener("change", (e) => {
+        currentTask = e.target.value; currentPromptId = null;
+        ls.set("eo:lastTask", currentTask); renderIntro();
+      });
+      host.querySelector(".er-newprompt").addEventListener("click", () => {
+        pickPrompt(currentTask); renderIntro();
+      });
       host.querySelector(".er-rec").addEventListener("click", start);
       host.querySelector(".er-stop").addEventListener("click", stop);
       host.querySelector(".er-play").addEventListener("click", () => { if (lastUrl) { const a = host.querySelector(".er-audio"); a.src = lastUrl; a.style.display = "block"; a.play(); } });
@@ -4382,7 +4414,7 @@
         let total = 0; const detail = {};
         host.querySelectorAll(".er-rad").forEach((r) => { if (r.checked) { total += parseInt(r.value); detail[r.name] = parseInt(r.value); } });
         if (!Object.keys(detail).length) { try { TCF.toast("Cochez la rubrique d'abord."); } catch(_){}; return; }
-        const entry = { ts: Date.now(), task: host.querySelector(".er-task").value, durSec, total, detail };
+        const entry = { ts: Date.now(), task: host.querySelector(".er-task").value, promptId: currentPromptId, durSec, total, detail };
         recs.push(entry); ls.set(SK, recs);
         try { TCF.toast("Grading enregistré."); } catch(_){}
         try { TCF.badges && TCF.badges.check({ ee: { allGreen: total >= 16 } }); } catch(_){}
@@ -4404,7 +4436,7 @@
       if (!recs.length) { list.innerHTML = '<p style="opacity:.7">Aucun grading encore.</p>'; return; }
       list.innerHTML = recs.slice().reverse().slice(0, 30).map((r) => {
         return '<div class="er-hrow"><span>' + new Date(r.ts).toLocaleString("fr-FR") + '</span>' +
-          '<span class="er-task-tag">' + r.task + '</span>' +
+          '<span class="er-task-tag">' + r.task + (r.promptId ? ' · ' + escapeHtml(r.promptId) : '') + '</span>' +
           '<span class="er-dur">' + fmtSec(r.durSec || 0) + '</span>' +
           '<span class="er-score"><strong>' + r.total + '</strong>/20</span></div>';
       }).join("");
@@ -4419,24 +4451,39 @@
     if (host.dataset.mounted) return;
     host.dataset.mounted = "1";
     const SK = "ee:sim";
-    const state = ls.get(SK, { task: 0, t1: "", t2: "", t3: "", started: 0, ended: 0, runs: [] });
-    const tasks = [
-      { id: "t1", label: "T1", title: "Message court (60-120 mots, ~ 10 min)",
-        prompt: "Vous écrivez à un ami pour lui annoncer que vous venez d'arriver au Québec. Décrivez brièvement votre premier jour : votre logement, le quartier, votre premier sentiment. Posez-lui une question à la fin." },
-      { id: "t2", label: "T2", title: "Courrier formel (120-150 mots, ~ 20 min)",
-        prompt: "Vous écrivez à la municipalité de votre quartier pour signaler un problème (bruit récurrent, trottoir endommagé, éclairage insuffisant…). Décrivez le problème, ses conséquences et demandez une action concrète." },
-      { id: "t3", label: "T3", title: "Essai argumentatif (180+ mots, ~ 30 min)",
-        prompt: "« Le télétravail est devenu un acquis essentiel pour les salariés. » Êtes-vous d'accord ? Présentez votre point de vue en l'illustrant d'au moins deux arguments, et nuancez avec une objection." }
-    ];
+    const state = ls.get(SK, { task: 0, t1: "", t2: "", t3: "", started: 0, ended: 0, runs: [], promptIds: null });
+    const banks = (window.TCF && window.TCF.eePrompts) || { t1: [], t2: [], t3: [] };
+    function pickPrompts() {
+      function rnd(arr) { return arr.length ? arr[Math.floor(Math.random() * arr.length)] : null; }
+      return { t1: rnd(banks.t1), t2: rnd(banks.t2), t3: rnd(banks.t3) };
+    }
+    function loadTasks() {
+      const ids = state.promptIds || pickPrompts();
+      state.promptIds = ids;
+      const find = (arr, id) => (arr || []).find((p) => p.id === id) || null;
+      const safe = (p, fb) => p || { id: "stub", title: fb.title, prompt: fb.prompt, refLabel: "(corpus indisponible)", refUrl: "11_tools/ee-simulation/" };
+      return [
+        { id: "t1", label: "T1", lo: 60,  hi: 120, p: safe(typeof ids.t1 === "string" ? find(banks.t1, ids.t1) : ids.t1,
+            { title: "Message court (60-120 mots, ~ 10 min)", prompt: "Pas de prompt corpus chargé — voyez la bank EE.", refUrl: "05_writing/index.md" }) },
+        { id: "t2", label: "T2", lo: 120, hi: 150, p: safe(typeof ids.t2 === "string" ? find(banks.t2, ids.t2) : ids.t2,
+            { title: "Courrier formel (120-150 mots, ~ 20 min)", prompt: "", refUrl: "05_writing/index.md" }) },
+        { id: "t3", label: "T3", lo: 180, hi: 300, p: safe(typeof ids.t3 === "string" ? find(banks.t3, ids.t3) : ids.t3,
+            { title: "Essai argumentatif (180+ mots, ~ 30 min)", prompt: "", refUrl: "05_writing/index.md" }) },
+      ].map((t) => ({ id: t.id, label: t.label, lo: t.lo, hi: t.hi, title: t.p.title, prompt: t.p.prompt, refLabel: t.p.refLabel || t.p.id, refUrl: t.p.refUrl }));
+    }
+    let tasks = loadTasks();
     let timerId = null;
 
     function fmt(rem) { const m = Math.floor(rem/60000); const s = Math.floor((rem%60000)/1000); return m + ":" + (s<10?"0":"") + s; }
 
     function start() {
+      state.promptIds = pickPrompts();
+      tasks = loadTasks();
       state.started = Date.now(); state.ended = state.started + 60*60*1000;
-      state.task = 0; ls.set(SK, state); render();
+      state.task = 0; state.t1 = ""; state.t2 = ""; state.t3 = "";
+      ls.set(SK, state); render();
     }
-    function resume() { render(); }
+    function resume() { tasks = loadTasks(); render(); }
     function finish() {
       if (timerId) { clearInterval(timerId); timerId = null; }
       const wc = (s) => (s||"").trim().split(/\s+/).filter(Boolean).length;
@@ -4474,20 +4521,27 @@
     function reset() {
       if (!confirm("Effacer les 3 brouillons et redémarrer ?")) return;
       state.t1 = ""; state.t2 = ""; state.t3 = "";
-      state.started = 0; state.ended = 0;
+      state.started = 0; state.ended = 0; state.promptIds = null;
       ls.set(SK, state); renderIntro();
     }
     function renderIntro() {
+      tasks = loadTasks();
       host.innerHTML =
         '<div class="es-intro">' +
           '<h3>Simulation TCF EE — 60 min, 3 tâches</h3>' +
-          '<ul><li>T1 (10 min) : ' + escapeHtml(tasks[0].title) + '</li>' +
-          '<li>T2 (20 min) : ' + escapeHtml(tasks[1].title) + '</li>' +
-          '<li>T3 (30 min) : ' + escapeHtml(tasks[2].title) + '</li></ul>' +
-          '<p>Vous pouvez naviguer entre les tâches en cours. Le minuteur global ne s\'arrête pas. Tout est sauvegardé en temps réel.</p>' +
-          '<button class="tcf-btn primary es-start">▶ Démarrer 60 min</button>' +
+          '<p style="font-size:.88rem;opacity:.85">Prompts tirés au hasard à chaque démarrage parmi les <strong>9 pilotes audités</strong> du corpus (3 par tâche). Le minuteur global ne s\'arrête pas. Tout est sauvegardé en temps réel.</p>' +
+          '<ul class="es-tasklist">' +
+            '<li><strong>T1 (10 min, 60-120 mots)</strong> — ' + escapeHtml(tasks[0].title) + '</li>' +
+            '<li><strong>T2 (20 min, 120-150 mots)</strong> — ' + escapeHtml(tasks[1].title) + '</li>' +
+            '<li><strong>T3 (30 min, 180-300 mots)</strong> — ' + escapeHtml(tasks[2].title) + '</li>' +
+          '</ul>' +
+          '<div class="es-actions">' +
+            '<button class="tcf-btn primary es-start">▶ Démarrer 60 min</button>' +
+            '<button class="tcf-btn es-shuffle">🎲 Retirer 3 prompts</button>' +
+          '</div>' +
         '</div>';
       host.querySelector(".es-start").addEventListener("click", start);
+      host.querySelector(".es-shuffle").addEventListener("click", () => { state.promptIds = pickPrompts(); ls.set(SK, state); renderIntro(); });
     }
     function tick() {
       const rem = Math.max(0, state.ended - Date.now());
@@ -4506,7 +4560,9 @@
           '</div>' +
           '<button class="tcf-btn es-finish">✓ Terminer</button>' +
         '</div>' +
-        '<div class="es-prompt"><strong>' + escapeHtml(t.title) + '</strong><br><br>' + escapeHtml(t.prompt) + '</div>' +
+        '<div class="es-prompt"><strong>' + escapeHtml(t.title) + '</strong><br><br>' + escapeHtml(t.prompt) +
+          (t.refLabel && t.refUrl ? '<div class="es-ref"><small>Pilote corpus : <a href="' + t.refUrl + '" target="_blank" rel="noopener">' + escapeHtml(t.refLabel) + '</a> (modèles 3 niveaux disponibles après la session)</small></div>' : '') +
+        '</div>' +
         '<textarea class="es-text" rows="14" placeholder="Tapez votre réponse ici…">' + escapeHtml(cur) + '</textarea>' +
         '<div class="es-foot"><span class="es-wc">' + wc + ' mots</span>' +
           '<span class="es-target">cible ' + (t.id==='t1'?'60-120':t.id==='t2'?'120-150':'180-300') + '</span></div>';

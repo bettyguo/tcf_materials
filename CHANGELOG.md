@@ -2,6 +2,32 @@
 
 All notable changes are documented here in [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) style. Versioning is per-phase, not per-feature: each phase bumps the minor version on completion.
 
+## [1.4.1] — 2026-05-30 — Real corpus prompts + CE B1/C1 packs + CO B2+ pack (placeholder elimination pass)
+
+### Fixed — actual placeholders shipped in v1.4
+- **EE simulator** now pulls **9 real audited corpus prompts** (3 per task) via `window.TCF.eePrompts` and randomizes 1-of-3 per task per session. The previous hardcoded stub prompts (3 fixed paraphrases) are removed. New « 🎲 Retirer 3 prompts » button on the intro screen. Each task panel now shows the pilot ID + a deep link to the source pilot in `content/05_writing/tache{1,2,3}/`.
+- **EO recorder** now displays a **prompt panel** with the real consigne from the 9 audited EO pilots (`window.TCF.eoPrompts`). Task selector (T1/T2/T3) drives the bank; « 🎲 Autre prompt » rotates through the 3 prompts of the current task. Recorded grading entries now store the `promptId` and the history line shows it.
+- **Pronouns drill** : the single literal `"—"` placeholder option (in the "être prêt(e) à + verbe" item) is now `"aucun pronom court (forme inchangée)"` for clarity.
+
+### Added — corpus depth
+- **CE pack B1** (`cePacks.b1_pack1`) : 4 passages × 14 QCM (avis municipal, message ami·e, annonces de loisirs, application de services entre particuliers). 10 min cible.
+- **CE pack C1** (`cePacks.c1_pack1`) : 3 tribunes analytiques × 12 QCM (vie privée vs données personnelles, relance ciblée vs consommation, mythe des « styles d'apprentissage »). 16 min cible. Densité 218–252 mots/passage.
+- **CO pack B2+** (`coPacks.b2_pack2`) : 10 brefs B2 → C1 (médias, interviews, débats, marqueurs analytiques, atténuations). Texte plus long, distracteurs plus subtils.
+
+### Updated — pages
+- [`content/11_tools/ce-entraineur.md`](content/11_tools/ce-entraineur.md) : 3 packs accessibles via onglets Material (B2 par défaut, B1 « démarrer », C1 « cibler 9-10 »).
+- [`content/11_tools/co-entraineur.md`](content/11_tools/co-entraineur.md) : 2 packs accessibles via onglets (B1 → B2 et B2 → C1).
+- [`content/11_tools/ee-simulation.md`](content/11_tools/ee-simulation.md) : tagline mise à jour pour annoncer le tirage 1-de-3 + bouton de rebrassage.
+- [`content/11_tools/eo-enregistreur.md`](content/11_tools/eo-enregistreur.md) : tagline mise à jour pour annoncer le rotateur de prompts.
+- [`content/assets/javascripts/extra.js`](content/assets/javascripts/extra.js) : refactor `mountEeSim` pour consommer `TCF.eePrompts` ; refactor `mountEoRec` pour afficher un prompt panel et rotateur. ~ 80 lignes ajoutées.
+- [`content/assets/javascripts/v13-data.js`](content/assets/javascripts/v13-data.js) : `eePrompts` + `eoPrompts` banks (9 + 9 prompts complets avec consignes verbatim) ; `cePacks.b1_pack1` ; `cePacks.c1_pack1` ; `coPacks.b2_pack2` ; patch `pronouns` pour remplacer le « — ». ~ 350 lignes ajoutées.
+- [`content/assets/stylesheets/extra.css`](content/assets/stylesheets/extra.css) : section v1.4.1 — `.es-tasklist`, `.es-ref`, `.er-prompt`, `.er-prompt-title`, `.er-prompt-body`, `.er-prompt-meta`, `.er-newprompt`.
+
+### Stability
+- `mkdocs build --strict` clean (0 warnings).
+- `node --check` clean sur extra.js et v13-data.js.
+- 3 CE packs + 2 CO packs + 9 EE prompts + 9 EO prompts désormais accessibles. **Zero stub-placeholder content** visible côté utilisateur.
+
 ## [1.4.0] — 2026-05-30 — Real-exam simulators + grammar drills + daily routine (v1.4 — 8 new tools, MediaRecorder, autosave)
 
 ### Added — 8 new browser-side widgets

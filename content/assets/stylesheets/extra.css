@@ -2852,3 +2852,16 @@ html.tcf-wide .md-grid { max-width: 80rem; }
   .eq-table { font-size: 0.85rem; }
   .eq-table th, .eq-table td { padding: 0.4rem 0.5rem; }
 }
+
+/* v1.4.1 — EE/EO prompt block enhancements */
+.es-tasklist { padding-left: 1.1rem; margin: 0.5rem 0; }
+.es-tasklist li { margin: 0.3rem 0; line-height: 1.45; }
+.es-ref { margin-top: 0.55rem; padding-top: 0.4rem; border-top: 1px dashed var(--tcf-card-border); opacity: 0.85; font-size: 0.82rem; }
+.es-ref a { color: var(--md-typeset-a-color); text-decoration: underline; }
+
+.er-prompt { padding: 0.75rem 0.85rem; background: var(--tcf-progress-track); border-radius: var(--tcf-radius-sm); margin-bottom: 0.7rem; line-height: 1.5; }
+.er-prompt-title { font-size: 0.92rem; margin-bottom: 0.4rem; color: var(--md-primary-fg-color); }
+.er-prompt-title a { color: var(--md-typeset-a-color); }
+.er-prompt-body { font-style: italic; padding-left: 0.5rem; border-left: 3px solid var(--md-primary-fg-color); }
+.er-prompt-meta { margin-top: 0.45rem; font-size: 0.82rem; opacity: 0.78; }
+.er-newprompt { margin-left: auto; }
