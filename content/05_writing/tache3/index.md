@@ -1,19 +1,38 @@
 ---
-title: Tâche 3 — Essai argumentatif (150-180 mots, C1)
+title: "EE Tâche 3 — essai argumenté (180-300 mots, B2-C1)"
 audit:
   status: cleared
   confidence_overall: high
+hide:
+  - toc
 ---
 
-# Tâche 3 — Essai argumentatif (150-180 mots, C1)
+# EE Tâche 3 — essai argumenté (180-300 mots, B2-C1)
 
-> Index auto-généré (3 entrées). Navigation par fichier ci-dessous.
+> **Pilotes EE T3**. 3 prompts audités × 3 niveaux. Essai argumentatif avec concession-réfutation. **C'est ici que se joue NCLC 8 vs 9**.
 
-> File d'authoring restante : [_queue.md](_queue.md)
+<div class="feature-grid">
 
+<a class="cheat-card" href="01_ee-t3-001/">
+<span class="cheat-title">EE T3 — L'IA générative menace-t-elle le travail intellectuel ?</span>
+<span class="cheat-meta"><span class="cefr-badge cefr-c1">C1</span> <span class="minutes-badge">⏱ 40 min</span> <span class="reg-badge">FR</span></span>
+<span class="cheat-desc">Une revue universitaire en ligne ouvre ses colonnes à des contributions d'étudiants sur le thème : « L'intelligence artificielle générative met-elle en danger le travail intellectuel ? »</span>
+</a>
 
-## Sommaire
+<a class="cheat-card" href="02_ee-t3-002/">
+<span class="cheat-title">EE T3 — Faut-il interdire les vols intérieurs courte distance ?</span>
+<span class="cheat-meta"><span class="cefr-badge cefr-c1">C1</span> <span class="minutes-badge">⏱ 40 min</span> <span class="reg-badge">FR</span></span>
+<span class="cheat-desc">Le supplément hebdomadaire d'un grand quotidien consacre un dossier à l'avenir de la mobilité. Vous y publiez un essai (170 mots ± 30) sur la question : « Faut-il interdire les vols intérieurs courte distance lorsque le…</span>
+</a>
 
-- [EE T3 — L'IA générative menace-t-elle le travail intellectuel ?](01_ee-t3-001.md)
-- [EE T3 — Faut-il interdire les vols intérieurs courte distance ?](02_ee-t3-002.md)
-- [EE T3 — Le français au travail à Montréal : faut-il le renforcer ?](03_ee-t3-003.md)
+<a class="cheat-card" href="03_ee-t3-003/">
+<span class="cheat-title">EE T3 — Le français au travail à Montréal : faut-il le renforcer ?</span>
+<span class="cheat-meta"><span class="cefr-badge cefr-c1">C1</span> <span class="minutes-badge">⏱ 40 min</span> <span class="reg-badge">FR</span></span>
+<span class="cheat-desc">Un magazine d'analyse sociale lance un dossier sur la cohésion linguistique au Québec et invite ses lecteurs à proposer une contribution argumentée. Vous rédigez un essai (175 mots ± 35) sur la question : « À l'heure où…</span>
+</a>
+
+</div>
+
+---
+
+*File d'authoring restante : voir [_queue.md](_queue.md).*

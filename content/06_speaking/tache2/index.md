@@ -1,19 +1,38 @@
 ---
-title: Tâche 2 — Monologue suivi (4 min)
+title: "EO Tâche 2 — présentation guidée (≈ 3 min, B2)"
 audit:
   status: cleared
   confidence_overall: high
+hide:
+  - toc
 ---
 
-# Tâche 2 — Monologue suivi (4 min)
+# EO Tâche 2 — présentation guidée (≈ 3 min, B2)
 
-> Index auto-généré (3 entrées). Navigation par fichier ci-dessous.
+> **Pilotes EO T2**. 3 sujets audités × 3 niveaux. Présentation structurée 2 points + ouverture/clôture. Pas de préparation.
 
-> File d'authoring restante : [_queue.md](_queue.md)
+<div class="feature-grid">
 
+<a class="cheat-card" href="01_eo-t2-001/">
+<span class="cheat-title">EO Tâche 2 — Une expérience marquante de mobilité</span>
+<span class="cheat-meta"><span class="cefr-badge cefr-b2">B2</span> <span class="minutes-badge">⏱ 18 min</span> <span class="reg-badge">FR</span></span>
+<span class="cheat-desc">Durée : environ 3 minutes. Pas de préparation.</span>
+</a>
 
-## Sommaire
+<a class="cheat-card" href="02_eo-t2-002/">
+<span class="cheat-title">EO Tâche 2 — Avantages et inconvénients du télétravail</span>
+<span class="cheat-meta"><span class="cefr-badge cefr-b2">B2</span> <span class="minutes-badge">⏱ 18 min</span> <span class="reg-badge">FR</span></span>
+<span class="cheat-desc">Durée : environ 3 minutes. Pas de préparation.</span>
+</a>
 
-- [EO Tâche 2 — Une expérience marquante de mobilité](01_eo-t2-001.md)
-- [EO Tâche 2 — Avantages et inconvénients du télétravail](02_eo-t2-002.md)
-- [EO Tâche 2 — Changements observés dans les pratiques culturelles](03_eo-t2-003.md)
+<a class="cheat-card" href="03_eo-t2-003/">
+<span class="cheat-title">EO Tâche 2 — Changements observés dans les pratiques culturelles</span>
+<span class="cheat-meta"><span class="cefr-badge cefr-b2">B2</span> <span class="minutes-badge">⏱ 18 min</span> <span class="reg-badge">FR</span></span>
+<span class="cheat-desc">Durée : environ 3 minutes. Pas de préparation.</span>
+</a>
+
+</div>
+
+---
+
+*File d'authoring restante : voir [_queue.md](_queue.md).*

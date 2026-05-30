@@ -1,19 +1,38 @@
 ---
-title: Tâche 1 — Entretien d'opinion (3 min)
+title: "EO Tâche 1 — interview (≈ 1 min 30, B1)"
 audit:
   status: cleared
   confidence_overall: high
+hide:
+  - toc
 ---
 
-# Tâche 1 — Entretien d'opinion (3 min)
+# EO Tâche 1 — interview (≈ 1 min 30, B1)
 
-> Index auto-généré (3 entrées). Navigation par fichier ci-dessous.
+> **Pilotes EO T1**. 3 situations audités × 3 niveaux de transcript. Vous posez 4-5 questions à l'examinateur. Varier 3 registres d'interrogation (est-ce que / inversion / intonation).
 
-> File d'authoring restante : [_queue.md](_queue.md)
+<div class="feature-grid">
 
+<a class="cheat-card" href="01_eo-t1-001/">
+<span class="cheat-title">EO Tâche 1 — Renseignement sur une carte d'assurance maladie</span>
+<span class="cheat-meta"><span class="cefr-badge cefr-b1">B1</span> <span class="minutes-badge">⏱ 12 min</span> <span class="reg-badge">FR</span></span>
+<span class="cheat-desc">Durée : environ 1 min 30. Vous devez poser 4 à 5 questions distinctes.</span>
+</a>
 
-## Sommaire
+<a class="cheat-card" href="02_eo-t1-002/">
+<span class="cheat-title">EO Tâche 1 — Demande à un service après-vente d'opérateur télécom</span>
+<span class="cheat-meta"><span class="cefr-badge cefr-b1">B1</span> <span class="minutes-badge">⏱ 12 min</span> <span class="reg-badge">FR</span></span>
+<span class="cheat-desc">Durée : environ 1 min 30. Vous devez poser 4 à 5 questions distinctes.</span>
+</a>
 
-- [EO Tâche 1 — Renseignement sur une carte d'assurance maladie](01_eo-t1-001.md)
-- [EO Tâche 1 — Demande à un service après-vente d'opérateur télécom](02_eo-t1-002.md)
-- [EO Tâche 1 — Demande de renseignement sur une offre d'emploi à temps partiel](03_eo-t1-003.md)
+<a class="cheat-card" href="03_eo-t1-003/">
+<span class="cheat-title">EO Tâche 1 — Demande de renseignement sur une offre d'emploi à temps partiel</span>
+<span class="cheat-meta"><span class="cefr-badge cefr-b1">B1</span> <span class="minutes-badge">⏱ 12 min</span> <span class="reg-badge">FR</span></span>
+<span class="cheat-desc">Durée : environ 1 min 30. Vous devez poser 4 à 5 questions distinctes. Registre attendu : formel mesuré (vous, mais conversationnel — vous appelez, vous ne rédigez pas un courriel).</span>
+</a>
+
+</div>
+
+---
+
+*File d'authoring restante : voir [_queue.md](_queue.md).*

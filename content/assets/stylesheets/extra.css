@@ -1116,6 +1116,45 @@
   opacity: 0.85;
 }
 
+/* v1.5.1 — hub-page card meta row (CEFR + minutes + register badges) */
+.cheat-card .cheat-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.25rem 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.cefr-badge, .minutes-badge, .reg-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.cefr-badge {
+  color: #fff;
+  font-weight: 700;
+}
+.cefr-badge.cefr-a1 { background: var(--tcf-band-a1); }
+.cefr-badge.cefr-a2 { background: var(--tcf-band-a2); }
+.cefr-badge.cefr-b1 { background: var(--tcf-band-b1); color: #1a1a1a; }
+.cefr-badge.cefr-b2 { background: var(--tcf-band-b2); }
+.cefr-badge.cefr-c1 { background: var(--tcf-band-c1); }
+.cefr-badge.cefr-c2 { background: var(--tcf-band-c2); }
+.minutes-badge {
+  background: var(--tcf-progress-track);
+  color: var(--md-default-fg-color);
+  opacity: 0.85;
+}
+.reg-badge {
+  background: rgba(26,35,126,0.10);
+  color: var(--md-primary-fg-color);
+  font-weight: 600;
+}
+
 /* ====================================================================== */
 /* 12. CEFR / NCLC badges                                                 */
 /* ====================================================================== */

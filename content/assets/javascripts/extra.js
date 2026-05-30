@@ -298,13 +298,15 @@
       const map = {
         "h": "/",
         "d": "00_diagnostic/00_index/",
-        "r": "../../ROADMAP.md",
+        "r": "https://github.com/bettyguo/tcf_materials/blob/main/ROADMAP.md",
         "t": "11_tools/",
       };
       if (map[e.key]) {
         e.preventDefault();
         const dest = map[e.key];
-        if (dest.startsWith("/")) {
+        if (dest.startsWith("http")) {
+          window.open(dest, "_blank", "noopener");
+        } else if (dest.startsWith("/")) {
           // absolute on origin — find site root via <base> if any
           const baseEl = document.querySelector("base");
           if (baseEl) location.href = baseEl.href + dest.slice(1);
@@ -3228,7 +3230,7 @@
         '</div>';
       host.querySelector(".ef-report").innerHTML = verdict +
         '<div class="ef-rows">' + out.join("") + '</div>' +
-        '<p style="font-size:.75rem;opacity:.65;margin-top:.6rem">Heuristique, pas examinateur. Pour un vrai score, voyez la <a href="05_writing/00_rubric.md">rubrique EE opérationnalisée</a>.</p>';
+        '<p style="font-size:.75rem;opacity:.65;margin-top:.6rem">Heuristique, pas examinateur. Pour un vrai score, voyez la <a href="../../05_writing/00_rubric/">rubrique EE opérationnalisée</a>.</p>';
     }
     render();
   }
@@ -4341,7 +4343,7 @@
             (p.refUrl ? ' · <a href="' + p.refUrl + '" target="_blank" rel="noopener">pilote ' + escapeHtml(p.id) + '</a>' : '') + '</div>' +
           '<div class="er-prompt-body">' + escapeHtml(p.consigne) + '</div>' +
           (p.duration ? '<div class="er-prompt-meta">Durée cible : <strong>' + escapeHtml(p.duration) + '</strong>' + (p.prep ? ' · Préparation : ' + escapeHtml(p.prep) : '') + '</div>' : '') +
-        '</div>' : '<div class="er-prompt"><em>Aucun prompt chargé — voyez la <a href="06_speaking/index.md" target="_blank" rel="noopener">bank EO</a>.</em></div>') +
+        '</div>' : '<div class="er-prompt"><em>Aucun prompt chargé — voyez la <a href="../../06_speaking/" target="_blank" rel="noopener">bank EO</a>.</em></div>') +
         '<div class="er-time">' + (msg || "Prêt") + '</div>' +
         '<div class="er-controls">' +
           '<button class="tcf-btn primary er-rec">● Enregistrer</button>' +
@@ -4493,11 +4495,11 @@
       const safe = (p, fb) => p || { id: "stub", title: fb.title, prompt: fb.prompt, refLabel: "(corpus indisponible)", refUrl: "11_tools/ee-simulation/" };
       return [
         { id: "t1", label: "T1", lo: 60,  hi: 120, p: safe(typeof ids.t1 === "string" ? find(banks.t1, ids.t1) : ids.t1,
-            { title: "Message court (60-120 mots, ~ 10 min)", prompt: "Pas de prompt corpus chargé — voyez la bank EE.", refUrl: "05_writing/index.md" }) },
+            { title: "Message court (60-120 mots, ~ 10 min)", prompt: "Pas de prompt corpus chargé — voyez la bank EE.", refUrl: "../../05_writing/" }) },
         { id: "t2", label: "T2", lo: 120, hi: 150, p: safe(typeof ids.t2 === "string" ? find(banks.t2, ids.t2) : ids.t2,
-            { title: "Courrier formel (120-150 mots, ~ 20 min)", prompt: "", refUrl: "05_writing/index.md" }) },
+            { title: "Courrier formel (120-150 mots, ~ 20 min)", prompt: "", refUrl: "../../05_writing/" }) },
         { id: "t3", label: "T3", lo: 180, hi: 300, p: safe(typeof ids.t3 === "string" ? find(banks.t3, ids.t3) : ids.t3,
-            { title: "Essai argumentatif (180+ mots, ~ 30 min)", prompt: "", refUrl: "05_writing/index.md" }) },
+            { title: "Essai argumentatif (180+ mots, ~ 30 min)", prompt: "", refUrl: "../../05_writing/" }) },
       ].map((t) => ({ id: t.id, label: t.label, lo: t.lo, hi: t.hi, title: t.p.title, prompt: t.p.prompt, refLabel: t.p.refLabel || t.p.id, refUrl: t.p.refUrl }));
     }
     let tasks = loadTasks();
@@ -5527,7 +5529,7 @@
     function render() {
       const log = ls.get("errlog", []) || [];
       if (!log.length) {
-        host.innerHTML = '<p class="tcf-empty">Aucune entrée dans le journal d\'erreurs. Ajouter via <a href="../journal.md">Journal d\'erreurs</a>.</p>';
+        host.innerHTML = '<p class="tcf-empty">Aucune entrée dans le journal d\'erreurs. Ajouter via <a href="../journal/">Journal d\'erreurs</a>.</p>';
         return;
       }
       const bySkill = {};
@@ -5556,13 +5558,13 @@
 
       const topSkill = skillSorted[0] && skillSorted[0][0];
       const recoMap = {
-        CO: "→ Drill <a href=\"../co-entraineur.md\">CO entraîneur</a> + <a href=\"../minimal-pairs.md\">paires minimales</a>",
-        CE: "→ <a href=\"../ce-entraineur.md\">CE entraîneur</a> + <a href=\"../wpm.md\">WPM</a> + <a href=\"../synonymes.md\">synonymes</a>",
-        EE: "→ <a href=\"../ee-feedback.md\">Auto-feedback EE</a> + <a href=\"../ee-rubrique.md\">rubrique self-grader</a> + <a href=\"../cloze.md\">cloze B2</a>",
-        EO: "→ <a href=\"../eo-enregistreur.md\">Enregistreur EO</a> + <a href=\"../shadow.md\">shadow speaking</a>",
-        Grammaire: "→ <a href=\"../passe-compose-imparfait.md\">PC vs imp</a> + <a href=\"../pronoms.md\">pronoms</a> + <a href=\"../conjugaison-drill.md\">conjugaison drill</a>",
-        Vocab: "→ <a href=\"../genre.md\">genre</a> + <a href=\"../revue.md\">SRS révisions</a>",
-        Phono: "→ <a href=\"../liaisons.md\">liaisons</a> + <a href=\"../minimal-pairs.md\">paires minimales</a>"
+        CO: "→ Drill <a href=\"../co-entraineur/\">CO entraîneur</a> + <a href=\"../minimal-pairs/\">paires minimales</a>",
+        CE: "→ <a href=\"../ce-entraineur/\">CE entraîneur</a> + <a href=\"../wpm/\">WPM</a> + <a href=\"../synonymes/\">synonymes</a>",
+        EE: "→ <a href=\"../ee-feedback/\">Auto-feedback EE</a> + <a href=\"../ee-rubrique/\">rubrique self-grader</a> + <a href=\"../cloze/\">cloze B2</a>",
+        EO: "→ <a href=\"../eo-enregistreur/\">Enregistreur EO</a> + <a href=\"../shadow/\">shadow speaking</a>",
+        Grammaire: "→ <a href=\"../passe-compose-imparfait/\">PC vs imp</a> + <a href=\"../pronoms/\">pronoms</a> + <a href=\"../conjugaison-drill/\">conjugaison drill</a>",
+        Vocab: "→ <a href=\"../genre/\">genre</a> + <a href=\"../revue/\">SRS révisions</a>",
+        Phono: "→ <a href=\"../liaisons/\">liaisons</a> + <a href=\"../minimal-pairs/\">paires minimales</a>"
       };
       const reco = recoMap[topSkill] || "→ Continuer le plan généraliste.";
 
@@ -5599,7 +5601,7 @@
       const attempts = ls.get("attempts", []) || [];
       const errlog = ls.get("errlog", []) || [];
       if (!goal || !goal.date || !goal.targetNclc) {
-        host.innerHTML = '<p class="tcf-empty">Définir d\'abord une date d\'examen + cible NCLC dans <a href="../objectif.md">Objectif</a>.</p>';
+        host.innerHTML = '<p class="tcf-empty">Définir d\'abord une date d\'examen + cible NCLC dans <a href="../objectif/">Objectif</a>.</p>';
         return;
       }
       const exam = new Date(goal.date + "T00:00:00");
