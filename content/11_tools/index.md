@@ -22,6 +22,13 @@ Une page = un outil. Tout fonctionne **côté navigateur uniquement** — aucune
 !!! tip "Astuce — palette de commandes"
     Appuyez sur <kbd>Ctrl</kbd>+<kbd>K</kbd> (ou <kbd>⌘</kbd>+<kbd>K</kbd>) pour ouvrir la **palette de commandes** depuis n'importe quelle page. Vous y trouvez tous les outils en un clic.
 
+## Synthèse en un coup d'œil — `v1.2`
+
+<a class="cheat-card" href="tableau/" style="display:block;margin-bottom:1.2rem">
+<span class="cheat-title">🧭 Tableau de bord <span class="cheat-tag" style="margin-left:.4rem">nouveau</span></span>
+<span class="cheat-desc">Vue agrégée : streak du jour, cartes SRS dues, erreurs dues, dernier mock, radar NCLC. La porte d'entrée recommandée après le premier mois.</span>
+</a>
+
 ## Pratique active
 
 <div class="feature-grid">
@@ -62,6 +69,54 @@ Une page = un outil. Tout fonctionne **côté navigateur uniquement** — aucune
 <span class="cheat-tag">EE brouillon</span>
 </a>
 
+<a class="cheat-card" href="cloze/">
+<span class="cheat-title">🧩 Cloze B2 — phrases à trous <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">40 items B2 : subjonctif, relatifs (dont/qui/que), prépositions. Accents tolérés, mode « ratés seulement » sur récidive.</span>
+<span class="cheat-tag">Grammaire</span>
+</a>
+
+<a class="cheat-card" href="genre/">
+<span class="cheat-title">🚻 Genre des noms <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">80 noms B1-B2 sur deux lots : pièges (problème, image, page, mer) + terminaisons régulières.</span>
+<span class="cheat-tag">Grammaire</span>
+</a>
+
+<a class="cheat-card" href="minimal-pairs/">
+<span class="cheat-title">🎙️ Paires minimales <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">4 contrastes : nasales /ɛ̃/–/ɑ̃/, /ɔ̃/–/ɑ̃/, voyelles /y/–/u/, /e/–/ɛ/. TTS du navigateur.</span>
+<span class="cheat-tag">Phonologie</span>
+</a>
+
+<a class="cheat-card" href="nombres/">
+<span class="cheat-title">🔢 Nombres — écoute & saisie <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">4 plages : 1–100, 60–99 pièges, années, 1000–9999. Crucial pour CO B1+ (annonces, tarifs, dates).</span>
+<span class="cheat-tag">CO</span>
+</a>
+
+<a class="cheat-card" href="connecteurs/">
+<span class="cheat-title">🔗 Connecteurs B2 — choix <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">24 items : opposition, cause, conséquence, concession, reformulation, illustration. Why-strings.</span>
+<span class="cheat-tag">EE / lexique</span>
+</a>
+
+<a class="cheat-card" href="speed-race/">
+<span class="cheat-title">⚡ Speed race 60 s <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">3 pistes timed : faux-amis, genre express, subjonctif. Record stocké. Sous-pression = vrai test.</span>
+<span class="cheat-tag">Vitesse</span>
+</a>
+
+<a class="cheat-card" href="ee-feedback/">
+<span class="cheat-title">📝 Auto-feedback EE <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">Heuristique sur essai collé : longueur, connecteurs B2, marques d'oralité, atténuation. Brouillon → propre en 30 s.</span>
+<span class="cheat-tag">EE</span>
+</a>
+
+<a class="cheat-card" href="verbes/">
+<span class="cheat-title">📋 Tables de conjugaison <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">12 verbes haute-fréquence × 6 temps en lecture. Pour vérifier rapidement avant un test.</span>
+<span class="cheat-tag">Référence</span>
+</a>
+
 </div>
 
 ## Mesure et suivi
@@ -90,6 +145,24 @@ Une page = un outil. Tout fonctionne **côté navigateur uniquement** — aucune
 <span class="cheat-title">⏱ Minuteur Pomodoro / TCF</span>
 <span class="cheat-desc">Pomodoro 25/5 + tous les budgets TCF (CO 35, CE 60, EE T1/T2/T3, EO 12). Bip sonore.</span>
 <span class="cheat-tag">Session</span>
+</a>
+
+<a class="cheat-card" href="tableau/">
+<span class="cheat-title">🧭 Tableau de bord <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">Streak, cartes SRS dues, erreurs dues, dernier mock, radar NCLC. Tout sur une page.</span>
+<span class="cheat-tag">Synthèse</span>
+</a>
+
+<a class="cheat-card" href="plan-du-jour/">
+<span class="cheat-title">🗓️ Plan d'étude du jour <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">Temps disponible + compétence faible → 4 blocs (SRS, focus, phonologie, cool-down) avec liens directs.</span>
+<span class="cheat-tag">Planification</span>
+</a>
+
+<a class="cheat-card" href="journal/">
+<span class="cheat-title">📓 Journal d'erreurs <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">Erreur → forme correcte → revue espacée (1 j → 64 j). Export / import JSON. L'outil le plus rentable par minute.</span>
+<span class="cheat-tag">Métacognition</span>
 </a>
 
 </div>
@@ -125,6 +198,12 @@ Une page = un outil. Tout fonctionne **côté navigateur uniquement** — aucune
 <a class="cheat-card" href="glossaire/">
 <span class="cheat-title">📚 Glossaire</span>
 <span class="cheat-desc">Tous les termes techniques (CEFR, NCLC, TCF, FEI, CRS, …) avec définitions et renvois aux sources.</span>
+<span class="cheat-tag">Référence</span>
+</a>
+
+<a class="cheat-card" href="lexique/">
+<span class="cheat-title">🔤 Lexique : fréquence / CEFR <span class="cheat-tag" style="margin-left:.4rem">v1.2</span></span>
+<span class="cheat-desc">Tapez un mot français : band CEFR + rang de fréquence. Base interne ~ 80 mots-clés du corpus.</span>
 <span class="cheat-tag">Référence</span>
 </a>
 
@@ -168,5 +247,15 @@ Toutes les clés sont préfixées `tcf:` pour éviter les collisions.
 | `tcf:wc:<key>` | Compteur de mots | Brouillon EE T1/T2/T3 |
 | `tcf:favs` | Favoris | Pages favorites |
 | `tcf:check:<list>` | Check-list | Cases cochées par liste |
+| `tcf:cloze:<set>` | Cloze B2 (v1.2) | Correct / wrong / missed indices |
+| `tcf:gen:<set>` | Genre (v1.2) | Score, série, meilleure série, items ratés |
+| `tcf:pairs:<set>` | Paires minimales (v1.2) | Score, phonèmes les plus ratés |
+| `tcf:num:trainer` | Nombres (v1.2) | Score, série, record |
+| `tcf:num:range` | Nombres (v1.2) | Index de plage sélectionnée |
+| `tcf:conn:<set>` | Connecteurs (v1.2) | Score |
+| `tcf:race:<set>` | Speed race (v1.2) | Record, parties jouées |
+| `tcf:plan:prefs` | Plan du jour (v1.2) | Minutes + compétence faible |
+| `tcf:errlog:items` | Journal d'erreurs (v1.2) | Tableau d'entrées + planning de revue |
+| `tcf:ee:fb:draft` | Auto-feedback EE (v1.2) | Brouillon courant + tâche choisie |
 
 Effacer les données du site dans votre navigateur efface l'ensemble.

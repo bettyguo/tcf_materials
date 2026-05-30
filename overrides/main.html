@@ -1,18 +1,18 @@
 {% extends "base.html" %}
 
 {% block announce %}
-  v1.1 — <strong>10 nouveaux outils</strong> : flashcards SRS, drill conjugaison, dictée audio, suivi des mocks, streak, vitesse de lecture, compteur EE, favoris, FAQ, glossaire · <kbd>Ctrl/⌘</kbd>+<kbd>K</kbd> palette de commandes · <a href="{{ 'CHANGELOG.md' | url }}">notes</a>
+  v1.2 — <strong>12 nouveaux outils</strong> : tableau de bord, plan du jour, journal d'erreurs spaced, cloze B2, genre, paires minimales, nombres, connecteurs, speed-race 60 s, auto-feedback EE, lexique CEFR, tables de conjugaison · <kbd>Ctrl/⌘</kbd>+<kbd>K</kbd> palette · <a href="{{ 'CHANGELOG.md' | url }}">notes</a>
 {% endblock %}
 
 {% block extrahead %}
   {{ super() }}
-  <meta property="og:title" content="TCF Canada — Préparation B1 → C1" />
-  <meta property="og:description" content="Corpus audité, source unique, multi-format. 20 outils interactifs. NCLC 8-9 en 12 semaines (~ 168 h)." />
+  <meta property="og:title" content="TCF Canada — Préparation B1 → C1 (v1.2)" />
+  <meta property="og:description" content="Corpus audité, source unique, multi-format. 28 outils interactifs (tableau de bord, plan du jour, journal d'erreurs spaced, cloze B2, paires minimales, auto-feedback EE, ...). NCLC 8-9 en 12 semaines." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://bettyguo.github.io/tcf_materials/" />
   <meta property="og:locale" content="fr_CA" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TCF Canada — Préparation B1 → C1 (v1.1)" />
-  <meta name="twitter:description" content="20 outils interactifs (flashcards SRS, dictée, suivi des mocks, ...), 4 examens blancs, audit pipeline alive." />
+  <meta name="twitter:title" content="TCF Canada — Préparation B1 → C1 (v1.2)" />
+  <meta name="twitter:description" content="28 outils interactifs (tableau de bord, plan du jour, journal d'erreurs, paires minimales, auto-feedback EE, ...), 4 examens blancs, audit pipeline alive." />
   <meta name="theme-color" content="#1a237e" />
 {% endblock %}

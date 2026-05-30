@@ -1,8 +1,8 @@
 # TCF Canada — Préparation B1 → C1/C2
 
-> **Source-audited TCF Canada prep corpus.** ~420 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki) **+ a world-class interactive web site** (v1.1+): **20 browser-side tools** including flashcards SRS, conjugation drill, audio dictation, mock-exam tracker with SVG chart, study streak heatmap, reading-speed test, EE word counter, favorites, command palette (<kbd>Ctrl/⌘ K</kbd>) and more. Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
+> **Source-audited TCF Canada prep corpus.** ~420 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki) **+ a world-class interactive web site** (v1.2): **28 browser-side tools** including a unified **dashboard** (streak / SRS-due / errors-due / radar NCLC), a **daily study planner**, a **spaced-review error log**, **cloze drill** for B2 grammar, **gender drill** for noun gender, **minimal-pairs phonology trainer**, **numbers listening trainer**, **B2 connector picker**, **60-second speed-race**, **EE auto-feedback** heuristic, **lexicon lookup**, **verb conjugation tables**, plus the v1.1 fundamentals (flashcards SRS, conjugation drill, audio dictation, mock-exam tracker with SVG chart, study streak heatmap, reading-speed test, EE word counter, favorites, command palette <kbd>Ctrl/⌘ K</kbd>). Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
 
-🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/> · [20 Outils interactifs](https://bettyguo.github.io/tcf_materials/11_tools/) · [Flashcards SRS](https://bettyguo.github.io/tcf_materials/11_tools/flashcards/) · [Calculateur NCLC](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) · [Suivi des examens blancs](https://bettyguo.github.io/tcf_materials/11_tools/suivi/) · [FAQ](https://bettyguo.github.io/tcf_materials/11_tools/faq/) · [Glossaire](https://bettyguo.github.io/tcf_materials/11_tools/glossaire/) · [Diagnostic](https://bettyguo.github.io/tcf_materials/00_diagnostic/00_index/)
+🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/> · [28 Outils interactifs](https://bettyguo.github.io/tcf_materials/11_tools/) · [🆕 Tableau de bord](https://bettyguo.github.io/tcf_materials/11_tools/tableau/) · [🆕 Plan du jour](https://bettyguo.github.io/tcf_materials/11_tools/plan-du-jour/) · [🆕 Journal d'erreurs](https://bettyguo.github.io/tcf_materials/11_tools/journal/) · [🆕 Cloze B2](https://bettyguo.github.io/tcf_materials/11_tools/cloze/) · [🆕 Paires minimales](https://bettyguo.github.io/tcf_materials/11_tools/minimal-pairs/) · [🆕 Auto-feedback EE](https://bettyguo.github.io/tcf_materials/11_tools/ee-feedback/) · [Calculateur NCLC](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) · [Suivi des examens blancs](https://bettyguo.github.io/tcf_materials/11_tools/suivi/) · [Diagnostic](https://bettyguo.github.io/tcf_materials/00_diagnostic/00_index/)
 
 ---
 
@@ -16,9 +16,30 @@ A **single-source-of-truth Markdown corpus** that builds to:
 - an **EPUB** (Pandoc EPUB3)
 - an **Anki deck** (`.apkg`, ~1 500 cards, FSRS-friendly)
 
-**Interactive features on the live site (v1.1):**
+**Interactive features on the live site (v1.2):**
 
-Active practice:
+New in v1.2 — learning surface:
+
+- 🧭 [**Dashboard**](https://bettyguo.github.io/tcf_materials/11_tools/tableau/) — aggregated local view: streak, SRS-due cards (all decks), errors-due, last mock, **NCLC radar** SVG. Tells you what to do next in one glance.
+- 🗓️ [**Daily plan**](https://bettyguo.github.io/tcf_materials/11_tools/plan-du-jour/) — `(minutes, weak skill) → 4 blocks (SRS warm-up 12 %, focus skill 50 %, phonology 15 %, cool-down)` with direct links.
+- 📓 [**Error log**](https://bettyguo.github.io/tcf_materials/11_tools/journal/) — `(wrong, correct, skill)` entries with doubling spaced review (1 d → 2 → 4 → 8 → 16 → 32 → 64 d). JSON export/import.
+
+New in v1.2 — drills:
+
+- 🧩 [**Cloze B2**](https://bettyguo.github.io/tcf_materials/11_tools/cloze/) — 40 fill-in-the-blank items: subjunctive triggers, relative pronouns (dont/qui/que), prepositions. Why-strings explain every answer.
+- 🚻 [**Gender drill**](https://bettyguo.github.io/tcf_materials/11_tools/genre/) — 80 nouns across 2 sets: tricky exceptions + regular endings (-tion, -ité, -ment, -isme).
+- 🎙️ [**Minimal-pairs trainer**](https://bettyguo.github.io/tcf_materials/11_tools/minimal-pairs/) — 4 contrasts via Web Speech API: nasal /ɛ̃/–/ɑ̃/ and /ɔ̃/–/ɑ̃/, oral /y/–/u/ and /e/–/ɛ/.
+- 🔢 [**Numbers trainer**](https://bettyguo.github.io/tcf_materials/11_tools/nombres/) — TTS reads, you type. 4 ranges including the dreaded 60–99 zone (soixante-dix, quatre-vingt-dix).
+- 🔗 [**B2 connector picker**](https://bettyguo.github.io/tcf_materials/11_tools/connecteurs/) — 24 context-based picks across opposition/cause/consequence/concession/reformulation/illustration.
+- ⚡ [**Speed race 60 s**](https://bettyguo.github.io/tcf_materials/11_tools/speed-race/) — 3 timed tracks (faux-amis, gender express, subjunctive). Net score = correct − (wrong/2). Local record.
+
+New in v1.2 — feedback & reference:
+
+- 📝 [**Auto-feedback EE**](https://bettyguo.github.io/tcf_materials/11_tools/ee-feedback/) — heuristic on pasted essay: length vs task brackets, sentence count, avg sentence length, lexical variation, B2 connectors detected, oral markers banned, hedging.
+- 🔤 [**Lexicon lookup**](https://bettyguo.github.io/tcf_materials/11_tools/lexique/) — type a French word: CEFR band + frequency rank. ~ 80 corpus key entries.
+- 📋 [**Verb conjugation tables**](https://bettyguo.github.io/tcf_materials/11_tools/verbes/) — 12 high-frequency verbs × 6 tenses in read mode (quick reference before a test).
+
+v1.1 fundamentals (still active):
 
 - 🃏 [**Flashcards SRS**](https://bettyguo.github.io/tcf_materials/11_tools/flashcards/) — 3 audited decks (modes triggers, faux-amis, B2 connectors), 60 cards, 4-grade SM-2-lite scheduler (1 j / 3 j / 7 j / 14 j)
 - ⚙️ [**Conjugation drill**](https://bettyguo.github.io/tcf_materials/11_tools/conjugaison/) — 12 high-frequency verbs × 6 tenses × 6 persons = 432 forms, accent-tolerant, weak-form-weighted mini-SRS
@@ -31,7 +52,7 @@ Measurement & tracking:
 
 - 🧮 [**NCLC calculator**](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) — 4 raw scores → NCLC binding + CRS bonus, shareable URL
 - 📈 [**Mock-exam tracker**](https://bettyguo.github.io/tcf_materials/11_tools/suivi/) — log every mock, SVG trajectory chart with NCLC-7 target line, JSON export
-- 🔥 [**Study streak heatmap**](https://bettyguo.github.io/tcf_materials/11_tools/streak/) — 91-day grid, current/best streaks, click any cell to toggle
+- 🔥 [**Study streak heatmap**](https://bettyguo.github.io/tcf_materials/11_tools/streak/) — 91-day grid, current/best streaks, click any cell to toggle (auto-marked when you use any v1.2 drill)
 - ⏱ [**Pomodoro / exam timer**](https://bettyguo.github.io/tcf_materials/11_tools/minuteur/) — 7 presets including all official TCF time budgets
 
 Reference & productivity:

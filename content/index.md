@@ -201,15 +201,16 @@ hide:
 # TCF Canada — Préparation B1 → C1
 
 <div class="tagline">
-Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en 12 semaines (~ 168 h). **20 outils interactifs**, **3 mini-decks SRS**, **suivi des examens blancs**, palette <kbd>Ctrl/⌘ K</kbd>.
+Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en 12 semaines (~ 168 h). **28 outils interactifs (v1.2)**, **3 mini-decks SRS**, **journal d'erreurs spaced**, **tableau de bord agrégé**, palette <kbd>Ctrl/⌘ K</kbd>.
 </div>
 
-<div class="meta">v1.1 · CC BY-SA 4.0 · audit pipeline alive · <kbd>Ctrl</kbd>+<kbd>K</kbd> palette</div>
+<div class="meta">v1.2 · CC BY-SA 4.0 · audit pipeline alive · <kbd>Ctrl</kbd>+<kbd>K</kbd> palette · <span style="opacity:.85">+12 nouveaux outils</span></div>
 
 <div class="actions">
 <a class="primary" href="00_start_here/">Commencer maintenant →</a>
+<a class="secondary" href="11_tools/tableau/">Tableau de bord</a>
+<a class="secondary" href="11_tools/plan-du-jour/">Plan du jour</a>
 <a class="secondary" href="00_diagnostic/00_index/">Diagnostic (90 min)</a>
-<a class="secondary" href="11_tools/">20 outils interactifs</a>
 </div>
 
 </div>
@@ -325,7 +326,96 @@ Un seul Markdown génère le **site**, le **PDF** (Pandoc + XeLaTeX), l'**EPUB**
 
 </div>
 
-## Les 20 outils intégrés
+## Tableau de bord — état du jour
+
+> **v1.2** ajoute une vue agrégée locale : votre streak, vos cartes SRS dues, les erreurs à revoir, le dernier mock, et le radar NCLC.
+> Tout est calculé dans votre navigateur, à partir des données que vous avez déjà saisies.
+
+<div class="tcf-dashboard"></div>
+
+[**Ouvrir le tableau de bord complet →**](11_tools/tableau/){ .md-button }
+[**Générer mon plan d'étude →**](11_tools/plan-du-jour/){ .md-button }
+[**Tous les outils (28) →**](11_tools/){ .md-button }
+
+## Nouveau dans la v1.2 — 12 outils en plus
+
+<div class="feature-grid">
+
+<a class="feature-card" href="11_tools/tableau/">
+<span class="icon">🧭</span>
+<h3>Tableau de bord</h3>
+<p>Streak, cartes SRS dues, erreurs dues, dernier mock, radar NCLC — un coup d'œil pour savoir quoi faire.</p>
+</a>
+
+<a class="feature-card" href="11_tools/plan-du-jour/">
+<span class="icon">🗓️</span>
+<h3>Plan d'étude du jour</h3>
+<p>Temps + compétence faible → 4 blocs ciblés (SRS, focus, phonologie, cool-down) avec liens directs.</p>
+</a>
+
+<a class="feature-card" href="11_tools/journal/">
+<span class="icon">📓</span>
+<h3>Journal d'erreurs</h3>
+<p>Revue espacée (1 j → 64 j) sur vos erreurs personnelles. Export / import JSON.</p>
+</a>
+
+<a class="feature-card" href="11_tools/cloze/">
+<span class="icon">🧩</span>
+<h3>Cloze B2 — phrases à trous</h3>
+<p>40 items sur les pièges B2 : subjonctif, dont/qui/que, prépositions, partitifs.</p>
+</a>
+
+<a class="feature-card" href="11_tools/genre/">
+<span class="icon">🚻</span>
+<h3>Genre des noms</h3>
+<p>80 noms — lot pièges (problème, mer, image) + lot terminaisons régulières.</p>
+</a>
+
+<a class="feature-card" href="11_tools/minimal-pairs/">
+<span class="icon">🎙️</span>
+<h3>Paires minimales — phonologie</h3>
+<p>4 contrastes critiques : nasales in/an, on/an + voyelles u/ou, e/è.</p>
+</a>
+
+<a class="feature-card" href="11_tools/nombres/">
+<span class="icon">🔢</span>
+<h3>Nombres — écoute & saisie</h3>
+<p>4 plages dont la zone toxique 60–99 (soixante-dix, quatre-vingt-dix…).</p>
+</a>
+
+<a class="feature-card" href="11_tools/connecteurs/">
+<span class="icon">🔗</span>
+<h3>Connecteurs B2 — choix contextuel</h3>
+<p>24 items : opposition, cause, conséquence, concession, reformulation, illustration.</p>
+</a>
+
+<a class="feature-card" href="11_tools/speed-race/">
+<span class="icon">⚡</span>
+<h3>Speed race 60 s</h3>
+<p>3 pistes timed : faux-amis, genre express, subjonctif. Sous-pression = vrai test.</p>
+</a>
+
+<a class="feature-card" href="11_tools/ee-feedback/">
+<span class="icon">📝</span>
+<h3>Auto-feedback EE</h3>
+<p>Heuristique sur essai collé : longueur, connecteurs, marques d'oralité, atténuation.</p>
+</a>
+
+<a class="feature-card" href="11_tools/lexique/">
+<span class="icon">🔤</span>
+<h3>Lexique : fréquence / CEFR</h3>
+<p>Tapez un mot : band CEFR + rang de fréquence. ~ 80 entrées-clés du corpus.</p>
+</a>
+
+<a class="feature-card" href="11_tools/verbes/">
+<span class="icon">📋</span>
+<h3>Tables de conjugaison</h3>
+<p>12 verbes haute-fréquence × 6 temps en lecture. Vérification rapide avant un test.</p>
+</a>
+
+</div>
+
+## Tous les 28 outils intégrés (v1.2)
 
 Toute la pratique active du corpus, **100 % côté navigateur** — aucune télémétrie, aucun compte, aucune dépendance serveur.
 

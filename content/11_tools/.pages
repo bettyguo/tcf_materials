@@ -1,8 +1,30 @@
 title: Outils interactifs
 nav:
   - index.md
+  - tableau.md
+  - plan-du-jour.md
   - calculateur-nclc.md
   - minuteur.md
   - quiz-rapide.md
+  - cloze.md
+  - genre.md
+  - connecteurs.md
+  - speed-race.md
+  - minimal-pairs.md
+  - nombres.md
+  - flashcards.md
+  - conjugaison.md
+  - verbes.md
+  - dictee.md
+  - wpm.md
+  - compteur-mots.md
+  - ee-feedback.md
+  - journal.md
+  - suivi.md
+  - streak.md
+  - favoris.md
+  - faq.md
+  - glossaire.md
+  - lexique.md
   - checklist-j1.md
   - raccourcis.md

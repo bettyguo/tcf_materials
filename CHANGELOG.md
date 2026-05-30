@@ -2,6 +2,47 @@
 
 All notable changes are documented here in [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) style. Versioning is per-phase, not per-feature: each phase bumps the minor version on completion.
 
+## [1.2.0] — 2026-05-29 — World-class learning surface (v1.2 — 12 new tools, dashboard, error log)
+
+### Added — 12 new browser-side widgets (audited, no servers, no tracking)
+- **Tableau de bord** ([`content/11_tools/tableau.md`](content/11_tools/tableau.md)) — vue agrégée locale : streak, cartes SRS dues (toutes décks confondus), erreurs dues, dernier mock, **radar NCLC** SVG. Tout calculé depuis `localStorage`.
+- **Plan d'étude du jour** ([`content/11_tools/plan-du-jour.md`](content/11_tools/plan-du-jour.md)) — générateur de plan local : `(minutes, skill faible) → 4 blocs (SRS warm-up 12 %, focus skill 50 %, phonologie 15 %, cool-down)` avec liens directs vers chaque outil.
+- **Journal d'erreurs** ([`content/11_tools/journal.md`](content/11_tools/journal.md)) — entrée `(faux, correct, skill)` + planning de revue avec intervalles doublants (1 j → 2 → 4 → 8 → 16 → 32 → 64 j). Export / import JSON, table triable, mise en évidence des items dus.
+- **Cloze B2** ([`content/11_tools/cloze.md`](content/11_tools/cloze.md)) — 40 items répartis en 3 lots : subjonctif & modes, pronoms relatifs (dont/qui/que), prépositions & déterminants. Mode « ratés seulement » sur récidive. Accents tolérés (normalisation NFD), why-strings pédagogiques.
+- **Genre des noms** ([`content/11_tools/genre.md`](content/11_tools/genre.md)) — 80 noms B1-B2 sur deux lots : pièges (problème, mer, image, page, programme…) + terminaisons régulières (-tion, -ité, -ment, -isme, -age). Indices = règle morphologique.
+- **Paires minimales** ([`content/11_tools/minimal-pairs.md`](content/11_tools/minimal-pairs.md)) — 4 contrastes phonologiques sur Web Speech API : nasales /ɛ̃/–/ɑ̃/ et /ɔ̃/–/ɑ̃/, voyelles orales /y/–/u/ et /e/–/ɛ/. Vitesse 1× et 0.6×. Stats par phonème raté.
+- **Nombres** ([`content/11_tools/nombres.md`](content/11_tools/nombres.md)) — TTS lit un nombre au hasard, saisie clavier. 4 plages : 1–100, 60–99 (la zone toxique soixante-dix/quatre-vingt-dix), années 1900–2025, gros chiffres 1000–9999. Streak + record.
+- **Connecteurs B2** ([`content/11_tools/connecteurs.md`](content/11_tools/connecteurs.md)) — 24 paires de phrases B2-C1, choix d'un connecteur parmi 4 candidats. Couvre opposition, cause, conséquence, addition, concession, reformulation, illustration. Why-string pour chaque mauvais choix.
+- **Speed race 60 s** ([`content/11_tools/speed-race.md`](content/11_tools/speed-race.md)) — 3 pistes timed : faux-amis (20 items), genre express (20 items), subjonctif (15 items). Score net `bonnes − (mauvaises/2)`. Record par lot.
+- **Auto-feedback EE** ([`content/11_tools/ee-feedback.md`](content/11_tools/ee-feedback.md)) — analyseur heuristique sur essai collé : longueur (cible par tâche T1/T2/T3), nombre de phrases, longueur moyenne, variation lexicale, connecteurs B2 détectés (35 entrées), marques d'oralité bannies (10 entrées), atténuation. Verdict ok/warn/bad.
+- **Lexique : fréquence / CEFR** ([`content/11_tools/lexique.md`](content/11_tools/lexique.md)) — lookup sur ~ 80 mots-clés du corpus avec band CEFR (A2-C1) et rang approximatif de fréquence. Hits exacts d'abord, puis sous-chaînes. Bandeau « pas un dictionnaire complet ».
+- **Tables de conjugaison** ([`content/11_tools/verbes.md`](content/11_tools/verbes.md)) — lecture des 12 verbes haute-fréquence × 6 temps (présent, PC, imparfait, futur, conditionnel, subjonctif). Réutilise `window.TCF.verbs.core` du drill.
+
+### Added — visuals & polish
+- **Hero animé** — gradient mesh `tcfHeroSheen` (220 % background-size, 18 s alternate, respecte `prefers-reduced-motion`) + halo orange/blanc en pseudo-élément.
+- **NCLC gauges animées** — anneau circulaire SVG avec transition `stroke-dashoffset` cubic-bezier, marqueur de cible orange, couleur dérivée du status (ok / warn / bad). Disponible via `.tcf-gauge[data-value][data-max][data-label][data-target][data-unit]`.
+- **Radar NCLC** — graphe radar 4-axes (CO, CE, EE, EO), anneaux de niveau 2/4/6/8/10, polygone rempli en couleur primaire à 22 % d'opacité. Intégré au tableau de bord.
+- **Sparkline helper** — `TCF.sparkline(el, values, {w, h})` pour les courbes de tendance compactes (réutilisable sur suivi/streak).
+- **Auto-mark today's study** — un clic sur n'importe quel bouton de pratique (gn-choice, mp-choice, cn-option, rc-option, etc.) marque la journée comme active dans la heatmap streak. Plus besoin de cocher manuellement.
+
+### Updated
+- [`content/assets/javascripts/extra.js`](content/assets/javascripts/extra.js) — bundle étendu de ~ 2 130 → ~ 3 200 lignes. **+14 modules** (cloze, gender, pairs, numbers, connectors, race, plan, errlog, dashboard, EE-feedback, freq lookup, verb table, animated gauge, sparkline, auto-streak-mark, palette items v1.2). **Fix pré-existant** : `shuffle()` était référencé mais jamais défini — Fisher-Yates ajouté en helper.
+- [`content/assets/stylesheets/extra.css`](content/assets/stylesheets/extra.css) — ~ 600 lignes ajoutées (sections 17–31) : shell partagé des widgets v1.2, cloze, gender, pairs, numbers, connectors, race, plan, errlog, dashboard, EE-feedback, freq, verb-table, gauge, hero animé, breakpoints mobiles spécifiques.
+- [`content/index.md`](content/index.md) — hero v1.2 (mention « 28 outils », badge palette, lien direct tableau + plan), section « tableau de bord — état du jour » intégrée à l'accueil, grille « Nouveau v1.2 » de 12 cartes.
+- [`content/11_tools/index.md`](content/11_tools/index.md) — landing v1.2 : carte hero « Tableau de bord », 8 nouvelles cartes dans « Pratique active », 3 nouvelles dans « Mesure et suivi » (tableau, plan, journal), 1 nouvelle dans « Référence » (lexique). Table `localStorage` étendue aux 11 nouvelles clés.
+- [`content/11_tools/.pages`](content/11_tools/.pages) — nav réordonnée : tableau et plan en premier, séquence pédagogique du diagnostic au taper.
+- [`overrides/main.html`](overrides/main.html) — annonce v1.2 « 12 nouveaux outils + tableau de bord ».
+
+### Fixed
+- **`shuffle()` ReferenceError** (pré-existant v1.1.x) — le flashcards module appelait `shuffle(dueIdx)` sans que la fonction soit définie nulle part. Ajout d'un Fisher-Yates en helper.
+
+### Stability
+- `mkdocs build --strict` clean (0 erreurs, 0 warnings).
+- Aucun changement de schéma de contenu ; aucun hook d'audit affecté ; zéro tracker externe.
+- `localStorage` namespace `tcf:` — passage à 20 clés documentées, toutes effaçables via les paramètres du navigateur.
+- `prefers-reduced-motion` respecté (hero gradient, gauge dash transition, animations).
+- Total : ~ 28 outils interactifs, ~ 425 pages, build < 15 s.
+
 ## [1.1.1] — 2026-05-29 — World-class interactive site (v1.1+ widget expansion)
 
 ### Added — 10 new browser-side widgets (no servers, no tracking, audit-clean)
