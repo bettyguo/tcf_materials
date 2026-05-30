@@ -10,7 +10,7 @@ tags: [tools, interactive, calculator, timer, quiz, flashcards, srs]
 audit:
   status: cleared
   confidence_overall: high
-  notes: "Page d'atterrissage des outils interactifs côté navigateur. Aucun contenu pédagogique en français à risque ; navigation + métadonnées uniquement. v1.3 ajoute 9 outils + PWA, portant le total à 37."
+  notes: "Page d'atterrissage des outils interactifs côté navigateur. Aucun contenu pédagogique en français à risque ; navigation + métadonnées uniquement. v1.5 ajoute 8 outils (SRS adaptatif SM-2, shadow speaking, rubrique EE self-grader, dictée CO précision, drill conjugaison, analyse schémas erreur, projection NCLC, calendrier .ics), portant le total à 53."
 hide:
   - toc
 ---
@@ -19,10 +19,64 @@ hide:
 
 Une page = un outil. Tout fonctionne **côté navigateur uniquement** — aucune donnée n'est envoyée à un serveur. Vos scores, brouillons et listes sont sauvegardés dans le `localStorage` de votre navigateur.
 
-!!! tip "Astuce — palette de commandes (37 outils)"
-    Appuyez sur <kbd>Ctrl</kbd>+<kbd>K</kbd> (ou <kbd>⌘</kbd>+<kbd>K</kbd>) pour ouvrir la **palette de commandes** depuis n'importe quelle page. Vous y trouvez **les 37 outils en un clic**, classés et filtrables.
+!!! tip "Astuce — palette de commandes (53 outils)"
+    Appuyez sur <kbd>Ctrl</kbd>+<kbd>K</kbd> (ou <kbd>⌘</kbd>+<kbd>K</kbd>) pour ouvrir la **palette de commandes** depuis n'importe quelle page. Vous y trouvez **les 53 outils en un clic**, classés et filtrables. Mode focus / zen : <kbd>Z</kbd>.
 
-## Synthèse en un coup d'œil — `v1.4`
+## Nouveau dans la v1.5 — 8 outils en plus
+
+<div class="feature-grid">
+
+<a class="cheat-card" href="revue.md">
+<span class="cheat-title">🧠 SRS adaptatif SM-2 <span class="cheat-tag" style="margin-left:.4rem">v1.5</span></span>
+<span class="cheat-desc">50 cartes B2 noyau, algorithme SM-2 standard (ease + intervalle + due). Raccourcis 0–5.</span>
+<span class="cheat-tag">Vocab / grammaire</span>
+</a>
+
+<a class="cheat-card" href="shadow.md">
+<span class="cheat-title">🗣️ Shadow speaking <span class="cheat-tag" style="margin-left:.4rem">v1.5</span></span>
+<span class="cheat-desc">18 phrases B2-C1. TTS + enregistrement A/B. Pour la prosodie et les liaisons en cascade.</span>
+<span class="cheat-tag">EO prosodie</span>
+</a>
+
+<a class="cheat-card" href="ee-rubrique.md">
+<span class="cheat-title">📋 Rubrique EE self-grader <span class="cheat-tag" style="margin-left:.4rem">v1.5</span></span>
+<span class="cheat-desc">Score /20 sur 4 critères FEI avec détails. Brouillon autosave. Plus granulaire que ee-feedback.</span>
+<span class="cheat-tag">EE évaluation</span>
+</a>
+
+<a class="cheat-card" href="co-dictee.md">
+<span class="cheat-title">🎧 Dictée CO précision <span class="cheat-tag" style="margin-left:.4rem">v1.5</span></span>
+<span class="cheat-desc">15 phrases B1-B2. Diff mot-à-mot. 3 écoutes max. Score % persistant par phrase.</span>
+<span class="cheat-tag">CO bottom-up</span>
+</a>
+
+<a class="cheat-card" href="conjugaison-drill.md">
+<span class="cheat-title">✏️ Drill conjugaison <span class="cheat-tag" style="margin-left:.4rem">v1.5</span></span>
+<span class="cheat-desc">12 verbes × 6 temps × 6 personnes = 432 formes. Production active, série + record.</span>
+<span class="cheat-tag">Grammaire</span>
+</a>
+
+<a class="cheat-card" href="analyse.md">
+<span class="cheat-title">🔍 Analyse schémas d'erreur <span class="cheat-tag" style="margin-left:.4rem">v1.5</span></span>
+<span class="cheat-desc">Lit le journal, cluster par compétence + 7 patterns détectés, suggère l'outil cible.</span>
+<span class="cheat-tag">Méta-cognition</span>
+</a>
+
+<a class="cheat-card" href="projection.md">
+<span class="cheat-title">📈 Projection NCLC à l'examen <span class="cheat-tag" style="margin-left:.4rem">v1.5</span></span>
+<span class="cheat-desc">Trajectoire 4 mocks + taux 28 j + écart cible → NCLC projeté à la date d'examen.</span>
+<span class="cheat-tag">Pilotage</span>
+</a>
+
+<a class="cheat-card" href="calendrier.md">
+<span class="cheat-title">🗓️ Calendrier .ics <span class="cheat-tag" style="margin-left:.4rem">v1.5</span></span>
+<span class="cheat-desc">18 événements (exam + 4 mocks + 12 sessions hebdo + J-7). Google/Apple/Outlook.</span>
+<span class="cheat-tag">Pilotage</span>
+</a>
+
+</div>
+
+## Synthèse en un coup d'œil — `v1.5`
 
 <a class="cheat-card" href="tableau/" style="display:block;margin-bottom:1.2rem">
 <span class="cheat-title">🧭 Tableau de bord</span>

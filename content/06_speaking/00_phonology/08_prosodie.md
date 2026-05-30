@@ -251,4 +251,4 @@ Les voix Microsoft Edge françaises (*Henri*, *Denise*, *Brigitte*) rendent **co
 - Programme 60 jours (shadowing §8, auto-évaluation §9) : [../00_program.md](../00_program.md)
 - Index phonologie : [index.md](index.md)
 - Unités amont : [01_vocalique.md](01_vocalique.md) (segmental — précède la prosodie dans l'apprentissage) · [06_enchainement.md](06_enchainement.md) (la resyllabification respecte la structure du groupe rythmique) · [07_schwa_instable.md](07_schwa_instable.md) (le schwa interagit avec le découpage rythmique)
-- Pivots EE réutilisables pour structurer un monologue rythmé : [../../05_writing/00_pivots/](../../05_writing/00_pivots/)
+- Pivots EE réutilisables pour structurer un monologue rythmé : [../../05_writing/00_pivots/](../../05_writing/00_pivots/index.md)

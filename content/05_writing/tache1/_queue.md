@@ -48,5 +48,5 @@
 ## Cross-references
 
 - Spec : [06_PHASE_5_WRITING.md §3.1](../../../06_PHASE_5_WRITING.md)
-- Templates : [00_templates/t1/](../00_templates/t1/)
+- Templates : [00_templates/t1/](../00_templates/t1/index.md)
 - Schedule deferral : [BACKLOG.md §Phase 5 — bulk batch](../../../BACKLOG.md)

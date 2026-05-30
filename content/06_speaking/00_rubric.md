@@ -105,10 +105,10 @@ Somme des 4 bandes :
 
 **Stratégie de remédiation par critère** :
 
-- C1 raté (tâche incomplète) → revoir les **stratégies en 30 secondes** des prompts ([tache1/](tache1/) · [tache2/](tache2/) · [tache3/](tache3/)) ; chaque prompt force la structure.
-- C2 raté (lexique pauvre, fillers nombreux) → revoir le **registre anti-erreurs EO** ([00_anti_error.md](00_anti_error.md)) + la **bibliothèque de pivots EE** réutilisable ([../05_writing/00_pivots/](../05_writing/00_pivots/)).
-- C3 raté (morphosyntaxe basse) → revoir les **unités de grammaire B2** ([../01_grammar/](../01_grammar/)) ; subjonctif, accord du participe, hypothèses sont les leviers EO.
-- C4 raté (phonologie / fluence) → **passer la phonologie complète** ([00_phonology/](00_phonology/)) + faire 14 jours de shadowing avant tout autre travail EO.
+- C1 raté (tâche incomplète) → revoir les **stratégies en 30 secondes** des prompts ([tache1/](tache1/index.md) · [tache2/](tache2/index.md) · [tache3/](tache3/index.md)) ; chaque prompt force la structure.
+- C2 raté (lexique pauvre, fillers nombreux) → revoir le **registre anti-erreurs EO** ([00_anti_error.md](00_anti_error.md)) + la **bibliothèque de pivots EE** réutilisable ([../05_writing/00_pivots/](../05_writing/00_pivots/index.md)).
+- C3 raté (morphosyntaxe basse) → revoir les **unités de grammaire B2** ([../01_grammar/](../01_grammar/index.md)) ; subjonctif, accord du participe, hypothèses sont les leviers EO.
+- C4 raté (phonologie / fluence) → **passer la phonologie complète** ([00_phonology/](00_phonology/index.md)) + faire 14 jours de shadowing avant tout autre travail EO.
 
 ---
 
@@ -146,8 +146,8 @@ L'outil sert à **comparer votre enregistrement à vos enregistrements précéde
 ## 6. Référence croisée
 
 - Spec : [07_PHASE_6_SPEAKING.md §2](../../07_PHASE_6_SPEAKING.md)
-- Sujets : [tache1/](tache1/) · [tache2/](tache2/) · [tache3/](tache3/)
-- Phonologie : [00_phonology/](00_phonology/)
+- Sujets : [tache1/](tache1/index.md) · [tache2/](tache2/index.md) · [tache3/](tache3/index.md)
+- Phonologie : [00_phonology/](00_phonology/index.md)
 - Anti-erreurs EO : [00_anti_error.md](00_anti_error.md)
 - Programme 60 jours : [00_program.md](00_program.md)
 - Outils : [tools/score_speaking.py](../../tools/score_speaking.py) · [tools/scoring_rules.md §7](../../tools/scoring_rules.md)

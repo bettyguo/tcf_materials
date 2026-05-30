@@ -72,7 +72,7 @@ Tu vas rencontrer des mots inconnus. C'est attendu : la CE de niveau C1–C2 con
 3. **Accepter une compréhension à 70 %.** Si le mot ne porte pas la réponse à la question, son sens exact est facultatif. La CE teste la compréhension globale, pas le lexique exhaustif.
 4. **Pour les items « sens d'un mot en contexte »** (type 4 fréquent), la bonne réponse est presque toujours **paraphrasable par le paragraphe entier**. Les distracteurs proposent des sens **lexicalement plausibles** (faux-amis, sens premier du dictionnaire) mais qui ne cadrent pas avec la phrase.
 
-> Référence : la banque de vocabulaire [`content/02_vocabulary/`](../02_vocabulary/) couvre les chunks à haut rendement (≈ 600 lemmes lexicaux). Ce que tu ne sais pas après cette banque, tu le devines au contexte.
+> Référence : la banque de vocabulaire [`content/02_vocabulary/`](../02_vocabulary/index.md) couvre les chunks à haut rendement (≈ 600 lemmes lexicaux). Ce que tu ne sais pas après cette banque, tu le devines au contexte.
 
 ---
 
@@ -136,6 +136,6 @@ Trois patrons récurrents repérés sur Mock #1 :
 
 - Taxonomie partagée : [`00_distractor_anatomy.md`](00_distractor_anatomy.md).
 - Stratégie sœur (écoute) : [`01_co_strategy.md`](01_co_strategy.md).
-- Banque CE : [`content/04_reading/`](../04_reading/) et `05_PHASE_4_READING.md` §6.
-- Banque vocabulaire : [`content/02_vocabulary/`](../02_vocabulary/).
+- Banque CE : [`content/04_reading/`](../04_reading/index.md) et `05_PHASE_4_READING.md` §6.
+- Banque vocabulaire : [`content/02_vocabulary/`](../02_vocabulary/index.md).
 - Mocks d'application : `content/07_mock_exams/` (Mocks #1–#3, partie CE).

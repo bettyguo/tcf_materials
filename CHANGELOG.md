@@ -2,6 +2,46 @@
 
 All notable changes are documented here in [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) style. Versioning is per-phase, not per-feature: each phase bumps the minor version on completion.
 
+## [1.5.0] — 2026-05-30 — Adaptive learning + accessibility + 33 hub pages (v1.5 — 8 new tools, SM-2 SRS, shadow speaking, EE rubric self-grader, CO precision dictation, NCLC projection)
+
+### Added — 8 new browser-side widgets
+- **SRS adaptatif SM-2** ([`content/11_tools/revue.md`](content/11_tools/revue.md)) — implémentation standard SM-2 (Wozniak 1990) : ease factor, intervalle, due date persistés par carte. Paquet `b2core` de **50 cartes B2 noyau** (connecteurs B2/C1, genres-pièges, faux-amis, prépositions critiques, structures dialectiques, collocations à risque, subjonctif déclenché). Raccourcis 0–5 et Espace pour reveal. Export JSON.
+- **Shadow speaking** ([`content/11_tools/shadow.md`](content/11_tools/shadow.md)) — TTS Web Speech API à 1.0× et 0.8×, enregistrement utilisateur via MediaRecorder, lecture A/B pour comparaison. Pack `b2` de **18 phrases B2-C1** ciblées sur prosodie, liaisons en cascade, inversion stylistique, ne explétif. Notes pédagogiques par phrase.
+- **Rubrique EE self-grader** ([`content/11_tools/ee-rubrique.md`](content/11_tools/ee-rubrique.md)) — heuristique transparente scoring **/20 sur 4 critères FEI** : C1 tâche communicative (longueur cible), C2 cohérence/cohésion (connecteurs B2 distincts, longueur moyenne phrase), C3 étendue lexicale (TTR + registre soutenu vs oralité), C4 morphosyntaxe (négation complète, subjonctif déclenché, mix PC/imparfait). Brouillon autosauvegardé. Verdict NCLC 8 / 9 / sous-cible.
+- **Dictée CO précision** ([`content/11_tools/co-dictee.md`](content/11_tools/co-dictee.md)) — TTS lit une phrase, max 3 écoutes (1.0× et 0.8×), utilisateur tape, diff mot-à-mot surligné (vert/rouge/gris). Score % par phrase, meilleur-score persistant. Pack `b1b2` de **15 items** couvrant pièges nombres (soixante-quinze, quatre-vingt-dix-neuf), liaisons en cascade, subjonctif post-`bien que`/`il faudrait que`, négations préservées.
+- **Drill conjugaison interactif** ([`content/11_tools/conjugaison-drill.md`](content/11_tools/conjugaison-drill.md)) — 12 verbes haute-fréquence × 6 temps × 6 personnes = **432 formes** en production active. Saisie clavier, vérification sur Entrée, normalisation NFD + élision. Série + record persistés. Boutons Passer/Révéler.
+- **Analyse des schémas d'erreur** ([`content/11_tools/analyse.md`](content/11_tools/analyse.md)) — lit le journal d'erreurs, **cluster par compétence** (CO/CE/EE/EO/Grammaire/Vocab/Phono), **détecte 7 patterns récurrents** via regex (PC vs imparfait, genre, pronoms y/en, liaison, subjonctif, connecteur, faux-ami). Suggestion d'outil cible attachée au top-skill. Affichage barres + recommandation actionnable.
+- **Projection NCLC à l'examen** ([`content/11_tools/projection.md`](content/11_tools/projection.md)) — modèle transparent combinant baseline (moy. 4 derniers mocks), trajectoire (delta dernier−premier), gap-cible, taux activité 28j. **Projection au jour d'examen** avec verdict 3-couleurs (atteint / à 0,5 / écart > 0,5). Barre de progression. Mise à jour temps-réel sur localStorage.
+- **Calendrier .ics** ([`content/11_tools/calendrier.md`](content/11_tools/calendrier.md)) — génère un fichier **iCalendar (RFC 5545)** téléchargeable avec **18 événements** : examen + 4 mocks (J-28, -21, -14, -7) + 12 sessions hebdo focus skill faible + alerte J-7. Compatible Google Calendar, Apple Calendar, Outlook. UID stables pour dédup à la ré-importation.
+
+### Added — 33 content hub pages
+- **33 `index.md` auto-générées** pour les répertoires sans page-de-garde : `00_diagnostic/`, toutes les bandes grammaire (`b1_consolidation`, `b2_core`, `c1_advanced`, `c2_polish`), vocab (`collocations/`, `frequency/`, `thematic/`), CO + CE A1→C2 (12 pages), templates EE (`t1/`, `t2/`, `t3/`), EE & EO `tache1-3/` (6 pages), mocks 01→04. Élimine **tous** les liens « folder-style » cassés (84 → 0) et offre une vraie page d'atterrissage par section.
+
+### Added — accessibility & UX
+- **Mode focus / zen** — toggle global (touche <kbd>Z</kbd> + FAB 🎯) qui masque header / sidebar / footer / progress bar pour lecture sans distraction. Largeur contenu rétrécie à 48 rem, line-height augmentée. État persisté.
+- **Accessibility pass** sur les widgets v1.5 — `aria-label` sur tous les boutons d'icône, `aria-live="polite"` sur les régions de résultats (rubrique EE, dictée CO, projection NCLC, conjugaison drill), `role="group"` sur les boutons de notation SM-2, `aria-pressed` sur enregistrement et focus toggle, `type="button"` explicite sur tous les boutons.
+- **FAB Focus** — bouton flottant 🎯 / 🌐 dans la barre FAB, synchronisé avec la touche `Z`.
+
+### Updated
+- [`content/assets/javascripts/extra.js`](content/assets/javascripts/extra.js) — bundle étendu de ~ 4 950 → ~ 5 510 lignes. **+8 modules v1.5** : SRS SM-2, shadow speaking, EE rubric grader, CO dictation, conjugation drill, mistake analyzer, NCLC projection, ICS export. + module focus mode toggle + FAB integration. Palette enrichie de 8 entrées v1.5.
+- [`content/assets/javascripts/v13-data.js`](content/assets/javascripts/v13-data.js) — banks v1.5 ajoutées : 50 cartes SRS B2 noyau, 18 phrases shadow speaking, 15 phrases dictée CO.
+- [`content/assets/stylesheets/extra.css`](content/assets/stylesheets/extra.css) — ~ 230 lignes ajoutées (sections v1.5). Palette cohérente indigo/ambre, dark-mode-friendly. Respect `prefers-reduced-motion`.
+- [`content/11_tools/.pages`](content/11_tools/.pages) — réordonnée : projection + analyse + calendrier en tête (après hebdo), revue + shadow + ee-rubrique + co-dictee + conjugaison-drill insérés aux sections correspondantes.
+- [`content/11_tools/index.md`](content/11_tools/index.md) — nouvelle section v1.5 (8 cartes), compteur 45 → **53 outils**.
+- [`content/index.md`](content/index.md) — hero v1.5 (53 outils, +8 v1.5), dashboard d'accueil étendu : phrase + goal + **projection** + dashboard + weekly + **analyse erreurs** + daily. 8 nouvelles cartes v1.5.
+- [`overrides/main.html`](overrides/main.html) — annonce v1.5, OG/Twitter v1.5.
+- [`content/06_speaking/tache2/03_eo-t2-003.md`](content/06_speaking/tache2/03_eo-t2-003.md) — 3 ancres broken corrigées (caractères IPA stripés au slugification).
+
+### Fixed
+- **84 INFO-level broken-link warnings éliminés** (build mkdocs --strict désormais 0-INFO). 78 liens « folder-style » réécrits en `XXX/index.md`, 3 ancres corrigées dans `eo-t2-003.md`, 33 hub `index.md` créés, 2 références obsolètes corrigées (audio_items, tools/data).
+
+### Stability
+- `mkdocs build --strict` clean (0 warnings, 0 INFO-level link issues).
+- `node --check` clean sur `extra.js` et `v13-data.js`.
+- `localStorage` namespace `tcf:` — **42 clés documentées** (36 v1.4 + 6 v1.5 : `srs:b2-core`, `codict:scores`, `conj:stats`, `ee:rubric:draft`, `focus:on`, history).
+- Aucun tracker. Aucun serveur. MediaRecorder écrit dans un `Blob` local non-uploadé. iCalendar généré côté client.
+- Total : **~ 53 outils interactifs**, ~ 462 pages, build < 16 s.
+
 ## [1.4.1] — 2026-05-30 — Real corpus prompts + CE B1/C1 packs + CO B2+ pack (placeholder elimination pass)
 
 ### Fixed — actual placeholders shipped in v1.4

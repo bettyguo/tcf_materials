@@ -126,6 +126,6 @@ Durée : **environ 3 minutes**. Pas de préparation.
   - T3 : [`content/06_speaking/tache3/01_eo-t3-001.md`](../../06_speaking/tache3/01_eo-t3-001.md)
 - Rubrique : [`content/06_speaking/00_rubric.md`](../../06_speaking/00_rubric.md)
 - Anti-erreurs : [`content/06_speaking/00_anti_error.md`](../../06_speaking/00_anti_error.md)
-- Phonologie : [`content/06_speaking/00_phonology/`](../../06_speaking/00_phonology/)
+- Phonologie : [`content/06_speaking/00_phonology/`](../../06_speaking/00_phonology/index.md)
 
 > **Note audio.** Aucun audio examinateur n'est livré en Phase 7 (`audio.required: false`). Tu joues les répliques toi-même. La synthèse sera activable d'un flag une fois la revue native passée.

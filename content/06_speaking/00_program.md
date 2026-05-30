@@ -19,7 +19,7 @@ audit:
 
 > Protocole quotidien (5–15 min) qui se déploie sur les **semaines 5 à 14 du roadmap** (60 jours = 8 semaines + 4 jours tampon). Combine shadowing, monologue libre, enregistrement, transcription Whisper, scoring auto. Objectif : à J+60, le candidat tient un T3 complet sous timer avec EO-C1/C2/C3 ≥ 4 et EO-C4 ≥ 3.
 >
-> **Pré-requis** : la phonologie complète ([00_phonology/](00_phonology/)) doit être passée au moins une fois. La rubrique ([00_rubric.md](00_rubric.md)) et l'anti-erreurs ([00_anti_error.md](00_anti_error.md)) sont à portée de main.
+> **Pré-requis** : la phonologie complète ([00_phonology/](00_phonology/index.md)) doit être passée au moins une fois. La rubrique ([00_rubric.md](00_rubric.md)) et l'anti-erreurs ([00_anti_error.md](00_anti_error.md)) sont à portée de main.
 
 ---
 
@@ -43,7 +43,7 @@ Volume cumulé : ~14 h sur 60 jours, soit ~14 min/jour en moyenne. Compatible av
 
 ### Routine quotidienne (15 min)
 
-1. **Prep (1 min)** : ouvrir un prompt T2 au hasard ([tache2/](tache2/)) ; lire la consigne ; ne rien noter.
+1. **Prep (1 min)** : ouvrir un prompt T2 au hasard ([tache2/](tache2/index.md)) ; lire la consigne ; ne rien noter.
 2. **Mono (5 min, timer obligatoire)** : enregistrer en s'imposant la règle "**toute pause > 1,5 s se comble par une phrase-relance**" (voir [00_anti_error.md §M6](00_anti_error.md)).
 3. **Score (5 min)** : `python -m tools.score_speaking <prompt.md>` en mode texte seul (Whisper optionnel). Lire le rapport.
 4. **Re-écoute (4 min)** : compter les pauses > 1,5 s et les *euh*. Cible : ≤ 5 pauses, ≤ 10 *euh* en 5 min.
@@ -79,7 +79,7 @@ Si J7 reste loin de la cible, **prolonger le bloc A de 3 jours** avant de passer
 1. **Prep (2 min)** : T2 prompt + sélectionner **3 connecteurs** à insérer obligatoirement.
 2. **Mono (5 min)** : prononcer chacun des 3 connecteurs au moins une fois, audible (l'enregistrement doit en porter trace).
 3. **Score (3 min)** : `score_speaking.py` ; vérifier que `connecteurs` ≥ 3 dans le rapport.
-4. **Re-mono (5 min)** : refaire le même prompt, **substituer** les 3 connecteurs B2 par 3 connecteurs C1 (*or, force est de constater, n'en demeure pas moins, eu égard à*). Voir [ee-pivots](../05_writing/00_pivots/).
+4. **Re-mono (5 min)** : refaire le même prompt, **substituer** les 3 connecteurs B2 par 3 connecteurs C1 (*or, force est de constater, n'en demeure pas moins, eu égard à*). Voir [ee-pivots](../05_writing/00_pivots/index.md).
 5. **Compare (5 min)** : lire les 2 transcripts côte à côte, repérer la phrase où le connecteur C1 sonne mieux.
 
 ### Repères J14
@@ -107,7 +107,7 @@ Si J7 reste loin de la cible, **prolonger le bloc A de 3 jours** avant de passer
 - Mardi : T2 *décrivez les avantages et inconvénients de*
 - Mercredi : T2 *présentez les changements observés en matière de*
 - Jeudi : T2 *expliquez votre rapport personnel à*
-- Vendredi : T2 *libre — choisir parmi les 30 prompts ([tache2/](tache2/))*
+- Vendredi : T2 *libre — choisir parmi les 30 prompts ([tache2/](tache2/index.md))*
 - Samedi : récupération (pas de mono) ou shadowing
 - Dimanche : auto-évaluation longue : enregistrer 2 T2, scorer les 2, identifier le critère qui plafonne
 
@@ -138,7 +138,7 @@ Si J7 reste loin de la cible, **prolonger le bloc A de 3 jours** avant de passer
 
 ### Variation hebdomadaire
 
-- Lundi–Vendredi : 1 prompt T3 différent par jour parmi [tache3/](tache3/).
+- Lundi–Vendredi : 1 prompt T3 différent par jour parmi [tache3/](tache3/index.md).
 - Samedi : pause ou re-écoute des 5 enregistrements de la semaine.
 - Dimanche : double T3 (mêmes prompts revus 4 semaines plus tôt) → mesurer la trajectoire.
 
@@ -279,8 +279,8 @@ Si J7 reste loin de la cible, **prolonger le bloc A de 3 jours** avant de passer
 
 - Spec : [07_PHASE_6_SPEAKING.md §6](../../07_PHASE_6_SPEAKING.md)
 - Rubric EO : [00_rubric.md](00_rubric.md)
-- Phonologie : [00_phonology/](00_phonology/)
+- Phonologie : [00_phonology/](00_phonology/index.md)
 - Anti-erreurs EO : [00_anti_error.md](00_anti_error.md)
-- Prompts : [tache1/](tache1/) · [tache2/](tache2/) · [tache3/](tache3/)
+- Prompts : [tache1/](tache1/index.md) · [tache2/](tache2/index.md) · [tache3/](tache3/index.md)
 - Outil : [tools/score_speaking.py](../../tools/score_speaking.py)
 - Roadmap global : [../../ROADMAP.md](../../ROADMAP.md) (semaines 5–14)

@@ -146,7 +146,7 @@ Quatre pièges à anticiper avant le mock — à shadow 5 minutes la veille.
 - Pilote T1 : [`content/06_speaking/tache1/02_eo-t1-002.md`](../../06_speaking/tache1/02_eo-t1-002.md)
 - Grille : [`content/06_speaking/00_rubric.md`](../../06_speaking/00_rubric.md)
 - Anti-erreurs EO : [`content/06_speaking/00_anti_error.md`](../../06_speaking/00_anti_error.md)
-- Phonologie : [`content/06_speaking/00_phonology/`](../../06_speaking/00_phonology/)
+- Phonologie : [`content/06_speaking/00_phonology/`](../../06_speaking/00_phonology/index.md)
 - Prompts EO de ce mock : [`04_eo_prompts.md`](04_eo_prompts.md)
 - Instructions mock : [`00_instructions.md`](00_instructions.md)
 - Mock #1 EO T1 (comparaison) : [`../mock_01/08_eo_models_t1.md`](../mock_01/08_eo_models_t1.md)

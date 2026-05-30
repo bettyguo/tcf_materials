@@ -63,4 +63,4 @@ Lorsque la décision A vs B est prise :
 - File de production complète : [`_queue.md`](_queue.md).
 - Queues Phase 5 (suivi promotion #004) : [`content/05_writing/tache1/_queue.md`](../../05_writing/tache1/_queue.md), [`tache2/_queue.md`](../../05_writing/tache2/_queue.md), [`tache3/_queue.md`](../../05_writing/tache3/_queue.md).
 - Rubrique : [`content/05_writing/00_rubric.md`](../../05_writing/00_rubric.md).
-- Pivots : [`content/05_writing/00_pivots/`](../../05_writing/00_pivots/).
+- Pivots : [`content/05_writing/00_pivots/`](../../05_writing/00_pivots/index.md).

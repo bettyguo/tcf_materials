@@ -99,10 +99,10 @@ Somme des 4 bandes, lue sur la grille spec §2.5 :
 
 **Stratégie de remédiation par critère** :
 
-- C1 raté (tâche incomplète) → revoir les **templates** ([../00_templates/](00_templates/)) ; ils garantissent qu'aucun élément n'est oublié.
+- C1 raté (tâche incomplète) → revoir les **templates** ([../00_templates/](00_templates/index.md)) ; ils garantissent qu'aucun élément n'est oublié.
 - C2 raté (cohésion faible) → revoir la **liste de connecteurs** par bande ([../00_pivots/02_introduire_argument.md](00_pivots/02_introduire_argument.md)) et la **structure en paragraphes** (templates).
-- C3 raté (lexique pauvre) → revoir le **registre anti-erreurs** ([00_anti_error.md](00_anti_error.md)) + les listes **thématiques** ([../02_vocabulary/](../02_vocabulary/)).
-- C4 raté (morphosyntaxe basse) → revoir les **unités de grammaire B2** ([../01_grammar/](../01_grammar/)) ; particulièrement subjonctif, accord du participe, hypothèses.
+- C3 raté (lexique pauvre) → revoir le **registre anti-erreurs** ([00_anti_error.md](00_anti_error.md)) + les listes **thématiques** ([../02_vocabulary/](../02_vocabulary/index.md)).
+- C4 raté (morphosyntaxe basse) → revoir les **unités de grammaire B2** ([../01_grammar/](../01_grammar/index.md)) ; particulièrement subjonctif, accord du participe, hypothèses.
 
 ---
 
@@ -136,6 +136,6 @@ L'outil sert à **comparer votre copie à vos copies précédentes** (trajectoir
 ## 6. Référence croisée
 
 - Spec : [06_PHASE_5_WRITING.md §2](../../06_PHASE_5_WRITING.md)
-- Sujets : [tache1/](tache1/) · [tache2/](tache2/) · [tache3/](tache3/)
+- Sujets : [tache1/](tache1/index.md) · [tache2/](tache2/index.md) · [tache3/](tache3/index.md)
 - Outils : [tools/score_writing.py](../../tools/score_writing.py) · [tools/scoring_rules.md](../../tools/scoring_rules.md)
-- Patrons : [00_templates/](00_templates/) · [00_pivots/](00_pivots/) · [00_anti_error.md](00_anti_error.md)
+- Patrons : [00_templates/](00_templates/index.md) · [00_pivots/](00_pivots/index.md) · [00_anti_error.md](00_anti_error.md)

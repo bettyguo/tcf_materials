@@ -102,5 +102,5 @@ Longueur cible : 170 mots (± 30). Registre : formel argumentatif.
   - T2 : [`content/05_writing/tache2/02_ee-t2-002.md`](../../05_writing/tache2/02_ee-t2-002.md)
   - T3 : [`content/05_writing/tache3/02_ee-t3-002.md`](../../05_writing/tache3/02_ee-t3-002.md)
 - Rubrique : [`content/05_writing/00_rubric.md`](../../05_writing/00_rubric.md)
-- Pivots : [`content/05_writing/00_pivots/`](../../05_writing/00_pivots/)
+- Pivots : [`content/05_writing/00_pivots/`](../../05_writing/00_pivots/index.md)
 - Anti-erreurs : [`content/05_writing/00_anti_error.md`](../../05_writing/00_anti_error.md)

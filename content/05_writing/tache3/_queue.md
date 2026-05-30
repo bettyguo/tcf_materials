@@ -46,5 +46,5 @@
 ## Cross-references
 
 - Spec : [06_PHASE_5_WRITING.md §3.3](../../../06_PHASE_5_WRITING.md)
-- Templates : [00_templates/t3/](../00_templates/t3/)
+- Templates : [00_templates/t3/](../00_templates/t3/index.md)
 - Stimulus pool Phase 4 : items `usable_as_stimulus: true` ([content/04_reading/_id_freeze.lock](../../04_reading/_id_freeze.lock))

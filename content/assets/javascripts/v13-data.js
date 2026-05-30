@@ -942,4 +942,106 @@
     { fr: "C'est précisément ce point qui mérite notre attention.", gloss: "Focus narratif — utile pour structurer un essai." },
   ];
 
+  // ============================================================
+  // v1.5 — banks for SRS decks, shadow speaking, CO dictation
+  // ============================================================
+
+  // SRS deck — B2 core (~50 cards covering high-leverage B2 lexis + collocations)
+  TCF.decks = TCF.decks || {};
+  TCF.decks.b2core = [
+    { id: "b2c-001", q: "Synonyme soutenu de <strong>cependant</strong> (3 réponses possibles)", a: "néanmoins · toutefois · pour autant", hint: "concession / restriction" },
+    { id: "b2c-002", q: "Donner <em>par conséquent</em> en 2 alternatives plus subtiles", a: "dès lors · ainsi · de ce fait", hint: "consécution" },
+    { id: "b2c-003", q: "Compléter : <em>il convient de _____ la nuance</em>", a: "souligner / rappeler / introduire", hint: "verbe + objet abstrait" },
+    { id: "b2c-004", q: "Verbe pour : « rendre quelque chose moins fort »", a: "atténuer (cf. atténuation)", hint: "anti-erreur EE : éviter « diminuer » dans un essai" },
+    { id: "b2c-005", q: "Donner 3 connecteurs d'illustration B2 distincts", a: "à titre d'exemple · notamment · à savoir", hint: "T3" },
+    { id: "b2c-006", q: "Compléter : <em>force est de _____</em>", a: "constater (que…)", hint: "Formule de constat soutenue" },
+    { id: "b2c-007", q: "Genre de <strong>problème</strong> ?", a: "masculin — <em>un</em> problème", hint: "piège classique" },
+    { id: "b2c-008", q: "Genre de <strong>mer</strong> ?", a: "féminin — <em>la</em> mer", hint: "≠ « le maire »" },
+    { id: "b2c-009", q: "Genre de <strong>image</strong> ?", a: "féminin — <em>une</em> image", hint: "homophone avec « hommage » (m.)" },
+    { id: "b2c-010", q: "Genre de <strong>page</strong> ?", a: "féminin — <em>la</em> page", hint: "" },
+    { id: "b2c-011", q: "« j'ai pensé à elle » : pourquoi <strong>elle</strong> et non <strong>y</strong> ?", a: "<em>penser à + personne</em> ⇒ pronom tonique ; <em>y</em> seulement pour chose/lieu/idée", hint: "exception classique" },
+    { id: "b2c-012", q: "« je suis prêt à le faire » : remplacer <em>le faire</em> par un pronom ?", a: "Impossible — <em>être prêt à + verbe</em> ; pas de pronominalisation par « y »", hint: "" },
+    { id: "b2c-013", q: "PC ou imparfait : <em>Hier, il _____ (pleuvoir) toute la journée</em>", a: "il a plu / il pleuvait — selon visée ; <strong>il a plu</strong> (durée délimitée par « toute la journée »)", hint: "borne aspectuelle" },
+    { id: "b2c-014", q: "PC ou imparfait : <em>Quand je _____ (entrer), il _____ (lire)</em>", a: "<strong>je suis entré</strong> (ponctuel) · <strong>il lisait</strong> (en cours)", hint: "interruption" },
+    { id: "b2c-015", q: "Subjonctif après <em>bien que</em> : <em>bien que cela _____ (être) difficile</em>", a: "<strong>soit</strong>", hint: "Concession ⇒ subj. obligatoire" },
+    { id: "b2c-016", q: "Subjonctif après <em>à condition que</em> : <em>à condition que tu _____ (venir)</em>", a: "<strong>viennes</strong>", hint: "" },
+    { id: "b2c-017", q: "Conditionnel passé après <em>si</em> + plus-que-parfait : <em>Si j'avais su, je _____ (venir)</em>", a: "<strong>je serais venu(e)</strong>", hint: "Hypothèse passée non-réalisée" },
+    { id: "b2c-018", q: "Compléter : <em>Plus on _____, plus on _____</em> (corrélation)", a: "Plus on apprend, plus on doute (par exemple) — structure : <em>plus … plus + indicatif</em>", hint: "C1 marker" },
+    { id: "b2c-019", q: "Liaison après <strong>les</strong> + voyelle (obligatoire / interdite ?)", a: "obligatoire — /lez‿/", hint: "Dét + nom" },
+    { id: "b2c-020", q: "Liaison après <strong>et</strong> + voyelle ?", a: "<strong>interdite</strong> — jamais /z/ ou /t/ après « et »", hint: "Anti-erreur §L4" },
+    { id: "b2c-021", q: "Synonyme B2 de <strong>important</strong> dans un essai", a: "majeur · capital · essentiel · crucial · primordial", hint: "Variation lexicale" },
+    { id: "b2c-022", q: "Synonyme B2 de <strong>montrer</strong> (académique)", a: "démontrer · illustrer · mettre en évidence · révéler", hint: "" },
+    { id: "b2c-023", q: "Synonyme B2 de <strong>beaucoup de</strong> dans une dissertation", a: "nombre de · un grand nombre de · de nombreux/nombreuses · maintes (litt.)", hint: "Éviter « beaucoup de » en T3" },
+    { id: "b2c-024", q: "Faux-ami : <em>actuellement</em> signifie en français…", a: "« en ce moment, maintenant » (≠ <em>actually</em>)", hint: "Anglicisme piège" },
+    { id: "b2c-025", q: "Faux-ami : <em>éventuellement</em> signifie en français…", a: "« peut-être, le cas échéant » (≠ <em>eventually</em>)", hint: "" },
+    { id: "b2c-026", q: "Faux-ami : <em>sensible</em> signifie en français…", a: "« qui ressent fortement » (≠ <em>sensible</em> = raisonnable)", hint: "" },
+    { id: "b2c-027", q: "Collocation : <em>tirer ___ leçon</em>", a: "tirer <strong>une</strong> leçon (de…)", hint: "" },
+    { id: "b2c-028", q: "Collocation : <em>prendre ___ décision</em>", a: "prendre <strong>une</strong> décision", hint: "Pas « faire une décision » (calque)" },
+    { id: "b2c-029", q: "Collocation : <em>poser ___ question</em>", a: "poser <strong>une</strong> question", hint: "Pas « demander une question »" },
+    { id: "b2c-030", q: "Collocation : <em>faire ___ effort</em>", a: "faire <strong>un</strong> effort", hint: "" },
+    { id: "b2c-031", q: "Préposition après <strong>s'intéresser</strong> ?", a: "<strong>à</strong> qqch / qqn", hint: "" },
+    { id: "b2c-032", q: "Préposition après <strong>se souvenir</strong> ?", a: "<strong>de</strong> qqch / qqn", hint: "« se rappeler » ⇒ direct (≠ même rection)" },
+    { id: "b2c-033", q: "Préposition après <strong>réfléchir</strong> ?", a: "<strong>à</strong> qqch", hint: "" },
+    { id: "b2c-034", q: "Préposition après <strong>répondre</strong> ?", a: "<strong>à</strong> qqn / qqch", hint: "" },
+    { id: "b2c-035", q: "Pluriel de <strong>travail</strong> ?", a: "<strong>travaux</strong>", hint: "" },
+    { id: "b2c-036", q: "Pluriel de <strong>festival</strong> ?", a: "<strong>festivals</strong> (exception : -al ⇒ -aux normalement)", hint: "" },
+    { id: "b2c-037", q: "Pluriel de <strong>œil</strong> ?", a: "<strong>yeux</strong>", hint: "" },
+    { id: "b2c-038", q: "<em>Quoi qu'il en soit</em> sert à…", a: "Marquer une bascule concessive — « peu importe la suite »", hint: "C1 connector" },
+    { id: "b2c-039", q: "<em>En définitive</em> sert à…", a: "Conclure après nuances accumulées — « finalement, après tout cela »", hint: "Conclure un essai" },
+    { id: "b2c-040", q: "<em>Pour autant</em> sert à…", a: "Concession nuancée — « ce qui précède n'invalide pas X »", hint: "Synonyme soutenu de « cependant »" },
+    { id: "b2c-041", q: "<em>D'autant plus que</em> introduit…", a: "Une cause renforcée (cause + intensification)", hint: "" },
+    { id: "b2c-042", q: "<em>Or</em> sert à…", a: "Introduire un fait nouveau qui infléchit le raisonnement", hint: "Pivot dialectique" },
+    { id: "b2c-043", q: "<em>Certes … mais …</em> est la structure…", a: "Concession-réfutation : on accorde un point, puis on objecte", hint: "T3 dialectique" },
+    { id: "b2c-044", q: "<em>Non seulement … mais aussi …</em> introduit…", a: "Une addition à effet de gradation", hint: "" },
+    { id: "b2c-045", q: "Verbes du subj. après <em>il faut que</em> : <em>il faut que tu _____ (être)</em>", a: "<strong>sois</strong>", hint: "Nécessité ⇒ subj." },
+    { id: "b2c-046", q: "Verbes du subj. après <em>vouloir que</em> : <em>je veux que tu _____ (faire)</em>", a: "<strong>fasses</strong>", hint: "Volonté ⇒ subj." },
+    { id: "b2c-047", q: "Verbes du subj. après <em>douter que</em> : <em>je doute que cela _____ (suffire)</em>", a: "<strong>suffise</strong>", hint: "Doute ⇒ subj." },
+    { id: "b2c-048", q: "Mot pour : <em>action de retarder qqch d'office</em>", a: "<strong>reporter / différer</strong>", hint: "« reporter une décision »" },
+    { id: "b2c-049", q: "Mot pour : <em>donner une nouvelle dimension à</em>", a: "<strong>redéfinir / repenser / réinventer</strong>", hint: "" },
+    { id: "b2c-050", q: "Mot pour : <em>tendre à devenir plus uniforme</em>", a: "<strong>s'uniformiser / s'homogénéiser</strong>", hint: "Vocab essai" }
+  ];
+
+  // Shadow speaking pack — 18 phrases B2-C1 ciblées sur prosodie et liaisons
+  TCF.shadow = TCF.shadow || {};
+  TCF.shadow.b2 = [
+    { id: "sh-001", text: "Il convient de souligner que cette tendance s'est confirmée récemment.", ipa: "il.kɔ̃.vjɛ̃.də.su.li.ɲe.kə.sɛt.tɑ̃.dɑ̃.sɛ.kɔ̃.fiʁ.me.ʁe.sa.mɑ̃", tag: "essai-T3", note: "Liaison /t/ : <em>convient de</em>. Schwa final stable." },
+    { id: "sh-002", text: "Force est de constater qu'il n'en va pas toujours ainsi.", tag: "concession", note: "Inversion : /il.nɑ̃.va/. /il/ liaison interdite avec /va/." },
+    { id: "sh-003", text: "À cet égard, il importe de distinguer les deux phénomènes.", tag: "T3", note: "Liaison /t/ : <em>cet égard</em>. Liaison /z/ obligatoire : <em>les_deux</em>." },
+    { id: "sh-004", text: "Non seulement la productivité a augmenté, mais aussi la qualité du dialogue.", tag: "T2 article", note: "Pause prosodique avant « mais aussi »." },
+    { id: "sh-005", text: "Quoi qu'il en soit, la situation appelle une réponse rapide.", tag: "bascule C1", note: "/kwa.kil.ɑ̃.swa/ — pas de pause entre les mots." },
+    { id: "sh-006", text: "Les habitudes ont évolué de manière significative ces dernières années.", tag: "T2 introduction", note: "Liaison /z/ : <em>les_habitudes</em>, <em>ont_évolué</em>, <em>dernières_années</em>." },
+    { id: "sh-007", text: "Il s'agit avant tout de redéfinir nos priorités collectives.", tag: "T3 pivot", note: "Élision : <em>s'agit</em>. /il.sa.ʒi.a.vɑ̃.tu/" },
+    { id: "sh-008", text: "Pour ma part, je tendrais à privilégier une approche progressive.", tag: "opinion EO", note: "Conditionnel /tɑ̃.dʁɛ/ — pas /tɑ̃.dʁɛ.z/" },
+    { id: "sh-009", text: "Il y a fort à parier que la décision sera reportée à l'automne.", tag: "pronostic", note: "Liaison /t/ : <em>fort à</em> ⇒ /fɔʁ.t‿a/" },
+    { id: "sh-010", text: "Cela étant, des progrès notables restent à accomplir.", tag: "concession C1", note: "<em>étant</em> liaison interdite avec <em>des</em>." },
+    { id: "sh-011", text: "On ne saurait trop insister sur l'importance de la formation continue.", tag: "C1 emphase", note: "/ɔ̃.nə.so.ʁɛ/ — pas /so.ʁɛt/." },
+    { id: "sh-012", text: "Certains préfèrent une approche progressive, d'autres une rupture nette.", tag: "T3 contraste", note: "Pause virgule + /do.tʁ‿yn/ liaison /z/." },
+    { id: "sh-013", text: "Il en va de même pour l'éducation et pour la santé.", tag: "T3 généralisation", note: "/il.ɑ̃.va.də.mɛm/ — élision impossible sur <em>va</em>." },
+    { id: "sh-014", text: "Cela mérite que l'on s'interroge sur ses véritables conséquences.", tag: "subj. + interro indirecte", note: "Élision <em>l'on</em> littéraire — registre soutenu." },
+    { id: "sh-015", text: "On peut raisonnablement penser que le phénomène se confirmera.", tag: "pronostic prudent", note: "/ʁɛ.zɔ.na.blə.mɑ̃/ — schwa central tombable." },
+    { id: "sh-016", text: "Il s'avère que la situation est plus complexe qu'il n'y paraît.", tag: "T3 nuance", note: "Élision <em>qu'il</em>. Ne explétif après <em>plus que</em>." },
+    { id: "sh-017", text: "Aussi paradoxal que cela puisse paraître, l'inverse est tout aussi vrai.", tag: "C1 paradoxe", note: "Subj. <em>puisse</em>. /tu.t‿o.si/ liaison /t/." },
+    { id: "sh-018", text: "En définitive, cette évolution témoigne d'une mutation plus profonde.", tag: "conclusion T3", note: "/ɑ̃.de.fi.ni.tiv/ — t prononcé final." }
+  ];
+
+  // CO dictation set — 15 sentences, traps inclus (liaisons, numbers, drop-ne)
+  TCF.codict = TCF.codict || {};
+  TCF.codict.b1b2 = [
+    { id: "cd-001", text: "Le train de quatorze heures quinze est annoncé avec un retard de vingt minutes.", level: "B1", note: "Pièges nombres : 14h15, 20 min." },
+    { id: "cd-002", text: "Soixante-quinze pour cent des étudiants ont répondu au questionnaire.", level: "B1", note: "Soixante-quinze ≠ septante-cinq." },
+    { id: "cd-003", text: "Pourriez-vous me dire à quelle heure ferme la bibliothèque ?", level: "B1", note: "Inversion polie + élision <em>m'</em>." },
+    { id: "cd-004", text: "Je n'ai pas pu trouver mon billet, j'ai dû repasser au guichet.", level: "B2", note: "Négation complète préservée." },
+    { id: "cd-005", text: "Quatre-vingt-dix-neuf personnes ont confirmé leur présence.", level: "B1", note: "Quatre-vingt-dix-neuf — quatre traits d'union." },
+    { id: "cd-006", text: "Les enfants ont mangé tous les fruits qui étaient sur la table.", level: "B1", note: "Liaisons : <em>les_enfants</em>, <em>ont_mangé</em>, <em>tous_les</em>." },
+    { id: "cd-007", text: "Il faudrait qu'on prenne une décision rapide avant la fin du mois.", level: "B2", note: "Subj. <em>qu'on prenne</em>." },
+    { id: "cd-008", text: "Bien que ce soit difficile, j'essaierai de finir le projet à temps.", level: "B2", note: "Subj. après <em>bien que</em>." },
+    { id: "cd-009", text: "L'ascenseur est en panne depuis ce matin, prenez l'escalier de droite.", level: "B1", note: "Élision <em>l'</em>, liaison /t/ <em>est_en</em>." },
+    { id: "cd-010", text: "Force est de constater que les choses ont bien changé depuis dix ans.", level: "B2", note: "Formule soutenue." },
+    { id: "cd-011", text: "Si j'avais su, je ne serais pas venu si tôt.", level: "B2", note: "Plus-que-parfait + conditionnel passé." },
+    { id: "cd-012", text: "Le rendez-vous a été reporté à mercredi prochain à dix-sept heures.", level: "B1", note: "Reporter (passif) — éviter calque <em>postponé</em>." },
+    { id: "cd-013", text: "Cela me semble être une excellente idée, j'en parlerai à mes collègues.", level: "B2", note: "<em>en parler à</em> — préposition critique." },
+    { id: "cd-014", text: "Il y a beaucoup de monde dans la salle d'attente ce matin.", level: "B1", note: "<em>il y a</em> + déterminant complexe." },
+    { id: "cd-015", text: "Quoi qu'il en soit, je préférerais que nous en discutions de vive voix.", level: "B2", note: "Subj. + <em>en discuter de</em>." }
+  ];
+
 })();

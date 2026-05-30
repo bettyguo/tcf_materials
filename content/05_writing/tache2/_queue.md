@@ -47,4 +47,4 @@
 ## Cross-references
 
 - Spec : [06_PHASE_5_WRITING.md §3.2](../../../06_PHASE_5_WRITING.md)
-- Templates : [00_templates/t2/](../00_templates/t2/)
+- Templates : [00_templates/t2/](../00_templates/t2/index.md)

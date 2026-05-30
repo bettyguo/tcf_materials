@@ -31,11 +31,11 @@ audit:
 |---|---|---|
 | Grille FEI opérationnalisée | ✅ | [00_rubric.md](00_rubric.md) |
 | Registre anti-erreurs (56 entrées) | ✅ | [00_anti_error.md](00_anti_error.md) |
-| Bibliothèque de pivots (≥ 193 phrases, 7 fichiers) | ✅ | [00_pivots/](00_pivots/) |
-| Templates (6 par tâche, 18 total + 30 instantiations) | ✅ | [00_templates/](00_templates/) |
-| Sujets T1 + modèles 6/8/10 | 🟡 3/30 | [tache1/](tache1/) · [_queue](tache1/_queue.md) |
-| Sujets T2 + modèles 6/8/10 | 🟡 3/30 | [tache2/](tache2/) · [_queue](tache2/_queue.md) |
-| Sujets T3 + modèles 6/8/10 | 🟡 3/30 | [tache3/](tache3/) · [_queue](tache3/_queue.md) |
+| Bibliothèque de pivots (≥ 193 phrases, 7 fichiers) | ✅ | [00_pivots/](00_pivots/index.md) |
+| Templates (6 par tâche, 18 total + 30 instantiations) | ✅ | [00_templates/](00_templates/index.md) |
+| Sujets T1 + modèles 6/8/10 | 🟡 3/30 | [tache1/](tache1/index.md) · [_queue](tache1/_queue.md) |
+| Sujets T2 + modèles 6/8/10 | 🟡 3/30 | [tache2/](tache2/index.md) · [_queue](tache2/_queue.md) |
+| Sujets T3 + modèles 6/8/10 | 🟡 3/30 | [tache3/](tache3/index.md) · [_queue](tache3/_queue.md) |
 | Auto-scorer CLI | ✅ (calibré 81 %) | [tools/score_writing.py](../../tools/score_writing.py) |
 
 ## Mode d'emploi

@@ -71,5 +71,5 @@ Pas de modèle inline pour cette pratique. Si tu veux comparer après ta product
 ## Renvois
 
 - Strategy EE : [`content/09_strategy/03_ee_strategy.md`](../../09_strategy/03_ee_strategy.md).
-- Pivots T1 : [`content/05_writing/00_templates/t1/`](../../05_writing/00_templates/t1/).
+- Pivots T1 : [`content/05_writing/00_templates/t1/`](../../05_writing/00_templates/t1/index.md).
 - Anti-erreur EE : [`content/05_writing/00_anti_error.md`](../../05_writing/00_anti_error.md).

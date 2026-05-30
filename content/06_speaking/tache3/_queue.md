@@ -15,7 +15,7 @@
 
 ## Détail des sujets restants
 
-| ID | Stimulus (à fabriquer / réutiliser depuis [04_reading](../../04_reading/)) | Stance probable | Mots cible |
+| ID | Stimulus (à fabriquer / réutiliser depuis [04_reading](../../04_reading/index.md)) | Stance probable | Mots cible |
 |---|---|---|---:|
 | eo-t3-004 | Citation : *« Les algorithmes pensent à notre place. »* | nuancé | 650 |
 | eo-t3-005 | Statistique : *« 73 % des étudiants utilisent ChatGPT pour leurs devoirs. »* | nuancé | 650 |
@@ -49,6 +49,6 @@
 
 - Spec : [07_PHASE_6_SPEAKING.md §3.3](../../../07_PHASE_6_SPEAKING.md)
 - Rubric : [../00_rubric.md](../00_rubric.md)
-- Stimuli T3 réutilisables : [../../04_reading/](../../04_reading/) (items tagués `usable_as_stimulus: true`)
-- Templates EE T3 (transposables) : [../../05_writing/00_templates/t3/](../../05_writing/00_templates/t3/)
+- Stimuli T3 réutilisables : [../../04_reading/](../../04_reading/index.md) (items tagués `usable_as_stimulus: true`)
+- Templates EE T3 (transposables) : [../../05_writing/00_templates/t3/](../../05_writing/00_templates/t3/index.md)
 - Schedule deferral : [../../../BACKLOG.md §Phase 6 — bulk batch](../../../BACKLOG.md)

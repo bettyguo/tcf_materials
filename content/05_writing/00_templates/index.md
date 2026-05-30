@@ -29,9 +29,9 @@ audit:
 
 | Tâche | Templates | Cas couverts |
 |---|---|---|
-| T1 (message) | [t1/](t1/) — 6 templates | demande de service, plainte, invitation/refus, excuses, conseil, remerciement |
-| T2 (article/rapport) | [t2/](t2/) — 6 templates | article informatif, témoignage, rapport bref, lettre ouverte, contribution forum, courrier des lecteurs |
-| T3 (essai) | [t3/](t3/) — 6 templates | thèse-conc-réf, problématique-2-args-bilan, pour/contre/bilan, cause-conséquence, comparaison, recommandation |
+| T1 (message) | [t1/](t1/index.md) — 6 templates | demande de service, plainte, invitation/refus, excuses, conseil, remerciement |
+| T2 (article/rapport) | [t2/](t2/index.md) — 6 templates | article informatif, témoignage, rapport bref, lettre ouverte, contribution forum, courrier des lecteurs |
+| T3 (essai) | [t3/](t3/index.md) — 6 templates | thèse-conc-réf, problématique-2-args-bilan, pour/contre/bilan, cause-conséquence, comparaison, recommandation |
 
 ## Anti-pattern : le template-zombie
 
@@ -39,6 +39,6 @@ Un template appliqué sans réflexion produit une copie correcte mais **inégale
 
 ## Cross-references
 
-- Pivots utilisés : [../00_pivots/](../00_pivots/)
+- Pivots utilisés : [../00_pivots/](../00_pivots/index.md)
 - Anti-erreurs : [../00_anti_error.md](../00_anti_error.md)
 - Rubrique : [../00_rubric.md](../00_rubric.md)

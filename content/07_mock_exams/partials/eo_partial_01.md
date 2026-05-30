@@ -81,6 +81,6 @@ Cette phrase permet de pivoter de la description vers la réflexion sans rupture
 ## Renvois
 
 - Strategy EO : [`content/09_strategy/04_eo_strategy.md`](../../09_strategy/04_eo_strategy.md).
-- Phonologie : [`content/06_speaking/00_phonology/`](../../06_speaking/00_phonology/).
+- Phonologie : [`content/06_speaking/00_phonology/`](../../06_speaking/00_phonology/index.md).
 - Anti-erreur EO : [`content/06_speaking/00_anti_error.md`](../../06_speaking/00_anti_error.md).
 - Modèles de référence : [`content/07_mock_exams/mock_02/08_eo_models_t2.md`](../mock_02/08_eo_models_t2.md) (Mock #2 utilise ce prompt).

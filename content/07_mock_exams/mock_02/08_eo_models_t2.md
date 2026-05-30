@@ -184,7 +184,7 @@ Cinq points de vigilance L1-interférence spécifiques au vocabulaire de cette c
 ## Cross-references
 
 - Grille : [../06_speaking/00_rubric.md](../../06_speaking/00_rubric.md)
-- Phonologie : [../06_speaking/00_phonology/](../../06_speaking/00_phonology/) (paires /y/-/u/, schwa, nasales)
+- Phonologie : [../06_speaking/00_phonology/](../../06_speaking/00_phonology/index.md) (paires /y/-/u/, schwa, nasales)
 - Anti-erreurs EO : [../06_speaking/00_anti_error.md](../../06_speaking/00_anti_error.md)
 - Pilote T2 : [../06_speaking/tache2/02_eo-t2-002.md](../../06_speaking/tache2/02_eo-t2-002.md)
 - Mock #1 EO T2 (comparaison) : [../mock_01/08_eo_models_t2.md](../mock_01/08_eo_models_t2.md)

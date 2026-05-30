@@ -50,4 +50,4 @@ Plus de **4 pivots par 100 mots** rend la copie artificielle. Une copie d'édito
 
 - Rubrique : [../00_rubric.md §2.3 C3](../00_rubric.md)
 - Anti-erreurs liées : [../00_anti_error.md](../00_anti_error.md)
-- Templates qui consomment ces pivots : [../00_templates/](../00_templates/)
+- Templates qui consomment ces pivots : [../00_templates/](../00_templates/index.md)

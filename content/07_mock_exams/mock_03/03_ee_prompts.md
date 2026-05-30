@@ -96,5 +96,5 @@ audit:
   - T2 : [`content/05_writing/tache2/03_ee-t2-003.md`](../../05_writing/tache2/03_ee-t2-003.md)
   - T3 : [`content/05_writing/tache3/03_ee-t3-003.md`](../../05_writing/tache3/03_ee-t3-003.md)
 - Rubrique : [`content/05_writing/00_rubric.md`](../../05_writing/00_rubric.md)
-- Pivots : [`content/05_writing/00_pivots/`](../../05_writing/00_pivots/)
+- Pivots : [`content/05_writing/00_pivots/`](../../05_writing/00_pivots/index.md)
 - File de production : [`_queue.md`](_queue.md)

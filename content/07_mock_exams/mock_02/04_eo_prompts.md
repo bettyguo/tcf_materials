@@ -126,7 +126,7 @@ Durée : **environ 3 minutes**. Pas de préparation.
   - T3 : [`content/06_speaking/tache3/02_eo-t3-002.md`](../../06_speaking/tache3/02_eo-t3-002.md)
 - Rubrique : [`content/06_speaking/00_rubric.md`](../../06_speaking/00_rubric.md)
 - Anti-erreurs : [`content/06_speaking/00_anti_error.md`](../../06_speaking/00_anti_error.md)
-- Phonologie : [`content/06_speaking/00_phonology/`](../../06_speaking/00_phonology/)
+- Phonologie : [`content/06_speaking/00_phonology/`](../../06_speaking/00_phonology/index.md)
 - Mock #1 EO (comparaison de format) : [`../mock_01/04_eo_prompts.md`](../mock_01/04_eo_prompts.md)
 
 ## Pièges phonologiques transversaux (à shadow 5 min la veille)

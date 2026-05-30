@@ -456,6 +456,6 @@ audit:
 
 - Anatomie des distracteurs : [`content/09_strategy/00_distractor_anatomy.md`](../../09_strategy/00_distractor_anatomy.md)
 - Stratégie CO : [`content/09_strategy/01_co_strategy.md`](../../09_strategy/01_co_strategy.md)
-- Banque source CO : [`content/03_listening/`](../../03_listening/)
+- Banque source CO : [`content/03_listening/`](../../03_listening/index.md)
 - Index des partials : [`index.md`](index.md)
 - Prochains partials CO : [`_queue.md`](_queue.md)

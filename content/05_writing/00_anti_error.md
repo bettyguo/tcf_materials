@@ -33,7 +33,7 @@ Pour chaque entrée :
 - ✗ *Bien que la situation est difficile, …*
 - ✓ *Bien que la situation soit difficile, …*
 - → *Bien que* déclenche **toujours** le subjonctif, même si la situation est avérée. C'est une **règle structurelle**, pas une question de doute.
-- 🔗 [01_grammar/b2_core/](../01_grammar/b2_core/) gram-b2-01
+- 🔗 [01_grammar/b2_core/](../01_grammar/b2_core/index.md) gram-b2-01
 
 ### A2 — *il faut que* + indicatif
 
@@ -409,6 +409,6 @@ Pour rattraper 1 à 2 points de score perdus par inattention, parcourir la copie
 
 ## Cross-references
 
-- Pivots qui consomment ce registre : [00_pivots/](00_pivots/)
-- Grammaire racines : [../01_grammar/](../01_grammar/) — gram-b2-01 (subj), gram-b2-04 (accord PP), gram-c1-01 (inversion + subj passé)
+- Pivots qui consomment ce registre : [00_pivots/](00_pivots/index.md)
+- Grammaire racines : [../01_grammar/](../01_grammar/index.md) — gram-b2-01 (subj), gram-b2-04 (accord PP), gram-c1-01 (inversion + subj passé)
 - Rubrique : [00_rubric.md §2.3 C3 + §2.4 C4](00_rubric.md)

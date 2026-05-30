@@ -4,6 +4,9 @@ nav:
   - tableau.md
   - plan-du-jour.md
   - hebdo.md
+  - projection.md
+  - analyse.md
+  - calendrier.md
   - defi.md
   - phrase-du-jour.md
   - objectif.md
@@ -12,10 +15,14 @@ nav:
   - equivalence.md
   - minuteur.md
   - quiz-rapide.md
+  - revue.md
   - ce-entraineur.md
   - co-entraineur.md
+  - co-dictee.md
   - ee-simulation.md
+  - ee-rubrique.md
   - eo-enregistreur.md
+  - shadow.md
   - cloze.md
   - genre.md
   - connecteurs.md
@@ -29,6 +36,7 @@ nav:
   - nombres.md
   - flashcards.md
   - conjugaison.md
+  - conjugaison-drill.md
   - verbes.md
   - dictee.md
   - wpm.md

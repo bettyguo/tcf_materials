@@ -73,7 +73,7 @@ Six sections :
 
 - ✗ *Pis, ça fait que les gens hésitent.*
 - ✓ *Et puis, par conséquent, les gens hésitent.*
-- Règle : *pis, ça fait que, tsé, en tout cas* sont **reconnus** au Québec mais hors-registre TCF. Voir [10_canada_culture](../10_canada_culture/).
+- Règle : *pis, ça fait que, tsé, en tout cas* sont **reconnus** au Québec mais hors-registre TCF. Voir [10_canada_culture](../10_canada_culture/index.md).
 
 ---
 
@@ -311,6 +311,6 @@ Six sections :
 
 - Spec : [07_PHASE_6_SPEAKING.md §2.4](../../07_PHASE_6_SPEAKING.md)
 - Rubric EO : [00_rubric.md](00_rubric.md)
-- Phonologie : [00_phonology/](00_phonology/)
+- Phonologie : [00_phonology/](00_phonology/index.md)
 - Anti-erreurs EE (réutilisable) : [05_writing/00_anti_error.md](../05_writing/00_anti_error.md)
 - Outil : [tools/score_speaking.py](../../tools/score_speaking.py) — flag automatique de R2, R4, F1, F2.

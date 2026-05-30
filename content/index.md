@@ -201,10 +201,10 @@ hide:
 # TCF Canada — Préparation B1 → C1
 
 <div class="tagline">
-Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en 12 semaines (~ 168 h). **45 outils interactifs (v1.4)**, **enregistreur EO** + **simulation EE 60 min**, **drills PC/imparfait + pronoms**, **défi quotidien**, **phrase du jour B2**, **PWA installable**, palette <kbd>Ctrl/⌘ K</kbd>.
+Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en 12 semaines (~ 168 h). **53 outils interactifs (v1.5)**, **SRS adaptatif SM-2**, **shadow speaking**, **rubrique EE self-grader**, **dictée CO précision**, **drill conjugaison**, **analyse des schémas d'erreur**, **projection NCLC**, **export calendrier .ics**, **PWA installable**, palette <kbd>Ctrl/⌘ K</kbd>, mode focus.
 </div>
 
-<div class="meta">v1.4 · CC BY-SA 4.0 · audit pipeline alive · <kbd>Ctrl</kbd>+<kbd>K</kbd> palette · <span style="opacity:.85">+8 nouveaux outils</span></div>
+<div class="meta">v1.5 · CC BY-SA 4.0 · audit pipeline alive · <kbd>Ctrl</kbd>+<kbd>K</kbd> palette · <span style="opacity:.85">+8 nouveaux outils v1.5 (SRS, shadow, rubrique, dictée, conjugaison, analyse, projection, .ics)</span></div>
 
 <div class="actions">
 <a class="primary" href="00_start_here/">Commencer maintenant →</a>
@@ -329,23 +329,82 @@ Un seul Markdown génère le **site**, le **PDF** (Pandoc + XeLaTeX), l'**EPUB**
 
 ## Tableau de bord — état du jour
 
-> **v1.4** : un coup d'œil suffit. Objectif + countdown, dashboard agrégé, revue hebdo, défi du jour, phrase du jour. Tout est calculé dans votre navigateur.
+> **v1.5** : objectif + countdown, dashboard agrégé, projection NCLC à l'examen, analyse des schémas d'erreur, revue hebdo, défi du jour, phrase du jour. Tout est calculé dans votre navigateur.
 
 <div class="tcf-phrase"></div>
 
 <div class="tcf-goal"></div>
 
+<div class="tcf-projection"></div>
+
 <div class="tcf-dashboard"></div>
 
 <div class="tcf-weekly"></div>
+
+<div class="tcf-mistake-analyze"></div>
 
 <div class="tcf-daily"></div>
 
 [**Ouvrir le tableau de bord complet →**](11_tools/tableau.md){ .md-button }
 [**Générer mon plan d'étude →**](11_tools/plan-du-jour.md){ .md-button }
-[**Tous les outils (45) →**](11_tools/index.md){ .md-button }
+[**SRS B2 noyau →**](11_tools/revue.md){ .md-button }
+[**Tous les outils (53) →**](11_tools/index.md){ .md-button }
 
-## Nouveau dans la v1.4 — 8 outils en plus
+## Nouveau dans la v1.5 — 8 outils en plus
+
+<div class="feature-grid">
+
+<a class="feature-card" href="11_tools/revue/">
+<span class="icon">🧠</span>
+<h3>SRS adaptatif SM-2</h3>
+<p>50 cartes B2 noyau. Algorithme SM-2 standard (ease + intervalle + due). Raccourcis 0–5. Export JSON.</p>
+</a>
+
+<a class="feature-card" href="11_tools/shadow/">
+<span class="icon">🗣️</span>
+<h3>Shadow speaking</h3>
+<p>18 phrases B2-C1 + TTS 1.0×/0.8× + enregistrement A/B. Pour la prosodie et les liaisons en cascade.</p>
+</a>
+
+<a class="feature-card" href="11_tools/ee-rubrique/">
+<span class="icon">📋</span>
+<h3>Rubrique EE self-grader</h3>
+<p>Score /20 sur 4 critères FEI avec détails. Brouillon autosave. Plus granulaire que l'auto-feedback.</p>
+</a>
+
+<a class="feature-card" href="11_tools/co-dictee/">
+<span class="icon">🎧</span>
+<h3>Dictée CO précision</h3>
+<p>15 phrases B1-B2 avec diff mot-à-mot. 3 écoutes max. Pièges nombres/liaisons/négations.</p>
+</a>
+
+<a class="feature-card" href="11_tools/conjugaison-drill/">
+<span class="icon">✏️</span>
+<h3>Drill conjugaison</h3>
+<p>12 verbes × 6 temps × 6 personnes = 432 formes. Production active, série + record.</p>
+</a>
+
+<a class="feature-card" href="11_tools/analyse/">
+<span class="icon">🔍</span>
+<h3>Analyse des schémas d'erreur</h3>
+<p>Cluster journal par compétence + 7 patterns détectés, suggère l'outil cible.</p>
+</a>
+
+<a class="feature-card" href="11_tools/projection/">
+<span class="icon">📈</span>
+<h3>Projection NCLC à l'examen</h3>
+<p>Trajectoire 4 mocks + taux 28 j + écart cible → NCLC projeté à la date d'examen.</p>
+</a>
+
+<a class="feature-card" href="11_tools/calendrier/">
+<span class="icon">🗓️</span>
+<h3>Calendrier .ics</h3>
+<p>18 événements (exam + 4 mocks + 12 sessions hebdo + J-7). Google/Apple/Outlook.</p>
+</a>
+
+</div>
+
+## Précédemment dans la v1.4 — 8 outils en plus
 
 <div class="feature-grid">
 
