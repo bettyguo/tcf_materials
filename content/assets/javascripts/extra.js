@@ -184,6 +184,7 @@
   // 5. Keyboard shortcuts
   // -----------------------------------------------------------------
   const SHORTCUTS = [
+    { keys: ["Ctrl/⌘", "K"], label: "Palette de commandes (v1.1)" },
     { keys: ["?"],        label: "Afficher cette aide" },
     { keys: ["s", "/"],   label: "Focus sur la recherche" },
     { keys: ["g", "h"],   label: "Aller à l'accueil" },
@@ -193,6 +194,7 @@
     { keys: ["t"],        label: "Basculer thème clair / sombre" },
     { keys: ["p"],        label: "Imprimer la page" },
     { keys: ["c"],        label: "Copier le lien permanent" },
+    { keys: ["f"],        label: "Basculer le favori (v1.1)" },
     { keys: ["Esc"],      label: "Fermer cette aide" },
   ];
 
@@ -782,6 +784,9 @@
       const total = data.length;
       const pct = Math.round((score / total) * 100);
       const verdict = pct >= 80 ? "ok" : (pct >= 60 ? "warn" : "bad");
+      if (pct === 100 && window.TCF && typeof window.TCF.confetti === "function") {
+        try { window.TCF.confetti(2200); } catch (e) {}
+      }
       const message = pct >= 80
         ? "Solide. Vous maîtrisez cette unité."
         : (pct >= 60 ? "Acceptable. Revoyez les items manqués ci-dessous." : "À retravailler. Reprenez les sections en amont.");
@@ -925,6 +930,1164 @@
       a.appendChild(arrow);
     });
   });
+
+  // -----------------------------------------------------------------
+  // 14b. Animated SVG NCLC / progress gauge
+  // -----------------------------------------------------------------
+  // Markup: <div class="tcf-gauge" data-value="503" data-max="699"
+  //              data-label="CO" data-target="503"></div>
+  // The arc animates from 0 → value on first scroll-into-view.
+  onPage(() => {
+    document.querySelectorAll(".tcf-gauge[data-value]").forEach(mountGauge);
+  });
+
+  function mountGauge(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const value = parseFloat(host.dataset.value);
+    const max = parseFloat(host.dataset.max || "100");
+    const label = host.dataset.label || "";
+    const target = host.dataset.target ? parseFloat(host.dataset.target) : null;
+    const unit = host.dataset.unit || "";
+    if (isNaN(value) || isNaN(max) || max <= 0) return;
+    const pct = Math.max(0, Math.min(1, value / max));
+    const R = 54;
+    const C = 2 * Math.PI * R;
+    const dash = (pct * C).toFixed(2);
+    const verdict = target != null
+      ? (value >= target ? "ok" : (value >= target * 0.85 ? "warn" : "bad"))
+      : "ok";
+
+    host.classList.add("is-" + verdict);
+    host.innerHTML =
+      '<svg viewBox="0 0 130 130" aria-hidden="true">' +
+        '<circle class="track" cx="65" cy="65" r="' + R + '" />' +
+        '<circle class="fill" cx="65" cy="65" r="' + R + '" ' +
+                'stroke-dasharray="0 ' + C.toFixed(2) + '" />' +
+      '</svg>' +
+      '<div class="g-center">' +
+        '<div class="g-num" data-final="' + value + '">0</div>' +
+        (unit ? '<div class="g-unit">' + escapeHtml(unit) + '</div>' : '') +
+      '</div>' +
+      (label ? '<div class="g-label">' + escapeHtml(label) + '</div>' : '') +
+      (target != null ? '<div class="g-target">cible ' + target + (unit ? " " + escapeHtml(unit) : "") + '</div>' : '');
+
+    function animate() {
+      const fill = host.querySelector("circle.fill");
+      const num = host.querySelector(".g-num");
+      if (!fill || !num) return;
+      requestAnimationFrame(() => {
+        fill.style.strokeDasharray = dash + " " + C.toFixed(2);
+        const start = performance.now(), dur = 1100;
+        const ease = (t) => 1 - Math.pow(1 - t, 3);
+        function step(now) {
+          const t = Math.min(1, (now - start) / dur);
+          num.textContent = Math.round(value * ease(t)).toLocaleString("fr-FR");
+          if (t < 1) requestAnimationFrame(step);
+          else num.textContent = value.toLocaleString("fr-FR");
+        }
+        requestAnimationFrame(step);
+      });
+    }
+
+    if (!("IntersectionObserver" in window)) { animate(); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting && !host.dataset.animated) {
+          host.dataset.animated = "1";
+          animate();
+          io.unobserve(host);
+        }
+      });
+    }, { threshold: 0.5 });
+    io.observe(host);
+  }
+
+  // -----------------------------------------------------------------
+  // 15. Flashcards with light spaced repetition (SM-2 simplified)
+  // -----------------------------------------------------------------
+  // Markup: <div class="tcf-flashcards" data-deck="grammar_b2"></div>
+  // Decks live in window.TCF.decks[key] = [{ front, back, hint?, tags? }, ...]
+  // SRS scheduling: "Again" (1d), "Hard" (3d), "Good" (7d), "Easy" (14d)
+  window.TCF.decks = window.TCF.decks || {};
+
+  onPage(() => {
+    document.querySelectorAll(".tcf-flashcards[data-deck]").forEach(mountFlashcards);
+  });
+
+  function mountFlashcards(host) {
+    if (host.dataset.mounted) return;
+    const key = host.dataset.deck;
+    const deck = window.TCF.decks[key];
+    if (!deck || !Array.isArray(deck) || !deck.length) {
+      host.innerHTML = '<p style="opacity:0.7">Deck « ' + escapeHtml(key) + ' » introuvable.</p>';
+      return;
+    }
+    host.dataset.mounted = "1";
+
+    const SCHED_KEY = "fc:" + key;
+    const STATS_KEY = "fc-stats:" + key;
+    const sched = ls.get(SCHED_KEY, {});       // { idx: dueTs }
+    const stats = ls.get(STATS_KEY, { reviewed: 0, again: 0, good: 0, easy: 0, hard: 0 });
+    const DAY = 86400000;
+    const now = Date.now();
+    function due(i) { return (sched[i] || 0) <= now; }
+
+    // Build queue: due items first, then never-seen, then everything in random order.
+    function buildQueue() {
+      const dueIdx = [];
+      const newIdx = [];
+      const lateIdx = [];
+      deck.forEach((_, i) => {
+        if (!(i in sched)) newIdx.push(i);
+        else if (due(i)) dueIdx.push(i);
+        else lateIdx.push(i);
+      });
+      shuffle(dueIdx); shuffle(newIdx);
+      return [...dueIdx, ...newIdx];
+    }
+
+    let queue = buildQueue();
+    let pos = 0;
+    let flipped = false;
+
+    function render() {
+      if (pos >= queue.length) { renderSummary(); return; }
+      const i = queue[pos];
+      const card = deck[i];
+      const total = queue.length;
+      flipped = false;
+      host.innerHTML =
+        '<div class="fc-meta"><span>Carte ' + (pos + 1) + ' / ' + total + '</span>' +
+          '<span class="fc-stats">✅ ' + stats.good + '  ⭐ ' + stats.easy + '  🔁 ' + stats.again + '</span></div>' +
+        '<div class="fc-bar"><div style="width:' + Math.round((pos / total) * 100) + '%"></div></div>' +
+        '<div class="fc-card" tabindex="0" role="button" aria-label="Cliquez ou appuyez sur Espace pour révéler la réponse">' +
+          '<div class="fc-side fc-front">' +
+            '<div class="fc-text">' + escapeHtml(card.front) + '</div>' +
+            (card.hint ? '<div class="fc-hint">' + escapeHtml(card.hint) + '</div>' : '') +
+            '<div class="fc-flip-hint">Cliquez pour révéler</div>' +
+          '</div>' +
+          '<div class="fc-side fc-back" hidden>' +
+            '<div class="fc-text fc-answer">' + escapeHtml(card.back) + '</div>' +
+            (card.note ? '<div class="fc-note"><em>' + escapeHtml(card.note) + '</em></div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="fc-grades" hidden>' +
+          '<button class="tcf-btn fc-grade" data-grade="again">🔁 À revoir <small>(1 j)</small></button>' +
+          '<button class="tcf-btn fc-grade" data-grade="hard">😬 Difficile <small>(3 j)</small></button>' +
+          '<button class="tcf-btn fc-grade primary" data-grade="good">✓ OK <small>(7 j)</small></button>' +
+          '<button class="tcf-btn fc-grade" data-grade="easy">⭐ Facile <small>(14 j)</small></button>' +
+        '</div>' +
+        '<div class="fc-footer">' +
+          '<button class="tcf-btn fc-act" data-act="skip">Passer →</button>' +
+          '<button class="tcf-btn fc-act" data-act="reset" title="Tout réinitialiser pour ce deck">↺ Réinitialiser</button>' +
+        '</div>';
+
+      const cardEl = host.querySelector(".fc-card");
+      const grades = host.querySelector(".fc-grades");
+      const front = host.querySelector(".fc-front");
+      const back  = host.querySelector(".fc-back");
+
+      function flip() {
+        flipped = true;
+        front.hidden = true;
+        back.hidden = false;
+        grades.hidden = false;
+        cardEl.classList.add("is-flipped");
+      }
+      cardEl.addEventListener("click", () => { if (!flipped) flip(); });
+      cardEl.addEventListener("keydown", (e) => { if (e.key === " " || e.key === "Enter") { e.preventDefault(); if (!flipped) flip(); } });
+
+      host.querySelectorAll(".fc-grade").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (!flipped) return;
+          const g = btn.dataset.grade;
+          const days = g === "again" ? 1 : (g === "hard" ? 3 : (g === "good" ? 7 : 14));
+          sched[i] = now + days * DAY;
+          stats.reviewed++; stats[g] = (stats[g] || 0) + 1;
+          ls.set(SCHED_KEY, sched); ls.set(STATS_KEY, stats);
+          pos++; render();
+        });
+      });
+
+      host.querySelector('[data-act=skip]').addEventListener("click", () => { pos++; render(); });
+      host.querySelector('[data-act=reset]').addEventListener("click", () => {
+        if (!confirm("Réinitialiser la progression de ce deck ?")) return;
+        ls.del(SCHED_KEY); ls.del(STATS_KEY);
+        Object.keys(sched).forEach((k) => delete sched[k]);
+        Object.assign(stats, { reviewed: 0, again: 0, good: 0, easy: 0, hard: 0 });
+        queue = buildQueue(); pos = 0;
+        toast("Deck réinitialisé", "ok");
+        render();
+      });
+    }
+
+    function renderSummary() {
+      const pctMem = stats.reviewed
+        ? Math.round(((stats.good + stats.easy) / stats.reviewed) * 100)
+        : 0;
+      host.innerHTML =
+        '<div class="fc-summary">' +
+          '<h3>Session terminée 🎉</h3>' +
+          '<p>Vous avez revu <strong>' + queue.length + '</strong> cartes. Rétention apparente : <strong>' + pctMem + ' %</strong>.</p>' +
+          '<div class="fc-grid">' +
+            '<div><span>' + stats.again + '</span><small>À revoir</small></div>' +
+            '<div><span>' + stats.hard + '</span><small>Difficiles</small></div>' +
+            '<div><span>' + stats.good + '</span><small>OK</small></div>' +
+            '<div><span>' + stats.easy + '</span><small>Faciles</small></div>' +
+          '</div>' +
+          '<div style="display:flex;gap:0.5rem;margin-top:1rem;flex-wrap:wrap">' +
+            '<button class="tcf-btn primary" data-act="again">Nouvelle session</button>' +
+            '<button class="tcf-btn" data-act="reset">↺ Réinitialiser deck</button>' +
+          '</div>' +
+        '</div>';
+      host.querySelector('[data-act=again]').addEventListener("click", () => {
+        queue = buildQueue(); pos = 0; render();
+      });
+      host.querySelector('[data-act=reset]').addEventListener("click", () => {
+        if (!confirm("Réinitialiser la progression de ce deck ?")) return;
+        ls.del(SCHED_KEY); ls.del(STATS_KEY);
+        Object.keys(sched).forEach((k) => delete sched[k]);
+        Object.assign(stats, { reviewed: 0, again: 0, good: 0, easy: 0, hard: 0 });
+        queue = buildQueue(); pos = 0; render();
+      });
+    }
+
+    render();
+  }
+
+  // -----------------------------------------------------------------
+  // 16. Conjugation drill
+  // -----------------------------------------------------------------
+  // Markup: <div class="tcf-conjugate" data-verbs="core"></div>
+  // Verb data in window.TCF.verbs[key]; we accept and grade with diacritics
+  window.TCF.verbs = window.TCF.verbs || {};
+
+  onPage(() => {
+    document.querySelectorAll(".tcf-conjugate[data-verbs]").forEach(mountConjugate);
+  });
+
+  function stripAccents(s) {
+    return String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+  }
+
+  function mountConjugate(host) {
+    if (host.dataset.mounted) return;
+    const key = host.dataset.verbs;
+    const verbs = window.TCF.verbs[key];
+    if (!verbs || !Array.isArray(verbs) || !verbs.length) {
+      host.innerHTML = '<p style="opacity:0.7">Banque verbale « ' + escapeHtml(key) + ' » introuvable.</p>';
+      return;
+    }
+    host.dataset.mounted = "1";
+
+    const TENSES = [
+      { id: "pres",  label: "présent" },
+      { id: "pc",    label: "passé composé" },
+      { id: "imp",   label: "imparfait" },
+      { id: "fut",   label: "futur simple" },
+      { id: "cond",  label: "conditionnel présent" },
+      { id: "subj",  label: "subjonctif présent" },
+    ];
+    const PERSONS = ["je", "tu", "il", "nous", "vous", "ils"];
+    const STATE_KEY = "conj:" + key;
+    const state = ls.get(STATE_KEY, { score: 0, attempts: 0, streak: 0, best: 0, weak: {} });
+
+    let q = null;
+
+    function pickQuestion() {
+      const enabled = TENSES.filter((t) => host.querySelector('input[data-tense='+t.id+']').checked);
+      if (!enabled.length) return null;
+      // Bias toward weak items
+      const candidates = [];
+      verbs.forEach((v) => {
+        enabled.forEach((t) => {
+          if (!v.forms || !v.forms[t.id]) return;
+          PERSONS.forEach((p, pi) => {
+            if (!v.forms[t.id][pi]) return;
+            const id = v.inf + "|" + t.id + "|" + pi;
+            const w = state.weak[id] || 0;
+            for (let k = 0; k < (1 + w * 2); k++) candidates.push({ v, t, pi, p, id });
+          });
+        });
+      });
+      return candidates.length ? candidates[Math.floor(Math.random() * candidates.length)] : null;
+    }
+
+    function render() {
+      const enabledLabels = TENSES.map((t) => {
+        const checked = state.tensesSelected ? state.tensesSelected.includes(t.id) : (t.id === "pres" || t.id === "pc");
+        return '<label class="cj-tense"><input type="checkbox" data-tense="' + t.id + '"' +
+          (checked ? " checked" : "") + '>' + t.label + '</label>';
+      }).join("");
+      host.innerHTML =
+        '<div class="cj-head">' +
+          '<div class="cj-score">Score : <strong>' + state.score + ' / ' + state.attempts + '</strong>' +
+            ' · Série : <strong>' + state.streak + '</strong> · Meilleure : <strong>' + state.best + '</strong></div>' +
+          '<div class="cj-tenses">' + enabledLabels + '</div>' +
+        '</div>' +
+        '<div class="cj-prompt">' +
+          '<div class="cj-instruction">Conjugaison demandée :</div>' +
+          '<div class="cj-target"></div>' +
+        '</div>' +
+        '<div class="cj-input-row">' +
+          '<input class="cj-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="tapez la forme conjuguée…" />' +
+          '<button class="tcf-btn primary cj-submit" type="button">Valider</button>' +
+          '<button class="tcf-btn cj-skip" type="button" title="Voir la réponse">Passer</button>' +
+        '</div>' +
+        '<div class="cj-feedback" hidden></div>';
+
+      const tEls = host.querySelectorAll('input[data-tense]');
+      tEls.forEach((el) => el.addEventListener("change", () => {
+        state.tensesSelected = Array.from(tEls).filter((x) => x.checked).map((x) => x.dataset.tense);
+        ls.set(STATE_KEY, state);
+        next();
+      }));
+
+      const input = host.querySelector(".cj-input");
+      const feedback = host.querySelector(".cj-feedback");
+      const submitBtn = host.querySelector(".cj-submit");
+      const skipBtn   = host.querySelector(".cj-skip");
+
+      function next() {
+        q = pickQuestion();
+        feedback.hidden = true; feedback.className = "cj-feedback";
+        input.value = ""; input.disabled = false; input.focus();
+        submitBtn.disabled = false; submitBtn.textContent = "Valider";
+        const target = host.querySelector(".cj-target");
+        if (!q) { target.textContent = "Cochez au moins un temps."; return; }
+        target.innerHTML = '<span class="cj-verb">' + escapeHtml(q.v.inf) + '</span>' +
+          ' · <span class="cj-tense-tag">' + escapeHtml(q.t.label) + '</span>' +
+          ' · <span class="cj-person">' + escapeHtml(q.p) + '</span>';
+      }
+      function check() {
+        if (!q) return;
+        const given = input.value.trim();
+        const correct = q.v.forms[q.t.id][q.pi];
+        const ok = stripAccents(given) === stripAccents(correct);
+        state.attempts++;
+        if (ok) {
+          state.score++; state.streak++; state.best = Math.max(state.best, state.streak);
+          state.weak[q.id] = Math.max(0, (state.weak[q.id] || 0) - 1);
+          feedback.hidden = false; feedback.className = "cj-feedback ok";
+          feedback.innerHTML = "✓ Correct — <strong>" + escapeHtml(correct) + "</strong>";
+        } else {
+          state.streak = 0;
+          state.weak[q.id] = (state.weak[q.id] || 0) + 1;
+          feedback.hidden = false; feedback.className = "cj-feedback bad";
+          feedback.innerHTML = "✗ Attendu : <strong>" + escapeHtml(correct) + "</strong>" +
+            (given ? " — vous avez tapé <em>" + escapeHtml(given) + "</em>" : "");
+        }
+        ls.set(STATE_KEY, state);
+        host.querySelector(".cj-score").innerHTML =
+          'Score : <strong>' + state.score + ' / ' + state.attempts + '</strong>' +
+          ' · Série : <strong>' + state.streak + '</strong> · Meilleure : <strong>' + state.best + '</strong>';
+        input.disabled = true;
+        submitBtn.textContent = "Suivante →";
+        submitBtn.onclick = () => { submitBtn.onclick = check; next(); };
+      }
+      submitBtn.onclick = check;
+      skipBtn.addEventListener("click", () => {
+        if (!q) return;
+        feedback.hidden = false; feedback.className = "cj-feedback warn";
+        feedback.innerHTML = "Réponse : <strong>" + escapeHtml(q.v.forms[q.t.id][q.pi]) + "</strong>";
+        state.attempts++; state.streak = 0;
+        state.weak[q.id] = (state.weak[q.id] || 0) + 1;
+        ls.set(STATE_KEY, state);
+        input.disabled = true;
+        submitBtn.textContent = "Suivante →";
+        submitBtn.onclick = () => { submitBtn.onclick = check; next(); };
+      });
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") { e.preventDefault(); if (!input.disabled) check(); else submitBtn.click(); }
+      });
+      next();
+    }
+
+    render();
+  }
+
+  // -----------------------------------------------------------------
+  // 17. Dictée widget (Web Speech API TTS — listen + type)
+  // -----------------------------------------------------------------
+  // Markup: <div class="tcf-dictee" data-set="b2_short"></div>
+  // Sets in window.TCF.dictees[key] = [{ text, gloss?, voice? }, …]
+  window.TCF.dictees = window.TCF.dictees || {};
+
+  onPage(() => {
+    document.querySelectorAll(".tcf-dictee[data-set]").forEach(mountDictee);
+  });
+
+  function pickFrenchVoice() {
+    if (!("speechSynthesis" in window)) return null;
+    const voices = window.speechSynthesis.getVoices() || [];
+    const fr = voices.filter((v) => /^fr/i.test(v.lang));
+    if (!fr.length) return null;
+    // Prefer Canadian → female → first
+    return fr.find((v) => /CA/i.test(v.lang)) || fr.find((v) => /female|amelie|aurelie|virginie|hortense/i.test(v.name)) || fr[0];
+  }
+
+  function mountDictee(host) {
+    if (host.dataset.mounted) return;
+    const key = host.dataset.set;
+    const set = window.TCF.dictees[key];
+    if (!set || !Array.isArray(set) || !set.length) {
+      host.innerHTML = '<p style="opacity:0.7">Dictée « ' + escapeHtml(key) + ' » introuvable.</p>';
+      return;
+    }
+    host.dataset.mounted = "1";
+
+    if (!("speechSynthesis" in window)) {
+      host.innerHTML = '<p style="opacity:0.7">Votre navigateur ne supporte pas la synthèse vocale Web. Essayez Chrome/Edge récent.</p>';
+      return;
+    }
+
+    let idx = 0; let attempts = 0; let score = 0; let rate = 0.9;
+
+    function levenshtein(a, b) {
+      a = stripAccents(a); b = stripAccents(b);
+      const m = a.length, n = b.length;
+      if (!m) return n; if (!n) return m;
+      const d = Array.from({ length: m + 1 }, (_, i) => [i].concat(new Array(n).fill(0)));
+      for (let j = 0; j <= n; j++) d[0][j] = j;
+      for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+          const cost = a[i-1] === b[j-1] ? 0 : 1;
+          d[i][j] = Math.min(d[i-1][j] + 1, d[i][j-1] + 1, d[i-1][j-1] + cost);
+        }
+      }
+      return d[m][n];
+    }
+
+    function speak(text) {
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+      const u = new SpeechSynthesisUtterance(text);
+      const v = pickFrenchVoice();
+      if (v) u.voice = v;
+      u.lang = (v && v.lang) || "fr-FR";
+      u.rate = rate;
+      u.pitch = 1.0;
+      window.speechSynthesis.speak(u);
+    }
+
+    function render() {
+      const item = set[idx];
+      if (!item) { renderSummary(); return; }
+      host.innerHTML =
+        '<div class="dc-head"><span>Phrase ' + (idx + 1) + ' / ' + set.length + '</span>' +
+          '<span class="dc-score">Score : ' + score + ' / ' + attempts + '</span></div>' +
+        '<div class="dc-bar"><div style="width:' + Math.round((idx / set.length) * 100) + '%"></div></div>' +
+        '<div class="dc-controls">' +
+          '<button class="tcf-btn primary dc-play">🔊 Écouter</button>' +
+          '<button class="tcf-btn dc-replay">↻ Re-écouter</button>' +
+          '<div class="dc-rate" role="group" aria-label="Vitesse de lecture">' +
+            '<small>Vitesse :</small>' +
+            ['0.7','0.85','1.0','1.15'].map((r) =>
+              '<button data-rate="' + r + '"' + (parseFloat(r) === rate ? ' class="is-active"' : '') + '>' + r + '×</button>'
+            ).join("") +
+          '</div>' +
+        '</div>' +
+        '<textarea class="dc-input" rows="3" placeholder="Tapez ce que vous entendez…" autocapitalize="sentences"></textarea>' +
+        '<div class="dc-actions">' +
+          '<button class="tcf-btn primary dc-check">Vérifier</button>' +
+          '<button class="tcf-btn dc-show">Voir la phrase</button>' +
+          '<button class="tcf-btn dc-skip">Passer →</button>' +
+        '</div>' +
+        '<div class="dc-feedback" hidden></div>';
+
+      const playBtn = host.querySelector(".dc-play");
+      const replayBtn = host.querySelector(".dc-replay");
+      const input = host.querySelector(".dc-input");
+      const feedback = host.querySelector(".dc-feedback");
+      const rateBtns = host.querySelectorAll(".dc-rate button");
+
+      playBtn.addEventListener("click", () => speak(item.text));
+      replayBtn.addEventListener("click", () => speak(item.text));
+      rateBtns.forEach((b) => b.addEventListener("click", () => {
+        rate = parseFloat(b.dataset.rate);
+        rateBtns.forEach((x) => x.classList.remove("is-active"));
+        b.classList.add("is-active");
+      }));
+
+      function gradeAnswer() {
+        const given = input.value.trim();
+        const expected = item.text;
+        const distance = levenshtein(given, expected);
+        const sim = Math.max(0, 1 - distance / Math.max(1, expected.length));
+        const pct = Math.round(sim * 100);
+        attempts++;
+        if (pct >= 92) {
+          score++;
+          feedback.hidden = false; feedback.className = "dc-feedback ok";
+          feedback.innerHTML = '✓ <strong>' + pct + ' %</strong> de similarité — phrase reconnue.<br>' +
+            '<em>' + escapeHtml(expected) + '</em>' +
+            (item.gloss ? '<br><small>' + escapeHtml(item.gloss) + '</small>' : '');
+        } else if (pct >= 70) {
+          feedback.hidden = false; feedback.className = "dc-feedback warn";
+          feedback.innerHTML = '◐ <strong>' + pct + ' %</strong> — proche, vérifiez accents et finales.<br>' +
+            '<em>' + escapeHtml(expected) + '</em>';
+        } else {
+          feedback.hidden = false; feedback.className = "dc-feedback bad";
+          feedback.innerHTML = '✗ <strong>' + pct + ' %</strong> — réécoutez en vitesse réduite.<br>' +
+            '<em>' + escapeHtml(expected) + '</em>';
+        }
+      }
+      host.querySelector(".dc-check").addEventListener("click", gradeAnswer);
+      host.querySelector(".dc-show").addEventListener("click", () => {
+        feedback.hidden = false; feedback.className = "dc-feedback";
+        feedback.innerHTML = 'Phrase : <em>' + escapeHtml(item.text) + '</em>';
+      });
+      host.querySelector(".dc-skip").addEventListener("click", () => { idx++; render(); });
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); gradeAnswer(); }
+      });
+      // Auto-play on render
+      setTimeout(() => speak(item.text), 250);
+    }
+
+    function renderSummary() {
+      const pct = Math.round((score / Math.max(1, attempts)) * 100);
+      host.innerHTML =
+        '<div class="dc-summary"><h3>Dictée terminée</h3>' +
+          '<p>Score : <strong>' + score + ' / ' + attempts + '</strong> (' + pct + ' %).</p>' +
+          '<button class="tcf-btn primary" data-act="again">Recommencer</button></div>';
+      host.querySelector('[data-act=again]').addEventListener("click", () => {
+        idx = 0; attempts = 0; score = 0; render();
+      });
+    }
+
+    render();
+  }
+
+  // -----------------------------------------------------------------
+  // 18. Score tracker (mock exam attempts → trajectory chart)
+  // -----------------------------------------------------------------
+  // Markup: <div class="tcf-tracker" data-key="mocks"></div>
+  onPage(() => {
+    document.querySelectorAll(".tcf-tracker[data-key]").forEach(mountTracker);
+  });
+
+  function mountTracker(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+
+    const key = "tracker:" + host.dataset.key;
+    const entries = ls.get(key, []); // [{ date, label, co, ce, ee, eo }]
+
+    function render() {
+      host.innerHTML =
+        '<h3>Suivi des examens blancs</h3>' +
+        '<form class="tr-form" autocomplete="off">' +
+          '<input type="date" name="date" required />' +
+          '<input type="text" name="label" placeholder="Mock #1, Diagnostic, …" maxlength="40" required />' +
+          '<input type="number" name="co" placeholder="CO / 699" min="0" max="699" step="1" />' +
+          '<input type="number" name="ce" placeholder="CE / 699" min="0" max="699" step="1" />' +
+          '<input type="number" name="ee" placeholder="EE / 20"  min="0" max="20"  step="1" />' +
+          '<input type="number" name="eo" placeholder="EO / 20"  min="0" max="20"  step="1" />' +
+          '<button class="tcf-btn primary" type="submit">+ Ajouter</button>' +
+        '</form>' +
+        '<div class="tr-chart" aria-label="Graphique de progression"></div>' +
+        '<div class="tr-table"></div>' +
+        '<div class="tr-actions">' +
+          '<button class="tcf-btn" data-act="export">Exporter (JSON)</button>' +
+          '<button class="tcf-btn" data-act="clear">↺ Vider</button>' +
+        '</div>';
+
+      const form = host.querySelector(".tr-form");
+      // Default date today (yyyy-mm-dd)
+      const dt = new Date();
+      const isoDate = [dt.getFullYear(), String(dt.getMonth() + 1).padStart(2, "0"), String(dt.getDate()).padStart(2, "0")].join("-");
+      form.elements.date.value = isoDate;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const f = Object.fromEntries(new FormData(form).entries());
+        entries.push({
+          date: f.date,
+          label: f.label,
+          co: f.co !== "" ? parseFloat(f.co) : null,
+          ce: f.ce !== "" ? parseFloat(f.ce) : null,
+          ee: f.ee !== "" ? parseFloat(f.ee) : null,
+          eo: f.eo !== "" ? parseFloat(f.eo) : null,
+        });
+        entries.sort((a, b) => a.date.localeCompare(b.date));
+        ls.set(key, entries);
+        form.elements.label.value = ""; form.elements.co.value = "";
+        form.elements.ce.value = ""; form.elements.ee.value = ""; form.elements.eo.value = "";
+        renderChart(); renderTable();
+        toast("Entrée enregistrée", "ok");
+      });
+
+      host.querySelector('[data-act=clear]').addEventListener("click", () => {
+        if (!confirm("Vider tout l'historique ?")) return;
+        entries.length = 0; ls.del(key);
+        renderChart(); renderTable();
+        toast("Historique vidé", "ok");
+      });
+      host.querySelector('[data-act=export]').addEventListener("click", () => {
+        const blob = new Blob([JSON.stringify(entries, null, 2)], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "tcf-tracker.json";
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+      renderChart(); renderTable();
+    }
+
+    function nclcOf(co, ce, ee, eo) {
+      const nco = nclcFromRaw(NCLC_CO_CE, co);
+      const nce = nclcFromRaw(NCLC_CO_CE, ce);
+      const nee = nclcFromRaw(NCLC_EE_EO, ee);
+      const neo = nclcFromRaw(NCLC_EE_EO, eo);
+      const arr = [nco, nce, nee, neo].filter((x) => x != null);
+      return arr.length ? Math.min(...arr) : null;
+    }
+
+    function renderChart() {
+      const host2 = host.querySelector(".tr-chart");
+      if (!entries.length) { host2.innerHTML = '<p style="opacity:0.7;text-align:center;padding:1rem">Pas encore d\'entrée. Ajoutez votre premier mock pour voir la trajectoire.</p>'; return; }
+      const W = 640, H = 260, PAD = { l: 40, r: 24, t: 18, b: 36 };
+      const n = entries.length;
+      const yMax = 10;
+      const X = (i) => PAD.l + (i / Math.max(1, n - 1)) * (W - PAD.l - PAD.r);
+      const Y = (v) => PAD.t + (1 - v / yMax) * (H - PAD.t - PAD.b);
+      const points = entries.map((e, i) => ({ i, x: X(i), nclc: nclcOf(e.co, e.ce, e.ee, e.eo) }));
+
+      const gridY = [0,2,4,6,8,10].map((g) =>
+        '<line class="tr-grid" x1="' + PAD.l + '" x2="' + (W - PAD.r) + '" y1="' + Y(g) + '" y2="' + Y(g) + '" />' +
+        '<text class="tr-axis" x="' + (PAD.l - 6) + '" y="' + (Y(g) + 4) + '" text-anchor="end">NCLC ' + g + '</text>'
+      ).join("");
+
+      const targetLine = '<line class="tr-target" x1="' + PAD.l + '" x2="' + (W - PAD.r) +
+        '" y1="' + Y(7) + '" y2="' + Y(7) + '" />' +
+        '<text class="tr-target-lbl" x="' + (W - PAD.r - 4) + '" y="' + (Y(7) - 4) + '" text-anchor="end">cible NCLC 7</text>';
+
+      const path = points
+        .filter((p) => p.nclc != null)
+        .map((p, i) => (i === 0 ? "M" : "L") + p.x.toFixed(1) + "," + Y(p.nclc).toFixed(1)).join(" ");
+
+      const dots = points.map((p) => {
+        if (p.nclc == null) return "";
+        const e = entries[p.i];
+        const ok = p.nclc >= 7;
+        return '<g class="tr-dot ' + (ok ? "ok" : "warn") + '">' +
+          '<circle cx="' + p.x.toFixed(1) + '" cy="' + Y(p.nclc).toFixed(1) + '" r="5" />' +
+          '<title>' + escapeHtml(e.label + " — " + e.date + " · NCLC " + p.nclc) + '</title>' +
+          '</g>';
+      }).join("");
+
+      const xLabels = entries.map((e, i) =>
+        '<text class="tr-axis tr-x" x="' + X(i) + '" y="' + (H - PAD.b + 18) + '" text-anchor="middle">' +
+          escapeHtml(e.date.slice(5)) + '</text>'
+      ).join("");
+
+      host2.innerHTML =
+        '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Progression NCLC">' +
+          gridY + targetLine +
+          '<path class="tr-line" d="' + path + '" />' +
+          dots + xLabels +
+        '</svg>';
+    }
+
+    function renderTable() {
+      const host2 = host.querySelector(".tr-table");
+      if (!entries.length) { host2.innerHTML = ""; return; }
+      host2.innerHTML =
+        '<table class="tr-tbl"><thead><tr>' +
+          '<th>Date</th><th>Étiquette</th><th>CO</th><th>CE</th><th>EE</th><th>EO</th><th>NCLC</th><th></th>' +
+        '</tr></thead><tbody>' +
+        entries.map((e, i) => {
+          const n = nclcOf(e.co, e.ce, e.ee, e.eo);
+          return '<tr><td>' + escapeHtml(e.date) + '</td>' +
+            '<td>' + escapeHtml(e.label) + '</td>' +
+            '<td>' + (e.co != null ? e.co : "—") + '</td>' +
+            '<td>' + (e.ce != null ? e.ce : "—") + '</td>' +
+            '<td>' + (e.ee != null ? e.ee : "—") + '</td>' +
+            '<td>' + (e.eo != null ? e.eo : "—") + '</td>' +
+            '<td><strong>' + (n != null ? n : "—") + '</strong></td>' +
+            '<td><button class="tcf-btn tr-del" data-i="' + i + '" title="Supprimer">×</button></td>' +
+            '</tr>';
+        }).join("") +
+        '</tbody></table>';
+      host2.querySelectorAll(".tr-del").forEach((b) => b.addEventListener("click", () => {
+        const i = parseInt(b.dataset.i, 10);
+        entries.splice(i, 1);
+        ls.set(key, entries);
+        renderChart(); renderTable();
+      }));
+    }
+
+    render();
+  }
+
+  // -----------------------------------------------------------------
+  // 19. Daily study streak / habit tracker
+  // -----------------------------------------------------------------
+  // Markup: <div class="tcf-streak"></div>
+  onPage(() => {
+    document.querySelectorAll(".tcf-streak").forEach(mountStreak);
+  });
+
+  function ymd(d) {
+    const x = (d instanceof Date) ? d : new Date(d);
+    return [x.getFullYear(), String(x.getMonth() + 1).padStart(2, "0"), String(x.getDate()).padStart(2, "0")].join("-");
+  }
+  function addDays(s, n) { const d = new Date(s); d.setDate(d.getDate() + n); return ymd(d); }
+
+  function mountStreak(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const KEY = "streak:days";
+    const days = ls.get(KEY, {});
+
+    function computeStreaks() {
+      const today = ymd(new Date());
+      let cur = 0, best = 0, run = 0;
+      const allDates = Object.keys(days).filter((d) => days[d]).sort();
+      if (!allDates.length) return { cur: 0, best: 0, total: 0 };
+      // Determine current streak (ending today or yesterday)
+      let cursor = today;
+      while (days[cursor]) { cur++; cursor = addDays(cursor, -1); }
+      if (!cur) {
+        const yesterday = addDays(today, -1);
+        cursor = yesterday;
+        while (days[cursor]) { cur++; cursor = addDays(cursor, -1); }
+      }
+      // Best streak — sweep
+      let prev = null;
+      allDates.forEach((d) => {
+        if (prev && addDays(prev, 1) === d) run++;
+        else run = 1;
+        best = Math.max(best, run);
+        prev = d;
+      });
+      return { cur, best, total: allDates.length };
+    }
+
+    function render() {
+      const today = ymd(new Date());
+      const s = computeStreaks();
+      // Render last 91 days (13 weeks) as a heatmap
+      const cells = [];
+      for (let i = 90; i >= 0; i--) {
+        const d = addDays(today, -i);
+        cells.push({ d, on: !!days[d] });
+      }
+      host.innerHTML =
+        '<div class="sk-head">' +
+          '<div class="sk-num"><span>' + s.cur + '</span><small>jours d\'affilée</small></div>' +
+          '<div class="sk-num"><span>' + s.best + '</span><small>meilleure série</small></div>' +
+          '<div class="sk-num"><span>' + s.total + '</span><small>total étudié</small></div>' +
+        '</div>' +
+        '<div class="sk-heatmap" aria-label="Carte de chaleur d\'étude sur 13 semaines">' +
+          cells.map((c) =>
+            '<div class="sk-cell ' + (c.on ? "is-on" : "") + (c.d === today ? " is-today" : "") +
+              '" data-d="' + c.d + '" title="' + c.d + (c.on ? " — étudié" : "") + '"></div>'
+          ).join("") +
+        '</div>' +
+        '<div class="sk-actions">' +
+          '<button class="tcf-btn primary" data-act="today">' + (days[today] ? "✓ Étudié aujourd'hui" : "Marquer aujourd'hui comme étudié") + '</button>' +
+          '<button class="tcf-btn" data-act="reset">↺ Tout effacer</button>' +
+        '</div>' +
+        '<p class="sk-hint">Cliquez n\'importe quel jour pour basculer son état. Une journée = ≥ 30 min d\'étude.</p>';
+
+      host.querySelectorAll(".sk-cell").forEach((c) => c.addEventListener("click", () => {
+        const d = c.dataset.d;
+        if (days[d]) delete days[d]; else days[d] = 1;
+        ls.set(KEY, days);
+        render();
+      }));
+      host.querySelector('[data-act=today]').addEventListener("click", () => {
+        if (days[today]) delete days[today]; else days[today] = 1;
+        ls.set(KEY, days); render();
+      });
+      host.querySelector('[data-act=reset]').addEventListener("click", () => {
+        if (!confirm("Effacer tout l'historique d'étude ?")) return;
+        Object.keys(days).forEach((k) => delete days[k]);
+        ls.del(KEY); render(); toast("Historique effacé", "ok");
+      });
+    }
+    render();
+  }
+
+  // -----------------------------------------------------------------
+  // 20. Live word counter for EE practice
+  // -----------------------------------------------------------------
+  // Markup: <div class="tcf-wordcount" data-target-min="60" data-target-max="120"></div>
+  onPage(() => {
+    document.querySelectorAll(".tcf-wordcount").forEach(mountWordCount);
+  });
+
+  function mountWordCount(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const tmin = parseInt(host.dataset.targetMin || "60", 10);
+    const tmax = parseInt(host.dataset.targetMax || "120", 10);
+    const KEY = "wc:" + (host.dataset.key || "default");
+    const saved = ls.get(KEY, "");
+
+    host.innerHTML =
+      '<div class="wc-head">' +
+        '<div>Compteur EE — cible <strong>' + tmin + '–' + tmax + '</strong> mots</div>' +
+        '<div class="wc-stats" role="status" aria-live="polite">' +
+          '<span class="wc-words"><strong>0</strong> mots</span>' +
+          '<span class="wc-chars"><strong>0</strong> car.</span>' +
+          '<span class="wc-sent"><strong>0</strong> phrases</span>' +
+          '<span class="wc-read"><strong>0</strong> min lecture</span>' +
+        '</div>' +
+      '</div>' +
+      '<textarea class="wc-input" rows="10" placeholder="Rédigez ici…">' + escapeHtml(saved) + '</textarea>' +
+      '<div class="wc-bar"><div class="wc-fill"></div></div>' +
+      '<div class="wc-foot">' +
+        '<button class="tcf-btn" data-act="copy">Copier</button>' +
+        '<button class="tcf-btn" data-act="clear">Effacer</button>' +
+        '<small class="wc-saved">Sauvegardé automatiquement</small>' +
+      '</div>';
+
+    const ta = host.querySelector(".wc-input");
+    const fill = host.querySelector(".wc-fill");
+    const wordsEl = host.querySelector(".wc-words strong");
+    const charsEl = host.querySelector(".wc-chars strong");
+    const sentEl  = host.querySelector(".wc-sent strong");
+    const readEl  = host.querySelector(".wc-read strong");
+
+    function update() {
+      const text = ta.value;
+      const words = (text.trim().match(/\S+/g) || []).length;
+      const chars = text.length;
+      const sent  = (text.match(/[.!?…]+/g) || []).length;
+      const read  = Math.max(1, Math.round(words / 200));
+      wordsEl.textContent = words;
+      charsEl.textContent = chars;
+      sentEl.textContent  = sent;
+      readEl.textContent  = read;
+      const pct = Math.min(120, Math.round((words / tmax) * 100));
+      fill.style.width = Math.min(100, pct) + "%";
+      if (words >= tmin && words <= tmax) fill.className = "wc-fill ok";
+      else if (words > tmax) fill.className = "wc-fill warn";
+      else fill.className = "wc-fill";
+      ls.set(KEY, text);
+    }
+    ta.addEventListener("input", update);
+    host.querySelector('[data-act=copy]').addEventListener("click", () => {
+      navigator.clipboard?.writeText(ta.value).then(
+        () => toast("Texte copié", "ok"),
+        () => toast("Copie indisponible", "warn")
+      );
+    });
+    host.querySelector('[data-act=clear]').addEventListener("click", () => {
+      if (!confirm("Effacer le brouillon ?")) return;
+      ta.value = ""; update(); toast("Brouillon effacé", "ok");
+    });
+    update();
+  }
+
+  // -----------------------------------------------------------------
+  // 21. WPM / reading speed test
+  // -----------------------------------------------------------------
+  // Markup: <div class="tcf-wpm" data-passage="ce_b2"></div>
+  // Passages in window.TCF.passages[key] = { text, words?, source? }
+  window.TCF.passages = window.TCF.passages || {};
+
+  onPage(() => {
+    document.querySelectorAll(".tcf-wpm[data-passage]").forEach(mountWpm);
+  });
+
+  function mountWpm(host) {
+    if (host.dataset.mounted) return;
+    const key = host.dataset.passage;
+    const p = window.TCF.passages[key];
+    if (!p) { host.innerHTML = '<p style="opacity:0.7">Passage introuvable.</p>'; return; }
+    host.dataset.mounted = "1";
+
+    const words = p.words || (p.text.trim().match(/\S+/g) || []).length;
+    let start = null, end = null;
+
+    host.innerHTML =
+      '<div class="wpm-head"><strong>Test de vitesse de lecture</strong>' +
+        ' · <span>' + words + ' mots</span>' +
+        (p.source ? ' · <span class="wpm-src">source : ' + escapeHtml(p.source) + '</span>' : '') +
+      '</div>' +
+      '<div class="wpm-passage" hidden>' + p.text.split(/\n+/).map((para) => '<p>' + escapeHtml(para) + '</p>').join("") + '</div>' +
+      '<div class="wpm-actions">' +
+        '<button class="tcf-btn primary" data-act="start">▶ Démarrer la lecture</button>' +
+        '<button class="tcf-btn" data-act="stop" hidden>⏹ J\'ai fini</button>' +
+        '<button class="tcf-btn" data-act="again" hidden>↻ Nouveau test</button>' +
+      '</div>' +
+      '<div class="wpm-result" hidden></div>';
+
+    const passage = host.querySelector(".wpm-passage");
+    const startBtn = host.querySelector('[data-act=start]');
+    const stopBtn  = host.querySelector('[data-act=stop]');
+    const againBtn = host.querySelector('[data-act=again]');
+    const result   = host.querySelector(".wpm-result");
+
+    startBtn.addEventListener("click", () => {
+      start = performance.now();
+      passage.hidden = false;
+      startBtn.hidden = true;
+      stopBtn.hidden = false;
+      result.hidden = true;
+    });
+    stopBtn.addEventListener("click", () => {
+      end = performance.now();
+      const sec = (end - start) / 1000;
+      const wpm = Math.round(words / (sec / 60));
+      const band = wpm >= 220 ? { kind: "ok", msg: "Excellent — vitesse confortable B2/C1." } :
+                   wpm >= 170 ? { kind: "ok", msg: "Solide — adéquat pour 39 items / 60 min." } :
+                   wpm >= 120 ? { kind: "warn", msg: "Acceptable — entraînez-vous à 200 wpm pour finir avec relecture." } :
+                                { kind: "bad", msg: "À renforcer — visez 170 wpm minimum, sinon survol forcé en CE." };
+      result.hidden = false;
+      result.className = "wpm-result " + band.kind;
+      result.innerHTML = '<strong>' + wpm + ' mots / minute</strong> · ' + sec.toFixed(1) + ' s · ' + escapeHtml(band.msg);
+      stopBtn.hidden = true;
+      againBtn.hidden = false;
+    });
+    againBtn.addEventListener("click", () => {
+      passage.hidden = true;
+      startBtn.hidden = false;
+      againBtn.hidden = true;
+      result.hidden = true;
+    });
+  }
+
+  // -----------------------------------------------------------------
+  // 22. Bookmarks / favorites
+  // -----------------------------------------------------------------
+  // Markup: <div class="tcf-favorites"></div>
+  // Plus a star toggle injected next to page H1 on every page (when sidebar
+  // shows TOC). Click to add/remove the current page from favorites.
+  const FAV_KEY = "favs";
+
+  onPage(() => {
+    // Mount manager: star button
+    const h1 = document.querySelector(".md-content h1");
+    if (h1 && !h1.querySelector(".tcf-fav-toggle")) {
+      const btn = document.createElement("button");
+      btn.className = "tcf-fav-toggle";
+      btn.type = "button";
+      btn.setAttribute("aria-label", "Ajouter aux favoris");
+      btn.title = "Ajouter cette page aux favoris (f)";
+      btn.innerHTML = "☆";
+      refreshFav(btn);
+      btn.addEventListener("click", () => { toggleFav(); refreshFav(btn); });
+      h1.appendChild(btn);
+    }
+    // Mount list widget
+    document.querySelectorAll(".tcf-favorites").forEach(mountFavorites);
+  });
+
+  function favKey() { return location.pathname; }
+  function favLabel() {
+    const h1 = document.querySelector(".md-content h1");
+    return (h1 ? h1.textContent.replace("☆", "").replace("★", "").trim() : document.title) || location.pathname;
+  }
+  function getFavs() { return ls.get(FAV_KEY, []); }
+  function setFavs(arr) { ls.set(FAV_KEY, arr); }
+  function isFav() { return getFavs().some((f) => f.path === favKey()); }
+  function toggleFav() {
+    const favs = getFavs();
+    const k = favKey();
+    const i = favs.findIndex((f) => f.path === k);
+    if (i >= 0) { favs.splice(i, 1); toast("Retiré des favoris", "ok"); }
+    else {
+      favs.unshift({ path: k, title: favLabel(), addedAt: ymd(new Date()) });
+      if (favs.length > 60) favs.pop();
+      toast("Ajouté aux favoris", "ok");
+    }
+    setFavs(favs);
+    // Refresh all favorites widgets visible
+    document.querySelectorAll(".tcf-favorites").forEach((host) => { delete host.dataset.mounted; mountFavorites(host); });
+  }
+  function refreshFav(btn) {
+    if (!btn) return;
+    const on = isFav();
+    btn.innerHTML = on ? "★" : "☆";
+    btn.classList.toggle("is-on", on);
+    btn.setAttribute("aria-label", on ? "Retirer des favoris" : "Ajouter aux favoris");
+  }
+
+  function mountFavorites(host) {
+    if (host.dataset.mounted) return;
+    host.dataset.mounted = "1";
+    const favs = getFavs();
+    if (!favs.length) {
+      host.innerHTML = '<p style="opacity:0.7">Aucun favori pour l\'instant — cliquez sur l\'étoile à côté du titre d\'une page pour l\'ajouter, ou appuyez sur la touche <kbd>f</kbd>.</p>';
+      return;
+    }
+    host.innerHTML =
+      '<ul class="fav-list">' +
+      favs.map((f, i) =>
+        '<li><a href="' + escapeHtml(f.path) + '">' + escapeHtml(f.title) + '</a>' +
+          '<span class="fav-date">' + escapeHtml(f.addedAt || "") + '</span>' +
+          '<button class="fav-del" data-i="' + i + '" title="Retirer">×</button></li>'
+      ).join("") +
+      '</ul>' +
+      '<button class="tcf-btn" data-act="clear">↺ Vider la liste</button>';
+    host.querySelectorAll(".fav-del").forEach((b) => b.addEventListener("click", () => {
+      const i = parseInt(b.dataset.i, 10);
+      const f2 = getFavs(); f2.splice(i, 1); setFavs(f2);
+      delete host.dataset.mounted; mountFavorites(host);
+      // Also refresh the H1 star
+      const t = document.querySelector(".tcf-fav-toggle"); refreshFav(t);
+    }));
+    host.querySelector('[data-act=clear]').addEventListener("click", () => {
+      if (!confirm("Vider la liste des favoris ?")) return;
+      setFavs([]); delete host.dataset.mounted; mountFavorites(host);
+      const t = document.querySelector(".tcf-fav-toggle"); refreshFav(t);
+    });
+  }
+
+  // Keyboard shortcut: "f" toggles favorite for the current page
+  document.addEventListener("keydown", (e) => {
+    const tag = (e.target.tagName || "").toLowerCase();
+    if (tag === "input" || tag === "textarea" || tag === "select" || e.target.isContentEditable) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === "f") {
+      e.preventDefault(); toggleFav();
+      refreshFav(document.querySelector(".tcf-fav-toggle"));
+    }
+  });
+
+  // -----------------------------------------------------------------
+  // 23. Command palette  (Ctrl/Cmd + K)
+  // -----------------------------------------------------------------
+  // A fast all-keyboard launcher: nav, theme, calc widgets, search.
+  const PALETTE_ITEMS = [
+    { id: "home",    title: "Accueil",                         hint: "g h",  href: "/" },
+    { id: "diag",    title: "Diagnostic (90 min)",             hint: "g d",  href: "00_diagnostic/00_index/" },
+    { id: "tools",   title: "Outils interactifs",              hint: "g t",  href: "11_tools/" },
+    { id: "calc",    title: "Calculateur NCLC",                hint: "",     href: "11_tools/calculateur-nclc/" },
+    { id: "timer",   title: "Minuteur Pomodoro / TCF",         hint: "",     href: "11_tools/minuteur/" },
+    { id: "quiz",    title: "Quiz rapide",                     hint: "",     href: "11_tools/quiz-rapide/" },
+    { id: "flash",   title: "Flashcards SRS",                  hint: "",     href: "11_tools/flashcards/" },
+    { id: "conj",    title: "Drill conjugaison",               hint: "",     href: "11_tools/conjugaison/" },
+    { id: "dict",    title: "Dictée audio",                    hint: "",     href: "11_tools/dictee/" },
+    { id: "wpm",     title: "Test de vitesse de lecture",      hint: "",     href: "11_tools/wpm/" },
+    { id: "track",   title: "Suivi des examens blancs",        hint: "",     href: "11_tools/suivi/" },
+    { id: "streak",  title: "Série d'étude (streak)",          hint: "",     href: "11_tools/streak/" },
+    { id: "wc",      title: "Compteur de mots (EE)",           hint: "",     href: "11_tools/compteur-mots/" },
+    { id: "favs",    title: "Mes favoris",                     hint: "",     href: "11_tools/favoris/" },
+    { id: "faq",     title: "FAQ",                             hint: "",     href: "11_tools/faq/" },
+    { id: "gloss",   title: "Glossaire CEFR / NCLC",           hint: "",     href: "11_tools/glossaire/" },
+    { id: "chk",     title: "Check-list J-1",                  hint: "",     href: "11_tools/checklist-j1/" },
+    { id: "cheat",   title: "Cheatsheets A4",                  hint: "",     href: "08_cheatsheets/" },
+    { id: "mocks",   title: "Examens blancs (Mocks)",          hint: "",     href: "07_mock_exams/" },
+    { id: "lis",     title: "Bank Compréhension orale",        hint: "",     href: "03_listening/" },
+    { id: "rea",     title: "Bank Compréhension écrite",       hint: "",     href: "04_reading/index/" },
+    { id: "wri",     title: "Playbook Expression écrite",      hint: "",     href: "05_writing/index/" },
+    { id: "spk",     title: "Playbook Expression orale",       hint: "",     href: "06_speaking/index/" },
+    { id: "kbd",     title: "Raccourcis clavier (Aide)",       hint: "?",    href: "11_tools/raccourcis/" },
+    { id: "theme",   title: "Basculer thème clair / sombre",   hint: "t",    act: () => { const lbl = document.querySelector('label[for^="__palette"]'); if (lbl) lbl.click(); } },
+    { id: "print",   title: "Imprimer cette page",             hint: "p",    act: () => window.print() },
+    { id: "copy",    title: "Copier le lien permanent",        hint: "c",    act: copyLink },
+    { id: "fav",     title: "Basculer le favori (page actuelle)", hint: "f", act: () => { toggleFav(); refreshFav(document.querySelector(".tcf-fav-toggle")); } },
+  ];
+
+  let palette = null;
+  function ensurePalette() {
+    if (palette && document.body.contains(palette)) return;
+    palette = document.createElement("div");
+    palette.className = "tcf-palette";
+    palette.setAttribute("role", "dialog");
+    palette.setAttribute("aria-label", "Palette de commandes");
+    palette.setAttribute("aria-modal", "true");
+    palette.innerHTML =
+      '<div class="pal-panel" role="document">' +
+        '<input class="pal-input" type="text" placeholder="Tapez une commande, une page, ou un terme…" aria-label="Filtrer les commandes" />' +
+        '<ul class="pal-list" role="listbox"></ul>' +
+        '<div class="pal-foot"><kbd>↑</kbd><kbd>↓</kbd> naviguer · <kbd>Enter</kbd> ouvrir · <kbd>Esc</kbd> fermer</div>' +
+      '</div>';
+    document.body.appendChild(palette);
+    palette.addEventListener("click", (e) => { if (e.target === palette) closePalette(); });
+
+    const input = palette.querySelector(".pal-input");
+    const list  = palette.querySelector(".pal-list");
+
+    function siteRoot() { return computeSiteRoot(); }
+    function navigate(item) {
+      closePalette();
+      if (item.act) { try { item.act(); } catch (e) {} return; }
+      if (item.href) {
+        const dest = item.href;
+        if (dest.startsWith("/")) location.href = siteRoot() + dest.slice(1);
+        else location.href = siteRoot() + dest;
+      }
+    }
+    let filtered = PALETTE_ITEMS.slice();
+    let highlighted = 0;
+
+    function rerender() {
+      list.innerHTML = filtered.map((it, i) =>
+        '<li role="option" tabindex="0" data-i="' + i + '" class="' + (i === highlighted ? "is-on" : "") + '">' +
+          '<span class="pal-title">' + escapeHtml(it.title) + '</span>' +
+          (it.hint ? '<span class="pal-hint"><kbd>' + escapeHtml(it.hint) + '</kbd></span>' : '') +
+        '</li>'
+      ).join("") || '<li class="pal-empty">Aucun résultat.</li>';
+      list.querySelectorAll("li").forEach((li, i) => {
+        if (li.classList.contains("pal-empty")) return;
+        li.addEventListener("click", () => navigate(filtered[i]));
+      });
+    }
+    function refilter() {
+      const q = stripAccents(input.value);
+      filtered = q
+        ? PALETTE_ITEMS.filter((it) => stripAccents(it.title).includes(q))
+        : PALETTE_ITEMS.slice();
+      highlighted = 0;
+      rerender();
+    }
+    input.addEventListener("input", refilter);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") { e.preventDefault(); if (filtered.length) { highlighted = (highlighted + 1) % filtered.length; rerender(); } }
+      else if (e.key === "ArrowUp") { e.preventDefault(); if (filtered.length) { highlighted = (highlighted - 1 + filtered.length) % filtered.length; rerender(); } }
+      else if (e.key === "Enter") { e.preventDefault(); if (filtered[highlighted]) navigate(filtered[highlighted]); }
+      else if (e.key === "Escape") { e.preventDefault(); closePalette(); }
+    });
+    rerender();
+  }
+  function openPalette() {
+    ensurePalette();
+    palette.classList.add("is-open");
+    setTimeout(() => palette.querySelector(".pal-input")?.focus(), 30);
+  }
+  function closePalette() {
+    if (palette) {
+      palette.classList.remove("is-open");
+      const i = palette.querySelector(".pal-input"); if (i) i.value = "";
+      // re-filter to reset
+      i?.dispatchEvent(new Event("input"));
+    }
+  }
+  document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault(); openPalette();
+    }
+  });
+
+  // -----------------------------------------------------------------
+  // 24. Confetti (used by quiz on perfect score, etc.)
+  // -----------------------------------------------------------------
+  window.TCF.confetti = function (durationMs) {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const colors = ["#ff8f00", "#1a237e", "#3949ab", "#2e7d32", "#c62828", "#ffd54f"];
+    const N = 80;
+    const dur = durationMs || 1800;
+    const root = document.createElement("div");
+    root.className = "tcf-confetti";
+    document.body.appendChild(root);
+    for (let i = 0; i < N; i++) {
+      const e = document.createElement("i");
+      e.style.background = colors[i % colors.length];
+      e.style.left = Math.random() * 100 + "vw";
+      e.style.animationDuration = (1 + Math.random() * 1.2) + "s";
+      e.style.animationDelay = (Math.random() * 0.4) + "s";
+      e.style.transform = "rotate(" + Math.floor(Math.random() * 360) + "deg)";
+      root.appendChild(e);
+    }
+    setTimeout(() => root.remove(), dur);
+  };
 
   // -----------------------------------------------------------------
   // 14. Skip-to-content link

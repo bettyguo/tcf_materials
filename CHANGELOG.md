@@ -2,6 +2,43 @@
 
 All notable changes are documented here in [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) style. Versioning is per-phase, not per-feature: each phase bumps the minor version on completion.
 
+## [1.1.1] — 2026-05-29 — World-class interactive site (v1.1+ widget expansion)
+
+### Added — 10 new browser-side widgets (no servers, no tracking, audit-clean)
+- **Flashcards SRS** ([`content/11_tools/flashcards.md`](content/11_tools/flashcards.md)) — 3 decks audités (modes/déclencheurs B1+B2 × 20 cartes, faux-amis × 20, connecteurs B2 × 20). 4-grade SM-2 light scheduler (Again 1 j / Hard 3 j / Good 7 j / Easy 14 j). Stats per deck persisted to `tcf:fc:<deck>` and `tcf:fc-stats:<deck>`.
+- **Drill conjugaison** ([`content/11_tools/conjugaison.md`](content/11_tools/conjugaison.md)) — 12 verbes haute-fréquence × 6 temps (présent, PC, imparfait, futur, conditionnel présent, subjonctif) × 6 personnes = 432 formes. Accents tolérés (NFD strip). Mini-SRS sur les formes ratées (poids × (1+2w)).
+- **Dictée audio** ([`content/11_tools/dictee.md`](content/11_tools/dictee.md)) — Web Speech API (voix française système). 3 blocs (court B1, B2 pro, C1 presse), vitesse 0.7×–1.15×. Grading par distance de Levenshtein (≥ 92 % = juste, 70-91 % = proche, < 70 % = à reprendre).
+- **Suivi des examens blancs** ([`content/11_tools/suivi.md`](content/11_tools/suivi.md)) — Logger d'entrées (date, label, 4 scores bruts) + graphe SVG de trajectoire NCLC binding avec ligne cible 7. Export JSON. Hover tooltips natifs.
+- **Série d'étude / streak** ([`content/11_tools/streak.md`](content/11_tools/streak.md)) — heatmap 91 jours (13 × 7) en grille CSS, calcul streak actuel + meilleure série + total. Clic-cell pour basculer.
+- **WPM — vitesse de lecture** ([`content/11_tools/wpm.md`](content/11_tools/wpm.md)) — 2 passages audités (B2 ~ 232 mots, C1 ~ 257 mots). Verdicts opérationnels (≥ 220 wpm confortable, 170-219 solide, 120-169 acceptable, < 120 à renforcer).
+- **Compteur de mots EE** ([`content/11_tools/compteur-mots.md`](content/11_tools/compteur-mots.md)) — 3 zones T1/T2/T3 calibrées aux fourchettes officielles (60-120, 120-150, 180-250). Mots, caractères, phrases, temps de lecture estimé en temps réel. Brouillon auto-sauvegardé.
+- **Favoris** ([`content/11_tools/favoris.md`](content/11_tools/favoris.md)) — étoile injectée à côté du H1 de toute page ; touche <kbd>f</kbd> pour basculer ; liste persistante (max 60).
+- **FAQ** ([`content/11_tools/faq.md`](content/11_tools/faq.md)) — ~ 25 entrées (TCF Canada, corpus, stratégie 12 sem., outils), réponses sourcées IRCC/FEI.
+- **Glossaire CEFR / NCLC / TCF** ([`content/11_tools/glossaire.md`](content/11_tools/glossaire.md)) — ~ 50 termes alphabétiques avec définitions + renvois aux unités et sources autoritatives.
+
+### Added — UI/UX power features
+- **Palette de commandes** <kbd>Ctrl</kbd>+<kbd>K</kbd> / <kbd>⌘</kbd>+<kbd>K</kbd> — 29 entrées (tous les outils, pages clés, actions thème/imprimer/copier-lien/favori). Recherche fuzzy diacritique-insensible, navigation flèches, <kbd>Enter</kbd> ouvre.
+- **SVG NCLC gauges animées** — anneau de progression circulaire avec count-up. Couleur dérivée du delta valeur/cible (ok/warn/bad). Affichés sur la page d'accueil, réutilisables via `.tcf-gauge[data-value][data-max][data-label][data-target][data-unit]`.
+- **Confettis** sur quiz parfait 10/10 (`window.TCF.confetti()`). Respect strict de `prefers-reduced-motion`.
+- **Étoile favoris** auto-injectée à côté de chaque H1 du corpus.
+- **Raccourci <kbd>f</kbd>** pour basculer le favori de la page courante.
+- **OG + Twitter Card meta** dans `overrides/main.html` pour les partages réseaux.
+
+### Updated
+- [`content/assets/javascripts/extra.js`](content/assets/javascripts/extra.js) — bundle étendu de ~ 750 → ~ 1 800 lignes vanilla JS. 10 nouveaux modules (gauge, flashcards, conjugaison, dictée, tracker, streak, word counter, WPM, favorites, command palette, confetti) + extension du registre de raccourcis (<kbd>Ctrl/⌘ K</kbd>, <kbd>f</kbd>).
+- [`content/assets/stylesheets/extra.css`](content/assets/stylesheets/extra.css) — ~ 400 lignes ajoutées pour les nouveaux widgets, gauge SVG, palette, confettis, étoile favoris, responsive ≤ 600 px et 601-900 px, règles d'impression.
+- [`content/index.md`](content/index.md) — hero v1.1 avec mention palette `Ctrl+K`, gauge row animée pour cibles NCLC, grille « Outils intégrés » expanded de 8 → 18 cartes, badges « v1.1 » sur les nouveautés, callout « 20 outils interactifs ».
+- [`content/11_tools/index.md`](content/11_tools/index.md) — landing tools réorganisée en 3 sections (Pratique active / Mesure et suivi / Référence et productivité), tableau « quel outil à quelle phase », tableau exhaustif des clés `localStorage` utilisées.
+- [`content/11_tools/raccourcis.md`](content/11_tools/raccourcis.md) — palette de commandes ajoutée en section dédiée, raccourci <kbd>f</kbd> documenté.
+- [`overrides/main.html`](overrides/main.html) — bannière annonce v1.1 (10 nouveaux outils + palette), OG meta, theme-color.
+- [`overrides/404.html`](overrides/404.html) — grille de 10 destinations (ajout flashcards, suivi, FAQ, glossaire), hint palette de commandes.
+
+### Stability
+- `mkdocs build --strict` clean (0 errors). 422 pages rendered (+ 10 vs v1.1.0).
+- No content schema changes ; no audit hooks affected ; zero external trackers added.
+- `localStorage` namespace `tcf:` — 9 clés documentées, toutes effaçables via les paramètres du navigateur.
+- `prefers-reduced-motion` respecté (animations gauges, count-up, confettis désactivés).
+
 ## [1.1.0] — 2026-05-29 — Interactive site upgrade (post-launch polish)
 
 ### Added — interactive features (browser-side, zero tracking)

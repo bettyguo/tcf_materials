@@ -1,8 +1,8 @@
 # TCF Canada — Préparation B1 → C1/C2
 
-> **Source-audited TCF Canada prep corpus.** ~410 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki) **+ a world-class interactive web site**: NCLC calculator, Pomodoro/exam timer, self-quiz, J-1 checklist, keyboard shortcuts, reading progress bar, scroll-reveal animations, dark mode, MathJax, glightbox, fully offline-capable. Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
+> **Source-audited TCF Canada prep corpus.** ~420 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki) **+ a world-class interactive web site** (v1.1+): **20 browser-side tools** including flashcards SRS, conjugation drill, audio dictation, mock-exam tracker with SVG chart, study streak heatmap, reading-speed test, EE word counter, favorites, command palette (<kbd>Ctrl/⌘ K</kbd>) and more. Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
 
-🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/> · [Outils interactifs](https://bettyguo.github.io/tcf_materials/11_tools/) · [Calculateur NCLC](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) · [Diagnostic](https://bettyguo.github.io/tcf_materials/00_diagnostic/00_index/)
+🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/> · [20 Outils interactifs](https://bettyguo.github.io/tcf_materials/11_tools/) · [Flashcards SRS](https://bettyguo.github.io/tcf_materials/11_tools/flashcards/) · [Calculateur NCLC](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) · [Suivi des examens blancs](https://bettyguo.github.io/tcf_materials/11_tools/suivi/) · [FAQ](https://bettyguo.github.io/tcf_materials/11_tools/faq/) · [Glossaire](https://bettyguo.github.io/tcf_materials/11_tools/glossaire/) · [Diagnostic](https://bettyguo.github.io/tcf_materials/00_diagnostic/00_index/)
 
 ---
 
@@ -16,18 +16,40 @@ A **single-source-of-truth Markdown corpus** that builds to:
 - an **EPUB** (Pandoc EPUB3)
 - an **Anki deck** (`.apkg`, ~1 500 cards, FSRS-friendly)
 
-**Interactive features on the live site:**
+**Interactive features on the live site (v1.1):**
 
-- 🧮 [**NCLC calculator**](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) — enter 4 raw scores, get NCLC binding + CRS bonus, all client-side, shareable URL
-- ⏱ [**Pomodoro / exam timer**](https://bettyguo.github.io/tcf_materials/11_tools/minuteur/) — 7 presets including all official TCF time budgets (CO 35 min, CE 60 min, EE T1/T2/T3, EO 12 min)
-- 🎯 [**Self-quiz**](https://bettyguo.github.io/tcf_materials/11_tools/quiz-rapide/) — 10 items grammar / vocab / strategy, instant feedback
+Active practice:
+
+- 🃏 [**Flashcards SRS**](https://bettyguo.github.io/tcf_materials/11_tools/flashcards/) — 3 audited decks (modes triggers, faux-amis, B2 connectors), 60 cards, 4-grade SM-2-lite scheduler (1 j / 3 j / 7 j / 14 j)
+- ⚙️ [**Conjugation drill**](https://bettyguo.github.io/tcf_materials/11_tools/conjugaison/) — 12 high-frequency verbs × 6 tenses × 6 persons = 432 forms, accent-tolerant, weak-form-weighted mini-SRS
+- 🎧 [**Audio dictation**](https://bettyguo.github.io/tcf_materials/11_tools/dictee/) — Web Speech API, 3 levels (B1 short, B2 pro, C1 press), 0.7×–1.15× playback, Levenshtein-similarity grading
+- 📖 [**Reading speed (WPM)**](https://bettyguo.github.io/tcf_materials/11_tools/wpm/) — 2 passages, operational verdicts (≥ 220 wpm comfortable, < 120 needs work)
+- ✍️ [**EE word counter**](https://bettyguo.github.io/tcf_materials/11_tools/compteur-mots/) — 3 zones (T1/T2/T3) calibrated to TCF brackets, live words/chars/sentences/reading-time, auto-saved drafts
+- 🎯 [**Self-quiz**](https://bettyguo.github.io/tcf_materials/11_tools/quiz-rapide/) — 10 items, instant feedback, confetti on 10/10
+
+Measurement & tracking:
+
+- 🧮 [**NCLC calculator**](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) — 4 raw scores → NCLC binding + CRS bonus, shareable URL
+- 📈 [**Mock-exam tracker**](https://bettyguo.github.io/tcf_materials/11_tools/suivi/) — log every mock, SVG trajectory chart with NCLC-7 target line, JSON export
+- 🔥 [**Study streak heatmap**](https://bettyguo.github.io/tcf_materials/11_tools/streak/) — 91-day grid, current/best streaks, click any cell to toggle
+- ⏱ [**Pomodoro / exam timer**](https://bettyguo.github.io/tcf_materials/11_tools/minuteur/) — 7 presets including all official TCF time budgets
+
+Reference & productivity:
+
+- ★ [**Favorites**](https://bettyguo.github.io/tcf_materials/11_tools/favoris/) — star next to every H1, <kbd>f</kbd> toggle, up to 60 bookmarks
 - ✅ [**J-1 checklist**](https://bettyguo.github.io/tcf_materials/11_tools/checklist-j1/) — exam-eve operational list, persists via localStorage
-- ⌨️ [**Keyboard shortcuts**](https://bettyguo.github.io/tcf_materials/11_tools/raccourcis/) — `?` for help, `s` for search, `g h` for home, `t` for theme, `c` to copy link, `p` to print
-- 📊 **Reading progress bar** at top, **stat count-up animations**, **skill-bar reveal-on-scroll**
+- ❓ [**FAQ**](https://bettyguo.github.io/tcf_materials/11_tools/faq/) — ~ 25 questions, sourced IRCC/FEI
+- 📚 [**Glossary**](https://bettyguo.github.io/tcf_materials/11_tools/glossaire/) — CEFR / NCLC / TCF / CRS / FEI terminology with definitions
+
+Power-user UX:
+
+- ⌘ **Command palette** — <kbd>Ctrl/⌘</kbd>+<kbd>K</kbd> filters 29 entries (tools, key pages, theme/print/copy-link/favorite actions)
+- ⌨️ [**Keyboard shortcuts**](https://bettyguo.github.io/tcf_materials/11_tools/raccourcis/) — `?`, `s`, `g h`, `t`, `c`, `p`, `f`, `Ctrl/⌘ K`, `Esc`
+- 📊 **Animated SVG NCLC gauges** on homepage, **reading progress bar**, **stat count-up**, **skill-bar reveal-on-scroll**, **confetti on quiz perfect score**
 - 🎨 **System / light / dark** theme toggle, accessible focus rings, `prefers-reduced-motion` respected
-- 🔊 **Audio playback-rate** picker on every `<audio>` element (0.75× / 0.9× / 1× / 1.1× / 1.25×)
+- 🔊 **Audio playback-rate** picker on every `<audio>` element
 - 🔎 **MathJax**, **glightbox** image zoom, **minified HTML/CSS/JS** in production
-- 🔒 **Zero tracking** — no cookies, no analytics, no external requests for state. Local-only progress.
+- 🔒 **Zero tracking** — no cookies, no analytics, no external requests for state. All progress is local-only under the `tcf:` localStorage prefix.
 
 What's inside the corpus:
 

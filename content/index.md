@@ -201,15 +201,15 @@ hide:
 # TCF Canada — Préparation B1 → C1
 
 <div class="tagline">
-Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en 12 semaines (~ 168 h).
+Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en 12 semaines (~ 168 h). **20 outils interactifs**, **3 mini-decks SRS**, **suivi des examens blancs**, palette <kbd>Ctrl/⌘ K</kbd>.
 </div>
 
-<div class="meta">v1.0 · CC BY-SA 4.0 · audit pipeline alive</div>
+<div class="meta">v1.1 · CC BY-SA 4.0 · audit pipeline alive · <kbd>Ctrl</kbd>+<kbd>K</kbd> palette</div>
 
 <div class="actions">
 <a class="primary" href="00_start_here/">Commencer maintenant →</a>
 <a class="secondary" href="00_diagnostic/00_index/">Diagnostic (90 min)</a>
-<a class="secondary" href="11_tools/">Outils interactifs</a>
+<a class="secondary" href="11_tools/">20 outils interactifs</a>
 </div>
 
 </div>
@@ -261,16 +261,28 @@ Ce corpus prépare au **TCF Canada** avec une intensité **B2-first** (B1+B2 = ~
 
 </div>
 
-## Cibles NCLC (Express Entry)
+## Cibles NCLC 8 — visualisation
 
-Le **score binding** est le **minimum** des quatre — pour le bonus CRS, les quatre compétences doivent franchir le seuil.
+Le **score binding** est le **minimum** des quatre — pour le bonus CRS de 50 pts (si anglais NCLC ≥ 9), les quatre compétences doivent toutes franchir leur seuil.
+
+<div class="gauge-row">
+<div class="tcf-gauge" data-value="503" data-max="699" data-label="CO" data-unit="/ 699" data-target="503"></div>
+<div class="tcf-gauge" data-value="499" data-max="699" data-label="CE" data-unit="/ 699" data-target="499"></div>
+<div class="tcf-gauge" data-value="14" data-max="20" data-label="EE" data-unit="/ 20" data-target="14"></div>
+<div class="tcf-gauge" data-value="14" data-max="20" data-label="EO" data-unit="/ 20" data-target="14"></div>
+</div>
+
+<details>
+<summary>Détail des seuils par compétence (tableau complet)</summary>
 
 <div class="skill-bar"><span class="skill-name">CO</span><div class="skill-track"><div class="skill-fill" style="width: 75%"></div></div><span class="skill-val">≥ 503 / 699</span></div>
 <div class="skill-bar"><span class="skill-name">CE</span><div class="skill-track"><div class="skill-fill" style="width: 73%"></div></div><span class="skill-val">≥ 499 / 699</span></div>
 <div class="skill-bar"><span class="skill-name">EE</span><div class="skill-track"><div class="skill-fill" style="width: 70%"></div></div><span class="skill-val">≥ 14 / 20</span></div>
 <div class="skill-bar"><span class="skill-name">EO</span><div class="skill-track"><div class="skill-fill" style="width: 70%"></div></div><span class="skill-val">≥ 14 / 20</span></div>
 
-*Seuils NCLC 8 — cibles pour le bonus Express Entry de 50 points (si anglais NCLC ≥ 9).*
+*Seuils NCLC 8 IRCC/FEI — table autoritative dans le [calculateur NCLC](11_tools/calculateur-nclc.md) et la [feuille de score Mock #1](07_mock_exams/mock_01/09_score_calculator.md).*
+
+</details>
 
 ## Le programme en 12 semaines
 
@@ -313,42 +325,121 @@ Un seul Markdown génère le **site**, le **PDF** (Pandoc + XeLaTeX), l'**EPUB**
 
 </div>
 
-## Outils intégrés
+## Les 20 outils intégrés
+
+Toute la pratique active du corpus, **100 % côté navigateur** — aucune télémétrie, aucun compte, aucune dépendance serveur.
 
 <div class="feature-grid">
 
 <div class="feature-card" markdown>
+<span class="icon">🃏</span>
+### Flashcards SRS (v1.1)
+3 decks audités : modes/déclencheurs, faux-amis, connecteurs B2. Planning 1 j / 3 j / 7 j / 14 j.
+<br>[**Lancer →**](11_tools/flashcards.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">⚙️</span>
+### Drill conjugaison (v1.1)
+12 verbes × 6 temps × 6 personnes. Accents tolérés, mini-SRS sur vos formes faibles.
+<br>[**Lancer →**](11_tools/conjugaison.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">🎧</span>
+### Dictée audio (v1.1)
+Web Speech API — 3 blocs (B1, B2 pro, C1 presse). Vitesse 0.7×–1.15×, grading Levenshtein.
+<br>[**Lancer →**](11_tools/dictee.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">📖</span>
+### Vitesse de lecture WPM (v1.1)
+Mots/minute sur 2 passages. Verdict opérationnel pour finir CE en 60 min.
+<br>[**Lancer →**](11_tools/wpm.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">✍️</span>
+### Compteur de mots EE (v1.1)
+3 zones T1/T2/T3 calibrées TCF. Mots, phrases, sauvegarde auto, copie en un clic.
+<br>[**Lancer →**](11_tools/compteur-mots.md)
+</div>
+
+<div class="feature-card" markdown>
 <span class="icon">🧮</span>
-### Calculateur NCLC interactif
-Entrez vos quatre scores → NCLC binding + bonus CRS estimé. Tout en local.
+### Calculateur NCLC
+4 scores bruts → NCLC binding + bonus CRS estimé. Lien partageable sans serveur.
 <br>[**Lancer →**](11_tools/calculateur-nclc.md)
 </div>
 
 <div class="feature-card" markdown>
+<span class="icon">📈</span>
+### Suivi des examens blancs (v1.1)
+Log des mocks, graphe SVG de progression, cible NCLC 7 tracée, export JSON.
+<br>[**Lancer →**](11_tools/suivi.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">🔥</span>
+### Série d'étude (v1.1)
+Heatmap 13 semaines, streak actuel + meilleure série. Régularité > intensité.
+<br>[**Lancer →**](11_tools/streak.md)
+</div>
+
+<div class="feature-card" markdown>
 <span class="icon">⏱</span>
-### Minuteur Pomodoro & examen
-7 presets : Pomodoro + tous les budgets-temps officiels TCF.
+### Minuteur Pomodoro / TCF
+7 presets : Pomodoro 25/5 + tous les budgets officiels TCF (CO, CE, EE T1/2/3, EO).
 <br>[**Lancer →**](11_tools/minuteur.md)
 </div>
 
 <div class="feature-card" markdown>
 <span class="icon">🎯</span>
 ### Quiz rapide
-10 items grammaire / lexique / stratégie. Feedback immédiat.
+10 items grammaire / lexique / stratégie. Feedback immédiat. Confettis sur 10/10.
 <br>[**Lancer →**](11_tools/quiz-rapide.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">★</span>
+### Mes favoris (v1.1)
+Touche <kbd>f</kbd> ou étoile à côté de tout titre. Bookmarks locaux, jusqu'à 60.
+<br>[**Lancer →**](11_tools/favoris.md)
 </div>
 
 <div class="feature-card" markdown>
 <span class="icon">✅</span>
 ### Check-list J-1
-Sac, corps, esprit — la veille d'examen. Cochages sauvegardés.
+Sac, pièces, sommeil, taper. Cochages sauvegardés, prêt pour la veille d'examen.
 <br>[**Lancer →**](11_tools/checklist-j1.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">❓</span>
+### FAQ (v1.1)
+~ 25 questions : TCF Canada, ce corpus, stratégie, outils. Réponses sourcées IRCC/FEI.
+<br>[**Lancer →**](11_tools/faq.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">📚</span>
+### Glossaire (v1.1)
+Tous les termes (CEFR, NCLC, CRS, FEI, …) avec définitions et renvois aux sources.
+<br>[**Lancer →**](11_tools/glossaire.md)
+</div>
+
+<div class="feature-card" markdown>
+<span class="icon">⌨️</span>
+### Raccourcis & palette
+<kbd>?</kbd> aide · <kbd>s</kbd> recherche · <kbd>t</kbd> thème · <kbd>f</kbd> favori · <kbd>Ctrl/⌘</kbd>+<kbd>K</kbd> palette.
+<br>[**Voir →**](11_tools/raccourcis.md)
 </div>
 
 <div class="feature-card" markdown>
 <span class="icon">📋</span>
 ### 12 cheatsheets A4
-Subjonctif, connecteurs, faux-amis, distracteurs… À imprimer pour le sac J-1.
+Subjonctif, connecteurs, faux-amis, distracteurs, Québec/France… À imprimer.
 <br>[**Voir →**](08_cheatsheets/index.md)
 </div>
 
@@ -365,13 +456,6 @@ Léon + Tranel : vocalique, consonantique, liaisons, enchaînement, schwa, proso
 `tools.score_writing` (calibré 81 %) et `tools.score_speaking` (calibré 85 %) — heuristiques, pas examinateur.
 </div>
 
-<div class="feature-card" markdown>
-<span class="icon">⌨️</span>
-### Raccourcis clavier
-Naviguez sans souris : <kbd>?</kbd> pour l'aide, <kbd>s</kbd> pour la recherche, <kbd>t</kbd> pour le thème.
-<br>[**Voir →**](11_tools/raccourcis.md)
-</div>
-
 </div>
 
 ## Calculateur NCLC — direct sur la page d'accueil
@@ -383,12 +467,12 @@ Naviguez sans souris : <kbd>?</kbd> pour l'aide, <kbd>s</kbd> pour la recherche,
 ## Limites honnêtes
 
 !!! warning "À internaliser avant le Jour 1"
-    1. **TTS ≠ natif.** Edge-TTS est solide en B1/B2, marginal en C1+. Forvo pour les mots isolés.
-    2. **Auto-scoring heuristique.** Calibré contre modèles, pas contre examinateurs. Suivez la **trajectoire**, pas la valeur absolue.
+    1. **TTS ≠ natif.** Edge-TTS est solide en B1/B2, marginal en C1+. Forvo pour les mots isolés. La [dictée audio](11_tools/dictee.md) v1.1 utilise la Web Speech API du navigateur en complément.
+    2. **Auto-scoring heuristique.** Calibré contre modèles, pas contre examinateurs. Suivez la **trajectoire** via le [suivi des examens blancs](11_tools/suivi.md), pas la valeur absolue.
     3. **NCLC 7–9 fiable, 10+ stretch.** Au-delà, un tuteur humain devient nécessaire pour les nuances de registre.
-    4. **Québec ≠ France.** Le corpus enseigne la **reconnaissance** des deux, pousse la **production** en français standard.
-    5. **3 mois intensifs.** ~ 2 h/jour × 84 jours. Plus de 7 jours sautés cassent l'avantage SRS.
-    6. **Mocks #3 et #4 en stub à v1.0.** CO/CE seront authored en v1.1 ; utilisez les partiels pour les semaines 10-11.
+    4. **Québec ≠ France.** Le corpus enseigne la **reconnaissance** des deux, pousse la **production** en français standard. Voir [cheatsheet `12_quebec_france`](08_cheatsheets/12_quebec_france.md).
+    5. **3 mois intensifs.** ~ 2 h/jour × 84 jours. Plus de 7 jours sautés cassent l'avantage SRS — suivez votre régularité avec la [heatmap d'étude](11_tools/streak.md).
+    6. **Mocks #3 et #4 toujours en stub à v1.1.** Authoring complet ciblé v1.2. Utilisez les [partiels](07_mock_exams/partials/index.md) pour les semaines 10-11.
 
 ## Ressources & licences
 

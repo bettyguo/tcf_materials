@@ -15,7 +15,15 @@ audit:
 
 # Raccourcis clavier
 
-> Naviguez le site sans toucher la souris. Appuyez sur <kbd>?</kbd> n'importe où pour faire apparaître ce panneau en superposition.
+> Naviguez le site sans toucher la souris. Appuyez sur <kbd>?</kbd> n'importe où pour faire apparaître ce panneau en superposition, ou <kbd>Ctrl/⌘</kbd>+<kbd>K</kbd> pour la palette de commandes.
+
+## Palette de commandes (v1.1)
+
+| Action | Raccourci |
+|---|---|
+| **Ouvrir la palette de commandes** (recherche d'outils, nav rapide) | <kbd>Ctrl</kbd>+<kbd>K</kbd> ou <kbd>⌘</kbd>+<kbd>K</kbd> |
+
+La palette filtre tous les outils (calculateur, minuteur, flashcards, dictée, suivi, streak, FAQ, glossaire…), les pages clés (Accueil, Diagnostic, Roadmap, Mocks…) et certaines actions (thème, impression, copier le lien, basculer le favori).
 
 ## Navigation
 
@@ -40,6 +48,7 @@ audit:
 |---|---|
 | Imprimer la page (PDF) | <kbd>p</kbd> |
 | Copier le lien permanent | <kbd>c</kbd> |
+| Basculer le favori (v1.1) | <kbd>f</kbd> |
 | Fermer une superposition | <kbd>Esc</kbd> |
 
 ## Recherche (focus actif)
