@@ -2,6 +2,51 @@
 
 All notable changes are documented here in [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) style. Versioning is per-phase, not per-feature: each phase bumps the minor version on completion.
 
+## [1.3.0] — 2026-05-29 — World-class plus (v1.3 — 9 new tools, PWA, sound effects, settings, badges)
+
+### Added — 9 new browser-side widgets
+- **Entraîneur CE** ([`content/11_tools/ce-entraineur.md`](content/11_tools/ce-entraineur.md)) — mini-mock de lecture chronométré. 5 passages B2 (92 → 226 mots), 15 QCM, 14 min. Pager, navigation libre entre passages, score historisé, export JSON. Données rédigées pour le corpus, sans source tierce.
+- **Entraîneur CO** ([`content/11_tools/co-entraineur.md`](content/11_tools/co-entraineur.md)) — 10 brefs B1-B2 (annonces, dialogues, messages vocaux). Synthèse vocale Web Speech API, max 2 écoutes par item, 0.8× ralenti dispo. Transcription révélée après réponse. Pièges classiques inclus (14 / 40, soixante-quinze, ligne orange).
+- **Liaisons & élisions** ([`content/11_tools/liaisons.md`](content/11_tools/liaisons.md)) — 16 phrases B1-B2 ciblant les liaisons obligatoires /z/, /t/, /n/, les liaisons facultatives très usuelles, et les élisions standard. TTS, IPA simplifiée, why-string par phrase.
+- **Construire la phrase** ([`content/11_tools/constructeur.md`](content/11_tools/constructeur.md)) — recomposition de 10 phrases B1-B2 à partir de jetons mélangés. Cible : subjonctif (3 cas), hypothétique passé, « dont », corrélation « plus … plus », « en raison de », « quoi que ».
+- **Synonymes / antonymes B2** ([`content/11_tools/synonymes.md`](content/11_tools/synonymes.md)) — 20 items (12 syn + 8 ant) calibrés sur la variation lexicale EE et le repérage des distracteurs CE. Pas de traduction — purement français → français.
+- **Objectif & compte à rebours** ([`content/11_tools/objectif.md`](content/11_tools/objectif.md)) — pose d'une date d'examen + cible NCLC. Carte qui change de couleur selon la phase (construction → mocks → taper → imminent). Conseil contextuel.
+- **Badges & accomplissements** ([`content/11_tools/badges.md`](content/11_tools/badges.md)) — 15 jalons mesurables : `first-day`, `streak-7`, `streak-30`, `srs-100`, `ce-pack` (≥ 80 %), `co-pack`, `ee-tour`, `race-record` (net ≥ 12), `errlog-10`, `mock-1`, `mock-4`, `nclc-7/8/9`, `all-tools` (10 outils distincts). Tout déclenché localement.
+- **Revue hebdo** ([`content/11_tools/hebdo.md`](content/11_tools/hebdo.md)) — vue 7 jours : pastilles jour-par-jour (heatmap streak), erreurs ajoutées / revues sur la semaine, tendance CO sur les 4 derniers mocks. Conseil dérivé du pattern (< 3 j actifs → recul du périmètre ; ≥ 6 → varier).
+- **Paramètres** ([`content/11_tools/parametres.md`](content/11_tools/parametres.md)) — toggles **sons d'interaction** (Web Audio, off par défaut), **réduction d'animations** (override `prefers-reduced-motion`), **layout large** (≥ 80 rem). **Export / import JSON** de toutes les clés `tcf:*`. Effacement complet avec confirmation.
+
+### Added — infrastructure
+- **PWA installable** — [`content/manifest.webmanifest`](content/manifest.webmanifest) + [`content/sw.js`](content/sw.js) + icônes SVG 192×192 et 512×512. Service worker : HTML network-first, statics stale-while-revalidate. Pages déjà visitées restent lisibles **hors-ligne**. Apple meta tags pour iOS Safari.
+- **Sound effects (Web Audio)** — oscillateurs sinusoïdaux pour `correct`, `wrong`, `win`, `good`, `ok`, `badge`. Aucun fichier téléchargé. Désactivés par défaut, activables dans les paramètres. Hooks dans tous les widgets v1.3 + CE/CO/race v1.2.
+- **Animated number counter** — `<span class="tcf-counter" data-to="503">` avec IntersectionObserver, cubic easing 900 ms. Utilisé sur les stats de l'accueil.
+- **Touch swipe sur flashcards** — geste droite = `good`, gauche = `again`. Touch-friendly mobile sans bibliothèque.
+- **Animated success burst** — radial CSS `tcfBurst` pour les moments milestone.
+
+### Updated — visuals & UX
+- **Hero homepage** — v1.2 → v1.3 (37 outils, +9 outils + PWA, bouton « Poser ma date »).
+- **Tableau de bord d'accueil** — désormais composé en 3 niveaux : `tcf-goal` (compte à rebours) → `tcf-dashboard` (cartes agrégées + radar NCLC) → `tcf-weekly` (revue 7 j). Vue prête en 0,5 s.
+- **Stats homepage** — `421` fichiers, **37** outils interactifs, **15** badges débloquables. Animation count-up sur défilement.
+- **Tools landing v1.3** — nouvelle section « Nouveau v1.3 » avec 9 cartes, callout PWA, **palette extend** (9 nouvelles entrées Ctrl/⌘ K).
+- **Mobile breakpoints** — `co-opts` et `sy-opts` 1 colonne sur < 640 px ; `gl-form` 1 colonne ; `li-phrase` réduite ; badges grille adaptée.
+
+### Updated — files
+- [`content/assets/javascripts/extra.js`](content/assets/javascripts/extra.js) — bundle étendu de ~ 3 400 → ~ 4 250 lignes. **+12 modules v1.3** : CE trainer, CO trainer, liaisons, builder, goal, badges, weekly, synonyms, SFX, settings, PWA registration, swipe, counter. Palette enrichie.
+- [`content/assets/javascripts/v13-data.js`](content/assets/javascripts/v13-data.js) — **nouveau fichier** : banks de données pour CE (1 pack × 5 passages × 15 QCM), CO (1 pack × 10 items), liaisons (16), builder (10), synonymes (20).
+- [`content/assets/stylesheets/extra.css`](content/assets/stylesheets/extra.css) — ~ 250 lignes ajoutées (sections v1.3). Couleurs cohérentes avec le palette indigo/ambre existant.
+- [`content/11_tools/.pages`](content/11_tools/.pages) — réordonné : hebdo + objectif + badges remontent en tête (juste après tableau et plan).
+- [`content/11_tools/index.md`](content/11_tools/index.md) — section v1.3 + 9 cartes + callout PWA + table localStorage étendue (9 nouvelles clés).
+- [`content/index.md`](content/index.md) — hero v1.3 + dashboard à 3 niveaux + 9 cartes v1.3.
+- [`overrides/main.html`](overrides/main.html) — annonce v1.3, `<link rel="manifest">`, theme-color, Apple meta tags PWA, OG/Twitter cards v1.3.
+- [`mkdocs.yml`](mkdocs.yml) — `v13-data.js` ajouté à `extra_javascript` + à `minify.js_files`.
+
+### Stability
+- `mkdocs build --strict` clean (0 erreurs, 0 warnings).
+- Aucun changement de schéma de contenu ; aucun hook d'audit affecté ; zéro tracker externe.
+- `localStorage` namespace `tcf:` — passage à **29 clés documentées**, toutes effaçables via `Paramètres → Tout effacer` ou les paramètres du navigateur.
+- `prefers-reduced-motion` respecté + override volontaire via paramètres.
+- Service worker same-origin uniquement ; ne cache aucune ressource cross-origin.
+- Total : **~ 37 outils interactifs**, ~ 425 pages, build < 15 s.
+
 ## [1.2.0] — 2026-05-29 — World-class learning surface (v1.2 — 12 new tools, dashboard, error log)
 
 ### Added — 12 new browser-side widgets (audited, no servers, no tracking)

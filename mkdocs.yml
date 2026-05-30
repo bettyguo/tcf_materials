@@ -76,6 +76,7 @@ extra_css:
 
 extra_javascript:
   - assets/javascripts/extra.js
+  - assets/javascripts/v13-data.js
   - assets/javascripts/mathjax-init.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
@@ -103,6 +104,7 @@ plugins:
         remove_comments: true
       js_files:
         - assets/javascripts/extra.js
+        - assets/javascripts/v13-data.js
       css_files:
         - assets/stylesheets/extra.css
 

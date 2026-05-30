@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1452"/>
+      <stop offset="55%" stop-color="#283593"/>
+      <stop offset="100%" stop-color="#3949ab"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#g)"/>
+  <g fill="#fff" font-family="Inter, -apple-system, sans-serif" font-weight="800" text-anchor="middle">
+    <text x="256" y="232" font-size="150" letter-spacing="-5">TCF</text>
+    <text x="256" y="352" font-size="60" letter-spacing="6" opacity=".88">CANADA</text>
+    <text x="256" y="430" font-size="34" letter-spacing="3" opacity=".7">B1 → C1 · v1.3</text>
+  </g>
+  <circle cx="418" cy="118" r="38" fill="#ff8f00"/>
+</svg>

@@ -10,7 +10,7 @@ tags: [tools, interactive, calculator, timer, quiz, flashcards, srs]
 audit:
   status: cleared
   confidence_overall: high
-  notes: "Page d'atterrissage des outils interactifs côté navigateur. Aucun contenu pédagogique en français à risque ; navigation + métadonnées uniquement. v1.1 ajoute 10 outils."
+  notes: "Page d'atterrissage des outils interactifs côté navigateur. Aucun contenu pédagogique en français à risque ; navigation + métadonnées uniquement. v1.3 ajoute 9 outils + PWA, portant le total à 37."
 hide:
   - toc
 ---
@@ -19,15 +19,78 @@ hide:
 
 Une page = un outil. Tout fonctionne **côté navigateur uniquement** — aucune donnée n'est envoyée à un serveur. Vos scores, brouillons et listes sont sauvegardés dans le `localStorage` de votre navigateur.
 
-!!! tip "Astuce — palette de commandes"
-    Appuyez sur <kbd>Ctrl</kbd>+<kbd>K</kbd> (ou <kbd>⌘</kbd>+<kbd>K</kbd>) pour ouvrir la **palette de commandes** depuis n'importe quelle page. Vous y trouvez tous les outils en un clic.
+!!! tip "Astuce — palette de commandes (37 outils)"
+    Appuyez sur <kbd>Ctrl</kbd>+<kbd>K</kbd> (ou <kbd>⌘</kbd>+<kbd>K</kbd>) pour ouvrir la **palette de commandes** depuis n'importe quelle page. Vous y trouvez **les 37 outils en un clic**, classés et filtrables.
 
-## Synthèse en un coup d'œil — `v1.2`
+## Synthèse en un coup d'œil — `v1.3`
 
 <a class="cheat-card" href="tableau/" style="display:block;margin-bottom:1.2rem">
-<span class="cheat-title">🧭 Tableau de bord <span class="cheat-tag" style="margin-left:.4rem">nouveau</span></span>
+<span class="cheat-title">🧭 Tableau de bord</span>
 <span class="cheat-desc">Vue agrégée : streak du jour, cartes SRS dues, erreurs dues, dernier mock, radar NCLC. La porte d'entrée recommandée après le premier mois.</span>
 </a>
+
+## Nouveau dans la v1.3 — 9 outils en plus + PWA
+
+<div class="feature-grid">
+
+<a class="cheat-card" href="ce-entraineur/">
+<span class="cheat-title">📖 Entraîneur CE <span class="cheat-tag" style="margin-left:.4rem">v1.3</span></span>
+<span class="cheat-desc">5 passages B2, 15 QCM, 14 min. Pager, navigation libre, score historisé, export JSON.</span>
+<span class="cheat-tag">CE mini-mock</span>
+</a>
+
+<a class="cheat-card" href="co-entraineur/">
+<span class="cheat-title">🎧 Entraîneur CO <span class="cheat-tag" style="margin-left:.4rem">v1.3</span></span>
+<span class="cheat-desc">10 brefs B1-B2, 1 QCM par item, max 2 écoutes (1.0× + 0.8×). TTS système, transcription révélée.</span>
+<span class="cheat-tag">CO mini-mock</span>
+</a>
+
+<a class="cheat-card" href="liaisons/">
+<span class="cheat-title">🔗 Liaisons & élisions <span class="cheat-tag" style="margin-left:.4rem">v1.3</span></span>
+<span class="cheat-desc">16 phrases B1-B2 ciblant /z/, /t/, /n/ obligatoires + élisions. TTS, IPA simplifiée, why-string.</span>
+<span class="cheat-tag">Phonologie</span>
+</a>
+
+<a class="cheat-card" href="constructeur/">
+<span class="cheat-title">🧱 Construire la phrase <span class="cheat-tag" style="margin-left:.4rem">v1.3</span></span>
+<span class="cheat-desc">10 phrases B1-B2 (subjonctif, dont, plus … plus, en raison de). Réordonner les jetons.</span>
+<span class="cheat-tag">Syntaxe</span>
+</a>
+
+<a class="cheat-card" href="synonymes/">
+<span class="cheat-title">🔄 Synonymes / antonymes B2 <span class="cheat-tag" style="margin-left:.4rem">v1.3</span></span>
+<span class="cheat-desc">20 items (12 syn + 8 ant). Variation lexicale = +2 pts EE.</span>
+<span class="cheat-tag">Lexique B2</span>
+</a>
+
+<a class="cheat-card" href="objectif/">
+<span class="cheat-title">🎯 Objectif & compte à rebours <span class="cheat-tag" style="margin-left:.4rem">v1.3</span></span>
+<span class="cheat-desc">Posez votre date d'examen + cible NCLC. Carte qui change de couleur selon la phase.</span>
+<span class="cheat-tag">Motivation</span>
+</a>
+
+<a class="cheat-card" href="badges/">
+<span class="cheat-title">🏆 Badges & accomplissements <span class="cheat-tag" style="margin-left:.4rem">v1.3</span></span>
+<span class="cheat-desc">15 jalons mesurables (streak, SRS, scores, NCLC). Tout calculé localement, aucun envoi.</span>
+<span class="cheat-tag">Jalons</span>
+</a>
+
+<a class="cheat-card" href="hebdo/">
+<span class="cheat-title">📅 Revue hebdo <span class="cheat-tag" style="margin-left:.4rem">v1.3</span></span>
+<span class="cheat-desc">Vue 7 j : jours actifs, erreurs ajoutées/revues, tendance CO. Conseil dérivé du pattern.</span>
+<span class="cheat-tag">Rétroaction</span>
+</a>
+
+<a class="cheat-card" href="parametres/">
+<span class="cheat-title">⚙️ Paramètres <span class="cheat-tag" style="margin-left:.4rem">v1.3</span></span>
+<span class="cheat-desc">Sons, réduction d'animations, layout large, **export/import JSON**, effacement complet.</span>
+<span class="cheat-tag">Réglages</span>
+</a>
+
+</div>
+
+!!! tip "📱 PWA installable (v1.3)"
+    Le site est désormais une **PWA** : icône, mode plein écran, et **cache local** (les pages déjà visitées restent lisibles hors-ligne). Sur Chrome/Edge → menu *Installer…* ou icône dans la barre d'URL. Sur iOS Safari → *Partager → Sur l'écran d'accueil*.
 
 ## Pratique active
 
@@ -257,5 +320,14 @@ Toutes les clés sont préfixées `tcf:` pour éviter les collisions.
 | `tcf:plan:prefs` | Plan du jour (v1.2) | Minutes + compétence faible |
 | `tcf:errlog:items` | Journal d'erreurs (v1.2) | Tableau d'entrées + planning de revue |
 | `tcf:ee:fb:draft` | Auto-feedback EE (v1.2) | Brouillon courant + tâche choisie |
+| `tcf:ce:<pack>` | Entraîneur CE (v1.3) | Runs (date, score, total, mins), best |
+| `tcf:co:<pack>` | Entraîneur CO (v1.3) | Runs, best, items faibles |
+| `tcf:li:<set>` | Liaisons / élisions (v1.3) | Score, streak, best, plays |
+| `tcf:sb:<set>` | Constructeur (v1.3) | Score, parties |
+| `tcf:syn:<set>` | Synonymes (v1.3) | Score, parties |
+| `tcf:goal:exam` | Objectif (v1.3) | Date d'examen, cible NCLC |
+| `tcf:badges:earned` | Badges (v1.3) | Carte `id → timestamp d'attribution` |
+| `tcf:tools:used` | Badges (v1.3) | Map `tool-name → timestamp` (pour « 10 outils ») |
+| `tcf:settings:sound` · `tcf:settings:motion` · `tcf:settings:wide` | Paramètres (v1.3) | Préférences UI |
 
-Effacer les données du site dans votre navigateur efface l'ensemble.
+Effacer les données du site dans votre navigateur efface l'ensemble. **Pour transporter** votre progression vers une autre machine ou un autre navigateur, utilisez l'**[export JSON dans les paramètres](parametres.md)**.

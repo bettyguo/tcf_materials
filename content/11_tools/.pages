@@ -3,14 +3,22 @@ nav:
   - index.md
   - tableau.md
   - plan-du-jour.md
+  - hebdo.md
+  - objectif.md
+  - badges.md
   - calculateur-nclc.md
   - minuteur.md
   - quiz-rapide.md
+  - ce-entraineur.md
+  - co-entraineur.md
   - cloze.md
   - genre.md
   - connecteurs.md
+  - synonymes.md
+  - constructeur.md
   - speed-race.md
   - minimal-pairs.md
+  - liaisons.md
   - nombres.md
   - flashcards.md
   - conjugaison.md
@@ -28,3 +36,4 @@ nav:
   - lexique.md
   - checklist-j1.md
   - raccourcis.md
+  - parametres.md

@@ -1,0 +1,307 @@
+/* TCF Canada Prep — v1.3 data banks
+ *
+ * Audited content for v1.3 widgets: CE/CO trainers, liaisons, builders, synonymes.
+ * All text is reviewed against the existing corpus framing.
+ * No external lookups, no network calls.
+ */
+(function () {
+  "use strict";
+  window.TCF = window.TCF || {};
+  const T = window.TCF;
+
+  // -----------------------------------------------------------------
+  // CE entraîneur — reading comprehension packs
+  // -----------------------------------------------------------------
+  T.cePacks = T.cePacks || {};
+
+  T.cePacks.b2_pack1 = {
+    title: "Lot CE B2 — vie quotidienne & société (pack 1)",
+    level: "B2",
+    minutes: 14,
+    passages: [
+      {
+        id: "p1",
+        words: 92,
+        text: "<p>À compter du 1<sup>er</sup> juin, le service de bibliothèque municipale de Sherbrooke modifie ses horaires. Du lundi au vendredi, l'ouverture est avancée à 9 h ; les fermetures restent inchangées (20 h en semaine, 17 h le samedi). Le dimanche, la bibliothèque reste fermée. Les usagers peuvent désormais rendre leurs documents en dehors des heures d'ouverture grâce à la boîte de retour située à l'entrée. Les amendes pour retard ne s'appliquent que si le document est rendu plus de 14 jours après l'échéance.</p>",
+        q: [
+          { q: "Que change l'annonce à compter du 1ᵉʳ juin ?", options: [
+            "Les heures de fermeture en semaine.",
+            "L'heure d'ouverture en semaine.",
+            "L'ouverture du dimanche.",
+            "Le montant des amendes."
+          ], a: 1, why: "Le texte précise : « l'ouverture est avancée à 9 h » ; le reste demeure inchangé." },
+          { q: "Quand commence-t-on à payer une amende ?", options: [
+            "Dès le premier jour de retard.",
+            "Après 7 jours de retard.",
+            "Après 14 jours de retard.",
+            "Jamais — c'est gratuit."
+          ], a: 2, why: "« plus de 14 jours après l'échéance » — pas avant." },
+        ]
+      },
+      {
+        id: "p2",
+        words: 158,
+        text: "<p>D'après une enquête publiée la semaine dernière par un institut indépendant, près d'un tiers des actifs québécois envisagent de quitter leur emploi dans les douze prochains mois. Les raisons évoquées sont, par ordre décroissant, la rémunération jugée insuffisante (38 %), le manque de perspectives d'évolution (27 %) et un déséquilibre persistant entre vie professionnelle et vie personnelle (24 %). Fait notable, le télétravail, présenté il y a deux ans comme une avancée majeure, n'apparaît plus parmi les principaux moteurs de satisfaction : seuls 12 % des répondants le citent comme un avantage déterminant. Les auteurs nuancent toutefois ces chiffres : la majorité des intentions de départ ne se concrétisent pas, et la pénurie de main-d'œuvre dans plusieurs secteurs renforce la position de négociation des employés. Une seconde vague de l'enquête est prévue à l'automne afin de mesurer l'écart entre intentions et passages à l'acte.</p>",
+        q: [
+          { q: "Quelle est la raison principale invoquée pour vouloir quitter son emploi ?", options: [
+            "Le manque de télétravail.",
+            "La rémunération insuffisante.",
+            "Un mauvais équilibre vie pro/vie perso.",
+            "L'absence de perspectives."
+          ], a: 1, why: "38 % la citent — la part la plus élevée." },
+          { q: "Que dit le texte du télétravail ?", options: [
+            "Il reste l'avantage le plus déterminant.",
+            "Il n'est plus parmi les principaux moteurs de satisfaction.",
+            "Il a entièrement disparu des réponses.",
+            "Il est devenu un facteur de départ."
+          ], a: 1, why: "« n'apparaît plus parmi les principaux moteurs » — mais 12 % le citent encore." },
+          { q: "Quelle nuance importante les auteurs apportent-ils ?", options: [
+            "Tous les actifs vont effectivement démissionner.",
+            "La majorité des intentions de départ ne se concrétisent pas.",
+            "Le télétravail va revenir au premier plan.",
+            "L'enquête est statistiquement nulle."
+          ], a: 1, why: "« la majorité des intentions de départ ne se concrétisent pas »." },
+        ]
+      },
+      {
+        id: "p3",
+        words: 187,
+        text: "<p>Le mouvement de retour aux librairies indépendantes, amorcé après la pandémie, se confirme année après année. À Montréal, le nombre d'enseignes a augmenté de 11 % en cinq ans, alors même que les ventes de livres papier reculent globalement de 3 % sur la même période. Cet apparent paradoxe s'explique, selon plusieurs libraires interrogés, par une recomposition du métier : la librairie de quartier n'est plus seulement un lieu d'achat, elle redevient un espace de rencontre, d'animation et de conseil. Les soirées d'auteurs, les ateliers d'écriture et les abonnements personnalisés représentent désormais une part substantielle du chiffre d'affaires des plus dynamiques. <em>Cela étant</em>, la fragilité économique demeure : la marge nette moyenne du secteur tourne autour de 1,5 %, et les hausses récentes de loyer mettent en péril plusieurs établissements historiques. Des municipalités commencent à intervenir, soit par des baux à loyer modéré, soit par des subventions ciblées, conscientes qu'une librairie disparue se reconstitue rarement.</p>",
+        q: [
+          { q: "Quel paradoxe le texte souligne-t-il ?", options: [
+            "Plus de librairies tandis que les ventes de livres papier reculent.",
+            "Moins de librairies tandis que les ventes papier explosent.",
+            "Plus de livres numériques que de librairies.",
+            "Plus de lecteurs et moins d'auteurs."
+          ], a: 0, why: "« nombre d'enseignes a augmenté de 11 % » alors que les ventes papier reculent de 3 %." },
+          { q: "Comment ce paradoxe est-il expliqué ?", options: [
+            "Par une baisse du prix du livre.",
+            "Par une recomposition du métier vers le conseil et l'animation.",
+            "Par un afflux de touristes.",
+            "Par la fin du numérique."
+          ], a: 1, why: "« recomposition du métier… espace de rencontre, d'animation et de conseil »." },
+          { q: "Que dit le texte de la rentabilité du secteur ?", options: [
+            "Très confortable, environ 15 %.",
+            "Fragile, marge nette autour de 1,5 %.",
+            "Inconnue.",
+            "Subventionnée à 100 %."
+          ], a: 1, why: "« la marge nette moyenne du secteur tourne autour de 1,5 % »." },
+          { q: "Quel rôle jouent certaines municipalités ?", options: [
+            "Elles interdisent les librairies.",
+            "Elles imposent un prix unique.",
+            "Elles offrent des baux modérés ou des subventions.",
+            "Elles taxent les librairies."
+          ], a: 2, why: "« baux à loyer modéré, soit par des subventions ciblées »." },
+        ]
+      },
+      {
+        id: "p4",
+        words: 214,
+        text: "<p>L'arrivée des outils génératifs en classe a réveillé un vieux débat sur la finalité de l'évaluation. Certaines universités ont fait le choix de l'interdiction stricte, d'autres misent au contraire sur une intégration encadrée. Les premiers pointent un risque évident d'appauvrissement intellectuel : confier à une machine la tâche d'écrire revient, à terme, à perdre l'aptitude à penser. Les seconds rétorquent que la même critique fut adressée à la calculatrice et que l'enjeu, dans les deux cas, consiste moins à proscrire l'outil qu'à redéfinir ce qu'on évalue. Un consensus partiel se dégage néanmoins : il importe désormais d'évaluer le processus autant, sinon plus, que le produit fini. Les épreuves orales, les versions intermédiaires d'un travail, les justifications de choix méthodologiques retrouvent une place qu'elles avaient perdue à l'ère du « tout numérique ». <em>Reste</em> la question de la fraude. Les détecteurs d'IA, dont la fiabilité plafonne, ne sauraient à eux seuls résoudre le problème ; certaines facultés expérimentent donc des contrôles « à livre ouvert » mais cadenassés temporellement, où l'usage d'un outil est autorisé, mais où la qualité de l'interaction avec lui devient elle-même un objet d'examen.</p>",
+        q: [
+          { q: "Quelle est la position des universités favorables à l'interdiction ?", options: [
+            "L'outil va rendre l'évaluation plus juste.",
+            "Confier l'écriture à une machine appauvrit la pensée.",
+            "Les détecteurs sont parfaitement fiables.",
+            "La calculatrice doit aussi être interdite."
+          ], a: 1, why: "« confier à une machine la tâche d'écrire revient, à terme, à perdre l'aptitude à penser »." },
+          { q: "Quel parallèle est mobilisé par les partisans de l'intégration ?", options: [
+            "Le téléphone portable.",
+            "Le manuel scolaire.",
+            "La calculatrice.",
+            "Le tableau noir."
+          ], a: 2, why: "« la même critique fut adressée à la calculatrice »." },
+          { q: "Quel consensus partiel se dégage ?", options: [
+            "Évaluer le produit fini exclusivement.",
+            "Évaluer le processus autant, sinon plus, que le produit.",
+            "Supprimer toute évaluation.",
+            "Ne plus utiliser l'écrit."
+          ], a: 1, why: "Phrase explicite : « évaluer le processus autant, sinon plus, que le produit fini »." },
+          { q: "Que dit le texte des détecteurs d'IA ?", options: [
+            "Ils règlent le problème de la fraude.",
+            "Leur fiabilité plafonne — ils ne suffisent pas seuls.",
+            "Ils ne sont jamais utilisés.",
+            "Ils sont interdits."
+          ], a: 1, why: "« dont la fiabilité plafonne, ne sauraient à eux seuls résoudre »." },
+        ]
+      },
+      {
+        id: "p5",
+        words: 226,
+        text: "<p><strong>Tribune libre.</strong> Voilà bientôt vingt ans qu'on annonce la mort du papier, et il continue, contre toute attente, à occuper une place de choix dans le quotidien d'une partie des lecteurs. Sa résilience tient moins à un attachement nostalgique, comme on l'écrit trop souvent, qu'à une série de propriétés cognitives que le numérique n'a pas su répliquer : la spatialisation de la mémoire (« c'était en bas de la page de gauche »), l'absence de notifications, l'effet de butée qu'imposent les marges. Les études convergent : sur la compréhension fine, le papier garde un léger avantage pour les textes longs et complexes. Cela ne signifie évidemment pas qu'il faille abandonner les écrans ; il signifie qu'on aurait tort de les considérer comme universels, capables de remplir indifféremment toutes les fonctions de lecture. Il y aurait là, pour les politiques éducatives, un enseignement à tirer : doter chaque élève d'une tablette ne suffit pas si on ne lui apprend pas, en parallèle, à choisir le bon support selon la tâche. Un journal d'opinion se lit aussi bien à l'écran ; un manuel se travaille toujours mieux sur papier ; une recherche s'effectue plus efficacement en ligne. Le bon outil n'est pas le plus récent, mais celui qui sert le geste.</p>",
+        q: [
+          { q: "Selon l'auteur, à quoi tient la résilience du papier ?", options: [
+            "À un simple attachement nostalgique.",
+            "À des propriétés cognitives non répliquées par le numérique.",
+            "À une mode passagère.",
+            "À une obligation institutionnelle."
+          ], a: 1, why: "« une série de propriétés cognitives que le numérique n'a pas su répliquer »." },
+          { q: "Quelle est la position du texte sur les écrans ?", options: [
+            "Il faut les abandonner.",
+            "Ils sont universels et adaptés à toutes les tâches.",
+            "Il faut les utiliser selon la tâche, sans les universaliser.",
+            "Ils sont déjà obsolètes."
+          ], a: 2, why: "« on aurait tort de les considérer comme universels »." },
+          { q: "Quel constat l'auteur tire-t-il pour l'éducation ?", options: [
+            "Distribuer plus de tablettes suffit.",
+            "Il faut apprendre à choisir le bon support selon la tâche.",
+            "Le papier doit rester seul.",
+            "Il faut interdire le numérique à l'école."
+          ], a: 1, why: "« doter chaque élève d'une tablette ne suffit pas si on ne lui apprend pas… à choisir le bon support »." },
+          { q: "Quel est le ton général de la tribune ?", options: [
+            "Catastrophiste.",
+            "Nuancé et pragmatique.",
+            "Nostalgique et fermé.",
+            "Sarcastique."
+          ], a: 1, why: "Ni rejet ni adhésion totale ; usage critique selon la tâche." },
+        ]
+      }
+    ]
+  };
+
+  // -----------------------------------------------------------------
+  // CO entraîneur — listening packs (TTS-based)
+  // -----------------------------------------------------------------
+  T.coPacks = T.coPacks || {};
+
+  T.coPacks.b1_b2_pack1 = {
+    title: "Lot CO B1-B2 — annonces, dialogues, brefs (pack 1)",
+    level: "B1 → B2",
+    items: [
+      {
+        text: "Bonjour, vous êtes bien sur le répondeur du Dr Lemieux. Le cabinet est fermé jusqu'au lundi 9. Pour toute urgence, composez le 8-1-1.",
+        q: "Que doit faire l'auditeur en cas d'urgence ?",
+        options: ["Rappeler le cabinet.", "Composer le 8-1-1.", "Attendre lundi 9.", "Laisser un message."],
+        a: 1, why: "« Pour toute urgence, composez le 8-1-1 »."
+      },
+      {
+        text: "Les passagers à destination de Québec sont priés de se présenter à la porte 14. L'embarquement débute dans cinq minutes.",
+        q: "Quelle est la porte d'embarquement ?",
+        options: ["La porte 4.", "La porte 14.", "La porte 40.", "La porte 44."],
+        a: 1, why: "Numéro 14 — attention au piège quatorze/quarante."
+      },
+      {
+        text: "Bonjour, c'est Léa. Je serai en retard d'environ vingt minutes — il y a une panne sur la ligne orange. Commencez sans moi.",
+        q: "Pourquoi Léa sera-t-elle en retard ?",
+        options: ["Elle a oublié l'heure.", "Une panne de métro.", "Un rendez-vous médical.", "Un embouteillage routier."],
+        a: 1, why: "« il y a une panne sur la ligne orange » → métro."
+      },
+      {
+        text: "Mesdames et messieurs, en raison d'un incident technique, le train de 18 h 12 partira avec un retard estimé à vingt-cinq minutes. Nous vous prions de nous excuser pour cette gêne.",
+        q: "À quelle heure est prévu le départ initial ?",
+        options: ["18 h 02.", "18 h 12.", "18 h 25.", "18 h 37."],
+        a: 1, why: "« le train de 18 h 12 »."
+      },
+      {
+        text: "Pour vous inscrire au cours de natation, présentez-vous au comptoir avant le 15 du mois. Le tarif est de quarante-cinq dollars pour les résidents et de soixante pour les autres.",
+        q: "Combien coûte l'inscription pour un résident ?",
+        options: ["40 $.", "45 $.", "55 $.", "60 $."],
+        a: 1, why: "« quarante-cinq dollars pour les résidents »."
+      },
+      {
+        text: "Bonjour, suite à votre courriel, je vous confirme que la réunion est reportée au mardi 23 à 14 h. Le lien de visioconférence est inchangé. Merci de confirmer votre présence par retour.",
+        q: "Quelle est la date de la nouvelle réunion ?",
+        options: ["Lundi 23 à 14 h.", "Mardi 23 à 14 h.", "Mardi 14 à 23 h.", "Mardi 23 à 4 h."],
+        a: 1, why: "« reportée au mardi 23 à 14 h »."
+      },
+      {
+        text: "La conférence sur la transition énergétique aura lieu jeudi prochain, à compter de dix-huit heures trente, dans l'amphithéâtre B. Trois intervenants se succéderont. L'entrée est libre mais l'inscription est recommandée.",
+        q: "À quelle heure commence la conférence ?",
+        options: ["8 h 30.", "16 h 30.", "18 h.", "18 h 30."],
+        a: 3, why: "« à compter de dix-huit heures trente »."
+      },
+      {
+        text: "Tu sais, je voulais te dire — j'apprécie vraiment ce que tu as fait pour le dossier. Sans ton coup de main, on n'aurait jamais bouclé à temps. La prochaine fois, c'est moi qui te dois un café.",
+        q: "Quelle est l'intention principale du locuteur ?",
+        options: ["S'excuser d'un retard.", "Remercier sincèrement.", "Reprocher un oubli.", "Demander un service."],
+        a: 1, why: "« j'apprécie vraiment » + « la prochaine fois c'est moi qui te dois un café » — remerciement chaleureux."
+      },
+      {
+        text: "Force est de constater que la grève paralyse le service depuis bientôt deux semaines. Les négociations, bien qu'amorcées, n'ont pas encore débouché sur un accord. Une nouvelle séance est prévue ce soir.",
+        q: "Quelle est la situation des négociations ?",
+        options: ["Elles n'ont jamais commencé.", "Elles ont déjà abouti.", "Elles ont commencé mais sans accord.", "Elles ont été annulées."],
+        a: 2, why: "« bien qu'amorcées, n'ont pas encore débouché »."
+      },
+      {
+        text: "Je ne dirais pas qu'on est satisfaits — disons plutôt qu'on est soulagés. Le résultat est correct, mais on attendait franchement mieux après six mois de travail.",
+        q: "Quel est le sentiment exprimé ?",
+        options: ["Pleine satisfaction.", "Soulagement teinté de déception.", "Indifférence complète.", "Colère ouverte."],
+        a: 1, why: "« on est soulagés… on attendait franchement mieux »."
+      },
+    ]
+  };
+
+  // -----------------------------------------------------------------
+  // Liaisons / élisions
+  // -----------------------------------------------------------------
+  T.liaisons = T.liaisons || {};
+
+  T.liaisons.starter = [
+    { phrase: "Les amis arrivent.",          render: "Lez-zami-zarrivent.",     ipa: "le.za.mi.za.ʁiv",         why: "Liaisons obligatoires après l'article pluriel (« les ») et l'antécédent direct du verbe." },
+    { phrase: "Vous avez aimé ?",            render: "Vouz-zavez-zaimé ?",      ipa: "vu.za.ve.ze.me",          why: "Liaison en /z/ après « vous » + « avez » (pronom + auxiliaire)." },
+    { phrase: "C'est un grand homme.",       render: "C'est-tun-grand-tomme.",  ipa: "se.tœ̃.ɡʁɑ̃.tɔm",           why: "Liaison obligatoire après l'adjectif antéposé. Le « -d » sonne /t/." },
+    { phrase: "Ils ont attendu.",            render: "Ilz-zont-tattendu.",      ipa: "il.zɔ̃.ta.tɑ̃.dy",          why: "« Ils » + auxiliaire (liaison /z/) ; auxiliaire + participe (liaison /t/)." },
+    { phrase: "Un petit avion.",             render: "Un petit-tavion.",        ipa: "œ̃.pə.ti.ta.vjɔ̃",          why: "Adjectif antéposé + nom : liaison obligatoire en /t/." },
+    { phrase: "Il y a un homme.",            render: "Il-y-a-zun nomme.",       ipa: "il.ja.œ̃.nɔm",             why: "Élision de « un » devant H muet ; liaison /n/ avec « un »." },
+    { phrase: "Je l'ai écouté.",             render: "J' l'ai-y-écouté.",       ipa: "ʒə.le.e.ku.te",           why: "Élision : « l' » pour « le/la » ; pas de liaison après « ai »." },
+    { phrase: "Quand est-ce qu'il arrive ?", render: "Quand-test-tce qu'il arrive ?", ipa: "kɑ̃.tɛs.kil.a.ʁiv", why: "Liaison en /t/ : « quand » + voyelle inversion. Élision : « qu'il »." },
+    { phrase: "Très intéressant.",           render: "Très-zintéressant.",      ipa: "tʁɛ.zɛ̃.te.ʁɛ.sɑ̃",        why: "Liaison facultative très courante après « très » + adjectif." },
+    { phrase: "Dans un instant.",            render: "Danz-zun instant.",       ipa: "dɑ̃.zœ̃.nɛ̃s.tɑ̃",          why: "Liaison en /z/ après « dans », puis « un » + voyelle (/n/)." },
+    { phrase: "Ce n'est pas le mien.",       render: "Ce n'est pas le mien.",   ipa: "sə.nɛ.pa.lə.mjɛ̃",         why: "Liaison interdite après « pas » devant consonne ; pas de liaison entre nom et adjectif libre." },
+    { phrase: "Aux États-Unis.",             render: "Auz-zÉtats-zUnis.",       ipa: "o.ze.ta.zy.ni",          why: "Liaisons obligatoires après « aux » et entre composants de nom propre lié." },
+    { phrase: "C'est-à-dire.",               render: "C'est-tà-dire.",          ipa: "se.ta.diʁ",              why: "Locution figée ; liaison obligatoire." },
+    { phrase: "Plus ou moins.",              render: "Pluz-zou moins.",         ipa: "ply.zu.mwɛ̃",             why: "Liaison facultative très répandue dans une locution." },
+    { phrase: "Un petit-déjeuner.",          render: "Un petit-déjeuner.",      ipa: "œ̃.pə.ti.de.ʒœ.ne",       why: "Pas de liaison dans le mot composé soudé par tiret." },
+    { phrase: "Six heures.",                 render: "Si-zheures.",             ipa: "si.zœʁ",                  why: "Devant voyelle : « six » se prononce /siz/ en liaison." },
+  ];
+
+  // -----------------------------------------------------------------
+  // Sentence builder
+  // -----------------------------------------------------------------
+  T.builders = T.builders || {};
+
+  T.builders.starter = [
+    { words: ["Je", "ne", "pense", "pas", "que", "ce", "soit", "une", "bonne", "idée", "."], translation: "I don't think it's a good idea.", why: "Subjonctif après « ne … pas penser que »." },
+    { words: ["Bien", "qu'il", "ait", "plu", ",", "la", "fête", "a", "eu", "lieu", "."], translation: "Although it rained, the party went ahead.", why: "« Bien que » + subjonctif passé." },
+    { words: ["Il", "faut", "que", "tu", "viennes", "avant", "midi", "."], translation: "You have to come before noon.", why: "« Il faut que » + subjonctif présent." },
+    { words: ["Si", "j'avais", "su", ",", "je", "serais", "venu", "plus", "tôt", "."], translation: "If I'd known, I would have come earlier.", why: "Plus-que-parfait + conditionnel passé (regret)." },
+    { words: ["C'est", "le", "livre", "dont", "je", "t'ai", "parlé", "hier", "."], translation: "It's the book I told you about yesterday.", why: "« dont » remplace « de » + groupe (parler de qqch)." },
+    { words: ["Plus", "il", "lit", ",", "plus", "il", "comprend", "."], translation: "The more he reads, the more he understands.", why: "Structure corrélée « plus … plus … »." },
+    { words: ["En", "raison", "des", "travaux", ",", "le", "trafic", "est", "très", "ralenti", "."], translation: "Due to the works, traffic is very slow.", why: "« en raison de » introduit la cause neutre." },
+    { words: ["Quoi", "qu'il", "dise", ",", "personne", "ne", "le", "croira", "."], translation: "Whatever he says, no one will believe him.", why: "« quoi que » + subjonctif (concession indéfinie)." },
+    { words: ["Il", "n'est", "pas", "venu", "parce", "qu'", "il", "était", "malade", "."], translation: "He didn't come because he was sick.", why: "« parce que » + indicatif (cause factuelle)." },
+    { words: ["Je", "ne", "savais", "pas", "qu'", "elle", "habitait", "à", "Québec", "."], translation: "I didn't know she lived in Québec.", why: "« habiter à » + ville." },
+  ];
+
+  // -----------------------------------------------------------------
+  // Synonymes / antonymes B2
+  // -----------------------------------------------------------------
+  T.synonyms = T.synonyms || {};
+
+  T.synonyms.b2 = [
+    { word: "important",  kind: "syn", options: ["majeur", "minime", "fragile", "vague"],         a: 0, why: "« majeur » = de grande importance." },
+    { word: "augmenter",  kind: "syn", options: ["réduire", "accroître", "abaisser", "freiner"],   a: 1, why: "« accroître » = augmenter (registre soutenu)." },
+    { word: "rapide",     kind: "ant", options: ["soudain", "vif", "lent", "instantané"],          a: 2, why: "« lent » est l'antonyme direct." },
+    { word: "permettre",  kind: "syn", options: ["interdire", "empêcher", "autoriser", "limiter"], a: 2, why: "« autoriser » = donner la permission." },
+    { word: "renforcer",  kind: "ant", options: ["consolider", "fragiliser", "soutenir", "stabiliser"], a: 1, why: "« fragiliser » = affaiblir, contraire de renforcer." },
+    { word: "souligner",  kind: "syn", options: ["effacer", "mettre en avant", "minimiser", "ignorer"], a: 1, why: "« mettre en avant » = souligner." },
+    { word: "fréquent",   kind: "ant", options: ["habituel", "rare", "régulier", "récurrent"],     a: 1, why: "« rare » = peu fréquent." },
+    { word: "résoudre",   kind: "syn", options: ["créer", "aggraver", "régler", "ignorer"],         a: 2, why: "« régler » un problème = le résoudre." },
+    { word: "cependant",  kind: "syn", options: ["donc", "néanmoins", "ainsi", "puisque"],         a: 1, why: "« néanmoins » exprime aussi l'opposition." },
+    { word: "consacrer",  kind: "syn", options: ["négliger", "dédier", "perdre", "rejeter"],       a: 1, why: "« dédier » du temps à qqch = y consacrer." },
+    { word: "modeste",    kind: "ant", options: ["sobre", "discret", "présomptueux", "humble"],    a: 2, why: "« présomptueux » = qui se surévalue (contraire de modeste)." },
+    { word: "stagner",    kind: "ant", options: ["bloquer", "évoluer", "ralentir", "freiner"],      a: 1, why: "« évoluer » = progresser, contraire de stagner." },
+    { word: "manifester", kind: "syn", options: ["cacher", "exprimer", "taire", "dissimuler"],     a: 1, why: "« exprimer » un sentiment = le manifester." },
+    { word: "indispensable", kind: "syn", options: ["accessoire", "superflu", "essentiel", "facultatif"], a: 2, why: "« essentiel » = indispensable." },
+    { word: "préjugé",    kind: "syn", options: ["démonstration", "vérité", "stéréotype", "fait"], a: 2, why: "« stéréotype » est un type de préjugé." },
+    { word: "perspicace", kind: "ant", options: ["naïf", "lucide", "attentif", "fin"],             a: 0, why: "« naïf » = manque de perspicacité." },
+    { word: "réticent",   kind: "syn", options: ["enthousiaste", "hésitant", "convaincu", "désireux"], a: 1, why: "« hésitant » à agir = réticent." },
+    { word: "abonder",    kind: "ant", options: ["foisonner", "regorger", "manquer", "déborder"],   a: 2, why: "« manquer » = être en rareté, contraire d'abonder." },
+    { word: "exhaustif",  kind: "syn", options: ["partiel", "complet", "vague", "incomplet"],       a: 1, why: "« complet » = qui n'omet rien (exhaustif)." },
+    { word: "pertinent",  kind: "ant", options: ["adéquat", "à propos", "hors sujet", "judicieux"], a: 2, why: "« hors sujet » est l'antonyme contextuel de pertinent." },
+  ];
+
+  // Augment palette via custom event (the IIFE-scoped PALETTE_ITEMS already
+  // has v1.3 entries hard-coded in extra.js).
+
+})();

@@ -1,8 +1,8 @@
 # TCF Canada — Préparation B1 → C1/C2
 
-> **Source-audited TCF Canada prep corpus.** ~420 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki) **+ a world-class interactive web site** (v1.2): **28 browser-side tools** including a unified **dashboard** (streak / SRS-due / errors-due / radar NCLC), a **daily study planner**, a **spaced-review error log**, **cloze drill** for B2 grammar, **gender drill** for noun gender, **minimal-pairs phonology trainer**, **numbers listening trainer**, **B2 connector picker**, **60-second speed-race**, **EE auto-feedback** heuristic, **lexicon lookup**, **verb conjugation tables**, plus the v1.1 fundamentals (flashcards SRS, conjugation drill, audio dictation, mock-exam tracker with SVG chart, study streak heatmap, reading-speed test, EE word counter, favorites, command palette <kbd>Ctrl/⌘ K</kbd>). Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
+> **Source-audited TCF Canada prep corpus.** ~420 markdown files, 60-day program, four mock exams, multi-format build (HTML site + PDF book + per-section booklets + EPUB + Anki) **+ a world-class interactive web site** (v1.3): **37 browser-side tools** including timed **CE / CO trainers** (mini-mocks with MCQ + TTS), **liaisons & élisions** phonology drill, **sentence builder**, **synonyms / antonyms B2**, **exam-date countdown**, **15 achievements**, weekly review, **PWA installable** (offline cache + install banner), unified **dashboard** (streak / SRS-due / errors-due / radar NCLC), daily study planner, spaced-review error log, cloze, gender, numbers, B2 connectors, 60-second speed race, EE auto-feedback, lexicon lookup, conjugation tables, flashcards SRS, conjugation drill, audio dictation, reading-speed test, EE word counter, favorites, command palette <kbd>Ctrl/⌘ K</kbd>, **sound effects** (toggleable), **JSON export/import**. Designed for self-administered B1 → C1 in 12 weeks, target NCLC 8–9 for Express Entry. Honest about its limits.
 
-🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/> · [28 Outils interactifs](https://bettyguo.github.io/tcf_materials/11_tools/) · [🆕 Tableau de bord](https://bettyguo.github.io/tcf_materials/11_tools/tableau/) · [🆕 Plan du jour](https://bettyguo.github.io/tcf_materials/11_tools/plan-du-jour/) · [🆕 Journal d'erreurs](https://bettyguo.github.io/tcf_materials/11_tools/journal/) · [🆕 Cloze B2](https://bettyguo.github.io/tcf_materials/11_tools/cloze/) · [🆕 Paires minimales](https://bettyguo.github.io/tcf_materials/11_tools/minimal-pairs/) · [🆕 Auto-feedback EE](https://bettyguo.github.io/tcf_materials/11_tools/ee-feedback/) · [Calculateur NCLC](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) · [Suivi des examens blancs](https://bettyguo.github.io/tcf_materials/11_tools/suivi/) · [Diagnostic](https://bettyguo.github.io/tcf_materials/00_diagnostic/00_index/)
+🌐 **Live site**: <https://bettyguo.github.io/tcf_materials/> · [37 Outils interactifs](https://bettyguo.github.io/tcf_materials/11_tools/) · [🆕 Entraîneur CE](https://bettyguo.github.io/tcf_materials/11_tools/ce-entraineur/) · [🆕 Entraîneur CO](https://bettyguo.github.io/tcf_materials/11_tools/co-entraineur/) · [🆕 Liaisons](https://bettyguo.github.io/tcf_materials/11_tools/liaisons/) · [🆕 Objectif](https://bettyguo.github.io/tcf_materials/11_tools/objectif/) · [🆕 Badges](https://bettyguo.github.io/tcf_materials/11_tools/badges/) · [Tableau de bord](https://bettyguo.github.io/tcf_materials/11_tools/tableau/) · [Plan du jour](https://bettyguo.github.io/tcf_materials/11_tools/plan-du-jour/) · [Calculateur NCLC](https://bettyguo.github.io/tcf_materials/11_tools/calculateur-nclc/) · [Diagnostic](https://bettyguo.github.io/tcf_materials/00_diagnostic/00_index/)
 
 ---
 
@@ -16,7 +16,21 @@ A **single-source-of-truth Markdown corpus** that builds to:
 - an **EPUB** (Pandoc EPUB3)
 - an **Anki deck** (`.apkg`, ~1 500 cards, FSRS-friendly)
 
-**Interactive features on the live site (v1.2):**
+**Interactive features on the live site (v1.3):**
+
+New in v1.3 — learning surface + PWA:
+
+- 📖 [**CE trainer**](https://bettyguo.github.io/tcf_materials/11_tools/ce-entraineur/) — timed reading mini-mock: 5 B2 passages, 15 MCQ, 14 min. Navigation pager, JSON export.
+- 🎧 [**CO trainer**](https://bettyguo.github.io/tcf_materials/11_tools/co-entraineur/) — listening MCQ with TTS: 10 B1-B2 items, max 2 plays, 0.8× slow option, transcript revealed.
+- 🔗 [**Liaisons & elisions**](https://bettyguo.github.io/tcf_materials/11_tools/liaisons/) — 16 phrases targeting obligatory /z/, /t/, /n/ + elisions. TTS + simplified IPA.
+- 🧱 [**Sentence builder**](https://bettyguo.github.io/tcf_materials/11_tools/constructeur/) — 10 B1-B2 sentences to reorder from shuffled chips (subjunctive, dont, plus … plus).
+- 🔄 [**Synonyms / antonyms B2**](https://bettyguo.github.io/tcf_materials/11_tools/synonymes/) — 20 items (12 syn + 8 ant) for EE lexical variation.
+- 🎯 [**Goal + countdown**](https://bettyguo.github.io/tcf_materials/11_tools/objectif/) — set exam date + NCLC target. Card color shifts by phase.
+- 🏆 [**Achievements**](https://bettyguo.github.io/tcf_materials/11_tools/badges/) — 15 measurable milestones (streak, SRS, scores, NCLC binding). Local-only.
+- 📅 [**Weekly review**](https://bettyguo.github.io/tcf_materials/11_tools/hebdo/) — 7-day view: active days, errors added/reviewed, CO trend.
+- ⚙️ [**Settings + JSON export**](https://bettyguo.github.io/tcf_materials/11_tools/parametres/) — sound on/off, motion off, wide layout, full backup/restore.
+- 📱 **PWA installable** — service worker (HTML network-first, static stale-while-revalidate). Already-visited pages stay readable offline.
+- 🔊 **Web Audio sound effects** — `correct`, `wrong`, `win`, `badge` chimes. Off by default.
 
 New in v1.2 — learning surface:
 

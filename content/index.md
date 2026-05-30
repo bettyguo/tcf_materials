@@ -201,14 +201,15 @@ hide:
 # TCF Canada — Préparation B1 → C1
 
 <div class="tagline">
-Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en 12 semaines (~ 168 h). **28 outils interactifs (v1.2)**, **3 mini-decks SRS**, **journal d'erreurs spaced**, **tableau de bord agrégé**, palette <kbd>Ctrl/⌘ K</kbd>.
+Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en 12 semaines (~ 168 h). **37 outils interactifs (v1.3)**, **entraîneurs CE/CO chronométrés**, **liaisons & élisions**, **objectif & compte à rebours**, **badges**, **PWA installable**, palette <kbd>Ctrl/⌘ K</kbd>.
 </div>
 
-<div class="meta">v1.2 · CC BY-SA 4.0 · audit pipeline alive · <kbd>Ctrl</kbd>+<kbd>K</kbd> palette · <span style="opacity:.85">+12 nouveaux outils</span></div>
+<div class="meta">v1.3 · CC BY-SA 4.0 · audit pipeline alive · <kbd>Ctrl</kbd>+<kbd>K</kbd> palette · <span style="opacity:.85">+9 outils + PWA</span></div>
 
 <div class="actions">
 <a class="primary" href="00_start_here/">Commencer maintenant →</a>
 <a class="secondary" href="11_tools/tableau/">Tableau de bord</a>
+<a class="secondary" href="11_tools/objectif/">Poser ma date</a>
 <a class="secondary" href="11_tools/plan-du-jour/">Plan du jour</a>
 <a class="secondary" href="00_diagnostic/00_index/">Diagnostic (90 min)</a>
 </div>
@@ -220,12 +221,12 @@ Corpus audité, source unique, multi-format. Conçu pour atteindre NCLC 8–9 en
 Ce corpus prépare au **TCF Canada** avec une intensité **B2-first** (B1+B2 = ~ 49 % du score CO/CE pondéré). Tout est généré depuis une **source unique** en Markdown — pas de risque de divergence entre site, PDF, EPUB et deck Anki.
 
 <div class="stat-row">
-<div class="stat"><span class="num">412</span><span class="lbl">fichiers</span></div>
+<div class="stat"><span class="num tcf-counter" data-to="421" data-ms="900">421</span><span class="lbl">fichiers</span></div>
 <div class="stat"><span class="num">~1 800</span><span class="lbl">cartes Anki</span></div>
-<div class="stat"><span class="num">64</span><span class="lbl">unités grammaire</span></div>
-<div class="stat"><span class="num">60</span><span class="lbl">items lecture</span></div>
-<div class="stat"><span class="num">4</span><span class="lbl">examens blancs</span></div>
-<div class="stat"><span class="num">8</span><span class="lbl">phases auditées</span></div>
+<div class="stat"><span class="num tcf-counter" data-to="64">64</span><span class="lbl">unités grammaire</span></div>
+<div class="stat"><span class="num tcf-counter" data-to="37">37</span><span class="lbl">outils interactifs</span></div>
+<div class="stat"><span class="num tcf-counter" data-to="4">4</span><span class="lbl">examens blancs</span></div>
+<div class="stat"><span class="num tcf-counter" data-to="15">15</span><span class="lbl">badges débloquables</span></div>
 </div>
 
 ## Les quatre compétences couvertes
@@ -328,16 +329,82 @@ Un seul Markdown génère le **site**, le **PDF** (Pandoc + XeLaTeX), l'**EPUB**
 
 ## Tableau de bord — état du jour
 
-> **v1.2** ajoute une vue agrégée locale : votre streak, vos cartes SRS dues, les erreurs à revoir, le dernier mock, et le radar NCLC.
-> Tout est calculé dans votre navigateur, à partir des données que vous avez déjà saisies.
+> **v1.3** : un coup d'œil suffit. Objectif et compte à rebours en haut, dashboard agrégé en dessous, revue hebdo en bas. Tout est calculé dans votre navigateur.
+
+<div class="tcf-goal"></div>
 
 <div class="tcf-dashboard"></div>
 
+<div class="tcf-weekly"></div>
+
 [**Ouvrir le tableau de bord complet →**](11_tools/tableau/){ .md-button }
 [**Générer mon plan d'étude →**](11_tools/plan-du-jour/){ .md-button }
-[**Tous les outils (28) →**](11_tools/){ .md-button }
+[**Tous les outils (37) →**](11_tools/){ .md-button }
 
-## Nouveau dans la v1.2 — 12 outils en plus
+## Nouveau dans la v1.3 — 9 outils en plus + PWA
+
+<div class="feature-grid">
+
+<a class="feature-card" href="11_tools/ce-entraineur/">
+<span class="icon">📖</span>
+<h3>Entraîneur CE — chronométré</h3>
+<p>5 passages B2 + 15 QCM en 14 min. Pager, navigation libre, score historisé, export JSON.</p>
+</a>
+
+<a class="feature-card" href="11_tools/co-entraineur/">
+<span class="icon">🎧</span>
+<h3>Entraîneur CO — QCM avec TTS</h3>
+<p>10 brefs B1-B2, max 2 écoutes (1.0× + 0.8×), transcription révélée après réponse.</p>
+</a>
+
+<a class="feature-card" href="11_tools/liaisons/">
+<span class="icon">🔗</span>
+<h3>Liaisons & élisions</h3>
+<p>16 phrases B1-B2 ciblant /z/, /t/, /n/ obligatoires + élisions. TTS, IPA, why-string.</p>
+</a>
+
+<a class="feature-card" href="11_tools/constructeur/">
+<span class="icon">🧱</span>
+<h3>Construire la phrase</h3>
+<p>Réordonner les jetons français pour 10 phrases B1-B2 (subjonctif, dont, plus … plus).</p>
+</a>
+
+<a class="feature-card" href="11_tools/synonymes/">
+<span class="icon">🔄</span>
+<h3>Synonymes / antonymes B2</h3>
+<p>20 items mix (12 syn + 8 ant). Variation lexicale → +2 pts EE.</p>
+</a>
+
+<a class="feature-card" href="11_tools/objectif/">
+<span class="icon">🎯</span>
+<h3>Objectif & compte à rebours</h3>
+<p>Posez votre date d'examen + cible NCLC. La carte change de couleur selon la phase.</p>
+</a>
+
+<a class="feature-card" href="11_tools/badges/">
+<span class="icon">🏆</span>
+<h3>Badges & accomplissements</h3>
+<p>15 jalons mesurables (streak, SRS, scores, NCLC). Calculés localement, jamais envoyés.</p>
+</a>
+
+<a class="feature-card" href="11_tools/hebdo/">
+<span class="icon">📅</span>
+<h3>Revue hebdo</h3>
+<p>Vue 7 j : jours actifs, erreurs ajoutées/revues, tendance CO. Conseil dérivé du pattern.</p>
+</a>
+
+<a class="feature-card" href="11_tools/parametres/">
+<span class="icon">⚙️</span>
+<h3>Paramètres + export JSON</h3>
+<p>Sons d'interaction, réduction d'animations, layout large, export complet de votre progression.</p>
+</a>
+
+</div>
+
+!!! tip "📱 PWA installable (v1.3)"
+    Le site est désormais une **Progressive Web App** : icône sur l'écran d'accueil, mode plein écran, **cache local** pour les pages déjà vues. Sur Chrome/Edge → menu *Installer…* ou icône dans la barre d'URL. Sur iOS Safari → *Partager → Sur l'écran d'accueil*.
+
+## Précédemment dans la v1.2 — 12 outils
 
 <div class="feature-grid">
 
